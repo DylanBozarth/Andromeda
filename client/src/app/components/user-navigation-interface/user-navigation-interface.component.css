@@ -1,4 +1,16 @@
 .navigation {
-    text-align: center;
+    
     border:  2px solid lightblue; 
+    display: grid;
+    grid-template-columns: auto auto auto;
+    z-index: 99;
+}
+.grid-item {
+    bottom: 0;
+padding:10px;
+text-align: center;
+}
+a {
+    text-decoration: none;
+    color: white;
 }
