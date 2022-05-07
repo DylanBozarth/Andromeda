@@ -1,9 +1,9 @@
 .navigation {
     
     border:  2px solid lightblue; 
-    display: grid;
-    grid-template-columns: auto auto auto;
     z-index: 99;
+    bottom: 0;
+    position: fixed;
 }
 .grid-item {
     bottom: 0;

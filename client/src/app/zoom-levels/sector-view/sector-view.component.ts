@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-galatic-view',
-  templateUrl: './galatic-view.component.html',
-  styleUrls: ['./galatic-view.component.css']
+  selector: 'app-sector-view',
+  templateUrl: './sector-view.component.html',
+  styleUrls: ['./sector-view.component.css']
 })
-export class GalaticViewComponent implements OnInit {
+export class SectorViewComponent implements OnInit {
 
   constructor() { }
   universe: [];
