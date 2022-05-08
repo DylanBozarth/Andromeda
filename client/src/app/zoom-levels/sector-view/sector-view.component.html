@@ -1,7 +1,8 @@
-<p>{{sectorName}}</p>
+<h3 class="sector-name">{{sectorName}}</h3>
 <tbody>
-    <tr *ngFor="let test of testArray">
-      <td>{{ test.data }}</td>
-      
-    </tr>
+   
+    
+    <div *ngFor="let test of sector">
+<div><a routerLink={{test.systemName}}>{{test.systemName}}</a></div>
+    </div>
   </tbody>

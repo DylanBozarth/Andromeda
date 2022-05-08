@@ -4,6 +4,8 @@
     z-index: 99;
     bottom: 0;
     position: fixed;
+    background-color: aqua;
+    color: black;
 }
 .grid-item {
     bottom: 0;
@@ -12,5 +14,5 @@ text-align: center;
 }
 a {
     text-decoration: none;
-    color: white;
+    
 }

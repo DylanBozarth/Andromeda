@@ -8,42 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class SectorViewComponent implements OnInit {
 
   constructor() { }
-  universe = [];
+  sector = [
+    { systemStar: "White-Dwarf", systemName: "A74263", systemPlanets: (5) },
+    { systemStar: "Red-Dwarf", systemName: "A49802", systemPlanets: (5) },
+    { systemStar: "Brown-Dwarf", systemName: "A10580", systemPlanets: (1) },
+    { systemStar: "Brown-Dwarf", systemName: "A62683", systemPlanets: (6) },
+    { systemStar: "Brown-Dwarf", systemName: "A70766", systemPlanets: (1) },
+    { systemStar: "Red-Supergiant", systemName: "A55550", systemPlanets: (2) },
+    { systemStar: "White-Dwarf", systemName: "A57671", systemPlanets: (3) },
+    { systemStar: "White-Dwarf", systemName: "A72054", systemPlanets: (2) },
+    { systemStar: "White-Dwarf", systemName: "A74776", systemPlanets: (2) },
+    { systemStar: "Brown-Dwarf", systemName: "A18290", systemPlanets: (3) },
+
+  ];
   sectorName = "Sector 1"
-   testArray = [{"data": "steve"}];
   ngOnInit() {
-    console.log(this.testArray);
-    let starList = [
-      "Red-Giant",
-      "Red-Supergiant",
-      "Blue-Giant",
-      "White-Dwarf",
-      "Yellow-Dwarf",
-      "Red-Dwarf",
-      "Brown-Dwarf",
-    ];
-    let planetList = [
-      "Rocky",
-      "Temperate",
-      "Ocean",
-      "Frozen",
-      "Lava",
-      "Gas"
-    ];
-    let lengthOfStarList = starList.length;
-    let lengthOfPlanetList = planetList.length;
-    const letThereBeLight = () => {
-      let universe = []
-      const starNumber = 99;
-      for (let i = 0; i < starNumber; i++) {
-        universe.push({
-          systemStar: starList[~~(Math.random() * lengthOfStarList)],
-          systemPlanets: Array.from({ length: ~~(Math.random() * 9)}).map(x => planetList[~~(Math.random() * lengthOfPlanetList)])
-        })
-      }
-      console.log(universe)
-    }
- letThereBeLight();
+
   }
 
 }
