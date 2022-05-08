@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class SectorViewComponent implements OnInit {
 
   constructor() { }
-  universe: [];
+  universe = [];
+  sectorName = "Sector 1"
+   testArray = [{"data": "steve"}];
   ngOnInit() {
+    console.log(this.testArray);
     let starList = [
       "Red-Giant",
       "Red-Supergiant",
