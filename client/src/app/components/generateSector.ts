@@ -26,7 +26,8 @@
             systemStar: starList[~~(Math.random() * lengthOfStarList)],
             systemName: `A${Math.floor(Math.random()*90000) + 10000}`,
             systemPlanets: Array.from({ length: ~~(Math.random() * 9)}).map(x => planetList[~~(Math.random() * lengthOfPlanetList)]),
-            Xcord: (Math.floor(Math.random()*900) + 10)
+            distanceFromTop: (Math.floor(Math.random()*900) + 10),
+            distanceFromLeft: (Math.floor(Math.random()*900) + 10)
           })
         }
         console.log(sector)
