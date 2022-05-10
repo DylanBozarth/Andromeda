@@ -6,7 +6,7 @@ import { SystemViewComponent } from './zoom-levels/system-view/system-view.compo
 
 const routes: Routes = [
  { path: 'sector', component: SectorViewComponent},
- { path: 'system', component: SystemViewComponent},
+ { path: 'sector/:systemName', component: SystemViewComponent},
  { path: 'planet', component: PlanetViewComponent}
 ];
 
