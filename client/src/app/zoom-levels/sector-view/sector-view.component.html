@@ -1,8 +1,10 @@
-<h3 class="sector-name">{{sectorName}}</h3>
+<h3 class="sector-name">{{sectorName}}{{currentSystem}}</h3>
+<button (click)="changeText()">change system</button>
 <tbody>
    
     
     <div *ngFor="let star of sector">
+     <p>{{star.systemName}}</p>
 <div><a routerLink={{star.systemName}}>{{star.systemName}}</a></div>
 <p>top:{{star.distanceFromTop}}</p>
 <p>left:{{star.distanceFromLeft}}</p>

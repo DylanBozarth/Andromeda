@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sector-view',
@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sector-view.component.css']
 })
 export class SectorViewComponent implements OnInit {
-
+currentSystem: string = "cheese"
+@Output() messageEvent = new EventEmitter<string>();
+changeText() {
+  this.currentSystem = "not cheese"
+}
   constructor() { }
   sector = [
       {
