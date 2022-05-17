@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -94,7 +94,6 @@ export const SectorView = () => {
       distanceFromLeft: 556
     },
   ])
-
   {
     return (
       <div>astast

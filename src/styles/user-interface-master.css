@@ -1,0 +1,12 @@
+body {
+    color: white;
+    text-decoration: none;
+}
+Link:visited {
+    color: white;
+}
+.ui-main-link {
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
