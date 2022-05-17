@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import "../styles/views-styles/sector-view.css"
 
 
 export const SectorView = () => {
@@ -99,7 +99,11 @@ export const SectorView = () => {
       <div>astast
       {sector.map((sector) => {
         return (
-          <Link to={`/system/${sector.systemName}`}><p>{sector.systemName}</p></Link>
+          <Link to={`/system/${sector.systemName}`}>
+            <div className="sector-star">
+            <p>{sector.systemName}</p>
+          </div>
+          </Link>
         )
       })}
       </div>

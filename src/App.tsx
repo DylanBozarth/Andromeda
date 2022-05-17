@@ -14,7 +14,6 @@ function App() {
   let cheese:String = 'cheese'
   return (
     <BrowserRouter>
-      UNIVERS... agaain
       <UImaster />
       <Routes>
         <Route path="/sectora" element={<SectorView />} />

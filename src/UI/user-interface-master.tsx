@@ -4,7 +4,38 @@ export const UImaster = () => {
     return (
         <div className="UI-master">
 
-        <Link to="/sectora" className="ui-main-link">SECTORA</Link>
+        
+        <div className="menu">
+      <nav>
+        <ul>
+          <li><a href="#"><Link to="/sectora" className="ui-main-link">SECTOR-A</Link></a></li>
+          <li><a href="#">menu</a></li>
+          <li><a href="#">menu</a></li>
+          <li><a href="#">menu</a>
+            <ul className="sub1">
+              <li><a href="#">menu</a></li>
+              <li><a href="#">menu</a></li>
+              <li><a href="#">menu</a></li>
+              <li><a href="#">menu</a></li>
+            </ul>
+          </li>
+          <li><a href="#">menu</a>
+            <ul className="sub1">
+              <li><a href="#">menu</a></li>
+              <li><a href="#">menu</a></li>
+              <li><a href="#">menu</a></li>
+              <li><a href="#">menu</a>
+                <ul className="sub2">
+                  <li><a href="#">menu</a></li>
+                  <li><a href="#">menu</a></li>
+                  <li><a href="#">menu</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
         </div>
     )
 }

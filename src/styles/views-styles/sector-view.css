@@ -1,0 +1,6 @@
+.sector-star {
+    background-image: url('../sample-image.png');
+    background-color: blue;
+    width: 1em;
+    height: 1em;
+}
