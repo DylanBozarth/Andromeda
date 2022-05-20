@@ -1,11 +1,12 @@
 import "../styles/components.css"
 type starProps = {
-        starName: String
+    systemName: String,
+    systemStar: String
 }
-export const Star: React.FC<starProps> = ({starName}) => {
+export const Star: React.FC<starProps> = ({systemName, systemStar}) => {
 
 return (
-    <div className={`${starName}`}>{starName}
+    <div className={`${systemStar}`}>{systemName}
     star props</div>
 )
 }

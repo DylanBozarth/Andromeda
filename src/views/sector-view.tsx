@@ -60,7 +60,7 @@ export const SectorView = () => {
       {sector.map((sector) => {
         return (
           <Link to={`/system/${sector.systemName}`} style={{}}>
-            <Star starName={sector.systemName} />
+            <Star systemName={sector.systemName} systemStar={sector.systemStar} />
           
           </Link>
         )
