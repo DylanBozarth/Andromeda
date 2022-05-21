@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Star } from "../components/star";
 import "../styles/views-styles/sector-view.css"
+import { SystemView } from "./system-view";
 
 
 export const SectorView = () => {
@@ -56,15 +57,19 @@ export const SectorView = () => {
   ])
   {
     return (
-      <div>
+      <div className="sector-view-wrapper">
       {sector.map((sector) => {
         return (
-          <Link to={`/system/${sector.systemName}`} style={{}}>
+          <div className="sector-star-wrapper">
+          <Link to={`/system/${sector.systemName}`}>
             <Star systemName={sector.systemName} systemStar={sector.systemStar} />
           
           </Link>
+          </div>
         )
       })}
+      <SystemView /* pass it as props? */ />
+      Eventually I want these to look more random in their placements so there can be clusters, etc.
       </div>
     )
     

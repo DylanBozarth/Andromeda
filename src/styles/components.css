@@ -1,4 +1,11 @@
 /* mini stars on the home page */
+.sector-view-wrapper {
+  display: flex;
+}
+.sector-star-wrapper {
+  margin: 3rem;
+  flex: 1 0 auto;
+}
 .Yellow-Dwarf {
     box-shadow: 1px 1px 45px gold;
     box-shadow: 1px 1px 35px goldenrod;

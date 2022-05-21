@@ -1,8 +1,8 @@
 import { useEffect } from "react"
-export const SystemView: React.FC = () => {
+export const SystemView: React.FC = (props) => {
    
     
     return (
-        <div>this should have been randomly generated</div>
+        <div></div>
     )
 }

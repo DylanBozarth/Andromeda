@@ -11,10 +11,10 @@ function App() {
   /*const [playerSector, setPlayerSector] = useState<Object>() */
   const [playerSystem, setPlayerSystem] = useState<Object>()
  
-  let cheese:String = 'cheese'
   return (
     <BrowserRouter>
       <UImaster />
+    
       <Routes>
         <Route path="/sectora" element={<SectorView />} />
         <Route path="/system/:systemName" element={<SystemView  />}  />
