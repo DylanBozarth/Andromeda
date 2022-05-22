@@ -9,15 +9,15 @@ import { SystemView } from './views/system-view';
 function App() {
   /* controlling player location */
   /*const [playerSector, setPlayerSector] = useState<Object>() */
-  const [playerSystem, setPlayerSystem] = useState<Object>()
- 
+  const [playerSystem, setPlayerSystem] = useState<Object>({})
+  const props = { playerSystem, setPlayerSystem }
   return (
     <BrowserRouter>
       <UImaster />
     
       <Routes>
-        <Route path="/sectora" element={<SectorView />} />
-        <Route path="/system/:systemName" element={<SystemView  />}  />
+        <Route path="/sectora" element={<SectorView {...props}  /> } />
+        <Route path="/system/:systemName" element={<SystemView {...props}  />}  />
         
       </Routes>
     </BrowserRouter>

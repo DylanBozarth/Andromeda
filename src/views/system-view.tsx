@@ -1,8 +1,20 @@
 import { useEffect } from "react"
-export const SystemView: React.FC = (props) => {
-   
+interface playerSystemProps {
+    playerSystem: Object,
+    setPlayerSystem: Function
+    }
+export const SystemView: React.FC<playerSystemProps> = ({playerSystem, setPlayerSystem}) => {
+   interface systemProps {
+    systemName: String,
+    systemStar: String,
+    systemPlanets: Array<String>
+   }
     
     return (
-        <div></div>
+        <div>
+
+
+
+        </div>
     )
 }

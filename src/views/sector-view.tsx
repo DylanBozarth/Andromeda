@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { Star } from "../components/star";
 import "../styles/views-styles/sector-view.css"
 import { SystemView } from "./system-view";
+interface playerSystemProps {
+playerSystem: Object,
+setPlayerSystem: Function
+}
 
-
-export const SectorView = () => {
+export const SectorView: React.FC<playerSystemProps> = ({playerSystem, setPlayerSystem}) => {
   const [sector, setSector] = React.useState<
     Array<{
       systemName: String,
@@ -61,14 +64,14 @@ export const SectorView = () => {
       {sector.map((sector) => {
         return (
           <div className="sector-star-wrapper">
-          <Link to={`/system/${sector.systemName}`}>
+          <Link to={`/system/${sector.systemName}`} onClick={() => setPlayerSystem({sector})}>
             <Star systemName={sector.systemName} systemStar={sector.systemStar} />
           
           </Link>
           </div>
         )
       })}
-      <SystemView /* pass it as props? */ />
+      
       Eventually I want these to look more random in their placements so there can be clusters, etc.
       </div>
     )
