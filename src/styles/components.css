@@ -6,6 +6,11 @@
   margin: 3rem;
   flex: 1 0 auto;
 }
+.sector-view-star-name {
+  color: white;
+  text-decoration: none;
+  padding-top:2rem;
+}
 .Yellow-Dwarf {
     box-shadow: 1px 1px 45px gold;
     box-shadow: 1px 1px 35px goldenrod;

@@ -4,17 +4,16 @@ interface playerSystemProps {
     setPlayerSystem: Function
     }
 export const SystemView: React.FC<playerSystemProps> = ({playerSystem, setPlayerSystem}) => {
-   interface systemProps {
-    systemName: String,
-    systemStar: String,
-    systemPlanets: Array<String>
-   }
-    
+  let playerSystemArray = Object.values(playerSystem);
+    useEffect(() => {
+        console.log(playerSystemArray[0])
+      
+        
+    }, [playerSystem])
     return (
-        <div>
-
-
-
+        <div className="sector-view-wrapper">
+       
+        lmao
         </div>
-    )
+      )
 }

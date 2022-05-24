@@ -6,7 +6,8 @@ type starProps = {
 export const Star: React.FC<starProps> = ({systemName, systemStar}) => {
 
 return (
-    <div className={`${systemStar}`}>{systemName}
-    star props</div>
+    <div className={`${systemStar}`}>
+        <div className="sector-view-star-name">{systemName}</div>
+    </div>
 )
 }

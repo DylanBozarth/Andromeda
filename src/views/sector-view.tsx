@@ -64,9 +64,9 @@ export const SectorView: React.FC<playerSystemProps> = ({playerSystem, setPlayer
       {sector.map((sector) => {
         return (
           <div className="sector-star-wrapper">
-          <Link to={`/system/${sector.systemName}`} onClick={() => setPlayerSystem({sector})}>
-            <Star systemName={sector.systemName} systemStar={sector.systemStar} />
-          
+          <Link to={`/system/${sector.systemName}`} onClick={() => setPlayerSystem({sector})} >
+            <Star systemName={sector.systemName} systemStar={sector.systemStar}  />
+          <p>{sector.systemPlanets}</p>
           </Link>
           </div>
         )

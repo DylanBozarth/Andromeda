@@ -24,8 +24,8 @@ var letThereBeLight = function () {
         universe.push({
             systemStar: starList[~~(Math.random() * lengthOfStarList)],
             systemPlanets: Array.from({ length: ~~(Math.random() * 9) }).map(function (x) { return planetList[~~(Math.random() * lengthOfPlanetList)]; }),
-            systemName: "A-".concat(Math.floor(Math.random() * 90000) + 10000),
-            cords: "A-".concat(Math.floor(Math.random() * 90000) + 100)
+            systemName: "A-".concat(Math.floor(Math.random() * 90000) + 10000), /* change from A- whatever sector we are in */
+            cords: "A-".concat(Math.floor(Math.random() * 90000) + 100) /* change from A- whatever sector we are in */
         });
     }
     console.log(universe);
