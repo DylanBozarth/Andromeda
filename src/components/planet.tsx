@@ -4,6 +4,6 @@ type planetProps = {
 export const PlanetComponent: React.FC<planetProps> = ({planet}) => {
 
     return (
-        <div className={`${planet}`}>planets</div>
+        <div className={`system-planet ${planet}`}>{planet}</div>
     )
 }
