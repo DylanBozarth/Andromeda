@@ -13,7 +13,7 @@ function App() {
   const props = { playerSystem, setPlayerSystem }
   return (
     <BrowserRouter>
-      <UImaster />
+      <UImaster  />
     
       <Routes>
         <Route path="/sectora" element={<SectorView {...props}  /> } />

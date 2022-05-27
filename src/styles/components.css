@@ -121,9 +121,67 @@
 /* end star css*/
 /* planets css */
 .system-planet {
-  height:40px;
-  width:40px;
+  border: 1px solid red;
   border-radius: 50%;
-  background-color: red;
+  padding: 1em;
+}
+.Lava {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+
+.Desert {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+
+.Frozen {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
+animation: translateBackground 75s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+
+.Gas {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
+animation: translateBackground 165s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Ocean {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Rocky {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
+animation: translateBackground 110s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Temperate {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
 }
 /* end planets css*/
