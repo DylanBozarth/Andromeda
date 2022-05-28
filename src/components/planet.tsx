@@ -5,6 +5,6 @@ type planetProps = {
 export const PlanetComponent: React.FC<planetProps> = ({planet}) => {
 
     return (
-        <div className={`system-planet col-xl-2 ${planet}`}>{planet}</div>
+        <div className={`system-planet col-xs-2 ${planet}`}><p className="text-center">{planet}</p></div>
     )
 }

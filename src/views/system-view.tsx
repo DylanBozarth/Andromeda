@@ -20,7 +20,7 @@ export const SystemView: React.FC<playerSystemProps> = ({ playerSystem, setPlaye
       })}
       {systemPlanetArray.map((planet) => {
         return (
-          <div className="">
+          <div className="row">
             <PlanetComponent planet={planet} />
           </div>
         )

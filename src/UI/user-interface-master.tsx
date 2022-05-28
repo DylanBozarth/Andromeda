@@ -9,6 +9,7 @@ export const UImaster: React.FC = () => {
         <div className="menu">
       <nav>
         <ul>
+        <li><a href="#"><Link to="/" className="ui-main-link">Galatic View</Link></a></li>
           <li><a href="#"><Link to="/sectora" className="ui-main-link">SECTOR-A</Link></a></li>
           
           <li><a href="#">menu</a></li>

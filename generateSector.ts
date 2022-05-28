@@ -1,5 +1,5 @@
-// ignore errors from this file 
-/*
+// Delete the generateSector.js file after getting data from it or this will throw syntax errors.
+
 let starList = [
     "Red-Giant",
     "Red-Supergiant",
@@ -10,12 +10,49 @@ let starList = [
     "Brown-Dwarf",
   ];
   let planetList = [
-    "Rocky",
-    "Temperate",
-    "Ocean",
-    "Frozen",
-    "Lava",
-    "Gas"
+    "Rocky1",
+    "Rocky2",
+    "Rocky3",
+    "Rocky4",
+    "Rocky5",
+    "Temperate1",
+    "Temperate2",
+    "Temperate3",
+    "Temperate4",
+    "Temperate5",
+    "Ocean1",
+    "Ocean2",
+    "Ocean3",
+    "Ocean4",
+    "Ocean5",
+    "Frozen1",
+    "Frozen2",
+    "Frozen3",
+    "Frozen4",
+    "Frozen5",
+    "Lava1",
+    "Lava2",
+    "Lava3",
+    "Lava4",
+    "Lava5",
+    "Gas1",
+    "Gas2",
+    "Gas3",
+    "Gas4",
+    "Gas5",
+    "Desert1",
+    "Desert1",
+    "Desert1",
+    "Desert1",
+    "Desert1",
+    "Greenhouse1",
+    "Greenhouse1",
+    "Greenhouse1",
+    "Greenhouse1",
+    "Greenhouse1",
+    "Asteroid-Belt1",
+    "Asteroid-Belt2",
+    "Asteroid-Belt3"
   ];
   let lengthOfStarList = starList.length;
   let lengthOfPlanetList = planetList.length;
@@ -33,4 +70,3 @@ let starList = [
     console.log(universe)
   }
 letThereBeLight();
-*/

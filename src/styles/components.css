@@ -125,7 +125,8 @@
   border-radius: 50%;
   padding: 1em;
 }
-.Lava {
+/* Lava1-5 will be using different textures/rotation times to create variation */
+.Lava1 {
   width: 25em;
 height: 25em;
 background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
@@ -133,8 +134,39 @@ animation: translateBackground 45s infinite linear;
 background-size: 100% 100%;
 border: 2px solid black;
 }
-
-.Desert {
+.Lava2 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Lava3 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Lava4 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Lava5 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Desert1 {
   width: 25em;
 height: 25em;
 background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
@@ -142,8 +174,39 @@ animation: translateBackground 45s infinite linear;
 background-size: 100% 100%;
 border: 2px solid black;
 }
-
-.Frozen {
+.Desert2 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Desert3 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Desert4 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Desert5 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Frozen1 {
   width: 25em;
 height: 25em;
 background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
@@ -151,8 +214,39 @@ animation: translateBackground 75s infinite linear;
 background-size: 100% 100%;
 border: 2px solid black;
 }
-
-.Gas {
+.Frozen2 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
+animation: translateBackground 75s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Frozen3 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
+animation: translateBackground 75s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Frozen4 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
+animation: translateBackground 75s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Frozen5 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
+animation: translateBackground 75s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Gas1 {
   width: 25em;
 height: 25em;
 background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
@@ -160,7 +254,39 @@ animation: translateBackground 165s infinite linear;
 background-size: 100% 100%;
 border: 2px solid black;
 }
-.Ocean {
+.Gas2 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
+animation: translateBackground 165s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Gas3 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
+animation: translateBackground 165s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Gas4 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
+animation: translateBackground 165s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Gas5 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
+animation: translateBackground 165s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Ocean1 {
   width: 25em;
 height: 25em;
 background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
@@ -168,7 +294,39 @@ animation: translateBackground 45s infinite linear;
 background-size: 100% 100%;
 border: 2px solid black;
 }
-.Rocky {
+.Ocean2 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Ocean3 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Ocean4 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Ocean5 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
+animation: translateBackground 45s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Rocky1 {
   width: 25em;
 height: 25em;
 background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
@@ -176,12 +334,142 @@ animation: translateBackground 110s infinite linear;
 background-size: 100% 100%;
 border: 2px solid black;
 }
-.Temperate {
+.Rocky2 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
+animation: translateBackground 110s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Rocky3 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
+animation: translateBackground 110s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Rocky4 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
+animation: translateBackground 110s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Rocky5 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
+animation: translateBackground 110s infinite linear;
+background-size: 100% 100%;
+border: 2px solid black;
+}
+.Temperate1 {
   width: 25em;
 height: 25em;
 background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
 animation: translateBackground 85s infinite linear;
 background-size: 120% 100%;
 border: 2px solid black;
+}
+.Temperate2 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
+}
+.Temperate3 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
+}
+.Temperate4 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
+}
+.Temperate5 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
+}
+.Greenhouse1 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
+}
+.Greenhouse2 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
+}
+.Greenhouse3 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
+}
+.Greenhouse4 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
+}
+.Greenhouse5 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
+}
+.Greenhouse1 {
+  width: 25em;
+height: 25em;
+background: url("../styles/textures/exoplanettextures/earthLike.png") repeat-x;
+animation: translateBackground 85s infinite linear;
+background-size: 120% 100%;
+border: 2px solid black;
+}
+.Asteroid-Belt1 {
+  height: 1em;
+  width: 1em;
+  background-color: grey;
+  border: 1px solid goldenrod;
+}
+.Asteroid-Belt2 {
+  height: 1em;
+  width: 1em;
+  background-color: grey;
+  border: 1px solid goldenrod;
+}
+.Asteroid-Belt3 {
+  height: 1em;
+  width: 1em;
+  background-color: grey;
+  border: 1px solid goldenrod;
 }
 /* end planets css*/

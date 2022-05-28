@@ -16,48 +16,49 @@ export const SectorView: React.FC<playerSystemProps> = ({playerSystem, setPlayer
       systemPlanets: Array<String>,
       cords: String,
     }>
-  >([
+  >/* Sector array goes in here */
+  ([
     {
-      systemStar: 'Red-Dwarf',
-      systemPlanets: [ 'Gas', 'Frozen', 'Frozen' ],
-      systemName: 'A-35066',
-      cords: 'A-76087'
+      systemStar: 'Blue-Giant',
+      systemPlanets: [ 'Greenhouse1', 'Gas4' ],
+      systemName: 'A-54467',
+      cords: 'A-39155'
     },
     {
-      systemStar: 'Red-Dwarf',
-      systemPlanets: [ 'Lava', 'Rocky', 'Lava', 'Temperate', 'Rocky', 'Ocean', 'Gas' ],
-      systemName: 'A-86769',
-      cords: 'A-25631'
+      systemStar: 'Red-Supergiant',
+      systemPlanets: [ 'Temperate3', 'Frozen1', 'Greenhouse1' ],
+      systemName: 'A-98727',
+      cords: 'A-942'
     },
     {
-      systemStar: 'White-Dwarf',
+      systemStar: 'Red-Giant',
+      systemPlanets: [ 'Ocean5', 'Desert1', 'Frozen3', 'Temperate5', 'Asteroid-Belt3' ],
+      systemName: 'A-36277',
+      cords: 'A-66102'
+    },
+    {
+      systemStar: 'Red-Giant',
+      systemPlanets: [ 'Lava2' ],
+      systemName: 'A-93901',
+      cords: 'A-59244'
+    },
+    {
+      systemStar: 'Red-Giant',
       systemPlanets: [
-        'Lava',      'Ocean',
-        'Temperate', 'Lava',
-        'Rocky',     'Frozen',
-        'Lava',      'Ocean'
+        'Desert1',
+        'Lava2',
+        'Asteroid-Belt3',
+        'Gas2',
+        'Rocky3',
+        'Asteroid-Belt3',
+        'Temperate3',
+        'Asteroid-Belt3'
       ],
-      systemName: 'A-22201',
-      cords: 'A-8536'
-    },
-    {
-      systemStar: 'Red-Dwarf',
-      systemPlanets: [
-        'Ocean', 'Rocky',
-        'Gas',   'Temperate',
-        'Gas',   'Frozen',
-        'Lava',  'Frozen'
-      ],
-      systemName: 'A-79672',
-      cords: 'A-6450'
-    },
-    {
-      systemStar: 'Yellow-Dwarf',
-      systemPlanets: [ 'Temperate', 'Rocky' ],
-      systemName: 'A-48624',
-      cords: 'A-59890'
+      systemName: 'A-32404',
+      cords: 'A-57826'
     }
-  ])
+  ]
+  )
   {
     return (
       <div className="sector-view-wrapper">
