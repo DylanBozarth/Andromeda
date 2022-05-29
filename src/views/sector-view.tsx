@@ -15,47 +15,73 @@ export const SectorView: React.FC<playerSystemProps> = ({playerSystem, setPlayer
       systemStar: String,
       systemPlanets: Array<String>,
       cords: String,
+      id: Number,
+      hangar: Array<String>
     }>
   >/* Sector array goes in here */
   ([
     {
-      systemStar: 'Blue-Giant',
-      systemPlanets: [ 'Greenhouse1', 'Gas4' ],
-      systemName: 'A-54467',
-      cords: 'A-39155'
-    },
-    {
-      systemStar: 'Red-Supergiant',
-      systemPlanets: [ 'Temperate3', 'Frozen1', 'Greenhouse1' ],
-      systemName: 'A-98727',
-      cords: 'A-942'
-    },
-    {
-      systemStar: 'Red-Giant',
-      systemPlanets: [ 'Ocean5', 'Desert1', 'Frozen3', 'Temperate5', 'Asteroid-Belt3' ],
-      systemName: 'A-36277',
-      cords: 'A-66102'
-    },
-    {
-      systemStar: 'Red-Giant',
-      systemPlanets: [ 'Lava2' ],
-      systemName: 'A-93901',
-      cords: 'A-59244'
-    },
-    {
-      systemStar: 'Red-Giant',
+      systemStar: 'White-Dwarf',
       systemPlanets: [
+        'Lava1',
+        'Gas1',
         'Desert1',
+        'Desert1',
+        'Greenhouse1',
         'Lava2',
-        'Asteroid-Belt3',
-        'Gas2',
-        'Rocky3',
-        'Asteroid-Belt3',
-        'Temperate3',
-        'Asteroid-Belt3'
+        'Temperate5'
       ],
-      systemName: 'A-32404',
-      cords: 'A-57826'
+      systemName: 'A-55523',
+      cords: 'A-37711',
+      id: 70974,
+      hangar: []
+    },
+    {
+      systemStar: 'Blue-Giant',
+      systemPlanets: [ 'Frozen2', 'Ocean4', 'Desert1' ],
+      systemName: 'A-52448',
+      cords: 'A-5104',
+      id: 77442,
+      hangar: []
+    },
+    {
+      systemStar: 'Blue-Giant',
+      systemPlanets: [
+        'Frozen2',
+        'Ocean1',
+        'Asteroid-Belt3',
+        'Frozen3',
+        'Ocean1',
+        'Temperate2'
+      ],
+      systemName: 'A-82030',
+      cords: 'A-68730',
+      id: 48587,
+      hangar: []
+    },
+    {
+      systemStar: 'Yellow-Dwarf',
+      systemPlanets: [
+        'Rocky4',
+        'Rocky3',
+        'Frozen1',
+        'Greenhouse1',
+        'Temperate2',
+        'Temperate4',
+        'Asteroid-Belt2'
+      ],
+      systemName: 'A-84822',
+      cords: 'A-83527',
+      id: 52711,
+      hangar: []
+    },
+    {
+      systemStar: 'Red-Dwarf',
+      systemPlanets: [ 'Greenhouse1', 'Greenhouse1', 'Gas4' ],
+      systemName: 'A-34147',
+      cords: 'A-13315',
+      id: 55685,
+      hangar: []
     }
   ]
   )
@@ -64,8 +90,8 @@ export const SectorView: React.FC<playerSystemProps> = ({playerSystem, setPlayer
       <div className="sector-view-wrapper">
       {sector.map((sector) => {
         return (
-          <div className="sector-star-wrapper">
-          <Link to={`/system/${sector.systemName}`} onClick={() => setPlayerSystem({sector})} >
+          <div className="sector-star-wrapper" >
+          <Link to={`/system/${sector.systemName}`} onClick={() => setPlayerSystem({sector})}>
             <Star systemName={sector.systemName} systemStar={sector.systemStar}   />
           
           </Link>
