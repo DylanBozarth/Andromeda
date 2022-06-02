@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { decrement, increment } from "../redux/testSlice";
 import "../styles/user-interface-master.css";
 
 export const UImaster: React.FC = () => {
   const dispatch = useAppDispatch();
+  const testCount = useAppSelector((state) => state.test.testCount);
+
   return (
     <div className="UI-master">
       <div className="menu">
@@ -43,7 +45,7 @@ export const UImaster: React.FC = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#">menu</a>
+                  <a href="#">{testCount}</a>
                 </li>
                 <li>
                   <a href="#">menu</a>
