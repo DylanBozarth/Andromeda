@@ -1,6 +1,7 @@
 .playerSystemArray-view-wrapper {
-    overflow:hidden;
+    
+    text-align: center;
 }
 .planet-wrapper {
-    padding: 10rem;
+    padding: 1rem;
 }

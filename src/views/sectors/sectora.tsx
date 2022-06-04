@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Star } from "../components/star";
-import "../styles/views-styles/sector-view.css"
-import { SystemView } from "./system-view";
+import { Star } from "../../components/star";
+import "../../styles/views-styles/sector-view.css"
 interface playerSystemProps {
 playerSystem: Object,
 setPlayerSystem: Function
 }
 
-export const SectorView: React.FC<playerSystemProps> = ({playerSystem, setPlayerSystem}) => {
+export const SectorA: React.FC<playerSystemProps> = ({playerSystem, setPlayerSystem}) => {
   const [sector, setSector] = React.useState<
     Array<{
       systemName: String,

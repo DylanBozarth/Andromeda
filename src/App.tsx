@@ -1,6 +1,6 @@
 import './styles/global.css';
 import { useState, useEffect } from 'react';
-import { SectorView } from './views/sector-view';
+import { SectorA} from './views/sectors/sectora';
 import { Route, Routes, useLocation } from "react-router-dom";
 import { UImaster } from './UI/user-interface-master';
 import { BrowserRouter } from "react-router-dom";
@@ -18,7 +18,7 @@ function App() {
     
       <Routes>
       <Route path="/" element={<GalaticView /> } />
-        <Route path="/sectora" element={<SectorView {...props}  /> } />
+        <Route path="/sectora" element={<SectorA {...props}  /> } />
         <Route path="/system/:systemName" element={<SystemView {...props}  />}  />
         
       </Routes>
