@@ -12,74 +12,83 @@ export const SectorA: React.FC<playerSystemProps> = ({playerSystem, setPlayerSys
     Array<{
       systemName: String,
       systemStar: String,
-      systemPlanets: Array<String>,
+      systemPlanets: Object,
       cords: String,
-      id: Number,
+      ownership: String,
       hangar: Array<String>
     }>
   >/* Sector array goes in here */
   ([
     {
-      systemStar: 'White-Dwarf',
-      systemPlanets: [
-        'Lava1',
-        'Gas1',
-        'Desert1',
-        'Desert1',
-        'Greenhouse1',
-        'Lava2',
-        'Temperate5'
-      ],
-      systemName: 'A-55523',
-      cords: 'A-37711',
-      id: 70974,
+      systemStar: 'Red-Giant',
+      systemPlanets: {
+        Ocean5: [Array],
+        Greenhouse4: [Array],
+        Frozen2: [Array],
+        Frozen4: [Array],
+        Frozen3: [Array],
+        Greenhouse2: [Array],
+        Rocky1: [Array]
+      },
+      systemName: 'A-82371',
+      cords: 'A-95764',
+      ownership: 'A-90110',
       hangar: []
     },
     {
       systemStar: 'Blue-Giant',
-      systemPlanets: [ 'Frozen2', 'Ocean4', 'Desert1' ],
-      systemName: 'A-52448',
-      cords: 'A-5104',
-      id: 77442,
+      systemPlanets: {
+        'Asteroid-Belt2': [Array],
+        'Asteroid-Belt1': [Array],
+        Desert1: [Array],
+        Ocean5: [Array],
+        Ocean4: [Array],
+        Temperate2: [Array],
+        Ocean3: [Array]
+      },
+      systemName: 'A-25299',
+      cords: 'A-30482',
+      ownership: 'A-48660',
       hangar: []
     },
     {
-      systemStar: 'Blue-Giant',
-      systemPlanets: [
-        'Frozen2',
-        'Ocean1',
-        'Asteroid-Belt3',
-        'Frozen3',
-        'Ocean1',
-        'Temperate2'
-      ],
-      systemName: 'A-82030',
-      cords: 'A-68730',
-      id: 48587,
+      systemStar: 'Brown-Dwarf',
+      systemPlanets: { Temperate4: [Array], Gas5: [Array], Rocky3: [Array] },
+      systemName: 'A-33151',
+      cords: 'A-38453',
+      ownership: 'A-12898',
       hangar: []
     },
     {
-      systemStar: 'Yellow-Dwarf',
-      systemPlanets: [
-        'Rocky4',
-        'Rocky3',
-        'Frozen1',
-        'Greenhouse1',
-        'Temperate2',
-        'Temperate4',
-        'Asteroid-Belt2'
-      ],
-      systemName: 'A-84822',
-      cords: 'A-83527',
-      id: 52711,
+      systemStar: 'Brown-Dwarf',
+      systemPlanets: { Lava3: [Array], Greenhouse3: [Array], Frozen5: [Array] },
+      systemName: 'A-73573',
+      cords: 'A-31026',
+      ownership: 'A-58824',
       hangar: []
     },
     {
-      systemStar: 'Red-Dwarf',
-      systemPlanets: [ 'Greenhouse1', 'Greenhouse1', 'Gas4' ],
-      systemName: 'A-34147',
-      cords: 'A-13315',
-      id: 55685,
+      systemStar: 'Red-Giant',
+      systemPlanets: { Desert2: [Array], Lava3: [Array], Greenhouse3: [Array] },
+      systemName: 'A-10479',
+      cords: 'A-68095',
+      ownership: 'A-66209',
+      hangar: []
+    },
+    {
+      systemStar: 'Red-Supergiant',
+      systemPlanets: { Gas2: [Array], Lava3: [Array] },
+      systemName: 'A-95116',
+      cords: 'A-33505',
+      ownership: 'A-97829',
+      hangar: []
+    },
+    {
+      systemStar: 'Red-Supergiant',
+      systemPlanets: { Ocean2: [Array] },
+      systemName: 'A-12091',
+      cords: 'A-46372',
+      ownership: 'A-71892',
       hangar: []
     }
   ]

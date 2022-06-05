@@ -72,9 +72,9 @@ let resources: string[] = [
   "oil-medium"
 ];
 //UTILS/RANDOM GENERATORS FILE ========================================
-const getRandomString = (arr: string[]) => {
-  const randIdx = Math.floor(Math.random() * arr.length);
-  return arr[randIdx];
+const getRandomString = (Array: string[]) => {
+  const randIdx = Math.floor(Math.random() * Array.length);
+  return Array[randIdx];
 };
 
 const generateRandomNumber = (max: number, min = 1) => {
@@ -98,7 +98,7 @@ const getRandomResource = (resourceArr: string[], duplicate = "") => {
 };
 
 const getRandomNumberString = () => {
-  const prefixOptions = "ABCDEF";
+  const prefixOptions = "A"; // change this variable for each sector
   const value = getRandomString(prefixOptions.split(""));
   const num = generateRandomNumber(90000, 10000);
   return `${value}-${num}`;
@@ -146,7 +146,6 @@ const generateMultipleSystems = (maxSystems: number, maxPlanets: number) => {
     systems.push(system);
   }
 
-  return systems;
+  console.log(systems)
 };
 generateMultipleSystems(10, 8)
-// heres the list of the variables
