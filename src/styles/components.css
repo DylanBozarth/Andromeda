@@ -9,115 +9,115 @@
 .sector-view-star-name {
   color: white;
   text-decoration: none;
-  padding-top:2rem;
+  padding-top: 2rem;
 }
 .Yellow-Dwarf {
-    box-shadow: 1px 1px 45px gold;
-    box-shadow: 1px 1px 35px goldenrod;
-    background-color: red;
-    --radius: 7rem;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    animation: translateBackground 120s infinite linear;
-    background: url('./textures/starTextures/yellow-star.png') repeat-x;
-    background-size: 200% 100%;
-    transition: transform 0.7s linear;
+  box-shadow: 1px 1px 45px gold;
+  box-shadow: 1px 1px 35px goldenrod;
+  background-color: red;
+  --radius: 7rem;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  animation: translateBackground 120s infinite linear;
+  background: url('./textures/starTextures/yellow-star.png') repeat-x;
+  background-size: 200% 100%;
+  transition: transform 0.7s linear;
 }
 .Blue-Giant {
-    transform: translate(-50%, -50%);
-    background-size: cover;
-    box-shadow: 1px 1px 105px blue; 
-    box-shadow: 1px 1px 85px blueviolet; 
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  box-shadow: 1px 1px 105px blue;
+  box-shadow: 1px 1px 85px blueviolet;
 
- width: 70px;
- height: 70px;
-      border-radius: 50%;
-      animation: translateBackground 120s infinite linear;  
-    background:url('./textures/starTextures/blue-star.jpg') repeat-x;
-    background-size: 200% 100%;
-   z-index: 95;
-      transition: transform 0.7s linear;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  animation: translateBackground 120s infinite linear;
+  background: url('./textures/starTextures/blue-star.jpg') repeat-x;
+  background-size: 200% 100%;
+  z-index: 95;
+  transition: transform 0.7s linear;
 }
 .White-Dwarf {
-    transform: translate(-50%, -50%);
-    background-size: cover;
-    box-shadow: 1px 1px 55px white; 
-    box-shadow: 1px 1px 25px whitesmoke; 
-   width: 30px;
-   height: 30px;
-      border-radius: 50%;
-      animation: translateBackground 120s infinite linear;  
-    background:url('./textures/starTextures/white-star.jpg') repeat-x;
-    background-size: 200% 100%;
-   z-index: 95;
-      transition: transform 0.7s linear;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  box-shadow: 1px 1px 55px white;
+  box-shadow: 1px 1px 25px whitesmoke;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  animation: translateBackground 120s infinite linear;
+  background: url('./textures/starTextures/white-star.jpg') repeat-x;
+  background-size: 200% 100%;
+  z-index: 95;
+  transition: transform 0.7s linear;
 }
 
 .Brown-Dwarf {
-    transform: translate(-50%, -50%);
-    background-size: cover;
-    box-shadow: 1px 1px 55px brown; 
-    box-shadow: 1px 1px 35px goldenrod; 
-   width: 30px;
-   height: 30px;
-      border-radius: 50%;
-      animation: translateBackground 120s infinite linear;  
-    background:url('./textures/starTextures/brown-star.jpg') repeat-x;
-    background-size: 200% 100%;
-   z-index: 95;
-      transition: transform 0.7s linear;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  box-shadow: 1px 1px 55px brown;
+  box-shadow: 1px 1px 35px goldenrod;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  animation: translateBackground 120s infinite linear;
+  background: url('./textures/starTextures/brown-star.jpg') repeat-x;
+  background-size: 200% 100%;
+  z-index: 95;
+  transition: transform 0.7s linear;
 }
 .Red-Giant {
-    transform: translate(-50%, -50%);
-    background-size: cover;
-    box-shadow: 1px 1px 105px firebrick; 
-    box-shadow: 1px 1px 85px firebrick; 
-   width: 65px;
-   height: 65px;
-      border-radius: 50%;
-      animation: translateBackground 120s infinite linear;  
-    background:url('./textures/starTextures/red-star.jpeg') repeat-x;
-    background-size: 200% 100%;
-   z-index: 95;
-      transition: transform 0.7s linear;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  box-shadow: 1px 1px 105px firebrick;
+  box-shadow: 1px 1px 85px firebrick;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  animation: translateBackground 120s infinite linear;
+  background: url('./textures/starTextures/red-star.jpeg') repeat-x;
+  background-size: 200% 100%;
+  z-index: 95;
+  transition: transform 0.7s linear;
 }
 .Red-Supergiant {
-    transform: translate(-50%, -50%);
-    background-size: cover;
-    box-shadow: 3px 3px 125px firebrick; 
-    box-shadow: 1px 1px 85px red; 
-   width: 90px;
-   height: 90px;
-      border-radius: 50%;
-      animation: translateBackground 120s infinite linear;  
-    background:url('./textures/starTextures/red-star.jpeg') repeat-x;
-    background-size: 200% 100%;
-   z-index: 95;
-      transition: transform 0.7s linear;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  box-shadow: 3px 3px 125px firebrick;
+  box-shadow: 1px 1px 85px red;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  animation: translateBackground 120s infinite linear;
+  background: url('./textures/starTextures/red-star.jpeg') repeat-x;
+  background-size: 200% 100%;
+  z-index: 95;
+  transition: transform 0.7s linear;
 }
 .Red-Dwarf {
-    width: 25px;
-    height: 25px;
-    transform: translate(-50%, -50%);
-    background-size: cover;
-    box-shadow: 1px 1px 25px firebrick; 
-    box-shadow: 1px 1px 20px red; 
-      border-radius: 50%;
-      animation: translateBackground 120s infinite linear;  
-    background:url('./textures/starTextures/red-star.jpeg') repeat-x;
-    background-size: 200% 100%;
-   z-index: 95;
-      transition: transform 0.7s linear;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  box-shadow: 1px 1px 25px firebrick;
+  box-shadow: 1px 1px 20px red;
+  border-radius: 50%;
+  animation: translateBackground 120s infinite linear;
+  background: url('./textures/starTextures/red-star.jpeg') repeat-x;
+  background-size: 200% 100%;
+  z-index: 95;
+  transition: transform 0.7s linear;
 }
-@keyframes translateBackground{
-    0%{
-      background-position-x:0;
-    }
-    100%{
-      background-position-x:-600px;
-    }
+@keyframes translateBackground {
+  0% {
+    background-position-x: 0;
   }
+  100% {
+    background-position-x: -600px;
+  }
+}
 /* end star css*/
 /* planets css */
 .system-planet {
@@ -128,331 +128,331 @@
 /* Lava1-5 will be using different textures/rotation times to create variation */
 .Lava1 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/lava.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Lava2 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/lava.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Lava3 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/lava.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Lava4 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/lava.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Lava5 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/lava.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/lava.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Desert1 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/desert.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Desert2 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/desert.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Desert3 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/desert.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Desert4 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/desert.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Desert5 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/desert.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/desert.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Frozen1 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
-animation: translateBackground 75s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/frozen.png') repeat-x;
+  animation: translateBackground 75s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Frozen2 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
-animation: translateBackground 75s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/frozen.png') repeat-x;
+  animation: translateBackground 75s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Frozen3 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
-animation: translateBackground 75s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/frozen.png') repeat-x;
+  animation: translateBackground 75s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Frozen4 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
-animation: translateBackground 75s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/frozen.png') repeat-x;
+  animation: translateBackground 75s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Frozen5 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/frozen.png") repeat-x;
-animation: translateBackground 75s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/frozen.png') repeat-x;
+  animation: translateBackground 75s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Gas1 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
-animation: translateBackground 165s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/gas.png') repeat-x;
+  animation: translateBackground 165s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Gas2 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
-animation: translateBackground 165s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/gas.png') repeat-x;
+  animation: translateBackground 165s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Gas3 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
-animation: translateBackground 165s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/gas.png') repeat-x;
+  animation: translateBackground 165s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Gas4 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
-animation: translateBackground 165s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/gas.png') repeat-x;
+  animation: translateBackground 165s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Gas5 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/gas.png") repeat-x;
-animation: translateBackground 165s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/gas.png') repeat-x;
+  animation: translateBackground 165s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Ocean1 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/ocean.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Ocean2 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/ocean.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Ocean3 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/ocean.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Ocean4 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/ocean.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Ocean5 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/ocean.jpg") repeat-x;
-animation: translateBackground 45s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/ocean.jpg') repeat-x;
+  animation: translateBackground 45s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Rocky1 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
-animation: translateBackground 110s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/rocky.jpg') repeat-x;
+  animation: translateBackground 110s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Rocky2 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
-animation: translateBackground 110s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/rocky.jpg') repeat-x;
+  animation: translateBackground 110s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Rocky3 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
-animation: translateBackground 110s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/rocky.jpg') repeat-x;
+  animation: translateBackground 110s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Rocky4 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
-animation: translateBackground 110s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/rocky.jpg') repeat-x;
+  animation: translateBackground 110s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Rocky5 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/rocky.jpg") repeat-x;
-animation: translateBackground 110s infinite linear;
-background-size: 100% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/rocky.jpg') repeat-x;
+  animation: translateBackground 110s infinite linear;
+  background-size: 100% 100%;
+  border: 2px solid black;
 }
 .Temperate1 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/temperate/temperate1.png") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/temperate/temperate1.png') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Temperate2 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/temperate/temperate2.png") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/temperate/temperate2.png') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Temperate3 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/temperate/temperate2.png") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/temperate/temperate2.png') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Temperate4 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/temperate/temperate2.png") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/temperate/temperate2.png') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Temperate5 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/temperate/temperate2.png") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/temperate/temperate2.png') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Greenhouse1 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/barren.jpg") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/barren.jpg') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Greenhouse2 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/barren.jpg") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/barren.jpg') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Greenhouse3 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/barren.jpg") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/barren.jpg') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Greenhouse4 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/barren.jpg") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/barren.jpg') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Greenhouse5 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/barren.jpg") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/barren.jpg') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Greenhouse1 {
   width: 250px;
-height: 250px;
-background: url("../styles/textures/exoplanettextures/barren.jpg") repeat-x;
-animation: translateBackground 85s infinite linear;
-background-size: 120% 100%;
-border: 2px solid black;
+  height: 250px;
+  background: url('../styles/textures/exoplanettextures/barren.jpg') repeat-x;
+  animation: translateBackground 85s infinite linear;
+  background-size: 120% 100%;
+  border: 2px solid black;
 }
 .Asteroid-Belt1 {
   height: 1em;

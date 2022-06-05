@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 interface TestState {
   testCount: number;
@@ -9,7 +9,7 @@ const initialState: TestState = {
 };
 
 export const testSlice = createSlice({
-  name: "test",
+  name: 'test',
   initialState,
   reducers: {
     increment: (state) => {

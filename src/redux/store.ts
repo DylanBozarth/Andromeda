@@ -1,6 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { loadState } from "./localStorage";
-import testSlice from "./testSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import { loadState } from './localStorage';
+import testSlice from './testSlice';
 
 const reducer = {
   test: testSlice,
