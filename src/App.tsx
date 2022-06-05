@@ -12,6 +12,7 @@ function App() {
   /*const [playerSector, setPlayerSector] = useState<Object>() */
   const [playerSystem, setPlayerSystem] = useState<Object>({})
   const props = { playerSystem, setPlayerSystem }
+
   return (
     <BrowserRouter>
       <UImaster  />

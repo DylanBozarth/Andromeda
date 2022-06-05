@@ -72,9 +72,9 @@ let resources: string[] = [
   "oil-medium"
 ];
 //UTILS/RANDOM GENERATORS FILE ========================================
-const getRandomString = (Array: string[]) => {
-  const randIdx = Math.floor(Math.random() * Array.length);
-  return Array[randIdx];
+const getRandomString = (arr: string[]) => {
+  const randIdx = Math.floor(Math.random() * arr.length);
+  return arr[randIdx];
 };
 
 const generateRandomNumber = (max: number, min = 1) => {

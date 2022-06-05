@@ -8,10 +8,11 @@ interface playerSystemProps {
 
 export const SystemView: React.FC<playerSystemProps> = ({ playerSystem, setPlayerSystem }) => {
   let playerSystemArray = Object.values(playerSystem);
-  let systemPlanetArray = playerSystemArray[0].systemPlanets
+  let systemPlanetArray = [playerSystemArray[0].systemPlanets]
+  let planetNames = systemPlanetArray[0]
   useEffect(() => {
 
-    console.log(systemPlanetArray)
+    console.log(planetNames)
 
   }, [])
   return (
@@ -19,13 +20,9 @@ export const SystemView: React.FC<playerSystemProps> = ({ playerSystem, setPlaye
       {playerSystemArray.map(({ systemName, systemStar }) => {
         return (<div>{systemName}, {systemStar} system.</div>)
       })}
-      {systemPlanetArray.map((planet) => {
-        return (
-          <div className="col-sm-2 planet-wrapper">
-            <PlanetComponent planet={planet}  />
-          </div>
-        )
-      })}
+      {/*{planetNames.map(() => {
+        return (<div>{planetNames} </div>)
+      })} */}
     </div>
   )
 
