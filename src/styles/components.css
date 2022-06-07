@@ -353,7 +353,7 @@
 .Rocky4 {
   width: 250px;
   height: 250px;
-  background: url('../styles/textures/planettextures/rocky/rocky1.jpg') repeat-x;
+  background: url('../styles/textures/planettextures/rocky/rocky3.jpg') repeat-x;
   animation: translateBackground 110s infinite linear;
   background-size: 100% 100%;
   border: 2px solid black;
@@ -361,7 +361,7 @@
 .Rocky5 {
   width: 250px;
   height: 250px;
-  background: url('../styles/textures/planettextures/rocky/rocky2.jpg') repeat-x;
+  background: url('../styles/textures/planettextures/rocky/rocky3.jpg') repeat-x;
   animation: translateBackground 110s infinite linear;
   background-size: 100% 100%;
   border: 2px solid black;
