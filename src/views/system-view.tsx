@@ -1,22 +1,26 @@
 import { useEffect } from 'react';
 import { PlanetComponent } from '../components/planet';
 import '../styles/views-styles/system-view.css';
+import { PlayerSystem, Sector } from '../types/system-interfaces';
+
 interface PlayerSystemProps {
-  playerSystem: any;
+  playerSystem: PlayerSystem;
   setPlayerSystem: any;
 }
 
 export const SystemView = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) => {
-  const playerSystemArray: any = Object.values(playerSystem);
+  const playerSystemArray: Sector[] = Object.values(playerSystem);
   const systemPlanetArray = playerSystemArray[0].systemPlanets;
+
   useEffect(() => {
     console.log(systemPlanetArray);
-  }, []);
+  }, [systemPlanetArray]);
+
   return (
     <div className='playerSystemArray-view-wrapper row'>
-      {playerSystemArray.map(({ systemName, systemStar }) => {
+      {playerSystemArray.map(({ id, systemName, systemStar }) => {
         return (
-          <div key={systemName}>
+          <div key={id}>
             {systemName}, {systemStar} system.
           </div>
         );
