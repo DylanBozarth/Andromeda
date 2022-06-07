@@ -1,7 +1,7 @@
 import './styles/global.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { SectorA } from './views/sectors/sectora';
-import { Route, Routes, BrowserRouter, useLocation } from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { UImaster } from './UI/user-interface-master';
 import { SystemView } from './views/system-view';
 import { GalaticView } from './views/galatic-view';
