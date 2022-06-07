@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../styles/views-styles/galatic-view.css';
+
 export const GalaticView = () => {
   return (
     <div>
