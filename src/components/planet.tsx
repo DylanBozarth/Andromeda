@@ -1,8 +1,9 @@
 import '../styles/components.css'
 type planetProps = {
-    planet: String
+    planet: String,
+    resources: String
 }
-export const PlanetComponent: React.FC<planetProps> = ({planet}) => {
+export const PlanetComponent: React.FC<planetProps> = ({planet, resources}) => {
 
     return (
         <div className={`system-planet ${planet}`}><p className="text-center">{planet}</p></div>

@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { sys } from "typescript";
 import { PlanetComponent } from "../components/planet";
 import "../styles/views-styles/system-view.css"
 interface playerSystemProps {
@@ -8,20 +9,20 @@ interface playerSystemProps {
 
 export const SystemView: React.FC<playerSystemProps> = ({ playerSystem, setPlayerSystem }) => {
   let playerSystemArray = Object.values(playerSystem);
-  let systemPlanetArray = [playerSystemArray[0].systemPlanets]
-  let planetNames = systemPlanetArray[0]
+  //let systemPlanetArray = {...playerSystemArray[0]}
+  let systemPlanets = (Object.values(playerSystemArray[0])[1])
   useEffect(() => {
-
-    console.log(planetNames)
-
+    console.log(systemPlanets);
+    //console.log(Object.entries(planetNames))
+    
   }, [])
   return (
     <div className="playerSystemArray-view-wrapper row">
       {playerSystemArray.map(({ systemName, systemStar }) => {
         return (<div>{systemName}, {systemStar} system.</div>)
       })}
-      {/*{planetNames.map(() => {
-        return (<div>{planetNames} </div>)
+      {/*{Object.keys(systemPlanets).map(() => {
+        return (<div></div>)
       })} */}
     </div>
   )
