@@ -58,7 +58,8 @@
     "eslint-plugin-react": "^7.30.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.0",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "typescript-plugin-css-modules": "^3.4.0"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,css}": [

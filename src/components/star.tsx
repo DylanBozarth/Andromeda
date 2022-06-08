@@ -1,4 +1,4 @@
-import '../styles/components.css';
+import styles from '../styles/components.module.css';
 
 interface StarProps {
   systemName: string;
@@ -7,8 +7,8 @@ interface StarProps {
 
 export const Star = ({ systemName, systemStar }: StarProps) => {
   return (
-    <div className={`${systemStar}`}>
-      <div className='sector-view-star-name'>{systemName}</div>
+    <div className={`${styles[systemStar]}`}>
+      <div className={styles['sector-view-star-name']}>{systemName}</div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { PlanetComponent } from '../components/planet';
-import '../styles/views-styles/system-view.css';
+import styles from '../styles/views-styles/system-view.module.css';
 import { PlayerSystem, Sector } from '../types/system-interfaces';
 
 interface PlayerSystemProps {
@@ -17,7 +17,7 @@ export const SystemView = ({ playerSystem, setPlayerSystem }: PlayerSystemProps)
   }, [systemPlanetArray]);
 
   return (
-    <div className='playerSystemArray-view-wrapper row'>
+    <div className={`${styles['playerSystemArray-view-wrapper']} row`}>
       {playerSystemArray.map(({ id, systemName, systemStar }) => {
         return (
           <div key={id}>
@@ -27,7 +27,7 @@ export const SystemView = ({ playerSystem, setPlayerSystem }: PlayerSystemProps)
       })}
       {systemPlanetArray.map((planet) => {
         return (
-          <div key={planet} className='col-sm-2 planet-wrapper'>
+          <div key={planet} className={`col-sm-2 ${styles['planet-wrapper']}`}>
             <PlanetComponent planet={planet} />
           </div>
         );
