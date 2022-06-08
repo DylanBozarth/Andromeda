@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star } from '../../../components/star';
-import '../../../styles/views-styles/sector-view.css';
+import componentStyles from '../../../styles/components.module.css';
 import { PlayerSystem, Sector } from '../../../types/system-interfaces';
 import { MOCK_SECTOR_ARRAY } from './MOCK_DATA';
 
@@ -14,10 +14,10 @@ export const SectorA = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) =>
   const [sector, setSector] = React.useState<Sector[]>(MOCK_SECTOR_ARRAY);
   {
     return (
-      <div className='sector-view-wrapper'>
+      <div className={componentStyles['sector-view-wrapper']}>
         {sector.map((sector) => {
           return (
-            <div key={sector.id} className='sector-star-wrapper'>
+            <div key={sector.id} className={componentStyles['sector-star-wrapper']}>
               <Link to={`/system/${sector.systemName}`} onClick={() => setPlayerSystem({ sector })}>
                 <Star systemName={sector.systemName} systemStar={sector.systemStar} />
               </Link>
