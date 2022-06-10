@@ -12,7 +12,7 @@ export const SystemView: React.FC<playerSystemProps> = ({ playerSystem, setPlaye
   //let systemPlanetArray = {...playerSystemArray[0]}
   let systemPlanets = (Object.values(playerSystemArray[0])[1])
   useEffect(() => {
-    console.log(systemPlanets);
+    console.log(playerSystem['systemPlanets']);
     //console.log(Object.entries(planetNames))
     
   }, [])
@@ -21,9 +21,7 @@ export const SystemView: React.FC<playerSystemProps> = ({ playerSystem, setPlaye
       {playerSystemArray.map(({ systemName, systemStar }) => {
         return (<div>{systemName}, {systemStar} system.</div>)
       })}
-      {/*{Object.keys(systemPlanets).map(() => {
-        return (<div></div>)
-      })} */}
+      
     </div>
   )
 
