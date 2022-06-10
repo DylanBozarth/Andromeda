@@ -16,10 +16,6 @@ function App() {
     <BrowserRouter>
       <UImaster />
       <Routes>
-<<<<<<< HEAD
-        
-=======
->>>>>>> main
         <Route path='/' element={<GalaticView />} />
         <Route path='/sectora' element={<SectorA {...props} />} />
         <Route path='/system/:systemName' element={<SystemView {...props} />} />

@@ -9,18 +9,29 @@ interface PlayerSystemProps {
 }
 
 export const SystemView = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) => {
-  const playerSystemArray: Sector[] = Object.values(playerSystem);
-  const systemPlanetArray = playerSystemArray[0].systemPlanets;
-
-  useEffect(() => {
-    console.log(systemPlanetArray);
-  }, [systemPlanetArray]);
-
+  const { sector } = playerSystem;
   return (
     <div className={`${styles['playerSystemArray-view-wrapper']} row`}>
-      {playerSystemArray.map(({ id, systemName, systemStar }) => {
+      <div key={sector.systemName}>
+        {sector.systemName}, {sector.systemStar} system.
+      </div>
+      {Object.keys(playerSystem.sector.systemPlanets).map((planet) => {
         return (
-          <div key={id}>
+          <>
+            <div className={`col-sm-2 ${styles['planet-wrapper']}`}>
+              <PlanetComponent planet={planet} />
+            </div>
+            {[
+              playerSystem.sector.systemPlanets[planet].map((resource, idx) => {
+                return <p key={`${planet}-${resource}-${idx}`}>{resource}</p>;
+              }),
+            ]}
+          </>
+        );
+      })}
+      {/* {playerSystemArray.map(({ systemName, systemStar }) => {
+        return (
+          <div key={systemName}>
             {systemName}, {systemStar} system.
           </div>
         );
@@ -31,7 +42,7 @@ export const SystemView = ({ playerSystem, setPlayerSystem }: PlayerSystemProps)
             <PlanetComponent planet={planet} />
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 };
