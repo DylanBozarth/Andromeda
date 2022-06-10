@@ -1,13 +1,14 @@
-import "../styles/components.css"
-type starProps = {
-    systemName: String,
-    systemStar: String
-}
-export const Star: React.FC<starProps> = ({systemName, systemStar}) => {
+import styles from '../styles/components.module.css';
 
-return (
-    <div className={`${systemStar}`}>
-        <div className="sector-view-star-name">{systemName}</div>
-    </div>
-)
+interface StarProps {
+  systemName: string;
+  systemStar: string;
 }
+
+export const Star = ({ systemName, systemStar }: StarProps) => {
+  return (
+    <div className={`${styles[systemStar]}`}>
+      <div className={styles['sector-view-star-name']}>{systemName}</div>
+    </div>
+  );
+};

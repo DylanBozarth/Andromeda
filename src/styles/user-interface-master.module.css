@@ -1,0 +1,87 @@
+body {
+  color: white;
+  text-decoration: none;
+}
+Link:visited {
+  color: white;
+}
+.ui-main-link {
+  color: white;
+  text-align: center;
+  font-style: italic;
+}
+
+.menu {
+  z-index: 20;
+}
+.menu nav {
+  display: block;
+  width: 90%;
+  height: 50px;
+  margin: 0 auto;
+  border: 1px solid red;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 4px;
+  z-index: 20;
+  transition: all 0.3s;
+}
+.menu nav:hover {
+  box-shadow: inset 0 0 20px red;
+}
+.menu nav ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  height: 50px;
+  text-align: center;
+  position: relative;
+}
+.menu nav ul li {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  line-height: 3;
+  position: relative;
+}
+.menu nav ul li a {
+  text-decoration: none;
+  color: rgba(0, 255, 255, 0.5);
+  font-family: verdana, sans-serif;
+  display: block;
+}
+.menu nav ul li:hover > a {
+  color: white;
+  background: rgba(0, 255, 255, 0.1);
+}
+.menu nav ul li:hover .sub1,
+.menu .sub1 li:hover .sub2 {
+  display: block;
+}
+.menu .sub1 {
+  position: absolute;
+  top: 50px;
+  z-index: 500;
+  width: 100px;
+  display: none;
+}
+.menu .sub1 > li,
+.menu .sub2 > li {
+  background: rgba(0, 255, 255, 0.1);
+}
+.menu .sub1 li:hover > a,
+.menu .sub2 li:hover > a {
+  box-shadow: inset 0 0 5px aqua;
+  background: rgba(0, 0, 0, 0.9);
+}
+.menu .sub2 {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  z-index: 500;
+  width: 100px;
+  display: none;
+}
+.menu .sub2 > li {
+  background: rgba(0, 255, 255, 0.1);
+}

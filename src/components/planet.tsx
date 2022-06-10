@@ -1,11 +1,14 @@
-import '../styles/components.css'
-type planetProps = {
-    planet: String,
-    resources: String
-}
-export const PlanetComponent: React.FC<planetProps> = ({planet}) => {
+import styles from '../styles/components.module.css';
 
-    return (
-        <div className={`system-planet ${planet}`}><p className="text-center">{planet}</p></div>
-    )
+interface PlanetProps {
+  planet: string;
 }
+
+export const PlanetComponent = ({ planet }: PlanetProps) => {
+  console.log({ planet });
+  return (
+    <div className={`${styles['system-planet']} ${styles[planet]}`}>
+      <p>{planet}</p>
+    </div>
+  );
+};
