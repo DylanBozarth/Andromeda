@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react';
+=======
+import React from 'react';
+>>>>>>> main
 import { Link } from 'react-router-dom';
 import { Star } from '../../../components/star';
 import componentStyles from '../../../styles/components.module.css';
@@ -12,9 +16,12 @@ interface PlayerSystemProps {
 
 export const SectorA = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) => {
   const [sector, setSector] = React.useState<Sector[]>(MOCK_SECTOR_ARRAY);
+<<<<<<< HEAD
   useEffect(() => {
     console.log(playerSystem)
   });
+=======
+>>>>>>> main
   {
     return (
       <div className={componentStyles['sector-view-wrapper']}>
