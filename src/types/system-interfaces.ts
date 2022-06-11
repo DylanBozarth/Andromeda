@@ -1,9 +1,9 @@
 export interface Sector {
   systemStar: string;
-  systemPlanets: Array<string>;
+  systemPlanets: Record<string, Array<string>>;
   systemName: string;
   cords: string;
-  id: number;
+  ownership: string;
   hangar: Array<any>;
 }
 

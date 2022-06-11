@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Star } from '../../../components/star';
 import componentStyles from '../../../styles/components.module.css';
@@ -12,12 +12,15 @@ interface PlayerSystemProps {
 
 export const SectorA = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) => {
   const [sector, setSector] = React.useState<Sector[]>(MOCK_SECTOR_ARRAY);
+  useEffect(() => {
+    console.log(playerSystem);
+  });
   {
     return (
       <div className={componentStyles['sector-view-wrapper']}>
         {sector.map((sector) => {
           return (
-            <div key={sector.id} className={componentStyles['sector-star-wrapper']}>
+            <div key={sector.systemName} className={componentStyles['sector-star-wrapper']}>
               <Link to={`/system/${sector.systemName}`} onClick={() => setPlayerSystem({ sector })}>
                 <Star systemName={sector.systemName} systemStar={sector.systemStar} />
               </Link>
