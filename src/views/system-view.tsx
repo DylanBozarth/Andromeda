@@ -29,20 +29,6 @@ export const SystemView = ({ playerSystem, setPlayerSystem }: PlayerSystemProps)
           </>
         );
       })}
-      {/* {playerSystemArray.map(({ systemName, systemStar }) => {
-        return (
-          <div key={systemName}>
-            {systemName}, {systemStar} system.
-          </div>
-        );
-      })}
-      {systemPlanetArray.map((planet) => {
-        return (
-          <div key={planet} className={`col-sm-2 ${styles['planet-wrapper']}`}>
-            <PlanetComponent planet={planet} />
-          </div>
-        );
-      })} */}
     </div>
   );
 };
