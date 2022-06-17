@@ -4,19 +4,19 @@ export const MOCK_SECTOR_ARRAY: Sector[] = [
   {
     systemStar: 'Red-Giant',
     systemPlanets: {
-      Ocean2: ['gas-medium', 'population-scarce'],
-      Ocean3: ['water-medium', 'ore-high'],
-      Lava1: ['ore-trace', 'ore-high'],
-      Gas1: ['ore-medium', 'gas-medium'],
-      Gas5: ['water-medium', 'water-trace'],
-      Desert5: ['oil-low', 'population-tribal'],
-      Temperate1: ['ore-high', 'gas-low'],
-      Greenhouse1: ['ore-high', 'population-tribal'],
+      Gas2: [
+        'water-high',
+        'oil-medium'
+      ],
+      Greenhouse1: [
+        'gas-medium',
+        'ore-trace'
+      ]
     },
-    systemName: 'B-76963',
-    cords: 'D-61998',
-    ownership: 'F-54674',
-    hangar: [],
+    systemName: 'A-5250',
+    cords: 'A-4833',
+    ownership: 'unowned',
+    hangar: []
   },
   {
     systemStar: 'Brown-Dwarf',
@@ -30,9 +30,9 @@ export const MOCK_SECTOR_ARRAY: Sector[] = [
       Frozen5: ['ore-trace', 'oil-medium'],
       Frozen3: ['ore-high', 'ore-medium'],
     },
-    systemName: 'D-23552',
-    cords: 'F-45833',
-    ownership: 'F-71582',
+    systemName: 'A-2355',
+    cords: 'A-4583',
+    ownership: 'unowned',
     hangar: [],
   },
   {
@@ -48,9 +48,55 @@ export const MOCK_SECTOR_ARRAY: Sector[] = [
       Greenhouse5: ['ore-low', 'ore-high'],
       Rocky5: ['water-medium', 'population-cities'],
     },
-    systemName: 'E-18428',
-    cords: 'F-25269',
-    ownership: 'D-90012',
+    systemName: 'A-1842',
+    cords: 'A-2526',
+    ownership: 'A-9001',
     hangar: [],
   },
+  {
+    systemStar: 'Brown-Dwarf',
+    systemPlanets: {
+      Temperate4: [
+        'water-trace',
+        'ore-high'
+      ],
+      Rocky4: [
+        'population-tribal',
+        'ore-trace'
+      ],
+      Lava1: [
+        'water-low',
+        'gas-low'
+      ],
+      Temperate5: [
+        'water-low',
+        'ore-trace'
+      ],
+      Ocean5: [
+        'ore-trace',
+        'oil-low'
+      ],
+      Desert5: [
+        'water-trace',
+        'population-cities'
+      ]
+    },
+    systemName: 'A-8438',
+    cords: 'A-8659',
+    ownership: 'unowned',
+    hangar: []
+  },
+  {
+    systemStar: 'Yellow-Dwarf',
+    systemPlanets: {
+      Ocean4: [
+        'water-low',
+        'ore-medium'
+      ]
+    },
+    systemName: 'A-1664',
+    cords: 'A-2756',
+    ownership: 'unowned',
+    hangar: []
+  }
 ];

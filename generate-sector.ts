@@ -1,77 +1,77 @@
-let starList: string[] = [
-  "Red-Giant",
-  "Red-Supergiant",
-  "Blue-Giant",
-  "White-Dwarf",
-  "Yellow-Dwarf",
-  "Red-Dwarf",
-  "Brown-Dwarf",
+const starList: string[] = [
+  'Red-Giant',
+  'Red-Supergiant',
+  'Blue-Giant',
+  'White-Dwarf',
+  'Yellow-Dwarf',
+  'Red-Dwarf',
+  'Brown-Dwarf',
 ];
 
-let planetList: string[] = [
-  "Rocky1",
-  "Rocky2",
-  "Rocky3",
-  "Rocky4",
-  "Rocky5",
-  "Temperate1",
-  "Temperate2",
-  "Temperate3",
-  "Temperate4",
-  "Temperate5",
-  "Ocean1",
-  "Ocean2",
-  "Ocean3",
-  "Ocean4",
-  "Ocean5",
-  "Frozen1",
-  "Frozen2",
-  "Frozen3",
-  "Frozen4",
-  "Frozen5",
-  "Lava1",
-  "Lava2",
-  "Lava3",
-  "Lava4",
-  "Lava5",
-  "Gas1",
-  "Gas2",
-  "Gas3",
-  "Gas4",
-  "Gas5",
-  "Desert1",
-  "Desert2",
-  "Desert3",
-  "Desert4",
-  "Desert5",
-  "Greenhouse1",
-  "Greenhouse2",
-  "Greenhouse3",
-  "Greenhouse4",
-  "Greenhouse5",
-  "Asteroid-Belt1",
-  "Asteroid-Belt2",
-  "Asteroid-Belt3",
+const planetList: string[] = [
+  'Rocky1',
+  'Rocky2',
+  'Rocky3',
+  'Rocky4',
+  'Rocky5',
+  'Temperate1',
+  'Temperate2',
+  'Temperate3',
+  'Temperate4',
+  'Temperate5',
+  'Ocean1',
+  'Ocean2',
+  'Ocean3',
+  'Ocean4',
+  'Ocean5',
+  'Frozen1',
+  'Frozen2',
+  'Frozen3',
+  'Frozen4',
+  'Frozen5',
+  'Lava1',
+  'Lava2',
+  'Lava3',
+  'Lava4',
+  'Lava5',
+  'Gas1',
+  'Gas2',
+  'Gas3',
+  'Gas4',
+  'Gas5',
+  'Desert1',
+  'Desert2',
+  'Desert3',
+  'Desert4',
+  'Desert5',
+  'Greenhouse1',
+  'Greenhouse2',
+  'Greenhouse3',
+  'Greenhouse4',
+  'Greenhouse5',
+  'Asteroid-Belt1',
+  'Asteroid-Belt2',
+  'Asteroid-Belt3',
 ];
 
-let resources: string[] = [
-  "ore-low",
-  "ore-high",
-  "ore-medium",
-  "ore-trace",
-  "water-high",
-  "water-medium",
-  "water-low",
-  "water-trace",
-  "gas-low",
-  "gas-medium",
-  "population-tribal",
-  "population-scarce",
-  "population-cities",
-  "oil-low",
-  "oil-medium"
+const resources: string[] = [
+  'ore-low',
+  'ore-high',
+  'ore-medium',
+  'ore-trace',
+  'water-high',
+  'water-medium',
+  'water-low',
+  'water-trace',
+  'gas-low',
+  'gas-medium',
+  'population-tribal',
+  'population-scarce',
+  'population-cities',
+  'oil-low',
+  'oil-medium'
 ];
-//UTILS/RANDOM GENERATORS FILE ========================================
+// UTILS/RANDOM GENERATORS FILE ========================================
 const getRandomString = (arr: string[]) => {
   const randIdx = Math.floor(Math.random() * arr.length);
   return arr[randIdx];
@@ -89,7 +89,7 @@ const getRandomPlanet = (planetArr: string[]) => {
   return getRandomString(planetArr);
 };
 
-const getRandomResource = (resourceArr: string[], duplicate = "") => {
+const getRandomResource = (resourceArr: string[], duplicate = '') => {
   let randomResource = getRandomString(resourceArr);
   while (duplicate === randomResource) {
     randomResource = getRandomString(resourceArr);
@@ -98,14 +98,14 @@ const getRandomResource = (resourceArr: string[], duplicate = "") => {
 };
 
 const getRandomNumberString = () => {
-  const prefixOptions = "ABCDEF";
-  const value = getRandomString(prefixOptions.split(""));
-  const num = generateRandomNumber(90000, 10000);
+  const prefixOptions = 'A'; // change this variable for sector initial 
+  const value = getRandomString(prefixOptions.split(''));
+  const num = generateRandomNumber(9000, 1000);
   return `${value}-${num}`;
 };
-//================================================
+// ================================================
 
-//SYSTEMS GENERATOR FILE =================================
+// SYSTEMS GENERATOR FILE =================================
 interface System {
   systemStar: string;
   systemPlanets: Record<string, string[]>;
@@ -121,7 +121,7 @@ const generateSystem = (maxPlanets: number) => {
     systemPlanets: {},
     systemName: getRandomNumberString(),
     cords: getRandomNumberString(),
-    ownership: getRandomNumberString(),
+    ownership: 'unowned',
     hangar: [],
   };
 
@@ -146,7 +146,6 @@ const generateMultipleSystems = (maxSystems: number, maxPlanets: number) => {
     systems.push(system);
   }
 
-  return systems;
+  console.log(systems)
 };
 generateMultipleSystems(10, 8)
-// heres the list of the variables
