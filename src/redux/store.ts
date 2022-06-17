@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { loadState } from './localStorage';
+import sectorSlice from './sectorSlice';
 import testSlice from './testSlice';
 
 const reducer = {
   test: testSlice,
+  sector: sectorSlice,
 };
 
 const preloadedState = loadState();

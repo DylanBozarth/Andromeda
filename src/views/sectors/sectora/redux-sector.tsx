@@ -1,22 +1,16 @@
-import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Star } from '../../../components/star';
+import { useAppSelector } from '../../../redux/hooks';
 import componentStyles from '../../../styles/components.module.css';
-import { PlayerSystem, Sector } from '../../../types/system-interfaces';
-import { generateRandomNumber } from '../../../utils/math';
-import { System } from '../../../utils/system-generator/generate-sector';
-import { MOCK_SECTOR_ARRAY } from './MOCK_DATA';
+import { PlayerSystem } from '../../../types/system-interfaces';
 
 interface PlayerSystemProps {
   playerSystem: PlayerSystem;
   setPlayerSystem: (system: any) => void;
 }
 
-export const SectorA = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) => {
-  const [sector, setSector] = React.useState<System[]>(MOCK_SECTOR_ARRAY);
-  useEffect(() => {
-    console.log(playerSystem);
-  });
+export const ReduxSector = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) => {
+  const sector = useAppSelector((state) => state.sector.activeSector);
   {
     return (
       <div className={componentStyles['sector-view-wrapper']}>
@@ -26,8 +20,8 @@ export const SectorA = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) =>
               key={sector.systemName}
               style={{
                 position: 'absolute',
-                top: `${generateRandomNumber(20, 80)}vh`,
-                left: `${generateRandomNumber(20, 80)}vw`,
+                left: `${sector.cords.slice(2, 4)}vw`,
+                top: `${sector.cords.slice(4, 6)}vh`,
               }}
               className={componentStyles['sector-star-wrapper']}
             >
