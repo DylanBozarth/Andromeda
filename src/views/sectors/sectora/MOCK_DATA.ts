@@ -1,22 +1,16 @@
-import { Sector } from '../../../types/system-interfaces';
+import { System } from '../../../utils/system-generator/generate-sector';
 
-export const MOCK_SECTOR_ARRAY: Sector[] = [
+export const MOCK_SECTOR_ARRAY: System[] = [
   {
     systemStar: 'Red-Giant',
     systemPlanets: {
-      Gas2: [
-        'water-high',
-        'oil-medium'
-      ],
-      Greenhouse1: [
-        'gas-medium',
-        'ore-trace'
-      ]
+      Gas2: ['water-high', 'oil-medium'],
+      Greenhouse1: ['gas-medium', 'ore-trace'],
     },
     systemName: 'A-5250',
     cords: 'A-4833',
     ownership: 'unowned',
-    hangar: []
+    hangar: [],
   },
   {
     systemStar: 'Brown-Dwarf',
@@ -56,47 +50,26 @@ export const MOCK_SECTOR_ARRAY: Sector[] = [
   {
     systemStar: 'Brown-Dwarf',
     systemPlanets: {
-      Temperate4: [
-        'water-trace',
-        'ore-high'
-      ],
-      Rocky4: [
-        'population-tribal',
-        'ore-trace'
-      ],
-      Lava1: [
-        'water-low',
-        'gas-low'
-      ],
-      Temperate5: [
-        'water-low',
-        'ore-trace'
-      ],
-      Ocean5: [
-        'ore-trace',
-        'oil-low'
-      ],
-      Desert5: [
-        'water-trace',
-        'population-cities'
-      ]
+      Temperate4: ['water-trace', 'ore-high'],
+      Rocky4: ['population-tribal', 'ore-trace'],
+      Lava1: ['water-low', 'gas-low'],
+      Temperate5: ['water-low', 'ore-trace'],
+      Ocean5: ['ore-trace', 'oil-low'],
+      Desert5: ['water-trace', 'population-cities'],
     },
     systemName: 'A-8438',
     cords: 'A-8659',
     ownership: 'unowned',
-    hangar: []
+    hangar: [],
   },
   {
     systemStar: 'Yellow-Dwarf',
     systemPlanets: {
-      Ocean4: [
-        'water-low',
-        'ore-medium'
-      ]
+      Ocean4: ['water-low', 'ore-medium'],
     },
     systemName: 'A-1664',
     cords: 'A-2756',
     ownership: 'unowned',
-    hangar: []
-  }
+    hangar: [],
+  },
 ];

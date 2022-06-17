@@ -6,6 +6,7 @@ import { UImaster } from './UI/user-interface-master';
 import { SystemView } from './views/system-view';
 import { GalaticView } from './views/galatic-view';
 import { PlayerSystem } from './types/system-interfaces';
+import { ReduxSector } from './views/sectors/sectora/redux-sector';
 
 function App() {
   /* controlling player location */
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path='/' element={<GalaticView />} />
         <Route path='/sectora' element={<SectorA {...props} />} />
+        <Route path='/redux-sector' element={<ReduxSector {...props} />} />
         <Route path='/system/:systemName' element={<SystemView {...props} />} />
       </Routes>
     </BrowserRouter>

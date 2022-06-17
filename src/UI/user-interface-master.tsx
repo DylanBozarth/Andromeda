@@ -2,16 +2,22 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { decrement, increment } from '../redux/testSlice';
 import styles from '../styles/user-interface-master.module.css';
+import { useSystems } from '../utils/system-generator/redux-hook';
 
 export const UImaster: React.FC = () => {
   const dispatch = useAppDispatch();
   const testCount = useAppSelector((state) => state.test.testCount);
-
+  const generateSystems = useSystems(10, 8);
   return (
     <div>
       <div className={styles.menu}>
         <nav>
           <ul>
+            <li>
+              <a href='#' onClick={() => generateSystems()}>
+                Generate
+              </a>
+            </li>
             <li>
               <a href='#'>
                 <Link to='/' className={styles['ui-main-link']}>
@@ -23,6 +29,13 @@ export const UImaster: React.FC = () => {
               <a href='#'>
                 <Link to='/sectora' className={styles['ui-main-link']}>
                   SECTOR-A
+                </Link>
+              </a>
+            </li>
+            <li>
+              <a href='#'>
+                <Link to='/redux-sector' className={styles['ui-main-link']}>
+                  R-Sector
                 </Link>
               </a>
             </li>
