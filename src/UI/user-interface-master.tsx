@@ -27,13 +27,6 @@ export const UImaster: React.FC = () => {
             </li>
             <li>
               <a href='#'>
-                <Link to='/sectora' className={styles['ui-main-link']}>
-                  SECTOR-A
-                </Link>
-              </a>
-            </li>
-            <li>
-              <a href='#'>
                 <Link to='/redux-sector' className={styles['ui-main-link']}>
                   R-Sector
                 </Link>
