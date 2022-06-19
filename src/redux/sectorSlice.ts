@@ -1,18 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { System } from '../utils/system-generator/generate-sector';
+import { DistanceMap, System } from '../utils/system-generator/generate-sector';
+
+interface Sector {
+  systems: System[];
+  distancesMap: DistanceMap;
+}
+
 interface ActiveState {
-  activeSector: System[];
+  activeSector: Sector;
 }
 
 const initialState: ActiveState = {
-  activeSector: [],
+  activeSector: {} as Sector,
 };
 
 export const sectorSlice = createSlice({
   name: 'sector',
   initialState,
   reducers: {
-    setSector: (state, action: PayloadAction<System[]>) => {
+    setSector: (state, action: PayloadAction<Sector>) => {
       state.activeSector = action.payload;
     },
   },

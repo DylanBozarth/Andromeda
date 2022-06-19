@@ -1,26 +1,24 @@
 import './styles/global.css';
 import { useState } from 'react';
-import { SectorA } from './views/sectors/sectora/sectora';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { UImaster } from './UI/user-interface-master';
 import { SystemView } from './views/system-view';
 import { GalaticView } from './views/galatic-view';
-import { PlayerSystem } from './types/system-interfaces';
 import { ReduxSector } from './views/sectors/sectora/redux-sector';
+import { System } from './utils/system-generator/generate-sector';
 
 function App() {
   /* controlling player location */
   /* const [playerSector, setPlayerSector] = useState<Object>() */
-  const [playerSystem, setPlayerSystem] = useState<PlayerSystem>({} as PlayerSystem);
+  const [playerSystem, setPlayerSystem] = useState<System>({} as System);
   const props = { playerSystem, setPlayerSystem };
   return (
     <BrowserRouter>
       <UImaster />
       <Routes>
         <Route path='/' element={<GalaticView />} />
-        <Route path='/sectora' element={<SectorA {...props} />} />
         <Route path='/redux-sector' element={<ReduxSector {...props} />} />
-        <Route path='/system/:systemName' element={<SystemView {...props} />} />
+        <Route path='/system/:cords' element={<SystemView {...props} />} />
       </Routes>
     </BrowserRouter>
   );

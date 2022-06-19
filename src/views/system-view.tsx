@@ -1,28 +1,25 @@
-import { useEffect } from 'react';
 import { PlanetComponent } from '../components/planet';
 import styles from '../styles/views-styles/system-view.module.css';
-import { PlayerSystem, Sector } from '../types/system-interfaces';
+import { System } from '../utils/system-generator/generate-sector';
 
 interface PlayerSystemProps {
-  playerSystem: PlayerSystem;
-  setPlayerSystem: any;
+  playerSystem: System;
 }
 
-export const SystemView = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) => {
-  const { sector } = playerSystem;
+export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
   return (
     <div className={`${styles['playerSystemArray-view-wrapper']} row`}>
-      <div key={sector.systemName}>
-        {sector.systemName}, {sector.systemStar} system.
+      <div key={playerSystem.cords}>
+        {playerSystem.cords}, {playerSystem.systemStar} system.
       </div>
-      {Object.keys(playerSystem.sector.systemPlanets).map((planet) => {
+      {Object.keys(playerSystem.systemPlanets).map((planet) => {
         return (
           <>
             <div className={`col-sm-2 ${styles['planet-wrapper']}`}>
               <PlanetComponent planet={planet} />
             </div>
             {[
-              playerSystem.sector.systemPlanets[planet].map((resource, idx) => {
+              playerSystem.systemPlanets[planet].map((resource, idx) => {
                 return <p key={`${planet}-${resource}-${idx}`}>{resource}</p>;
               }),
             ]}

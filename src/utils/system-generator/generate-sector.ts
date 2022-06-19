@@ -1,19 +1,20 @@
+import { getSortedObjectByValues } from '../arrays';
 import { generateRandomNumber } from '../math';
 import { planetList } from './planets';
 import { resources } from './resources';
 import { starList } from './stars';
 import {
   getRandomSystemStar,
-  getRandomNumberString,
   getRandomPlanet,
   getRandomResource,
   getSystemCoords,
+  parseOutXandYfromCords,
+  calculateDistance,
 } from './system-functions';
 
 export interface System {
   systemStar: string;
   systemPlanets: Record<string, string[]>;
-  systemName: string;
   cords: string;
   ownership: string;
   hangar: [];
@@ -23,13 +24,12 @@ const generateSystem = (maxPlanets: number) => {
   const system: System = {
     systemStar: getRandomSystemStar(starList),
     systemPlanets: {},
-    systemName: getRandomNumberString(),
     cords: '',
     ownership: 'unowned',
     hangar: [],
   };
 
-  system.cords = getSystemCoords(system.systemName[0]);
+  system.cords = getSystemCoords('R');
 
   const randomPlanetNumber = generateRandomNumber(maxPlanets);
 
@@ -43,6 +43,8 @@ const generateSystem = (maxPlanets: number) => {
   return system;
 };
 
+export type DistanceMap = Record<string, Record<string, number>>;
+
 export const generateMultipleSystems = (maxSystems: number, maxPlanets: number) => {
   const randomSystemNumber = generateRandomNumber(maxSystems);
   const systems: System[] = [];
@@ -52,7 +54,25 @@ export const generateMultipleSystems = (maxSystems: number, maxPlanets: number) 
     systems.push(system);
   }
 
-  console.log(systems);
-  return systems;
+  const distancesMap = {} as DistanceMap;
+  for (const system of systems) {
+    const { x: x1, y: y1 } = parseOutXandYfromCords(system.cords);
+    distancesMap[system.cords] = {};
+    systems
+      .filter((val) => val.cords !== system.cords)
+      .forEach((item) => {
+        const { x: x2, y: y2 } = parseOutXandYfromCords(item.cords);
+        distancesMap[system.cords] = {
+          ...distancesMap[system.cords],
+          [item.cords]: calculateDistance(x1, y1, x2, y2),
+        };
+      });
+    distancesMap[system.cords] = getSortedObjectByValues(distancesMap[system.cords]);
+  }
+
+  return {
+    systems,
+    distancesMap,
+  };
 };
 generateMultipleSystems(10, 8);
