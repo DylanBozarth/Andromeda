@@ -3,7 +3,8 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { decrement, increment } from '../redux/testSlice';
 import styles from '../styles/user-interface-master.module.css';
 import { useSystems } from '../utils/system-generator/redux-hook';
-
+import { playerRefinedResources } from '../player-data/refined-resources';
+import { playerRawResources } from '../player-data/raw-resources';
 export const UImaster: React.FC = () => {
   const dispatch = useAppDispatch();
   const testCount = useAppSelector((state) => state.test.testCount);
@@ -41,9 +42,14 @@ export const UImaster: React.FC = () => {
             </li>
 
             <li>
-              <a href='#'>menu</a>
+              <a href='#'>fuel: {playerRefinedResources.fuel}</a>
             </li>
-
+            <li>
+              <a href='#'>Water: {playerRawResources.water}</a>
+            </li>
+            <li>
+              <a href='#'>Approval: {playerRefinedResources.approval}</a>
+            </li>
             <li>
               <a href='#'>dropdown</a>
               <ul className={styles.sub1}>
