@@ -5,6 +5,7 @@ import styles from '../styles/user-interface-master.module.css';
 import { useSystems } from '../utils/system-generator/redux-hook';
 import { playerRefinedResources } from '../player-data/refined-resources';
 import { playerRawResources } from '../player-data/raw-resources';
+import { BottomBar } from './bottom-bar';
 export const UImaster: React.FC = () => {
   const dispatch = useAppDispatch();
   const testCount = useAppSelector((state) => state.test.testCount);
@@ -84,6 +85,7 @@ export const UImaster: React.FC = () => {
             </li>
           </ul>
         </nav>
+       {/* <BottomBar /> */}
       </div>
     </div>
   );

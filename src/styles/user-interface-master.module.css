@@ -85,3 +85,6 @@ Link:visited {
 .menu .sub2 > li {
   background: rgba(0, 255, 255, 0.1);
 }
+.bottom-bar {
+  position: absolute;
+}
