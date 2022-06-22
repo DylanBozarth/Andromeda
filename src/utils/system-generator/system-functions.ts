@@ -31,3 +31,24 @@ export const getRandomNumberString = () => {
   const num = generateRandomNumber(9000, 1000);
   return `${value}-${num}`;
 };
+
+export const calculateDistance = (x1: number, y1: number, x2: number, y2: number) => {
+  const x = x2 - x1;
+  const y = y2 - y1;
+  return Math.round(Math.sqrt(x * x + y * y));
+};
+
+export const getXfromCords = (cords: string) => {
+  return cords.slice(2, 4);
+};
+
+export const getYfromCords = (cords: string) => {
+  return cords.slice(4, 6);
+};
+
+export const parseOutXandYfromCords = (cords: string) => {
+  return {
+    x: +getXfromCords(cords),
+    y: +getYfromCords(cords),
+  };
+};

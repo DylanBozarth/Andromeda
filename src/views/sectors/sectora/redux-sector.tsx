@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 import { Star } from '../../../components/star';
 import { useAppSelector } from '../../../redux/hooks';
 import componentStyles from '../../../styles/components.module.css';
-import { PlayerSystem } from '../../../types/system-interfaces';
+import { System } from '../../../utils/system-generator/generate-sector';
+import { getXfromCords, getYfromCords } from '../../../utils/system-generator/system-functions';
 
 interface PlayerSystemProps {
-  playerSystem: PlayerSystem;
+  playerSystem: System;
   setPlayerSystem: (system: any) => void;
 }
 
@@ -14,19 +15,23 @@ export const ReduxSector = ({ playerSystem, setPlayerSystem }: PlayerSystemProps
   {
     return (
       <div className={componentStyles['sector-view-wrapper']}>
-        {sector.map((sector) => {
+        {sector.systems.map((item) => {
           return (
             <div
-              key={sector.systemName}
+              key={item.cords}
               style={{
                 position: 'absolute',
-                left: `${sector.cords.slice(2, 4)}vw`,
-                top: `${sector.cords.slice(4, 6)}vh`,
+                left: `${getXfromCords(item.cords)}vw`,
+                top: `${getYfromCords(item.cords)}vh`,
               }}
               className={componentStyles['sector-star-wrapper']}
             >
-              <Link to={`/system/${sector.systemName}`} onClick={() => setPlayerSystem({ sector })}>
-                <Star systemName={sector.systemName} systemStar={sector.systemStar} />
+              <Link to={`/system/${item.cords}`} onClick={() => setPlayerSystem(item)}>
+                <Star
+                  systemName={item.cords}
+                  systemStar={item.systemStar}
+                  distanceMapValues={sector.distancesMap[item.cords]}
+                />
               </Link>
             </div>
           );
