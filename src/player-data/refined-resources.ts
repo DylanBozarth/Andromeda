@@ -1,4 +1,4 @@
-export let playerRefinedResources = [
+export const playerRefinedResources = 
     {
         'fuel': 0,
         'biomass': 0,
@@ -11,7 +11,6 @@ export let playerRefinedResources = [
         'refined-minerals': 0,
         'energy': 0,
     }
-]
 
 /*
 1. fuel will come from gas AND oil desposits, you will need both to make fuel so that you have to extract both
