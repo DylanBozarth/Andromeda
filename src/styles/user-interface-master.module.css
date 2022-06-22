@@ -85,7 +85,6 @@ Link:visited {
 .menu .sub2 > li {
   background: rgba(0, 255, 255, 0.1);
 }
-
 /* Tooltip container */
 .tooltip {
   position: relative;
@@ -111,4 +110,8 @@ Link:visited {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.outline-system {
+  outline: 4px solid rgba(0, 255, 255, 0.5);
 }
