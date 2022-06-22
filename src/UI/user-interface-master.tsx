@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { decrement, increment } from '../redux/testSlice';
 import styles from '../styles/user-interface-master.module.css';
 import { useSystems } from '../utils/system-generator/redux-hook';
+import { BottomBar } from './bottom-bar';
 
 export const UImaster: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -72,6 +73,7 @@ export const UImaster: React.FC = () => {
           </ul>
         </nav>
       </div>
+      <BottomBar />
     </div>
   );
 };

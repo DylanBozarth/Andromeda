@@ -112,3 +112,22 @@ Link:visited {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+.outline-system {
+  outline: 4px solid rgba(0, 255, 255, 0.5);
+}
+/* bottom navigation bar */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.bottom-bar-section {
+  padding:.5rem;
+}
+.bottom-bar-section:hover {
+  padding:1rem;
+}
