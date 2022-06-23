@@ -127,7 +127,12 @@ Link:visited {
 }
 .bottom-bar-section {
   padding:.5rem;
+  width: 100px;
+  border: solid 1px green;
 }
-.bottom-bar-section:hover {
-  padding:1rem;
+.bottom-bar-section-inactive {
+  padding:.5rem;
+  width: 100px;
+  background-color: blue;
+  border: solid 1px green;
 }
