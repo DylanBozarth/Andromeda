@@ -1,4 +1,4 @@
-import { getSortedObjectByValues } from '../arrays';
+import { getSortedObjectByProperty } from '../arrays';
 import { generateRandomNumber } from '../math';
 import { planetList } from './planets';
 import { resources } from './resources';
@@ -43,7 +43,9 @@ const generateSystem = (maxPlanets: number) => {
   return system;
 };
 
-export type DistanceMap = Record<string, Record<string, number>>;
+export type DistanceMap = Record<string, Record<string, { distance: number; eta: string }>>;
+
+const timeScale = 15; // 15 minutes for each parsec
 
 export const generateMultipleSystems = (maxSystems: number, maxPlanets: number) => {
   const randomSystemNumber = generateRandomNumber(maxSystems);
@@ -62,12 +64,16 @@ export const generateMultipleSystems = (maxSystems: number, maxPlanets: number) 
       .filter((val) => val.cords !== system.cords)
       .forEach((item) => {
         const { x: x2, y: y2 } = parseOutXandYfromCords(item.cords);
+        const distance = calculateDistance(x1, y1, x2, y2);
         distancesMap[system.cords] = {
           ...distancesMap[system.cords],
-          [item.cords]: calculateDistance(x1, y1, x2, y2),
+          [item.cords]: {
+            distance,
+            eta: `${(distance * timeScale) / 60}`,
+          },
         };
       });
-    distancesMap[system.cords] = getSortedObjectByValues(distancesMap[system.cords]);
+    distancesMap[system.cords] = getSortedObjectByProperty(distancesMap[system.cords], 'distance');
   }
 
   return {

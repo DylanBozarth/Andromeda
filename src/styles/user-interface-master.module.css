@@ -94,7 +94,7 @@ Link:visited {
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 150px;
+  width: 250px;
   background-color: grey;
   color: #fff;
   text-align: center;
