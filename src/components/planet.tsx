@@ -5,7 +5,6 @@ interface PlanetProps {
 }
 
 export const PlanetComponent = ({ planet }: PlanetProps) => {
-  console.log({ planet });
   return (
     <div className={`${styles['system-planet']} ${styles[planet]}`}>
       <p>{planet}</p>

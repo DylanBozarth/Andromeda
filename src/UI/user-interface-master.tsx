@@ -8,7 +8,6 @@ import { playerRawResources } from '../player-data/raw-resources';
 import { BottomBar } from './bottom-bar';
 export const UImaster: React.FC = () => {
   const dispatch = useAppDispatch();
-  const testCount = useAppSelector((state) => state.test.testCount);
   const generateSystems = useSystems(10, 8);
   return (
     <div>
@@ -21,65 +20,59 @@ export const UImaster: React.FC = () => {
               </a>
             </li>
             <li>
-              <a href='#'>
-                <Link to='/' className={styles['ui-main-link']}>
-                  Galatic View
-                </Link>
-              </a>
-            </li>
-            <li>
-              <a href='#'>
-                <Link to='/redux-sector' className={styles['ui-main-link']}>
-                  R-Sector
-                </Link>
-              </a>
-            </li>
-
-            <li>
               <a href='#'>fuel: {playerRefinedResources.fuel}</a>
             </li>
             <li>
               <a href='#'>Water: {playerRawResources.water}</a>
             </li>
             <li>
-              <a href='#'>Approval: {playerRefinedResources.approval}</a>
+              <a href='#'>Energy {playerRefinedResources.energy}</a>
             </li>
             <li>
-              <a href='#'>dropdown</a>
+              <a href='#' className={styles.oneline}>Raw </a>
               <ul className={styles.sub1}>
                 <li>
-                  <a href='#' onClick={() => dispatch(increment())}>
-                    Increment
-                  </a>
+                  <a href='#'>Gas: {playerRawResources.gas}</a>
                 </li>
                 <li>
-                  <a href='#' onClick={() => dispatch(decrement())}>
-                    Decrement
-                  </a>
+                  <a href='#'>Oil: {playerRawResources.oil}</a>
                 </li>
                 <li>
-                  <a href='#'>{testCount}</a>
+                  <a href='#'>Ore: {playerRawResources.ore}</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href='#' className={styles.oneline}>Refined </a>
+              <ul className={styles.sub1}>
+                <li>
+                  <a href='#'>Hard metal{playerRefinedResources['hard-metal']}</a>
                 </li>
                 <li>
-                  <a href='#'>menu</a>
-                  <ul className={styles.sub2}>
-                    <li>
-                      <a href='#'>menu</a>
-                    </li>
-                    <li>
-                      <a href='#'>menu</a>
-                    </li>
-                    <li>
-                      <a href='#'>menu</a>
-                    </li>
-                  </ul>
+                  <a href='#'>Soft metal {playerRefinedResources['soft-metal']}</a>
+                </li>
+                <li>
+                  <a href='#'>Approval: {playerRefinedResources.approval}</a>
+                </li>
+                <li>
+                  <a href='#'>Biomass {playerRefinedResources.biomass}</a>
+                </li>
+
+                <li>
+                  <a href='#'>Consumer goods {playerRefinedResources['consumer-goods']}</a>
+                </li>
+                <li>
+                  <a href='#'>Femented Grain {playerRefinedResources['fermented-grain']}</a>
+                </li>
+                <li>
+                  <a href='#'>Refined Minerals {playerRefinedResources['refined-minerals']}</a>
                 </li>
               </ul>
             </li>
           </ul>
         </nav>
-       {/* <BottomBar /> */}
       </div>
+      <BottomBar />
     </div>
   );
 };
