@@ -19,19 +19,6 @@ const handleRemoveOutline = (id: string) => {
 export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) => {
   const display = (
     <>
-      <h4>Distances to:</h4>
-      {Object.keys(distanceMapValues).map((key) => {
-        return (
-          <p
-            key={key}
-            style={{ margin: 0 }}
-            onMouseEnter={() => handleAddOutline(key)}
-            onMouseLeave={() => handleRemoveOutline(key)}
-          >
-            {key}: {distanceMapValues[key]} parsecs
-          </p>
-        );
-      })}
       <table>
         <tr>
           <th>Star</th>

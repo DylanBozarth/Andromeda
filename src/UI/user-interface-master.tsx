@@ -41,13 +41,6 @@ export const UImaster: React.FC = () => {
                   <a href='#'>Ore: {playerRawResources.ore}</a>
                 </li>
               </ul>
-              <a href='#'>fuel: {playerRefinedResources.fuel}</a>
-            </li>
-            <li>
-              <a href='#'>Water: {playerRawResources.water}</a>
-            </li>
-            <li>
-              <a href='#'>Approval: {playerRefinedResources.approval}</a>
             </li>
             <li>
               <a href='#' className={styles.oneline}>Refined </a>
