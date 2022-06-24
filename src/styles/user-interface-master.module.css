@@ -135,3 +135,7 @@ Link:visited {
   background-color: blue;
   border: solid 1px green;
 }
+.bottom-bar-text {
+  color: white;
+  text-decoration: none;
+}

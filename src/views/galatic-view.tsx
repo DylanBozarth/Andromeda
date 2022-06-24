@@ -5,7 +5,7 @@ export const GalaticView = () => {
   return (
     <div>
       Galaxy placeholder. These will be placed around the galaxy <br />
-      <Link to='/sectora'>Sector A</Link>
+      <Link to='/redux-sector'>Run Generate before clicking me</Link>
       <img src='./assets/Galaxy.jpg' className={styles.galaxy} alt='galaxy' />
     </div>
   );

@@ -21,21 +21,6 @@ export const UImaster: React.FC = () => {
               </a>
             </li>
             <li>
-              <a href='#'>
-                <Link to='/' className={styles['ui-main-link']}>
-                  Galatic View
-                </Link>
-              </a>
-            </li>
-            <li>
-              <a href='#'>
-                <Link to='/redux-sector' className={styles['ui-main-link']}>
-                  R-Sector
-                </Link>
-              </a>
-            </li>
-
-            <li>
               <a href='#'>fuel: {playerRefinedResources.fuel}</a>
             </li>
             <li>
