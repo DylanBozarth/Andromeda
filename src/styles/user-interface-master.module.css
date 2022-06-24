@@ -115,6 +115,10 @@ Link:visited {
 .outline-system {
   outline: 4px solid rgba(0, 255, 255, 0.5);
 }
+.oneline {
+  white-space: nowrap;
+  width:100%;
+}
 /* bottom navigation bar */
 .bottom-bar {
   position: fixed;
@@ -123,6 +127,7 @@ Link:visited {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  background-color: black;
 }
 .bottom-bar-section {
   padding:.5rem;
