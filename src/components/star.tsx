@@ -16,7 +16,9 @@ const handleRemoveOutline = (id: string) => {
   const planet = document.getElementById(id);
   planet?.classList.remove(uiStyles['outline-system']);
 };
+
 export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) => {
+  console.log({ distanceMapValues });
   const display = (
     <>
       <table>

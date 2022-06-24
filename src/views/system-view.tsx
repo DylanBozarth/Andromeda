@@ -9,8 +9,8 @@ interface PlayerSystemProps {
 export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
   return (
     <div className={`${styles['playerSystemArray-view-wrapper']} row`}>
-      <div key={playerSystem.cords}>
-        {playerSystem.cords}, {playerSystem.systemStar} system.
+      <div key={playerSystem.systemName}>
+        {playerSystem.systemName}, {playerSystem.systemStar} system.
       </div>
       {Object.keys(playerSystem.systemPlanets).map((planet) => {
         return (

@@ -11,10 +11,12 @@ import {
   parseOutXandYfromCords,
   calculateDistance,
 } from './system-functions';
+import { systemNameGenerator } from './system-name-generator';
 
 export interface System {
   systemStar: string;
   systemPlanets: Record<string, string[]>;
+  systemName: string;
   cords: string;
   ownership: string;
   hangar: [];
@@ -24,11 +26,13 @@ const generateSystem = (maxPlanets: number) => {
   const system: System = {
     systemStar: getRandomSystemStar(starList),
     systemPlanets: {},
+    systemName: systemNameGenerator(1)[0],
     cords: '',
     ownership: 'unowned',
     hangar: [],
   };
 
+  console.log({ system });
   system.cords = getSystemCoords('R');
 
   const randomPlanetNumber = generateRandomNumber(maxPlanets);
@@ -59,26 +63,29 @@ export const generateMultipleSystems = (maxSystems: number, maxPlanets: number) 
   const distancesMap = {} as DistanceMap;
   for (const system of systems) {
     const { x: x1, y: y1 } = parseOutXandYfromCords(system.cords);
-    distancesMap[system.cords] = {};
+    distancesMap[system.systemName] = {};
     systems
-      .filter((val) => val.cords !== system.cords)
+      .filter((val) => val.systemName !== system.systemName)
       .forEach((item) => {
         const { x: x2, y: y2 } = parseOutXandYfromCords(item.cords);
         const distance = calculateDistance(x1, y1, x2, y2);
-        distancesMap[system.cords] = {
-          ...distancesMap[system.cords],
-          [item.cords]: {
+        distancesMap[system.systemName] = {
+          ...distancesMap[system.systemName],
+          [item.systemName]: {
             distance,
             eta: `${(distance * timeScale) / 60}`,
           },
         };
       });
-    distancesMap[system.cords] = getSortedObjectByProperty(distancesMap[system.cords], 'distance');
+    distancesMap[system.systemName] = getSortedObjectByProperty(
+      distancesMap[system.systemName],
+      'distance',
+    );
   }
 
+  console.log({ distancesMap });
   return {
     systems,
     distancesMap,
   };
 };
-generateMultipleSystems(10, 8);

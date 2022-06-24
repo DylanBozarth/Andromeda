@@ -26,11 +26,11 @@ export const ReduxSector = ({ playerSystem, setPlayerSystem }: PlayerSystemProps
               }}
               className={componentStyles['sector-star-wrapper']}
             >
-              <Link to={`/system/${item.cords}`} onClick={() => setPlayerSystem(item)}>
+              <Link to={`/system/${item.systemName}`} onClick={() => setPlayerSystem(item)}>
                 <Star
-                  systemName={item.cords}
+                  systemName={item.systemName}
                   systemStar={item.systemStar}
-                  distanceMapValues={sector.distancesMap[item.cords]}
+                  distanceMapValues={sector.distancesMap[item.systemName]}
                 />
               </Link>
             </div>

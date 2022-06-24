@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<GalaticView />} />
         <Route path='/redux-sector' element={<ReduxSector {...props} />} />
-        <Route path='/system/:cords' element={<SystemView {...props} />} />
+        <Route path='/system/:systemName' element={<SystemView {...props} />} />
       </Routes>
     </BrowserRouter>
   );

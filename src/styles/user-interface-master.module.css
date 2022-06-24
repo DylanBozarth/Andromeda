@@ -94,7 +94,6 @@ Link:visited {
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 250px;
   background-color: grey;
   color: #fff;
   text-align: center;
@@ -117,7 +116,7 @@ Link:visited {
 }
 .oneline {
   white-space: nowrap;
-  width:100%;
+  width: 100%;
 }
 /* bottom navigation bar */
 .bottom-bar {
@@ -130,12 +129,12 @@ Link:visited {
   background-color: black;
 }
 .bottom-bar-section {
-  padding:.5rem;
+  padding: 0.5rem;
   width: 100px;
   border: solid 1px green;
 }
 .bottom-bar-section-inactive {
-  padding:.5rem;
+  padding: 0.5rem;
   width: 100px;
   background-color: blue;
   border: solid 1px green;
