@@ -4,7 +4,7 @@ import uiStyles from '../styles/user-interface-master.module.css';
 interface StarProps {
   systemName: string;
   systemStar: string;
-  distanceMapValues: Record<string, number>;
+  distanceMapValues: Record<string, { distance: number; eta: string }>;
 }
 
 const handleAddOutline = (id: string) => {
@@ -32,6 +32,27 @@ export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) =
           </p>
         );
       })}
+      <table>
+        <tr>
+          <th>Star</th>
+          <th>Distance</th>
+          <th>ETA(hours)</th>
+        </tr>
+        {Object.keys(distanceMapValues).map((key) => {
+          return (
+            <tr
+              key={key}
+              style={{ margin: 0 }}
+              onMouseEnter={() => handleAddOutline(key)}
+              onMouseLeave={() => handleRemoveOutline(key)}
+            >
+              <td>{key}</td>
+              <td>{distanceMapValues[key].distance} parsecs</td>
+              <td>{distanceMapValues[key].eta}</td>
+            </tr>
+          );
+        })}
+      </table>
     </>
   );
   return (
