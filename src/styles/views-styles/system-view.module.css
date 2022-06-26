@@ -1,6 +1,8 @@
-.playerSystemArray-view-wrapper {
+.system-wrapper {
   text-align: center;
+  border: 1px solid red;
+  margin: 5%;
 }
 .planet-wrapper {
-  padding: 1rem;
+  align-items: center;
 }

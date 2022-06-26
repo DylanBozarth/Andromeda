@@ -22,10 +22,10 @@ export const BottomBar = () => {
   }, [location])
   return (
     <div className={styles['bottom-bar']}>
-      <div className={styles['bottom-bar-section']}><Link to='/' onClick={() => setUserSector('')} className={styles['bottom-bar-text']}>Galaxy</Link></div>
-      <div className={userSector ? styles['bottom-bar-section'] : styles['bottom-bar-section-inactive']} onClick={() => setUserSystem('')}>
-        <Link to={`/${userSector}`} className={styles['bottom-bar-text']}>{userSector}</Link>
-      </div>
+      <Link to='/' onClick={() => setUserSector('')} className={styles['bottom-bar-text']}><div className={styles['bottom-bar-section']}>Galaxy</div></Link>
+      <Link to={`/${userSector}`} className={styles['bottom-bar-text']}><div className={userSector ? styles['bottom-bar-section'] : styles['bottom-bar-section-inactive']} onClick={() => setUserSystem('')}>
+        {userSector}
+      </div></Link>
       <div className={userSystem ? styles['bottom-bar-section'] : styles['bottom-bar-section-inactive']}>
         <p className={styles['bottom-bar-text']}>{userSystem}</p>
         </div>

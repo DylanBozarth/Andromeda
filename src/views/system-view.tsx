@@ -8,7 +8,7 @@ interface PlayerSystemProps {
 
 export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
   return (
-    <div className={`${styles['playerSystemArray-view-wrapper']} row`}>
+    <div className={`${styles['system-wrapper']} row`}>
       <div key={playerSystem.systemName}>
         {playerSystem.systemName}, {playerSystem.systemStar} system.
       </div>
@@ -17,12 +17,13 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
           <>
             <div className={`col-sm-2 ${styles['planet-wrapper']}`}>
               <PlanetComponent planet={planet} />
-            </div>
-            {[
+               {[
               playerSystem.systemPlanets[planet].map((resource, idx) => {
                 return <p key={`${planet}-${resource}-${idx}`}>{resource}</p>;
               }),
             ]}
+            </div>
+           
           </>
         );
       })}
