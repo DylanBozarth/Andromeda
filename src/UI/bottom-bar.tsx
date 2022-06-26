@@ -28,8 +28,7 @@ export const BottomBar = () => {
       </div></Link>
       <div className={userSystem ? styles['bottom-bar-section'] : styles['bottom-bar-section-inactive']}>
         <p className={styles['bottom-bar-text']}>{userSystem}</p>
-        </div>
-
+      </div>
     </div>
   )
-  }
+}

@@ -26,7 +26,6 @@
 .Yellow-Dwarf {
   box-shadow: 1px 1px 45px gold;
   box-shadow: 1px 1px 35px goldenrod;
-  background-color: red;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
   background: url('./textures/starTextures/yellow-star.png') repeat-x;
@@ -437,21 +436,21 @@
   
 }
 .Asteroid-Belt1 {
-  height: 1em;
-  width: 1em;
-  background-color: grey;
-  border: 1px solid goldenrod;
+  height: 250px;
+  width:  250px;
+  background: url('./textures/planettextures/asteroid.png');
+  background-size: 100% 100%;
 }
 .Asteroid-Belt2 {
-  height: 1em;
-  width: 1em;
-  background-color: grey;
-  border: 1px solid goldenrod;
+  height:  250px;
+  width:  250px;
+  background: url('./textures/planettextures/asteroid.png');
+  background-size: 100% 100%;
 }
 .Asteroid-Belt3 {
-  height: 1em;
-  width: 1em;
-  background-color: grey;
-  border: 1px solid goldenrod;
+  height:  250px;
+  width:  250px;
+  background: url('./textures/planettextures/asteroid.png');
+  background-size: 100% 100%;
 }
 /* end planets css*/
