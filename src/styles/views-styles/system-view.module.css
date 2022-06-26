@@ -1,8 +1,14 @@
 .system-wrapper {
   text-align: center;
-  border: 1px solid red;
   display:flex;
+  justify-content: center;
+}
+.planet-square {
+  width: auto;
+  height: fit-content;
+  text-align: center;
 }
 .planet-wrapper {
-  border: 1px solid green
+  width: 30em;
+  height: 15em;
 }

@@ -15,8 +15,8 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
       {Object.keys(playerSystem.systemPlanets).map((planet) => {
         return (
           <>
-            <div className={`col-sm-2 ${styles['planet-wrapper']}`}>
-              <PlanetComponent planet={planet} />
+            <div className={`col-sm-2 ${styles['planet-square']}`}>
+              <div className={styles['planet-wrapper']}><PlanetComponent planet={planet} /></div>
                {[
               playerSystem.systemPlanets[planet].map((resource, idx) => {
                 return <p key={`${planet}-${resource}-${idx}`}>{resource}</p>;

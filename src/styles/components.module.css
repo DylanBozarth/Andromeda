@@ -164,8 +164,8 @@
   
 }
 .Desert3 {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   background: url('../styles/textures/planettextures/desert/desert3.png') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
@@ -180,8 +180,8 @@
   
 }
 .Desert5 {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   background: url('../styles/textures/planettextures/desert/desert.jpg') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;

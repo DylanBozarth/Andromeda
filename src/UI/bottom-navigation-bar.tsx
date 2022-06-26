@@ -2,7 +2,7 @@ import styles from '../styles/user-interface-master.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
-export const BottomBar = () => {
+export const BottomNavBar = () => {
   const [userSector, setUserSector] = useState('');
   const [userSystem, setUserSystem] = useState('');
   const location = useLocation();
