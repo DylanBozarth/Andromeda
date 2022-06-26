@@ -1,8 +1,8 @@
 .system-wrapper {
   text-align: center;
   border: 1px solid red;
-  margin: 5%;
+  display:flex;
 }
 .planet-wrapper {
-  align-items: center;
+  border: 1px solid green
 }
