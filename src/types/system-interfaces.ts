@@ -6,7 +6,7 @@ export interface Sector {
   systemName: string;
   cords: string;
   ownership: string;
-  hangar: Array<any>;
+  hangar: Array<string>;
 }
 
 export interface PlayerSystem {
