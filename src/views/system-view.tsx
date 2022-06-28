@@ -8,22 +8,30 @@ interface PlayerSystemProps {
 
 export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
   return (
-    <div className={`${styles['system-wrapper']} row`}>
+    <div className={`${styles['playerSystemArray-view-wrapper']} row`}>
       <div key={playerSystem.systemName}>
         {playerSystem.systemName}, {playerSystem.systemStar} system.
       </div>
-      {Object.keys(playerSystem.systemPlanets).map((planet) => {
+      {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
-            <div className={`col-sm-2 ${styles['planet-square']}`}>
-              <div className={styles['planet-wrapper']}><PlanetComponent planet={planet} /></div>
-               {[
-              playerSystem.systemPlanets[planet].map((resource, idx) => {
+            <div className={`col-sm-2 ${styles['planet-wrapper']}`}>
+              <PlanetComponent planet={planet} />
+            </div>
+            {[
+              planet.resources.map((resource, idx) => {
                 return <p key={`${planet}-${resource}-${idx}`}>{resource}</p>;
               }),
             ]}
+            <div>
+              Buildings
             </div>
-           
+            {[
+              planet.buildings.map((building, idx) => {
+                return <p key={`${planet}-${building}-${idx}`}>{building}</p>;
+              }),
+            ]}
+            
           </>
         );
       })}

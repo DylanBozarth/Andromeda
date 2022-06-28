@@ -1,13 +1,14 @@
 import styles from '../styles/components.module.css';
+import { Planet } from '../types/planet-interface';
 
 interface PlanetProps {
-  planet: string;
+  planet: Planet;
 }
 
 export const PlanetComponent = ({ planet }: PlanetProps) => {
   return (
-    <div className={`${styles['system-planet']} ${styles[planet]}`}>
-      <p>{planet}</p>
+    <div className={`${styles['system-planet']} ${styles[planet.name]}`}>
+      <p>{planet.name}</p>
     </div>
   );
 };

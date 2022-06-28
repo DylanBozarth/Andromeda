@@ -25,6 +25,14 @@ export const getRandomResource = (resourceArr: string[], duplicate = '') => {
   return randomResource;
 };
 
+export const getRandomBuildings = (resourceArr: string[], duplicate = '') => {
+  let randomBuilding = getRandomString(resourceArr);
+  while (duplicate === randomBuilding) {
+    randomBuilding = getRandomString(resourceArr);
+  }
+  return randomBuilding;
+};
+
 export const getRandomNumberString = () => {
   const prefixOptions = 'A'; // change this variable for sector initial
   const value = getRandomString(prefixOptions.split(''));

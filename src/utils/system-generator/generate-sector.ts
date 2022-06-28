@@ -1,5 +1,7 @@
 import { getSortedObjectByProperty } from '../arrays';
+import { Planet } from '../../types/planet-interface';
 import { generateRandomNumber } from '../math';
+import { buildingTypes } from './buildings';
 import { planetList } from './planets';
 import { resources } from './resources';
 import { starList } from './stars';
@@ -10,12 +12,13 @@ import {
   getSystemCoords,
   parseOutXandYfromCords,
   calculateDistance,
+  getRandomBuildings,
 } from './system-functions';
 import { systemNameGenerator } from './system-name-generator';
 
 export interface System {
   systemStar: string;
-  systemPlanets: Record<string, string[]>;
+  systemPlanets: Array<Planet>;
   systemName: string;
   cords: string;
   ownership: string;
@@ -25,8 +28,8 @@ export interface System {
 const generateSystem = (maxPlanets: number) => {
   const system: System = {
     systemStar: getRandomSystemStar(starList),
-    systemPlanets: {},
     systemName: systemNameGenerator(1)[0],
+    systemPlanets: [],
     cords: '',
     ownership: 'unowned',
     hangar: [],
@@ -41,7 +44,10 @@ const generateSystem = (maxPlanets: number) => {
     const planetName = getRandomPlanet(planetList);
     const resource1 = getRandomResource(resources);
     const resource2 = getRandomResource(resources, resource1);
-    system.systemPlanets[planetName] = [resource1, resource2];
+    const building1 = getRandomBuildings(buildingTypes)
+    const building2 = getRandomBuildings(buildingTypes, building1)
+    const planet: Planet = {name: planetName, resources: [resource1, resource2], buildings: [building1, building2]};
+    system.systemPlanets.push(planet)
   }
 
   return system;
