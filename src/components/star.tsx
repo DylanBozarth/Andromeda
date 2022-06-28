@@ -45,7 +45,7 @@ export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) =
     </>
   );
   return (
-    <div id={systemName} className={`${styles[systemStar]}`}>
+    <div id={systemName} className={`${styles[systemStar]} ${styles['star']}` }>
       <div className={`${styles['sector-view-star-name']} ${uiStyles.tooltip}`}>
         {systemName}
         <span className={uiStyles.tooltiptext}>{display}</span>
@@ -53,3 +53,14 @@ export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) =
     </div>
   );
 };
+
+/* Star effects on system 
+Red Giant: Minor approval pentalty, heat level increase, UV bonus to solar farms, fuel cost increase (if possible programically)
+red supergiant:all of that but more intense
+red Dwarf: no bonus or debuff
+brown dwarf: Uv debuff, heat level decrease
+yellow dwarf: Approval bonus
+white dwarf: UV buff, heat level decrease, 
+blue giant: uv buff, heat level increase
+
+*/

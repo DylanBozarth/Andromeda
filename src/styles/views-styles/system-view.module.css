@@ -1,6 +1,14 @@
-.playerSystemArray-view-wrapper {
+.system-wrapper {
+  text-align: center;
+  display:flex;
+  justify-content: center;
+}
+.planet-square {
+  width: auto;
+  height: fit-content;
   text-align: center;
 }
 .planet-wrapper {
-  padding: 1rem;
+  width: 30em;
+  height: 15em;
 }

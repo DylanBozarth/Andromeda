@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Star } from '../../../components/star';
 import { useAppSelector } from '../../../redux/hooks';
-import componentStyles from '../../../styles/components.module.css';
+import styles from '../../../styles/components.module.css';
 import { System } from '../../../utils/system-generator/generate-sector';
 import { getXfromCords, getYfromCords } from '../../../utils/system-generator/system-functions';
 
@@ -14,7 +14,7 @@ export const ReduxSector = ({ playerSystem, setPlayerSystem }: PlayerSystemProps
   const sector = useAppSelector((state) => state.sector.activeSector);
   {
     return (
-      <div className={componentStyles['sector-view-wrapper']}>
+      <div className={styles['sector-view-wrapper']}>
         {sector.systems.map((item) => {
           return (
             <div
@@ -24,7 +24,7 @@ export const ReduxSector = ({ playerSystem, setPlayerSystem }: PlayerSystemProps
                 left: `${getXfromCords(item.cords)}vw`,
                 top: `${getYfromCords(item.cords)}vh`,
               }}
-              className={componentStyles['sector-star-wrapper']}
+              className={styles['sector-star-wrapper']}
             >
               <Link to={`/system/${item.systemName}`} onClick={() => setPlayerSystem(item)}>
                 <Star

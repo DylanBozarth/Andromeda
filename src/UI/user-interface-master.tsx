@@ -5,7 +5,7 @@ import styles from '../styles/user-interface-master.module.css';
 import { useSystems } from '../utils/system-generator/redux-hook';
 import { playerRefinedResources } from '../player-data/refined-resources';
 import { playerRawResources } from '../player-data/raw-resources';
-import { BottomBar } from './bottom-bar';
+import { BottomNavBar } from './bottom-navigation-bar';
 export const UImaster: React.FC = () => {
   const dispatch = useAppDispatch();
   const generateSystems = useSystems(10, 8);
@@ -72,7 +72,7 @@ export const UImaster: React.FC = () => {
           </ul>
         </nav>
       </div>
-      <BottomBar />
+      <BottomNavBar />
     </div>
   );
 };
