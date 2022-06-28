@@ -1,39 +1,39 @@
-import React, { useEffect } from 'react';
+
+
 import { Link } from 'react-router-dom';
 import { Star } from '../../../components/star';
-import componentStyles from '../../../styles/components.module.css';
-import { PlayerSystem, Sector } from '../../../types/system-interfaces';
-import { generateRandomNumber } from '../../../utils/math';
+import { useAppSelector } from '../../../redux/hooks';
+import styles from '../../../styles/components.module.css';
 import { System } from '../../../utils/system-generator/generate-sector';
-import { MOCK_SECTOR_ARRAY } from './MOCK_DATA';
+import { getXfromCords, getYfromCords } from '../../../utils/system-generator/system-functions';
 
 interface PlayerSystemProps {
-  playerSystem: PlayerSystem;
+  playerSystem: System;
   setPlayerSystem: (system: any) => void;
 }
 
-export const SectorA = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) => {
-  const [sector, setSector] = React.useState<System[]>(MOCK_SECTOR_ARRAY);
-  console.log(sector)
-  useEffect(() => {
-    console.log(playerSystem);
-  });
+export const ReduxSector = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) => {
+  const sector = useAppSelector((state) => state.sector.activeSector);
   {
     return (
-      <div className={componentStyles['sector-view-wrapper']}>
-        {sector.map((sector) => {
+      <div className={styles['sector-view-wrapper']}>
+        {sector.systems.map((item) => {
           return (
             <div
-              key={sector.systemName}
+              key={item.cords}
               style={{
                 position: 'absolute',
-                top: `${generateRandomNumber(20, 80)}vh`,
-                left: `${generateRandomNumber(20, 80)}vw`,
+                left: `${getXfromCords(item.cords)}vw`,
+                top: `${getYfromCords(item.cords)}vh`,
               }}
-              className={componentStyles['sector-star-wrapper']}
+              className={styles['sector-star-wrapper']}
             >
-              <Link to={`/system/${sector.systemName}`} onClick={() => setPlayerSystem({ sector })}>
-                <Star systemName={sector.systemName} systemStar={sector.systemStar} />
+              <Link to={`/system/${item.systemName}`} onClick={() => setPlayerSystem(item)}>
+                <Star
+                  systemName={item.systemName}
+                  systemStar={item.systemStar}
+                  distanceMapValues={sector.distancesMap[item.systemName]}
+                />
               </Link>
             </div>
           );
