@@ -1,5 +1,6 @@
 import { PlanetComponent } from '../components/planet';
 import styles from '../styles/views-styles/system-view.module.css';
+import { SystemBottomBar } from '../UI/system-bottom-bar';
 import { System } from '../utils/system-generator/generate-sector';
 
 interface PlayerSystemProps {
@@ -9,9 +10,7 @@ interface PlayerSystemProps {
 export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
   return (
     <div className={`${styles['playerSystemArray-view-wrapper']} row`}>
-      <div key={playerSystem.systemName}>
-        {playerSystem.systemName}, {playerSystem.systemStar} system.
-      </div>
+      
       {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
@@ -20,21 +19,22 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
             </div>
             {[
               planet.resources.map((resource, idx) => {
-                return <p key={`${planet}-${resource}-${idx}`}>{resource}</p>;
+                return <p className="hidden"  key={`${planet}-${resource}-${idx}`}>{resource}</p>;
               }),
             ]}
-            <div>
-              Buildings
-            </div>
             {[
               planet.buildings.map((building, idx) => {
-                return <p key={`${planet}-${building}-${idx}`}>{building}</p>;
+                return <p className="hidden" key={`${planet}-${building}-${idx}`}>{building}</p>;
               }),
             ]}
             
           </>
         );
       })}
+      <div key={playerSystem.systemName} className="text-center">
+        {playerSystem.systemName}, {playerSystem.systemStar} system.
+      </div>
+      <SystemBottomBar />
     </div>
   );
 };
