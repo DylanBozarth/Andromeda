@@ -140,12 +140,13 @@ Link:visited {
 /* navigation bar */
 .navigation-bar {
   position: fixed;
-  top: 0;
+  bottom: 0;
   border: 1px solid red;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   background-color: black;
+  z-index: 99;
 }
 .navigation-bar-section {
   padding: 0.5rem;
@@ -161,6 +162,10 @@ Link:visited {
   color: white;
   text-decoration: none;
 }
+.navigation-bar-text:hover {
+  text-decoration: none;
+  color: white;
+}
 /* system bottom bar menu */
 .system-bottom-bar {
   border: 1px solid lightblue;
@@ -174,4 +179,19 @@ Link:visited {
 }
 .system-title {
   text-align: center;
+}
+.bottom-bar-section {
+  text-align: center;
+  flex: 1;
+}
+/* system side bar */
+.side-bar-wrapper {
+  position: absolute;
+  right:0;
+}
+.side-bar {
+  background-color: darkblue;
+  border: 2px solid lightblue;
+  width: 300px;
+  color: white;
 }

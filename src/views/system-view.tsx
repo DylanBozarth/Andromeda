@@ -1,6 +1,7 @@
 import { PlanetComponent } from '../components/planet';
 import styles from '../styles/views-styles/system-view.module.css';
 import { SystemBottomBar } from '../UI/system-bottom-bar';
+import { SystemSideBar } from '../UI/system-side-bar';
 import { System } from '../utils/system-generator/generate-sector';
 
 interface PlayerSystemProps {
@@ -33,6 +34,7 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
       })}
       <div key={playerSystem.systemName} className="text-center">
       </div>
+      <SystemSideBar />
       <SystemBottomBar playerSystem={playerSystem}  />
     </div>
   );
