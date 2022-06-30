@@ -137,27 +137,41 @@ Link:visited {
   background-image: url('./icons/water.png');
   background-size: 100% 100%;
 }
-/* bottom navigation bar */
-.bottom-bar {
+/* navigation bar */
+.navigation-bar {
   position: fixed;
-  bottom: 0;
+  top: 0;
   border: 1px solid red;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   background-color: black;
 }
-.bottom-bar-section {
+.navigation-bar-section {
   padding: 0.5rem;
   width: 100px;
   border: solid 1px green;
 }
-.bottom-bar-section-inactive {
+.navigation-bar-section-inactive {
   padding: 0.5rem;
   width: 100px;
   border: solid 1px green;
 }
-.bottom-bar-text {
+.navigation-bar-text {
   color: white;
   text-decoration: none;
+}
+/* system bottom bar menu */
+.system-bottom-bar {
+  border: 1px solid lightblue;
+  padding: 5%;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.system-title {
+  text-align: center;
 }

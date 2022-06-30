@@ -32,9 +32,8 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
         );
       })}
       <div key={playerSystem.systemName} className="text-center">
-        {playerSystem.systemName}, {playerSystem.systemStar} system.
       </div>
-      <SystemBottomBar />
+      <SystemBottomBar playerSystem={playerSystem}  />
     </div>
   );
 };
