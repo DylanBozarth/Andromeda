@@ -2,9 +2,11 @@ body {
   color: white;
   text-decoration: none;
 }
+
 Link:visited {
   color: white;
 }
+
 .ui-main-link {
   color: white;
   text-align: center;
@@ -14,6 +16,7 @@ Link:visited {
 .menu {
   z-index: 20;
 }
+
 .menu nav {
   display: block;
   width: 90%;
@@ -25,9 +28,11 @@ Link:visited {
   z-index: 20;
   transition: all 0.3s;
 }
+
 .menu nav:hover {
   box-shadow: inset 0 0 20px red;
 }
+
 .menu nav ul {
   list-style: none;
   margin: 0 auto;
@@ -37,6 +42,7 @@ Link:visited {
   text-align: center;
   position: relative;
 }
+
 .menu nav ul li {
   display: inline-block;
   width: 100px;
@@ -44,20 +50,24 @@ Link:visited {
   line-height: 3;
   position: relative;
 }
+
 .menu nav ul li a {
   text-decoration: none;
   color: rgba(0, 255, 255, 0.5);
   font-family: verdana, sans-serif;
   display: block;
 }
-.menu nav ul li:hover > a {
+
+.menu nav ul li:hover>a {
   color: white;
   background: rgba(0, 255, 255, 0.1);
 }
+
 .menu nav ul li:hover .sub1,
 .menu .sub1 li:hover .sub2 {
   display: block;
 }
+
 .menu .sub1 {
   position: absolute;
   top: 50px;
@@ -65,15 +75,18 @@ Link:visited {
   width: 100px;
   display: none;
 }
-.menu .sub1 > li,
-.menu .sub2 > li {
+
+.menu .sub1>li,
+.menu .sub2>li {
   background: rgba(0, 255, 255, 0.1);
 }
-.menu .sub1 li:hover > a,
-.menu .sub2 li:hover > a {
+
+.menu .sub1 li:hover>a,
+.menu .sub2 li:hover>a {
   box-shadow: inset 0 0 5px aqua;
   background: rgba(0, 0, 0, 0.9);
 }
+
 .menu .sub2 {
   position: absolute;
   top: 0;
@@ -82,9 +95,11 @@ Link:visited {
   width: 100px;
   display: none;
 }
-.menu .sub2 > li {
+
+.menu .sub2>li {
   background: rgba(0, 255, 255, 0.1);
 }
+
 /* Tooltip container */
 .tooltip {
   position: relative;
@@ -114,10 +129,12 @@ Link:visited {
 .outline-system {
   outline: 4px solid rgba(0, 255, 255, 0.5);
 }
+
 .oneline {
   white-space: nowrap;
   width: 100%;
 }
+
 /* icons  */
 .energy {
   width: 50px;
@@ -125,67 +142,103 @@ Link:visited {
   background-image: url('./icons/energy.png');
   background-size: 100% 100%;
 }
+
 .fuel {
   width: 50px;
   height: 50px;
   background-image: url('./icons/fuel.png');
   background-size: 100% 100%;
 }
+
 .water {
   width: 50px;
   height: 50px;
   background-image: url('./icons/water.png');
   background-size: 100% 100%;
 }
+
 /* navigation bar */
 .navigation-bar {
   position: fixed;
   bottom: 0;
-  border: 1px solid red;
   z-index: 99;
   display: flex;
   flex-direction: row;
-  width:100vw;
+  width: 100vw;
 }
+
 .navigation-bar-section {
   padding: 0.5rem;
-  border: solid 1px green;
   width: 33vw;
 }
+
 .navigation-bar-section-inactive {
   padding: 0.5rem;
-  border: solid 1px blue;
   width: 33vw;
 }
+
 .navigation-bar-text {
   color: white;
   text-decoration: none;
+  text-align: center;
 }
+
 .navigation-bar-text:hover {
   text-decoration: none;
   color: white;
 }
+
 /* system bottom bar menu */
 .system-bottom-bar {
   border: 1px solid lightblue;
-text-align: center;
+  text-align: center;
   width: 50%;
   margin: auto;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 10vh;
+  left: 25%;
 }
-.system-title {
-  text-align: center;
-}
+
 .bottom-bar-section {
   align-self: center;
 }
+
 /* system side bar */
 .side-bar-wrapper {
-  position: absolute;
-  right:0;
+  position: fixed;
+  right: 0;
+}
+.toggle-side-bar {
+  background-color: brown;
+  width: 50px;
+  height: 50px;
 }
 .side-bar {
   background-color: darkblue;
   border: 2px solid lightblue;
   width: 300px;
   color: white;
+}
+
+.side-tab-row {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid yellow;
+}
+
+.side-tab {
+  padding: .5rem;
+  text-align: center;
+}
+
+.side-screen {
+  height: 50vh;
+  text-align: center;
+}
+
+.system-title {
+  text-align: center;
+  position: fixed;
+
 }

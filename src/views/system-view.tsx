@@ -34,7 +34,7 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
       })}
       <div key={playerSystem.systemName} className="text-center">
       </div>
-      <SystemSideBar />
+      <SystemSideBar  playerSystem={playerSystem} />
       <SystemBottomBar playerSystem={playerSystem}  />
     </div>
   );
