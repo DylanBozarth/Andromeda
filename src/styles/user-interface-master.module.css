@@ -161,3 +161,7 @@ Link:visited {
   color: white;
   text-decoration: none;
 }
+/* top bar */
+.top-bar-wrapper {
+  border: 1px solid red;
+}
