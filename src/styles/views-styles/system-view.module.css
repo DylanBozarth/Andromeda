@@ -1,7 +1,9 @@
-.system-wrapper {
+.playerSystemArray-view-wrapper {
   text-align: center;
   display:flex;
   justify-content: center;
+  margin: 2%;
+  padding-bottom: 25vh;
 }
 .planet-square {
   width: auto;
@@ -9,6 +11,7 @@
   text-align: center;
 }
 .planet-wrapper {
-  width: 30em;
+  width: 20em;
   height: 15em;
+  margin: 1rem;
 }
