@@ -13,68 +13,12 @@ export const UImaster: React.FC = () => {
   return (
     <div>
       <TopBar />
-     
-      <div className={styles.menu}>
-        <nav>
-          <ul>
-            <li>
+      <li>
               <a href='#' onClick={() => generateSystems()}>
-                Generate
+                Generate new sector
               </a>
             </li>
-            <li>
-              <a href='#'>fuel: {playerRefinedResources.fuel}</a>
-            </li>
-            <li>
-              <a href='#'>Water: {playerRawResources.water}</a>
-            </li>
-            <li>
-              <a href='#'>Energy {playerRefinedResources.energy}</a>
-            </li>
-            <li>
-              <a href='#' className={styles.oneline}>Raw </a>
-              <ul className={styles.sub1}>
-                <li>
-                  <a href='#'>Gas: {playerRawResources.gas}</a>
-                </li>
-                <li>
-                  <a href='#'>Oil: {playerRawResources.oil}</a>
-                </li>
-                <li>
-                  <a href='#'>Ore: {playerRawResources.ore}</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href='#' className={styles.oneline}>Refined </a>
-              <ul className={styles.sub1}>
-                <li>
-                  <a href='#'>Hard metal{playerRefinedResources['hard-metal']}</a>
-                </li>
-                <li>
-                  <a href='#'>Soft metal {playerRefinedResources['soft-metal']}</a>
-                </li>
-                <li>
-                  <a href='#'>Approval: {playerRefinedResources.approval}</a>
-                </li>
-                <li>
-                  <a href='#'>Biomass {playerRefinedResources.biomass}</a>
-                </li>
-
-                <li>
-                  <a href='#'>Consumer goods {playerRefinedResources['consumer-goods']}</a>
-                </li>
-                <li>
-                  <a href='#'>Femented Grain {playerRefinedResources['fermented-grain']}</a>
-                </li>
-                <li>
-                  <a href='#'>Refined Minerals {playerRefinedResources['refined-minerals']}</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      
       <NavigationBar />
     </div>
   );

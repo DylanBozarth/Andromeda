@@ -182,27 +182,120 @@ Link:visited {
   text-decoration: none;
   text-align: center;
 }
-<<<<<<< HEAD
+
 /* top bar */
+.sci-fi-thing {
+  width: 100%;
+  height: 50px;
+  background-image: url("https://i.imgur.com/9EfnzaH.png");
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+
 .top-bar-wrapper {
-  border: 1px solid red;
-=======
+  top: 0;
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  height: 50px;
+}
 
 .navigation-bar-text:hover {
   text-decoration: none;
   color: white;
 }
 
+.top-nav-button-base {
+  display: inline-block;
+  width: 100px;
+  height: 80px;
+  margin: 1% 3%;
+}
+
+.top-nav-1 {
+  color: aqua;
+  border: none;
+  background-color: transparent;
+  background-image: url("https://i.imgur.com/c4cssIq.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  mask-image: url("https://i.imgur.com/MpgqLcj.png");
+  mask-type: alpha;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: 90% 80%;
+  font-family: verdana, sans-serif;
+  font-size: 1em;
+  padding: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.top-nav-1:after {
+  background-image: url("https://i.imgur.com/esC8ptq.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 90% 80%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.top-nav-1:hover,
+.top-nav-1:active {
+  color: white;
+}
+
+.top-nav-1:hover:after,
+.top-nav-1:active:after {
+  opacity: 1;
+}
+
 /* system bottom bar menu */
-.system-bottom-bar {
-  border: 1px solid lightblue;
-  text-align: center;
-  width: 50%;
-  margin: auto;
+.system-bottom-bar-wrapper {
+  bottom: 15%;
   position: fixed;
-  bottom: 0;
-  margin-bottom: 10vh;
-  left: 25%;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  height: 50px;
+}
+.system-bottom-bar {
+  color: aqua;
+  position: fixed;
+  width: 50%;
+  border: none;
+  background-color: transparent;
+  background-image: url("https://i.imgur.com/c4cssIq.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  mask-image: url("https://i.imgur.com/MpgqLcj.png");
+  mask-type: alpha;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: 90% 80%;
+  font-family: verdana, sans-serif;
+  font-size: 1.2em;
+  padding: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .bottom-bar-section {
@@ -214,11 +307,13 @@ Link:visited {
   position: fixed;
   right: 0;
 }
+
 .toggle-side-bar {
   background-color: brown;
   width: 50px;
   height: 50px;
 }
+
 .side-bar {
   background-color: darkblue;
   border: 2px solid lightblue;
@@ -246,5 +341,4 @@ Link:visited {
   text-align: center;
   position: fixed;
 
->>>>>>> main
 }

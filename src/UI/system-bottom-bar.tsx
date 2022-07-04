@@ -6,11 +6,11 @@ interface systemInformation {
 
 export const SystemBottomBar = ({ playerSystem }: systemInformation) => {
     return (
-        <div>
+        <div className={styles['system-bottom-bar-wrapper']}>
             <div className={styles['system-bottom-bar']}>
 
                 <div className={styles['bottom-bar-section']}>System Power
-                    <br /> Hangar 700<br /> Planetary defenses 3000</div>
+                    <br /> Hangar: 700<br /> Planetary defenses: 3000</div>
 
             </div>
 
