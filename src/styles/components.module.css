@@ -105,6 +105,9 @@
 .system-planet {
   border-radius: 50%;
   margin:0 auto;
+  box-shadow: inset 10px 0px 12px -2px rgba(255,255,255,.2), 
+  inset -70px 0px 45px 0px black,
+  -5px 0px 5px -4px black;
 }
 /* Lava1-5 will be using different textures/rotation times to create variation */
 .Lava1 {
