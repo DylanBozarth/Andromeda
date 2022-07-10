@@ -198,6 +198,12 @@ Link:visited {
   bottom: 0;
   margin-bottom: 10vh;
   left: 25%;
+  background-color: rgba(255,255,255,0.3);
+  width: 300px;
+  border-radius:8px;
+  box-shadow: inset 0px 0px 45px 10px rgba(255,255,255,0.4);
+  border: rbga(255, 255, 255, 1) 2px solid;
+  color: white;
 }
 
 .bottom-bar-section {
@@ -213,11 +219,14 @@ Link:visited {
   background-color: brown;
   width: 50px;
   height: 50px;
+  z-index: 99;
 }
 .side-bar {
-  background-color: darkblue;
-  border: 2px solid lightblue;
+  background-color: rgba(255,255,255,0.3);
   width: 300px;
+  border-radius:8px;
+  box-shadow: inset 0px 0px 45px 10px rgba(255,255,255,0.4);
+  border: rbga(255, 255, 255, 1) 2px solid;
   color: white;
 }
 

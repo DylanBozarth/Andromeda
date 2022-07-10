@@ -28,6 +28,7 @@
 .system-toggle-buttons-wrapper {
   position: fixed;
   z-index: 99;
+  width: 100%;
 }
 .system-toggle-button {
   text-align: center;

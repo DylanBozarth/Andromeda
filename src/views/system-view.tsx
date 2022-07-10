@@ -39,11 +39,9 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
       <div key={playerSystem.systemName} className="text-center">
       </div>
       <div className={styles['system-toggle-buttons-wrapper']}>
-      <button className={styles['system-toggle-button']} onClick={() => setToggleResources(!toggleResources)}>Toggle resources</button>
-      <button className={styles['system-toggle-button']} onClick={() => setToggleBuildings(!toggleBuildings)}>Toggle Buildings</button>
       </div>
       <SystemSideBar playerSystem={playerSystem} />
-      <SystemBottomBar playerSystem={playerSystem} />
+      <SystemBottomBar playerSystem={playerSystem} toggleResources={toggleResources} toggleBuildings={toggleBuildings} setToggleResources={setToggleResources} setToggleBuildings={setToggleBuildings} />
     </div>
   );
 };
