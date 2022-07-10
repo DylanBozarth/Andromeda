@@ -25,9 +25,12 @@
   width: 100px;
   height:50px;
 }
+.system-toggle-buttons-wrapper {
+  position: fixed;
+  z-index: 99;
+}
 .system-toggle-button {
   text-align: center;
   z-index: 99;
-  position: absolute;
   width: 100px;
 }

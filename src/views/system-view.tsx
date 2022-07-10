@@ -14,8 +14,7 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
   const [toggleBuildings, setToggleBuildings] = useState(false);
   return (
     <div className={`${styles['playerSystemArray-view-wrapper']} row`}>
-      <button className={styles['system-toggle-button']} onClick={() => setToggleResources(!toggleResources)}>Toggle resources</button>
-      <button className={styles['system-toggle-button']} onClick={() => setToggleBuildings(!toggleBuildings)}>Toggle Buildings</button>
+      
       {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
@@ -24,23 +23,27 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
             </div>
             {[
               planet.resources.map((resource, idx) => {
-                return <div className={toggleResources ? 'planet-resources' : 'hidden'}  key={`${planet}-${resource}-${idx}`}>{resource}</div>;
+                return <div className={toggleResources ? 'planet-resources' : 'hidden'} key={`${planet}-${resource}-${idx}`}>{resource}</div>;
               }),
             ]}
-            
+
             {[
               planet.buildings.map((building, idx) => {
                 return <div className={toggleBuildings ? 'planet-buildings' : 'hidden'} key={`${planet}-${building}-${idx}`}>{building}</div>;
               }),
             ]}
-            
+
           </>
         );
       })}
       <div key={playerSystem.systemName} className="text-center">
       </div>
-      <SystemSideBar  playerSystem={playerSystem} />
-      <SystemBottomBar playerSystem={playerSystem}  />
+      <div className={styles['system-toggle-buttons-wrapper']}>
+      <button className={styles['system-toggle-button']} onClick={() => setToggleResources(!toggleResources)}>Toggle resources</button>
+      <button className={styles['system-toggle-button']} onClick={() => setToggleBuildings(!toggleBuildings)}>Toggle Buildings</button>
+      </div>
+      <SystemSideBar playerSystem={playerSystem} />
+      <SystemBottomBar playerSystem={playerSystem} />
     </div>
   );
 };
