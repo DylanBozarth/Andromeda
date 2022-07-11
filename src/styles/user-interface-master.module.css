@@ -274,28 +274,15 @@ Link:visited {
 .system-bottom-bar {
   color: aqua;
   position: fixed;
-  width: 50%;
-  border: none;
-  background-color: transparent;
-  background-image: url("https://i.imgur.com/c4cssIq.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
-  mask-image: url("https://i.imgur.com/MpgqLcj.png");
-  mask-type: alpha;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: 90% 80%;
-  font-family: verdana, sans-serif;
-  font-size: 1.2em;
-  padding: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 0;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.3s;
+  bottom: 0;
+  margin-bottom: 10vh;
+  left: 25%;
+  background-color: rgba(255,255,255,0.3);
+  width: 300px;
+  border-radius:8px;
+  box-shadow: inset 0px 0px 45px 10px rgba(255,255,255,0.4);
+  border: rbga(255, 255, 255, 1) 2px solid;
+  color: white;
 }
 
 .bottom-bar-section {
@@ -312,12 +299,15 @@ Link:visited {
   background-color: brown;
   width: 50px;
   height: 50px;
+  z-index: 99;
 }
 
 .side-bar {
-  background-color: darkblue;
-  border: 2px solid lightblue;
+  background-color: rgba(255,255,255,0.3);
   width: 300px;
+  border-radius:8px;
+  box-shadow: inset 0px 0px 45px 10px rgba(255,255,255,0.4);
+  border: rbga(255, 255, 255, 1) 2px solid;
   color: white;
 }
 
