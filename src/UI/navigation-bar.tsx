@@ -22,10 +22,14 @@ export const NavigationBar = () => {
   }, [location])
   return (
     <div className={styles['navigation-bar']}>
-      <Link to='/' onClick={() => setUserSector('')} className={styles['navigation-bar-text']}><div className={styles['navigation-bar-section']}>Andromeda</div></Link>
-      <Link to={`/${userSector}`} className={styles['navigation-bar-text']}><div className={userSector ? styles['navigation-bar-section'] : styles['navigation-bar-section-inactive']} onClick={() => setUserSystem('')}>
+      <Link to='/' onClick={() => setUserSector('')} className={styles['navigation-bar-text']}>
+          <div className={styles['navigation-bar-section']}>Andromeda</div>
+      </Link>
+      <Link to={`/${userSector}`} className={styles['navigation-bar-text']}>
+        <div className={userSector ? styles['navigation-bar-section'] : styles['navigation-bar-section-inactive']} onClick={() => setUserSystem('')}>
         Sector: <br /> {userSector}
-      </div></Link>
+      </div>
+      </Link>
       <div className={userSystem ? styles['navigation-bar-section'] : styles['navigation-bar-section-inactive']}>
         <p className={styles['navigation-bar-text']}>System: <br />{userSystem}</p>
       </div>
