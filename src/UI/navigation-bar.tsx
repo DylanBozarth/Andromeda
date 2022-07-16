@@ -27,11 +27,11 @@ export const NavigationBar = () => {
       </Link>
       <Link to={`/${userSector}`} className={styles['navigation-bar-text']}>
         <div className={userSector ? styles['navigation-bar-section'] : styles['navigation-bar-section-inactive']} onClick={() => setUserSystem('')}>
-        Sector: <br /> {userSector}
+        {userSector}
       </div>
       </Link>
       <div className={userSystem ? styles['navigation-bar-section'] : styles['navigation-bar-section-inactive']}>
-        <p className={styles['navigation-bar-text']}>System: <br />{userSystem}</p>
+        <p className={styles['navigation-bar-text']}>{userSystem}</p>
       </div>
     </div>
   )
