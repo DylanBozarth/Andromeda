@@ -23,15 +23,15 @@ export const NavigationBar = () => {
   return (
     <div className={styles['navigation-bar']}>
       <Link to='/' onClick={() => setUserSector('')} className={styles['navigation-bar-text']}>
-          <div className={styles['navigation-bar-section']}>Andromeda</div>
+          <div className={styles['navigation-bar-section']}><div className={styles['navigation-bar-text']}>Andromeda</div></div>
       </Link>
       <Link to={`/${userSector}`} className={styles['navigation-bar-text']}>
         <div className={userSector ? styles['navigation-bar-section'] : styles['navigation-bar-section-inactive']} onClick={() => setUserSystem('')}>
-        {userSector}
+        <div className={styles['navigation-bar-text']}>{userSector}</div>
       </div>
       </Link>
       <div className={userSystem ? styles['navigation-bar-section'] : styles['navigation-bar-section-inactive']}>
-        <p className={styles['navigation-bar-text']}>{userSystem}</p>
+        <div className={styles['navigation-bar-text']}>{userSystem}</div>
       </div>
     </div>
   )

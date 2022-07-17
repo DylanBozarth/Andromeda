@@ -58,23 +58,29 @@
 
 /* navigation bar */
 .navigation-bar {
-  position: fixed;
+ 
   bottom: 0;
-  z-index: 99;
+  cursor: pointer;
+  position: fixed;
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  font-family: verdana, sans-serif;
-  font-size: 1em;
-  padding: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
 }
 
 .navigation-bar-section {
   padding: 0.5rem;
   width: 33vw;
-  background-color: green;
+  color: aqua;
+  background-color: transparent;
+  background-image: url("https://i.imgur.com/c4cssIq.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  font-family: verdana, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  outline: none;
 }
 
 .navigation-bar-section-inactive {
@@ -83,9 +89,13 @@
 }
 
 .navigation-bar-text {
-  color: white;
   text-decoration: none;
   text-align: center;
+  color: aqua;
+  font-size: 1rem;
+}
+.navigation-bar-section:hover {
+  color: green;
 }
 
 /* top bar */
