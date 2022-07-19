@@ -40,8 +40,8 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
       </div>
       <div className={styles['system-toggle-buttons-wrapper']}>
       </div>
-      <SystemSideBar playerSystem={playerSystem} />
-      <SystemBottomBar playerSystem={playerSystem} toggleResources={toggleResources} toggleBuildings={toggleBuildings} setToggleResources={setToggleResources} setToggleBuildings={setToggleBuildings} />
+      <SystemSideBar playerSystem={playerSystem} toggleResources={toggleResources} toggleBuildings={toggleBuildings} setToggleResources={setToggleResources} setToggleBuildings={setToggleBuildings}  />
+      
     </div>
   );
 };
