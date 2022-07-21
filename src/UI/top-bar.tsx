@@ -5,16 +5,16 @@ export const TopBar = () => {
         <div className={styles['sci-fi-thing']}></div>
         <div className={styles['top-bar-wrapper']}>
             <div className={styles['top-nav-button-base']}>
-                <button className={styles['top-nav-1']}>menu</button>
+                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>menu</button>
                 </div>
                 <div className={styles['top-nav-button-base']}>
-                <button className={styles['top-nav-1']}>Research</button>
+                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>Research</button>
                 </div>
                 <div className={styles['top-nav-button-base']}>
-                <button className={styles['top-nav-1']}>Fleets</button>
+                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>Fleets</button>
                 </div>
                 <div className={styles['top-nav-button-base']}>
-                <button className={styles['top-nav-1']}>Resources</button>
+                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>Resources</button>
                 </div>
         </div>
     </div>

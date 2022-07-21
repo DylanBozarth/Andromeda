@@ -93,18 +93,6 @@
 .navigation-bar-section {
   padding: 0.5rem;
   width: 33vw;
-  color: aqua;
-  background-color: transparent;
-  background-image: url("https://i.imgur.com/c4cssIq.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
-  font-family: verdana, sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 0;
-  outline: none;
 }
 
 .navigation-bar-section-inactive {
@@ -153,29 +141,7 @@
 }
 
 .top-nav-1 {
-  color: aqua;
-  border: none;
-  background-color: transparent;
-  background-image: url("https://i.imgur.com/c4cssIq.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
-  mask-image: url("https://i.imgur.com/MpgqLcj.png");
-  mask-type: alpha;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: 90% 80%;
-  font-family: verdana, sans-serif;
-  font-size: 1em;
-  padding: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 0;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s;
+  padding: 15px;
 }
 
 .top-nav-1:after {

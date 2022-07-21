@@ -15,7 +15,7 @@ export const SystemSideBar = ({ playerSystem, toggleBuildings, toggleResources, 
     const [expanded, setExpanded] = useState(true);
     return (
         <div className={styles['side-bar-wrapper']}>
-            <div onClick={() => setExpanded(!expanded)} className={styles['ui-border-box' &&'toggle-side-bar']}>Toggle</div>
+            <div onClick={() => setExpanded(!expanded)} className={`${styles['ui-border-box']} ${styles['toggle-side-bar']}`}>Toggle</div>
             <div className={expanded ? styles['side-bar'] : 'hidden'}>
                 <div className={styles['side-tab-row']}>
                     <div className={styles['side-tab']}>Buildings</div><div className={styles['side-tab']}>Production</div><div className={styles['side-tab']}>Alerts</div></div>
