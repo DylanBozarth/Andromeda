@@ -169,8 +169,11 @@
 
 /* system bottom bar menu */
 .system-bottom-bar-wrapper {
-  border: 5px solid aqua;
   width: 300px;
+  position: fixed;
+  left: 0;
+  padding: 1rem;
+  padding-top: 0;
 }
 .system-bottom-bar {
   color: aqua;
@@ -179,8 +182,9 @@
   width: 300px;
   border-radius:8px;
   box-shadow: inset 0px 0px 45px 10px rgba(255,255,255,0.4);
-  border: rbga(255, 255, 255, 1) 2px solid;
+  border: aqua 1px solid;
   color: white;
+  padding: .5rem;
 }
 
 .bottom-bar-section {
@@ -191,6 +195,7 @@
 .side-bar-wrapper {
   position: fixed;
   right: 0;
+  padding: 1rem;
 }
 
 .toggle-side-bar {
@@ -206,7 +211,7 @@
   width: 300px;
   border-radius:8px;
   box-shadow: inset 0px 0px 45px 10px rgba(255,255,255,0.4);
-  border: rbga(255, 255, 255, 1) 2px solid;
+  border: aqua 2px solid;
   color: white;
 }
 
