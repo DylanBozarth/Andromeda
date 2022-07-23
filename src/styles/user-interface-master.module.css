@@ -218,12 +218,15 @@
 .side-tab-row {
   display: flex;
   flex-direction: row;
-  border: 1px solid yellow;
+  justify-content: center;
 }
-
+.side-tab-info {
+  padding:.5rem;
+}
 .side-tab {
   padding: .5rem;
   text-align: center;
+  border: 1px solid chocolate;
 }
 
 .side-screen {

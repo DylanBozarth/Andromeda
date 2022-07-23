@@ -18,7 +18,7 @@ export const SystemBottomBar = ({ playerSystem, toggleBuildings, toggleResources
                     <br /> Hangar 700<br /> Planetary defenses 3000</div>
                     <button className={styles['system-toggle-button']} onClick={() => setToggleResources(!toggleResources)}>Toggle resources</button>
       <button className={styles['system-toggle-button']} onClick={() => setToggleBuildings(!toggleBuildings)}>Toggle Buildings</button>
-                    <br /> Hangar: 700<br /> Planetary defenses: 3000</div>
+                    </div>
             </div>
     )
 }
