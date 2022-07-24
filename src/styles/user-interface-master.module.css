@@ -23,6 +23,7 @@
   position: relative;
   transition: all 0.3s;
 }
+
 /* Tooltip container for showing star distance to each other*/
 .tooltip {
   position: relative;
@@ -82,7 +83,7 @@
 
 /* navigation bar */
 .navigation-bar {
- 
+
   bottom: 0;
   cursor: pointer;
   position: fixed;
@@ -106,6 +107,7 @@
   color: aqua;
   font-size: 1rem;
 }
+
 .navigation-bar-section:hover {
   color: green;
 }
@@ -167,27 +169,62 @@
   opacity: 1;
 }
 
-/* system bottom bar menu */
-.system-bottom-bar-wrapper {
+/* system Power bar menu */
+.system-power-bar-wrapper {
   width: 300px;
-  position: fixed;
+  position: absolute;
   left: 0;
   padding: 1rem;
   padding-top: 0;
 }
-.system-bottom-bar {
+
+.system-power-bar {
   color: aqua;
-  position: fixed;
-  background-color: rgba(255,255,255,0.3);
+  position: absolute;
   width: 300px;
-  border-radius:8px;
-  box-shadow: inset 0px 0px 45px 10px rgba(255,255,255,0.4);
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 45px 10px rgba(255, 255, 255, 0.4);
   border: aqua 1px solid;
   color: white;
   padding: .5rem;
 }
+/* redo this */
+.system-power-toggle-button {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0px 1px #000;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 0.5em 1.5em;
+  margin: 0.5em;
+  cursor: pointer;
+  width: 200px;
+  overflow: visible;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  outline: 0;
+  color: white;
+}
+.system-power-toggle-button:hover {
+  text-shadow: none;
 
-.bottom-bar-section {
+  border-color: rgba(0, 0, 0, 0.6);
+  border-image: none;
+  border-style: solid;
+  border-width: 1px;
+
+  box-shadow:
+  0 1px 0 0 rgba(255, 255, 255, 0.4) inset,
+  0 10px rgba(255, 255, 255, 0.5) inset,
+  0 0 5px 2px rgba(255, 255, 255, 0.75);
+
+}
+
+.power-bar-section {
   align-self: center;
 }
 
@@ -202,17 +239,33 @@
   z-index: 99;
   width: 100px;
   cursor: pointer;
+  display: flex;
+  justify-self: center;
 }
+
 .toggle-side-bar:hover {
   color: white;
 }
+
+.side-bar-wrapper {
+  border-radius: 25%;
+}
+
 .side-bar {
-  background-color: rgba(255,255,255,0.3);
   width: 300px;
-  border-radius:8px;
-  box-shadow: inset 0px 0px 45px 10px rgba(255,255,255,0.4);
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 45px 10px rgba(255, 255, 255, 0.4);
   border: aqua 2px solid;
   color: white;
+}
+
+.side-bar-background {
+  position: absolute;
+  z-index: -99;
+  height: 120%;
+  opacity: 50%;
+  width: 300px;
+  background-color: black;
 }
 
 .side-tab-row {
@@ -220,13 +273,17 @@
   flex-direction: row;
   justify-content: center;
 }
+
 .side-tab-info {
-  padding:.5rem;
+  padding: .5rem;
 }
+
 .side-tab {
   padding: .5rem;
   text-align: center;
+  background-color: black;
   border: 1px solid chocolate;
+  cursor: pointer;
 }
 
 .side-screen {

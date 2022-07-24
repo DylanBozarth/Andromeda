@@ -1,7 +1,7 @@
 import styles from '../styles/user-interface-master.module.css'
 import { System } from '../utils/system-generator/generate-sector';
 import { useState } from 'react';
-import { SystemBottomBar } from './system-bottom-bar';
+import { SystemPowerBar } from './system-power-bar';
 interface systemInformation {
     playerSystem: System;
 }
@@ -16,8 +16,12 @@ export const SystemSideBar = ({ playerSystem, toggleBuildings, toggleResources, 
     const [tabNumber, setTabNumber] = useState(1)
     return (
         <div className={styles['side-bar-wrapper']}>
+
             <div onClick={() => setExpanded(!expanded)} className={`${styles['ui-border-box']} ${styles['toggle-side-bar']}`}>Toggle</div>
             <div className={expanded ? styles['side-bar'] : 'hidden'}>
+                <div className={styles['side-bar-background-wrapper']}>
+                    <div className={styles['side-bar-background']}></div>
+                </div>
                 <div className={styles['side-tab-row']}>
                     <div className={styles['side-tab']} onClick={() => setTabNumber(1)}>Buildings</div>
                     <div className={styles['side-tab']} onClick={() => setTabNumber(2)}>Hangar</div>
@@ -27,7 +31,7 @@ export const SystemSideBar = ({ playerSystem, toggleBuildings, toggleResources, 
                     <div className={tabNumber === 2 ? `${styles['side-tab-info']}` : 'hidden'}>Production</div>
                     <div className={tabNumber === 3 ? `${styles['side-tab-info']}` : 'hidden'}>Alerts</div>
                 </div>
-                <SystemBottomBar playerSystem={playerSystem} toggleResources={toggleResources} toggleBuildings={toggleBuildings} setToggleResources={setToggleResources} setToggleBuildings={setToggleBuildings} />
+                <SystemPowerBar playerSystem={playerSystem} toggleResources={toggleResources} toggleBuildings={toggleBuildings} setToggleResources={setToggleResources} setToggleBuildings={setToggleBuildings} />
             </div>
         </div>
     )
