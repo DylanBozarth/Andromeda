@@ -161,7 +161,7 @@ Link:visited {
 .navigation-bar {
   position: fixed;
   bottom: 0;
-  z-index: 99;
+  z-index: 90;
   display: flex;
   flex-direction: row;
   width: 100vw;

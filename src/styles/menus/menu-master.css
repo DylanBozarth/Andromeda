@@ -1,0 +1,23 @@
+.take-whole-screen {
+    height: 100vh;
+    width: 100vw;
+    z-index: 99;
+    position: absolute;
+    display: flex;
+    padding: 2rem;
+    border: 1px solid red;
+}
+.menu-blur-effect {
+    background-color: black;
+    height:100vh;
+    width:100vw;
+    z-index: 95;
+    opacity:.4;
+    border: 2px solid green;
+}
+
+.main-menu-item {
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
