@@ -1,6 +1,5 @@
 import styles from '../styles/user-interface-master.module.css';
 import { useState } from 'react';
-import { MainMenu } from './menu-pages/mainMenu';
 import { Research } from './menu-pages/pop-ups/research';
 import { ResourceMenu } from './menu-pages/pop-ups/resources';
 import { FleetManagement } from './menu-pages/pop-ups/fleetManagement';
@@ -17,6 +16,21 @@ export const TopBar = () => {
               Big menu
             </Link>
           </button>
+        </div>
+        <div className={styles['sci-fi-thing']}></div>
+        <div className={styles['top-bar-wrapper']}>
+            <div className={styles['top-nav-button-base']}>
+                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>menu</button>
+                </div>
+                <div className={styles['top-nav-button-base']}>
+                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>Research</button>
+                </div>
+                <div className={styles['top-nav-button-base']}>
+                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>Fleets</button>
+                </div>
+                <div className={styles['top-nav-button-base']}>
+                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>Resources</button>
+                </div>
         </div>
         <div className={styles['top-nav-button-base']}>
           <button
@@ -55,4 +69,4 @@ export const TopBar = () => {
       </div>
     </div>
   );
-};
+}
