@@ -1,7 +1,6 @@
 import { PlanetComponent } from '../components/planet';
 import { useState } from 'react';
 import styles from '../styles/views-styles/system-view.module.css';
-import { SystemBottomBar } from '../UI/system-bottom-bar';
 import { SystemSideBar } from '../UI/system-side-bar';
 import { System } from '../utils/system-generator/generate-sector';
 
@@ -14,7 +13,7 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
   const [toggleBuildings, setToggleBuildings] = useState(false);
   return (
     <div className={`${styles['playerSystemArray-view-wrapper']} row`}>
-      
+      <SystemSideBar playerSystem={playerSystem} toggleResources={toggleResources} toggleBuildings={toggleBuildings} setToggleResources={setToggleResources} setToggleBuildings={setToggleBuildings} />
       {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
@@ -36,12 +35,6 @@ export const SystemView = ({ playerSystem }: PlayerSystemProps) => {
           </>
         );
       })}
-      <div key={playerSystem.systemName} className="text-center">
-      </div>
-      <div className={styles['system-toggle-buttons-wrapper']}>
-      </div>
-      <SystemSideBar playerSystem={playerSystem} />
-      <SystemBottomBar playerSystem={playerSystem} toggleResources={toggleResources} toggleBuildings={toggleBuildings} setToggleResources={setToggleResources} setToggleBuildings={setToggleBuildings} />
     </div>
   );
 };
