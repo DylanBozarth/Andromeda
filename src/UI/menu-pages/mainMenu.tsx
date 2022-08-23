@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export const MainMenu = () => {
   return (
     <div className={styles['details-menu-wrapper']}>
-      <Link to='/'>Go back </Link>
+      <Link to='/' className={styles['go-back']}>Go back </Link>
       <div className={styles['nav-container']}>
         <h2>Heading</h2>
         <div className={styles['details-bar-wrapper']}>

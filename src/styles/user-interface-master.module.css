@@ -140,7 +140,30 @@
 }
 
 .top-nav-1 {
-  padding: 15px;
+  color: darkgreen;
+  border: none;
+  background-color: transparent;
+  background-image: url("https://i.imgur.com/c4cssIq.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  mask-image: url("https://i.imgur.com/MpgqLcj.png");
+  mask-type: alpha;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: 90% 80%;
+  font-family: verdana, sans-serif;
+  font-size: 1.5em;
+  padding: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+  margin-right: 1em;
 }
 
 .top-nav-1:after {
@@ -295,6 +318,11 @@
 }
 /* End of system-view menu */
 /* Details menu stuff */
+.go-back {
+  z-index: 99;
+  position: absolute;
+  right: 0;
+}
 .details-menu-wrapper {
   height: 100vh;
   width: 100vw;
@@ -370,3 +398,8 @@
   opacity: 1;
 }
 /* End details menus */ 
+/* pop-up-menus */
+.pop-up-menu {
+  position: absolute;
+  border: 1px solid red;
+}

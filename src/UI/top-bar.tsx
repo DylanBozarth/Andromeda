@@ -10,28 +10,9 @@ export const TopBar = () => {
     <div>
       <div className={styles['sci-fi-thing']}></div>
       <div className={styles['top-bar-wrapper']}>
-        <div className={styles['top-nav-button-base']}>
-          <button className={styles['top-nav-1']}>
-            <Link to='menu' className={styles['top-nav-1']}>
-              Big menu
-            </Link>
-          </button>
-        </div>
-        <div className={styles['sci-fi-thing']}></div>
-        <div className={styles['top-bar-wrapper']}>
-            <div className={styles['top-nav-button-base']}>
-                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>menu</button>
-                </div>
-                <div className={styles['top-nav-button-base']}>
-                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>Research</button>
-                </div>
-                <div className={styles['top-nav-button-base']}>
-                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>Fleets</button>
-                </div>
-                <div className={styles['top-nav-button-base']}>
-                <button className={`${styles['top-nav-1']} ${styles['ui-border-box']}`}>Resources</button>
-                </div>
-        </div>
+        <Link to='menu'>
+          <button className={styles['top-nav-1']}>Big menu</button>
+        </Link>
         <div className={styles['top-nav-button-base']}>
           <button
             className={styles['top-nav-1']}
@@ -69,4 +50,4 @@ export const TopBar = () => {
       </div>
     </div>
   );
-}
+};

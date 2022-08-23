@@ -1,4 +1,4 @@
-import styles from '../../styles/menus/menu-master.css'
+import styles from '../../../styles/menus/test.css'
 export const ResourceMenu = () => {
     return (
         <div className=''>

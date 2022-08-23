@@ -1,4 +1,4 @@
-import styles from '../../styles/menus/menu-master.css'
+import styles from '../../../styles/menus/menu.css'
 export const FleetManagement = () => {
     return (
         <div className=''>

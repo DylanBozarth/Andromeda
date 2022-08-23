@@ -1,7 +1,7 @@
-import styles from '../../styles/menus/menu-master.css'
+import styles from '../../../styles/menus/menu.css';
 export const Research = () => {
     return (
-        <div className=''>
+        <div className={styles['pop-up-menu']}>
             <div className='menu-blur-effect'></div>
             <div className='not-transparent split-screen'>
 <div className='research-box'>
