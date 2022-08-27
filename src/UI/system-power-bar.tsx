@@ -1,5 +1,6 @@
 import styles from '../styles/user-interface-master.module.css';
 import { System } from '../utils/system-generator/generate-sector';
+import { getSystemPower } from '../utils/system-generator/system-power';
 interface systemInformation {
   playerSystem: System;
 }
@@ -16,14 +17,14 @@ export const SystemPowerBar = ({
   setToggleBuildings,
   setToggleResources,
 }: systemInformation & toggles) => {
-  console.log({ playerSystem });
+  const { shipPower, buildingPower } = getSystemPower(playerSystem);
   return (
     <div className={styles['system-power-bar-wrapper']}>
       <div className={styles['system-power-bar']}>
         <div className={styles['power-bar-section']}>
           System Power
-          <br /> Hangar 700
-          <br /> Planetary defenses 3000
+          <br /> Hangar {shipPower}
+          <br /> Planetary defenses {buildingPower}
         </div>
         <button
           className={styles['system-power-toggle-button']}
