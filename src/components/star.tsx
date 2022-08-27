@@ -18,7 +18,6 @@ const handleRemoveOutline = (id: string) => {
 };
 
 export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) => {
-  console.log({ distanceMapValues });
   const display = (
     <>
       <table>
@@ -45,7 +44,7 @@ export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) =
     </>
   );
   return (
-    <div id={systemName} className={`${styles[systemStar]} ${styles['star']}` }>
+    <div id={systemName} className={`${styles[systemStar]} ${styles['star']}`}>
       <div className={`${styles['sector-view-star-name']} ${uiStyles.tooltip}`}>
         {systemName}
         <span className={uiStyles.tooltiptext}>{display}</span>
