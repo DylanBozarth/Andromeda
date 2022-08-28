@@ -322,11 +322,13 @@
   z-index: 99;
   position: absolute;
   right: 0;
+  padding: 2rem;
 }
 .details-menu-wrapper {
   height: 100vh;
   width: 100vw;
   top: 0;
+  z-index: 91;
   position: absolute;
   background-color: darkslategrey;
 }
