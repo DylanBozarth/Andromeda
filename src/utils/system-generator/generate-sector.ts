@@ -22,7 +22,7 @@ export interface System {
   systemName: string;
   cords: string;
   ownership: string;
-  hangar: [];
+  hangar: string[];
 }
 
 const generateSystem = (maxPlanets: number) => {
@@ -44,10 +44,14 @@ const generateSystem = (maxPlanets: number) => {
     const planetName = getRandomPlanet(planetList);
     const resource1 = getRandomResource(resources);
     const resource2 = getRandomResource(resources, resource1);
-    const building1 = getRandomBuildings(buildingTypes)
-    const building2 = getRandomBuildings(buildingTypes, building1)
-    const planet: Planet = {name: planetName, resources: [resource1, resource2], buildings: [building1, building2]};
-    system.systemPlanets.push(planet)
+    const building1 = getRandomBuildings(buildingTypes);
+    const building2 = getRandomBuildings(buildingTypes, building1);
+    const planet: Planet = {
+      name: planetName,
+      resources: [resource1, resource2],
+      buildings: [building1, building2],
+    };
+    system.systemPlanets.push(planet);
   }
 
   return system;

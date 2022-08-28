@@ -7,10 +7,11 @@ import { getXfromCords, getYfromCords } from '../../../utils/system-generator/sy
 
 interface PlayerSystemProps {
   playerSystem: System;
-  setPlayerSystem: (system: any) => void;
+  setPlayerSystem: (system: System) => void;
 }
 
 export const ReduxSector = ({ playerSystem, setPlayerSystem }: PlayerSystemProps) => {
+  console.log({ playerSystem });
   const sector = useAppSelector((state) => state.sector.activeSector);
   {
     return (
