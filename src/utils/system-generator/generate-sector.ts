@@ -15,6 +15,7 @@ import {
   getRandomBuildings,
 } from './system-functions';
 import { systemNameGenerator } from './system-name-generator';
+import { Sector } from '../../redux/sectorSlice';
 
 export interface System {
   systemStar: string;
@@ -61,7 +62,7 @@ export type DistanceMap = Record<string, Record<string, { distance: number; eta:
 
 const timeScale = 15; // 15 minutes for each parsec
 
-export const generateMultipleSystems = (maxSystems: number, maxPlanets: number) => {
+export const generateSector = (maxSystems: number, maxPlanets: number): Sector => {
   const randomSystemNumber = generateRandomNumber(maxSystems);
   const systems: System[] = [];
 
@@ -97,5 +98,6 @@ export const generateMultipleSystems = (maxSystems: number, maxPlanets: number) 
   return {
     systems,
     distancesMap,
+    sectorName: 'Redux-Sector',
   };
 };
