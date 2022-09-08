@@ -11,7 +11,7 @@ export const TopBar = () => {
       <div className={styles['sci-fi-thing']}></div>
       <div className={styles['top-bar-wrapper']}>
         <Link to='menu'>
-          <button className={styles['top-nav-1']}>Big menu</button>
+          <button className={styles['top-nav-1']} onClick={() => setOpenMenu(0)}>Big menu</button>
         </Link>
         <div className={styles['top-nav-button-base']}>
           <button

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SystemDetails } from './stats-pages/systems';
 import { FleetDetails } from './stats-pages/fleets';
+import { ResearchDetails } from './stats-pages/research';
+import { PoliticsDetails } from './stats-pages/politics';
 export const DetailsMenu = () => {
   const [openMenu, setOpenMenu] = useState<string>('systems')
   return (
@@ -18,10 +20,10 @@ export const DetailsMenu = () => {
             <button className={styles['details-nav-1']} onClick={() => setOpenMenu('fleets')}>Fleets</button>
           </div>
           <div className={styles['details-nav-button-base']}>
-            <button className={styles['details-nav-1']}>three</button>
+            <button className={styles['details-nav-1']} onClick={() => setOpenMenu('research')}>research</button>
           </div>
           <div className={styles['details-nav-button-base']}>
-            <button className={styles['details-nav-1']}>fohr</button>
+            <button className={styles['details-nav-1']}  onClick={() => setOpenMenu('politics')}>politics</button>
           </div>
           <div className={styles['details-nav-button-base']}>
             <button className={styles['details-nav-1']}>fifve</button>
@@ -41,8 +43,11 @@ export const DetailsMenu = () => {
       <div className={openMenu === 'fleets' ? 'take-whole-screen' : 'hidden'}>
         <FleetDetails />
       </div>
-      <div className={openMenu === 'third' ? 'take-whole-screen' : 'hidden'}>
-        
+      <div className={openMenu === 'research' ? 'take-whole-screen' : 'hidden'}>
+        <ResearchDetails />
+      </div>
+      <div className={openMenu === 'politics' ? 'take-whole-screen' : 'hidden'}>
+        <PoliticsDetails />
       </div>
       </div>
     </div>
