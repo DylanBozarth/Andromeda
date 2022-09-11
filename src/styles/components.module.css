@@ -12,8 +12,9 @@
   padding-top: 2rem;
 }
 .star {
-  height: 45px;
-  width: 45px;
+  height: 15px;
+  width: 15px;
+  z-index: 95;
 }
 /*
 .star:hover {
