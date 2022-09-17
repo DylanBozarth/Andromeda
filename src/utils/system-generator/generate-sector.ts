@@ -65,8 +65,8 @@ const timeScale = 15; // 15 minutes for each parsec
 export const generateSector = (maxSystems: number, maxPlanets: number): Sector => {
   const randomSystemNumber = generateRandomNumber(maxSystems);
   const systems: System[] = [];
-
-  for (let i = 0; i < randomSystemNumber; i++) {
+// control min number of planets here
+  for (let i = -30; i < randomSystemNumber; i++) {
     const system = generateSystem(maxPlanets);
     systems.push(system);
   }
