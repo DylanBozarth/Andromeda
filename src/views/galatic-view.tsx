@@ -13,7 +13,7 @@ export const GalaticView = () => {
       <div className={styles['sectorawrapper']}>
         <img src='./assets/sample-image.png'></img>
         <Link
-          to='/redux-sector'
+          to='/sector-a'
           onClick={() => dispatch(setSector(sectors.activeSector))}
           className={styles['sectora']}
         >
