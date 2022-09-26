@@ -1,0 +1,6102 @@
+{
+    "systems": [
+        {
+            "systemStar": "Red-Supergiant",
+            "systemName": "Euortha",
+            "systemPlanets": [
+                {
+                    "name": "Desert2",
+                    "resources": [
+                        "ore-high",
+                        "ore-trace"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Building 3"
+                    ]
+                },
+                {
+                    "name": "Temperate4",
+                    "resources": [
+                        "water-medium",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Building 3"
+                    ]
+                },
+                {
+                    "name": "Ocean5",
+                    "resources": [
+                        "water-trace",
+                        "water-medium"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Spectrum Station"
+                    ]
+                },
+                {
+                    "name": "Frozen4",
+                    "resources": [
+                        "ore-low",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Inception Base"
+                    ]
+                }
+            ],
+            "cords": "R-5323",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Blue-Giant",
+            "systemName": "Larauna",
+            "systemPlanets": [
+                {
+                    "name": "Gas2",
+                    "resources": [
+                        "population-scarce",
+                        "water-medium"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Ocean1",
+                    "resources": [
+                        "water-high",
+                        "ore-low"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Building 3"
+                    ]
+                }
+            ],
+            "cords": "R-5149",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Supergiant",
+            "systemName": "Visoreov",
+            "systemPlanets": [
+                {
+                    "name": "Gas1",
+                    "resources": [
+                        "population-cities",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Temperate1",
+                    "resources": [
+                        "population-scarce",
+                        "ore-low"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Desert3",
+                    "resources": [
+                        "water-high",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Spectrum Station"
+                    ]
+                }
+            ],
+            "cords": "R-4143",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Giant",
+            "systemName": "Zunoe",
+            "systemPlanets": [
+                {
+                    "name": "Desert3",
+                    "resources": [
+                        "water-high",
+                        "population-scarce"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Building 1"
+                    ]
+                },
+                {
+                    "name": "Gas1",
+                    "resources": [
+                        "gas-medium",
+                        "ore-high"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Building 1"
+                    ]
+                }
+            ],
+            "cords": "R-6873",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "White-Dwarf",
+            "systemName": "Ueshan",
+            "systemPlanets": [
+                {
+                    "name": "Asteroid-Belt2",
+                    "resources": [
+                        "ore-low",
+                        "ore-high"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Greenhouse3",
+                    "resources": [
+                        "oil-medium",
+                        "water-medium"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Gas3",
+                    "resources": [
+                        "ore-high",
+                        "water-low"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Building 1"
+                    ]
+                },
+                {
+                    "name": "Asteroid-Belt2",
+                    "resources": [
+                        "population-tribal",
+                        "ore-high"
+                    ],
+                    "buildings": [
+                        "Dawn Colony",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Lava5",
+                    "resources": [
+                        "gas-low",
+                        "gas-medium"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Building 1"
+                    ]
+                },
+                {
+                    "name": "Frozen1",
+                    "resources": [
+                        "ore-low",
+                        "water-low"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Power Plant"
+                    ]
+                },
+                {
+                    "name": "Greenhouse4",
+                    "resources": [
+                        "ore-medium",
+                        "gas-medium"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Rocky4",
+                    "resources": [
+                        "ore-high",
+                        "water-medium"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Dawn Colony"
+                    ]
+                }
+            ],
+            "cords": "R-7678",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Giant",
+            "systemName": "Apusichi",
+            "systemPlanets": [
+                {
+                    "name": "Ocean3",
+                    "resources": [
+                        "water-medium",
+                        "water-trace"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Rocky5",
+                    "resources": [
+                        "population-tribal",
+                        "ore-low"
+                    ],
+                    "buildings": [
+                        "Dawn Colony",
+                        "Spectrum Station"
+                    ]
+                },
+                {
+                    "name": "Ocean4",
+                    "resources": [
+                        "oil-low",
+                        "gas-medium"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Rocky4",
+                    "resources": [
+                        "oil-medium",
+                        "water-low"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Spectrum Station"
+                    ]
+                },
+                {
+                    "name": "Frozen2",
+                    "resources": [
+                        "ore-trace",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Escort Colony"
+                    ]
+                },
+                {
+                    "name": "Desert4",
+                    "resources": [
+                        "water-medium",
+                        "ore-high"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Desert1",
+                    "resources": [
+                        "water-trace",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Building 1"
+                    ]
+                },
+                {
+                    "name": "Ocean4",
+                    "resources": [
+                        "gas-medium",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Escort Colony"
+                    ]
+                }
+            ],
+            "cords": "R-7256",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "White-Dwarf",
+            "systemName": "Eiea",
+            "systemPlanets": [
+                {
+                    "name": "Temperate1",
+                    "resources": [
+                        "oil-low",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Power Plant",
+                        "Building 3"
+                    ]
+                },
+                {
+                    "name": "Gas2",
+                    "resources": [
+                        "gas-medium",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Building 3"
+                    ]
+                },
+                {
+                    "name": "Desert2",
+                    "resources": [
+                        "oil-low",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Power Plant"
+                    ]
+                },
+                {
+                    "name": "Desert5",
+                    "resources": [
+                        "water-low",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Power Plant",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Lava3",
+                    "resources": [
+                        "water-trace",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Asteroid-Belt1",
+                    "resources": [
+                        "water-low",
+                        "gas-medium"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Building 3"
+                    ]
+                },
+                {
+                    "name": "Gas5",
+                    "resources": [
+                        "ore-medium",
+                        "water-medium"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Asteroid-Belt3",
+                    "resources": [
+                        "ore-medium",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Chemical plant"
+                    ]
+                }
+            ],
+            "cords": "R-2431",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Giant",
+            "systemName": "Oneau",
+            "systemPlanets": [
+                {
+                    "name": "Frozen5",
+                    "resources": [
+                        "water-high",
+                        "ore-low"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Ocean3",
+                    "resources": [
+                        "water-medium",
+                        "population-scarce"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Building 3"
+                    ]
+                }
+            ],
+            "cords": "R-7972",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "White-Dwarf",
+            "systemName": "Vypsoiy",
+            "systemPlanets": [
+                {
+                    "name": "Gas3",
+                    "resources": [
+                        "population-cities",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Spectrum Station"
+                    ]
+                },
+                {
+                    "name": "Ocean4",
+                    "resources": [
+                        "oil-medium",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Dawn Colony",
+                        "Power Plant"
+                    ]
+                },
+                {
+                    "name": "Lava2",
+                    "resources": [
+                        "population-scarce",
+                        "ore-high"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Desert4",
+                    "resources": [
+                        "oil-medium",
+                        "gas-medium"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Escort Colony"
+                    ]
+                },
+                {
+                    "name": "Desert2",
+                    "resources": [
+                        "ore-high",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Dawn Colony"
+                    ]
+                }
+            ],
+            "cords": "R-6176",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Blue-Giant",
+            "systemName": "Oreorixypso",
+            "systemPlanets": [
+                {
+                    "name": "Lava2",
+                    "resources": [
+                        "oil-low",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Power Plant"
+                    ]
+                },
+                {
+                    "name": "Rocky2",
+                    "resources": [
+                        "ore-low",
+                        "ore-trace"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Building 3"
+                    ]
+                }
+            ],
+            "cords": "R-6527",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Blue-Giant",
+            "systemName": "Oraeroniea",
+            "systemPlanets": [
+                {
+                    "name": "Gas1",
+                    "resources": [
+                        "water-high",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Power Plant",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Rocky2",
+                    "resources": [
+                        "water-low",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Power Plant",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Desert3",
+                    "resources": [
+                        "water-low",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Spectrum Station"
+                    ]
+                },
+                {
+                    "name": "Temperate4",
+                    "resources": [
+                        "ore-trace",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Power Plant"
+                    ]
+                }
+            ],
+            "cords": "R-5245",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Blue-Giant",
+            "systemName": "Toreae",
+            "systemPlanets": [
+                {
+                    "name": "Lava2",
+                    "resources": [
+                        "population-tribal",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Greenhouse1",
+                    "resources": [
+                        "water-low",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Desert2",
+                    "resources": [
+                        "population-scarce",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Ocean2",
+                    "resources": [
+                        "water-medium",
+                        "ore-low"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Rocky5",
+                    "resources": [
+                        "oil-medium",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Dawn Colony",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Greenhouse4",
+                    "resources": [
+                        "oil-low",
+                        "water-medium"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Dawn Colony"
+                    ]
+                }
+            ],
+            "cords": "R-7334",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Blue-Giant",
+            "systemName": "Arviseuou",
+            "systemPlanets": [
+                {
+                    "name": "Temperate3",
+                    "resources": [
+                        "ore-trace",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Temperate1",
+                    "resources": [
+                        "ore-high",
+                        "ore-low"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Power Plant"
+                    ]
+                },
+                {
+                    "name": "Frozen2",
+                    "resources": [
+                        "ore-medium",
+                        "ore-low"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Lava2",
+                    "resources": [
+                        "population-tribal",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Power Plant"
+                    ]
+                }
+            ],
+            "cords": "R-2367",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Giant",
+            "systemName": "Arsagua",
+            "systemPlanets": [
+                {
+                    "name": "Temperate4",
+                    "resources": [
+                        "ore-trace",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Desert1",
+                    "resources": [
+                        "ore-low",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Dawn Colony",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Temperate1",
+                    "resources": [
+                        "gas-low",
+                        "water-low"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Building 3"
+                    ]
+                },
+                {
+                    "name": "Desert1",
+                    "resources": [
+                        "gas-medium",
+                        "oil-low"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Inception Base"
+                    ]
+                }
+            ],
+            "cords": "R-3662",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Yellow-Dwarf",
+            "systemName": "Curyarainda",
+            "systemPlanets": [
+                {
+                    "name": "Asteroid-Belt2",
+                    "resources": [
+                        "water-low",
+                        "water-trace"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Gas1",
+                    "resources": [
+                        "water-trace",
+                        "gas-medium"
+                    ],
+                    "buildings": [
+                        "Dawn Colony",
+                        "Spectrum Station"
+                    ]
+                },
+                {
+                    "name": "Lava5",
+                    "resources": [
+                        "ore-trace",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Rocky4",
+                    "resources": [
+                        "water-low",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Building 3"
+                    ]
+                },
+                {
+                    "name": "Gas1",
+                    "resources": [
+                        "ore-trace",
+                        "gas-medium"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Frozen4",
+                    "resources": [
+                        "ore-high",
+                        "population-scarce"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Building 3"
+                    ]
+                },
+                {
+                    "name": "Frozen2",
+                    "resources": [
+                        "population-cities",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Building 3"
+                    ]
+                }
+            ],
+            "cords": "R-7752",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Yellow-Dwarf",
+            "systemName": "Ayadusarvis",
+            "systemPlanets": [
+                {
+                    "name": "Temperate2",
+                    "resources": [
+                        "ore-high",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Rocky3",
+                    "resources": [
+                        "ore-low",
+                        "oil-medium"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Frozen4",
+                    "resources": [
+                        "population-tribal",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Building 2"
+                    ]
+                }
+            ],
+            "cords": "R-2938",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Giant",
+            "systemName": "Spue",
+            "systemPlanets": [
+                {
+                    "name": "Temperate5",
+                    "resources": [
+                        "gas-medium",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Power Plant"
+                    ]
+                },
+                {
+                    "name": "Frozen3",
+                    "resources": [
+                        "ore-medium",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Lava1",
+                    "resources": [
+                        "population-scarce",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Building 3"
+                    ]
+                }
+            ],
+            "cords": "R-7077",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Blue-Giant",
+            "systemName": "Oiinda",
+            "systemPlanets": [
+                {
+                    "name": "Temperate1",
+                    "resources": [
+                        "ore-medium",
+                        "gas-medium"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Spectrum Station"
+                    ]
+                },
+                {
+                    "name": "Rocky4",
+                    "resources": [
+                        "gas-medium",
+                        "ore-trace"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Building 3"
+                    ]
+                }
+            ],
+            "cords": "R-2058",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Yellow-Dwarf",
+            "systemName": "Aueomia",
+            "systemPlanets": [
+                {
+                    "name": "Greenhouse1",
+                    "resources": [
+                        "oil-medium",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Frozen4",
+                    "resources": [
+                        "population-scarce",
+                        "ore-low"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Power Plant"
+                    ]
+                }
+            ],
+            "cords": "R-4076",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Supergiant",
+            "systemName": "Illesoe",
+            "systemPlanets": [
+                {
+                    "name": "Gas4",
+                    "resources": [
+                        "water-medium",
+                        "water-low"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Desert2",
+                    "resources": [
+                        "gas-low",
+                        "ore-trace"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Ocean5",
+                    "resources": [
+                        "oil-low",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Ocean5",
+                    "resources": [
+                        "population-scarce",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Gas5",
+                    "resources": [
+                        "gas-low",
+                        "water-low"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Asteroid-Belt2",
+                    "resources": [
+                        "gas-low",
+                        "population-cities"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Escort Colony"
+                    ]
+                }
+            ],
+            "cords": "R-3171",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Giant",
+            "systemName": "Fluailia",
+            "systemPlanets": [
+                {
+                    "name": "Greenhouse5",
+                    "resources": [
+                        "ore-medium",
+                        "ore-low"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Building 1"
+                    ]
+                },
+                {
+                    "name": "Greenhouse4",
+                    "resources": [
+                        "oil-medium",
+                        "water-medium"
+                    ],
+                    "buildings": [
+                        "Power Plant",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Frozen4",
+                    "resources": [
+                        "gas-medium",
+                        "ore-high"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Power Plant"
+                    ]
+                },
+                {
+                    "name": "Temperate1",
+                    "resources": [
+                        "ore-low",
+                        "oil-medium"
+                    ],
+                    "buildings": [
+                        "Power Plant",
+                        "Dawn Colony"
+                    ]
+                }
+            ],
+            "cords": "R-3255",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Dwarf",
+            "systemName": "Illesichiosie",
+            "systemPlanets": [
+                {
+                    "name": "Frozen1",
+                    "resources": [
+                        "ore-low",
+                        "oil-low"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Greenhouse5",
+                    "resources": [
+                        "water-medium",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Ocean1",
+                    "resources": [
+                        "water-low",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Spectrum Station"
+                    ]
+                },
+                {
+                    "name": "Frozen5",
+                    "resources": [
+                        "gas-low",
+                        "population-scarce"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Ocean5",
+                    "resources": [
+                        "ore-low",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Greenhouse2",
+                    "resources": [
+                        "ore-medium",
+                        "oil-low"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Power Plant"
+                    ]
+                }
+            ],
+            "cords": "R-4768",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Yellow-Dwarf",
+            "systemName": "Aiaoarth",
+            "systemPlanets": [
+                {
+                    "name": "Rocky3",
+                    "resources": [
+                        "water-low",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Power Plant",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Rocky1",
+                    "resources": [
+                        "water-trace",
+                        "water-low"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Escort Colony"
+                    ]
+                },
+                {
+                    "name": "Desert1",
+                    "resources": [
+                        "population-cities",
+                        "ore-high"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Greenhouse2",
+                    "resources": [
+                        "water-trace",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Escort Colony"
+                    ]
+                },
+                {
+                    "name": "Ocean4",
+                    "resources": [
+                        "water-low",
+                        "population-scarce"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Power Plant"
+                    ]
+                },
+                {
+                    "name": "Frozen3",
+                    "resources": [
+                        "water-low",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Greenhouse4",
+                    "resources": [
+                        "population-scarce",
+                        "gas-medium"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Building 2"
+                    ]
+                }
+            ],
+            "cords": "R-4735",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Blue-Giant",
+            "systemName": "Billoniri",
+            "systemPlanets": [
+                {
+                    "name": "Ocean4",
+                    "resources": [
+                        "gas-medium",
+                        "population-scarce"
+                    ],
+                    "buildings": [
+                        "Power Plant",
+                        "Building 1"
+                    ]
+                }
+            ],
+            "cords": "R-4721",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Giant",
+            "systemName": "Oueillon",
+            "systemPlanets": [
+                {
+                    "name": "Gas4",
+                    "resources": [
+                        "water-trace",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Temperate5",
+                    "resources": [
+                        "ore-low",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Rocky3",
+                    "resources": [
+                        "water-high",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Chemical plant"
+                    ]
+                }
+            ],
+            "cords": "R-6759",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Supergiant",
+            "systemName": "Ieillon",
+            "systemPlanets": [
+                {
+                    "name": "Asteroid-Belt2",
+                    "resources": [
+                        "water-medium",
+                        "gas-medium"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Power Plant"
+                    ]
+                },
+                {
+                    "name": "Temperate2",
+                    "resources": [
+                        "gas-medium",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Building 1"
+                    ]
+                }
+            ],
+            "cords": "R-3678",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Supergiant",
+            "systemName": "Eillonorix",
+            "systemPlanets": [
+                {
+                    "name": "Asteroid-Belt3",
+                    "resources": [
+                        "gas-low",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Building 3"
+                    ]
+                },
+                {
+                    "name": "Desert1",
+                    "resources": [
+                        "water-trace",
+                        "water-medium"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Ocean3",
+                    "resources": [
+                        "population-tribal",
+                        "ore-high"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Lava2",
+                    "resources": [
+                        "water-trace",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Building 2"
+                    ]
+                }
+            ],
+            "cords": "R-6650",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Blue-Giant",
+            "systemName": "Ieo",
+            "systemPlanets": [
+                {
+                    "name": "Rocky3",
+                    "resources": [
+                        "ore-high",
+                        "water-medium"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Greenhouse3",
+                    "resources": [
+                        "ore-trace",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Building 3"
+                    ]
+                }
+            ],
+            "cords": "R-3970",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Brown-Dwarf",
+            "systemName": "Hiriion",
+            "systemPlanets": [
+                {
+                    "name": "Ocean5",
+                    "resources": [
+                        "population-tribal",
+                        "population-scarce"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Symbolica Colony"
+                    ]
+                }
+            ],
+            "cords": "R-2770",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "White-Dwarf",
+            "systemName": "Uoortholla",
+            "systemPlanets": [
+                {
+                    "name": "Ocean5",
+                    "resources": [
+                        "oil-medium",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Power Plant",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Temperate2",
+                    "resources": [
+                        "gas-medium",
+                        "ore-trace"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Gas1",
+                    "resources": [
+                        "gas-low",
+                        "water-medium"
+                    ],
+                    "buildings": [
+                        "Power Plant",
+                        "Spectrum Station"
+                    ]
+                },
+                {
+                    "name": "Frozen3",
+                    "resources": [
+                        "population-cities",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Building 1",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Desert1",
+                    "resources": [
+                        "ore-high",
+                        "water-low"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Power Plant"
+                    ]
+                },
+                {
+                    "name": "Greenhouse5",
+                    "resources": [
+                        "oil-low",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Ocean1",
+                    "resources": [
+                        "population-tribal",
+                        "ore-trace"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Symbolica Colony"
+                    ]
+                }
+            ],
+            "cords": "R-7522",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Red-Supergiant",
+            "systemName": "Teraoeon",
+            "systemPlanets": [
+                {
+                    "name": "Ocean5",
+                    "resources": [
+                        "water-high",
+                        "water-low"
+                    ],
+                    "buildings": [
+                        "Building 2",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Greenhouse5",
+                    "resources": [
+                        "water-high",
+                        "ore-low"
+                    ],
+                    "buildings": [
+                        "Dawn Colony",
+                        "Building 3"
+                    ]
+                },
+                {
+                    "name": "Temperate3",
+                    "resources": [
+                        "oil-medium",
+                        "ore-trace"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Dawn Colony"
+                    ]
+                }
+            ],
+            "cords": "R-4772",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Blue-Giant",
+            "systemName": "Zunouy",
+            "systemPlanets": [
+                {
+                    "name": "Desert3",
+                    "resources": [
+                        "water-medium",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Inception Base",
+                        "Building 2"
+                    ]
+                },
+                {
+                    "name": "Temperate3",
+                    "resources": [
+                        "water-high",
+                        "population-scarce"
+                    ],
+                    "buildings": [
+                        "Dawn Colony",
+                        "Building 1"
+                    ]
+                },
+                {
+                    "name": "Desert4",
+                    "resources": [
+                        "ore-trace",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Temperate4",
+                    "resources": [
+                        "ore-trace",
+                        "population-scarce"
+                    ],
+                    "buildings": [
+                        "Spectrum Station",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Temperate5",
+                    "resources": [
+                        "oil-medium",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Symbolica Colony",
+                        "Dawn Colony"
+                    ]
+                },
+                {
+                    "name": "Desert1",
+                    "resources": [
+                        "ore-high",
+                        "ore-medium"
+                    ],
+                    "buildings": [
+                        "Chemical plant",
+                        "Inception Base"
+                    ]
+                }
+            ],
+            "cords": "R-6231",
+            "ownership": "unowned",
+            "hangar": []
+        },
+        {
+            "systemStar": "Yellow-Dwarf",
+            "systemName": "Araionillon",
+            "systemPlanets": [
+                {
+                    "name": "Ocean1",
+                    "resources": [
+                        "oil-low",
+                        "water-high"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Symbolica Colony"
+                    ]
+                },
+                {
+                    "name": "Lava1",
+                    "resources": [
+                        "oil-medium",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Building 3",
+                        "Escort Colony"
+                    ]
+                },
+                {
+                    "name": "Rocky4",
+                    "resources": [
+                        "water-low",
+                        "gas-low"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Inception Base"
+                    ]
+                },
+                {
+                    "name": "Gas4",
+                    "resources": [
+                        "ore-low",
+                        "water-low"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Spectrum Station"
+                    ]
+                },
+                {
+                    "name": "Desert3",
+                    "resources": [
+                        "ore-trace",
+                        "oil-medium"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Chemical plant"
+                    ]
+                },
+                {
+                    "name": "Desert1",
+                    "resources": [
+                        "ore-medium",
+                        "population-tribal"
+                    ],
+                    "buildings": [
+                        "Escort Colony",
+                        "Inception Base"
+                    ]
+                }
+            ],
+            "cords": "R-3848",
+            "ownership": "unowned",
+            "hangar": []
+        }
+    ],
+    "distancesMap": {
+        "Euortha": {
+            "Billoniri": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Zunouy": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Oreorixypso": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Aiaoarth": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Oraeroniea": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Uoortholla": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Visoreov": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Toreae": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Larauna": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Ayadusarvis": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Araionillon": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Eiea": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Eillonorix": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Apusichi": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Curyarainda": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Fluailia": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Oueillon": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Arsagua": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Illesichiosie": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Oiinda": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Ieo": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Teraoeon": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Zunoe": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Arviseuou": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Illesoe": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Vypsoiy": {
+                "distance": 54,
+                "eta": "13.5"
+            },
+            "Hiriion": {
+                "distance": 54,
+                "eta": "13.5"
+            },
+            "Oneau": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Aueomia": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Spue": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Ieillon": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Ueshan": {
+                "distance": 60,
+                "eta": "15"
+            }
+        },
+        "Larauna": {
+            "Oraeroniea": {
+                "distance": 4,
+                "eta": "1"
+            },
+            "Visoreov": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Araionillon": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Aiaoarth": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Eillonorix": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Illesichiosie": {
+                "distance": 19,
+                "eta": "4.75"
+            },
+            "Oueillon": {
+                "distance": 19,
+                "eta": "4.75"
+            },
+            "Arsagua": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Fluailia": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Zunouy": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Apusichi": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Teraoeon": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Ieo": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Ayadusarvis": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Euortha": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Oreorixypso": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Curyarainda": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Toreae": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Billoniri": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Zunoe": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Vypsoiy": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Aueomia": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Illesoe": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Eiea": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Oiinda": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Hiriion": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Arviseuou": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Ieillon": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Spue": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Oneau": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Uoortholla": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Ueshan": {
+                "distance": 38,
+                "eta": "9.5"
+            }
+        },
+        "Visoreov": {
+            "Araionillon": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Aiaoarth": {
+                "distance": 10,
+                "eta": "2.5"
+            },
+            "Oraeroniea": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Larauna": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Ayadusarvis": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Fluailia": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Arsagua": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Eiea": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Euortha": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Billoniri": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Zunouy": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Oiinda": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Illesichiosie": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Eillonorix": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Ieo": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Oreorixypso": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Arviseuou": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Illesoe": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Hiriion": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Teraoeon": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Oueillon": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Toreae": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Aueomia": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Apusichi": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Ieillon": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Curyarainda": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Vypsoiy": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Zunoe": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Uoortholla": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Spue": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Oneau": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Ueshan": {
+                "distance": 49,
+                "eta": "12.25"
+            }
+        },
+        "Zunoe": {
+            "Spue": {
+                "distance": 4,
+                "eta": "1"
+            },
+            "Vypsoiy": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Ueshan": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Oneau": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Oueillon": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Apusichi": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Teraoeon": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Illesichiosie": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Curyarainda": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Eillonorix": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Aueomia": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Larauna": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Ieo": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Oraeroniea": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Ieillon": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Arsagua": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Illesoe": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Toreae": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Araionillon": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Visoreov": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Fluailia": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Hiriion": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Zunouy": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Aiaoarth": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Arviseuou": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Oreorixypso": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Oiinda": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Uoortholla": {
+                "distance": 51,
+                "eta": "12.75"
+            },
+            "Euortha": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Ayadusarvis": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Billoniri": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Eiea": {
+                "distance": 61,
+                "eta": "15.25"
+            }
+        },
+        "Ueshan": {
+            "Spue": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Oneau": {
+                "distance": 7,
+                "eta": "1.75"
+            },
+            "Zunoe": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Vypsoiy": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Oueillon": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Apusichi": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Curyarainda": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Eillonorix": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Teraoeon": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Illesichiosie": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Aueomia": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Larauna": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Ieo": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Ieillon": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Oraeroniea": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Arsagua": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Toreae": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Illesoe": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Araionillon": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Visoreov": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Zunouy": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Fluailia": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Hiriion": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Oreorixypso": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Aiaoarth": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Arviseuou": {
+                "distance": 54,
+                "eta": "13.5"
+            },
+            "Uoortholla": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Oiinda": {
+                "distance": 59,
+                "eta": "14.75"
+            },
+            "Euortha": {
+                "distance": 60,
+                "eta": "15"
+            },
+            "Ayadusarvis": {
+                "distance": 62,
+                "eta": "15.5"
+            },
+            "Billoniri": {
+                "distance": 64,
+                "eta": "16"
+            },
+            "Eiea": {
+                "distance": 70,
+                "eta": "17.5"
+            }
+        },
+        "Apusichi": {
+            "Curyarainda": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Oueillon": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Eillonorix": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Zunoe": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Oneau": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Spue": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Larauna": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Ueshan": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Toreae": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Vypsoiy": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Oraeroniea": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Zunouy": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Illesichiosie": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Oreorixypso": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Teraoeon": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Aiaoarth": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Visoreov": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Uoortholla": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Araionillon": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Arsagua": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Ieo": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Euortha": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Aueomia": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Fluailia": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Ieillon": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Billoniri": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Illesoe": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Ayadusarvis": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Hiriion": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Arviseuou": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Oiinda": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Eiea": {
+                "distance": 54,
+                "eta": "13.5"
+            }
+        },
+        "Eiea": {
+            "Ayadusarvis": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Visoreov": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Araionillon": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Aiaoarth": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Fluailia": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Billoniri": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Oiinda": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Euortha": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Oraeroniea": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Larauna": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Arsagua": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Arviseuou": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Zunouy": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Hiriion": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Oreorixypso": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Illesoe": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Ieo": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Illesichiosie": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Eillonorix": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Teraoeon": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Aueomia": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Toreae": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Ieillon": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Oueillon": {
+                "distance": 51,
+                "eta": "12.75"
+            },
+            "Uoortholla": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Apusichi": {
+                "distance": 54,
+                "eta": "13.5"
+            },
+            "Curyarainda": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Vypsoiy": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Zunoe": {
+                "distance": 61,
+                "eta": "15.25"
+            },
+            "Spue": {
+                "distance": 65,
+                "eta": "16.25"
+            },
+            "Oneau": {
+                "distance": 69,
+                "eta": "17.25"
+            },
+            "Ueshan": {
+                "distance": 70,
+                "eta": "17.5"
+            }
+        },
+        "Oneau": {
+            "Ueshan": {
+                "distance": 7,
+                "eta": "1.75"
+            },
+            "Spue": {
+                "distance": 10,
+                "eta": "2.5"
+            },
+            "Zunoe": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Apusichi": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Vypsoiy": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Oueillon": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Curyarainda": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Eillonorix": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Illesichiosie": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Teraoeon": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Larauna": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Oraeroniea": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Toreae": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Aueomia": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Ieo": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Ieillon": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Arsagua": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Zunouy": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Oreorixypso": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Visoreov": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Illesoe": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Araionillon": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Aiaoarth": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Fluailia": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Uoortholla": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Hiriion": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Euortha": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Arviseuou": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Ayadusarvis": {
+                "distance": 60,
+                "eta": "15"
+            },
+            "Billoniri": {
+                "distance": 60,
+                "eta": "15"
+            },
+            "Oiinda": {
+                "distance": 61,
+                "eta": "15.25"
+            },
+            "Eiea": {
+                "distance": 69,
+                "eta": "17.25"
+            }
+        },
+        "Vypsoiy": {
+            "Zunoe": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Spue": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Ueshan": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Teraoeon": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Illesichiosie": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Oneau": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Oueillon": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Aueomia": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Apusichi": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Ieo": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Ieillon": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Eillonorix": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Larauna": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Arsagua": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Curyarainda": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Illesoe": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Oraeroniea": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Hiriion": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Fluailia": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Araionillon": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Visoreov": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Arviseuou": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Aiaoarth": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Toreae": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Oiinda": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Zunouy": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Oreorixypso": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Ayadusarvis": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Euortha": {
+                "distance": 54,
+                "eta": "13.5"
+            },
+            "Uoortholla": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Billoniri": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Eiea": {
+                "distance": 58,
+                "eta": "14.5"
+            }
+        },
+        "Oreorixypso": {
+            "Zunouy": {
+                "distance": 5,
+                "eta": "1.25"
+            },
+            "Toreae": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Uoortholla": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Euortha": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Billoniri": {
+                "distance": 19,
+                "eta": "4.75"
+            },
+            "Aiaoarth": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Oraeroniea": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Eillonorix": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Larauna": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Curyarainda": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Visoreov": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Apusichi": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Oueillon": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Araionillon": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Ayadusarvis": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Eiea": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Fluailia": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Arsagua": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Illesichiosie": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Zunoe": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Oneau": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Teraoeon": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Vypsoiy": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Spue": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Ieo": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Ueshan": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Oiinda": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Aueomia": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Illesoe": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Hiriion": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Arviseuou": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Ieillon": {
+                "distance": 59,
+                "eta": "14.75"
+            }
+        },
+        "Oraeroniea": {
+            "Larauna": {
+                "distance": 4,
+                "eta": "1"
+            },
+            "Visoreov": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Aiaoarth": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Araionillon": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Eillonorix": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Zunouy": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Oueillon": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Euortha": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Oreorixypso": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Fluailia": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Apusichi": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Arsagua": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Toreae": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Ayadusarvis": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Illesichiosie": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Billoniri": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Curyarainda": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Teraoeon": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Ieo": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Eiea": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Zunoe": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Vypsoiy": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Aueomia": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Illesoe": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Uoortholla": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Oiinda": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Hiriion": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Arviseuou": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Spue": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Ieillon": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Oneau": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Ueshan": {
+                "distance": 41,
+                "eta": "10.25"
+            }
+        },
+        "Toreae": {
+            "Oreorixypso": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Zunouy": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Uoortholla": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Eillonorix": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Curyarainda": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Apusichi": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Euortha": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Oraeroniea": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Aiaoarth": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Oueillon": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Larauna": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Billoniri": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Visoreov": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Oneau": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Araionillon": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Zunoe": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Spue": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Illesichiosie": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Ueshan": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Vypsoiy": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Ayadusarvis": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Arsagua": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Fluailia": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Teraoeon": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Eiea": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Ieo": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Aueomia": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Illesoe": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Ieillon": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Oiinda": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Hiriion": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Arviseuou": {
+                "distance": 60,
+                "eta": "15"
+            }
+        },
+        "Arviseuou": {
+            "Hiriion": {
+                "distance": 5,
+                "eta": "1.25"
+            },
+            "Oiinda": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Illesoe": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Arsagua": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Fluailia": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Ieo": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Ieillon": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Aueomia": {
+                "distance": 19,
+                "eta": "4.75"
+            },
+            "Illesichiosie": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Araionillon": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Teraoeon": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Visoreov": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Ayadusarvis": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Larauna": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Eiea": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Oraeroniea": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Vypsoiy": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Aiaoarth": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Zunoe": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Oueillon": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Eillonorix": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Spue": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Apusichi": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Billoniri": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Euortha": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Zunouy": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Ueshan": {
+                "distance": 54,
+                "eta": "13.5"
+            },
+            "Oneau": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Curyarainda": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Oreorixypso": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Toreae": {
+                "distance": 60,
+                "eta": "15"
+            },
+            "Uoortholla": {
+                "distance": 69,
+                "eta": "17.25"
+            }
+        },
+        "Arsagua": {
+            "Fluailia": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Ieo": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Illesoe": {
+                "distance": 10,
+                "eta": "2.5"
+            },
+            "Hiriion": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Illesichiosie": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Arviseuou": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Araionillon": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Aueomia": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Teraoeon": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Oiinda": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Ieillon": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Larauna": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Visoreov": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Oraeroniea": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Ayadusarvis": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Vypsoiy": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Aiaoarth": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Oueillon": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Eillonorix": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Eiea": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Zunoe": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Apusichi": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Spue": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Zunouy": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Curyarainda": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Billoniri": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Euortha": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Ueshan": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Oneau": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Oreorixypso": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Toreae": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Uoortholla": {
+                "distance": 56,
+                "eta": "14"
+            }
+        },
+        "Curyarainda": {
+            "Apusichi": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Eillonorix": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Oueillon": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Toreae": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Oneau": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Zunoe": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Larauna": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Ueshan": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Oraeroniea": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Spue": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Zunouy": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Oreorixypso": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Vypsoiy": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Uoortholla": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Illesichiosie": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Aiaoarth": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Teraoeon": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Visoreov": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Euortha": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Araionillon": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Arsagua": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Ieo": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Billoniri": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Aueomia": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Fluailia": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Ieillon": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Ayadusarvis": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Illesoe": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Hiriion": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Arviseuou": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Eiea": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Oiinda": {
+                "distance": 57,
+                "eta": "14.25"
+            }
+        },
+        "Ayadusarvis": {
+            "Eiea": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Visoreov": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Araionillon": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Fluailia": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Aiaoarth": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Oiinda": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Oraeroniea": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Larauna": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Arsagua": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Billoniri": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Euortha": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Arviseuou": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Hiriion": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Illesoe": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Ieo": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Zunouy": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Illesichiosie": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Oreorixypso": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Teraoeon": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Eillonorix": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Aueomia": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Ieillon": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Oueillon": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Toreae": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Apusichi": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Uoortholla": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Vypsoiy": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Curyarainda": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Zunoe": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Spue": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Oneau": {
+                "distance": 60,
+                "eta": "15"
+            },
+            "Ueshan": {
+                "distance": 62,
+                "eta": "15.5"
+            }
+        },
+        "Spue": {
+            "Zunoe": {
+                "distance": 4,
+                "eta": "1"
+            },
+            "Ueshan": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Vypsoiy": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Oneau": {
+                "distance": 10,
+                "eta": "2.5"
+            },
+            "Oueillon": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Apusichi": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Teraoeon": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Illesichiosie": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Curyarainda": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Eillonorix": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Aueomia": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Ieo": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Larauna": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Ieillon": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Oraeroniea": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Arsagua": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Illesoe": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Toreae": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Araionillon": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Fluailia": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Hiriion": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Visoreov": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Zunouy": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Arviseuou": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Aiaoarth": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Oreorixypso": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Oiinda": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Uoortholla": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Euortha": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Ayadusarvis": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Billoniri": {
+                "distance": 61,
+                "eta": "15.25"
+            },
+            "Eiea": {
+                "distance": 65,
+                "eta": "16.25"
+            }
+        },
+        "Oiinda": {
+            "Arviseuou": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Fluailia": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Hiriion": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Arsagua": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Illesoe": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Araionillon": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Ayadusarvis": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Ieo": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Visoreov": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Ieillon": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Eiea": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Aueomia": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Illesichiosie": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Teraoeon": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Larauna": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Oraeroniea": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Aiaoarth": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Vypsoiy": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Billoniri": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Oueillon": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Eillonorix": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Euortha": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Zunoe": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Zunouy": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Apusichi": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Spue": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Oreorixypso": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Curyarainda": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Toreae": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Ueshan": {
+                "distance": 59,
+                "eta": "14.75"
+            },
+            "Oneau": {
+                "distance": 61,
+                "eta": "15.25"
+            },
+            "Uoortholla": {
+                "distance": 66,
+                "eta": "16.5"
+            }
+        },
+        "Aueomia": {
+            "Ieillon": {
+                "distance": 4,
+                "eta": "1"
+            },
+            "Ieo": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Teraoeon": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Illesoe": {
+                "distance": 10,
+                "eta": "2.5"
+            },
+            "Illesichiosie": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Hiriion": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Arsagua": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Arviseuou": {
+                "distance": 19,
+                "eta": "4.75"
+            },
+            "Vypsoiy": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Fluailia": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Oiinda": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Zunoe": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Araionillon": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Larauna": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Spue": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Oueillon": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Visoreov": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Oraeroniea": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Ueshan": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Eillonorix": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Apusichi": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Oneau": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Ayadusarvis": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Aiaoarth": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Curyarainda": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Eiea": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Zunouy": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Toreae": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Euortha": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Oreorixypso": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Billoniri": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Uoortholla": {
+                "distance": 64,
+                "eta": "16"
+            }
+        },
+        "Illesoe": {
+            "Hiriion": {
+                "distance": 4,
+                "eta": "1"
+            },
+            "Ieo": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Arviseuou": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Ieillon": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Arsagua": {
+                "distance": 10,
+                "eta": "2.5"
+            },
+            "Aueomia": {
+                "distance": 10,
+                "eta": "2.5"
+            },
+            "Fluailia": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Illesichiosie": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Teraoeon": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Oiinda": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Araionillon": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Larauna": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Visoreov": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Vypsoiy": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Oraeroniea": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Ayadusarvis": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Zunoe": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Oueillon": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Spue": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Aiaoarth": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Eiea": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Eillonorix": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Apusichi": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Ueshan": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Oneau": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Curyarainda": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Zunouy": {
+                "distance": 51,
+                "eta": "12.75"
+            },
+            "Billoniri": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Euortha": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Oreorixypso": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Toreae": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Uoortholla": {
+                "distance": 66,
+                "eta": "16.5"
+            }
+        },
+        "Fluailia": {
+            "Arsagua": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Araionillon": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Oiinda": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Visoreov": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Arviseuou": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Illesoe": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Hiriion": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Ayadusarvis": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Ieo": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Larauna": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Illesichiosie": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Oraeroniea": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Aueomia": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Ieillon": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Teraoeon": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Eiea": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Aiaoarth": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Eillonorix": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Oueillon": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Vypsoiy": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Billoniri": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Euortha": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Zunouy": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Zunoe": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Apusichi": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Oreorixypso": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Spue": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Curyarainda": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Toreae": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Ueshan": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Oneau": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Uoortholla": {
+                "distance": 54,
+                "eta": "13.5"
+            }
+        },
+        "Illesichiosie": {
+            "Teraoeon": {
+                "distance": 4,
+                "eta": "1"
+            },
+            "Ieo": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Aueomia": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Arsagua": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Ieillon": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Vypsoiy": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Illesoe": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Larauna": {
+                "distance": 19,
+                "eta": "4.75"
+            },
+            "Fluailia": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Hiriion": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Zunoe": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Oueillon": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Araionillon": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Oraeroniea": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Arviseuou": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Spue": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Visoreov": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Eillonorix": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Apusichi": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Oiinda": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Ueshan": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Oneau": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Aiaoarth": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Curyarainda": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Ayadusarvis": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Zunouy": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Toreae": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Eiea": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Euortha": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Oreorixypso": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Billoniri": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Uoortholla": {
+                "distance": 54,
+                "eta": "13.5"
+            }
+        },
+        "Aiaoarth": {
+            "Visoreov": {
+                "distance": 10,
+                "eta": "2.5"
+            },
+            "Oraeroniea": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Euortha": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Billoniri": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Larauna": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Zunouy": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Araionillon": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Ayadusarvis": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Oreorixypso": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Eiea": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Eillonorix": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Fluailia": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Toreae": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Arsagua": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Oueillon": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Uoortholla": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Apusichi": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Illesichiosie": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Curyarainda": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Oiinda": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Ieo": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Teraoeon": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Illesoe": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Arviseuou": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Hiriion": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Aueomia": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Zunoe": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Vypsoiy": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Ieillon": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Spue": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Oneau": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Ueshan": {
+                "distance": 52,
+                "eta": "13"
+            }
+        },
+        "Billoniri": {
+            "Euortha": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Aiaoarth": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Zunouy": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Oreorixypso": {
+                "distance": 19,
+                "eta": "4.75"
+            },
+            "Visoreov": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Eiea": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Oraeroniea": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Ayadusarvis": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Larauna": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Uoortholla": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Araionillon": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Toreae": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Eillonorix": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Fluailia": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Arsagua": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Apusichi": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Curyarainda": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Oueillon": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Oiinda": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Illesichiosie": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Ieo": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Teraoeon": {
+                "distance": 51,
+                "eta": "12.75"
+            },
+            "Arviseuou": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Illesoe": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Hiriion": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Aueomia": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Zunoe": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Vypsoiy": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Ieillon": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Oneau": {
+                "distance": 60,
+                "eta": "15"
+            },
+            "Spue": {
+                "distance": 61,
+                "eta": "15.25"
+            },
+            "Ueshan": {
+                "distance": 64,
+                "eta": "16"
+            }
+        },
+        "Oueillon": {
+            "Apusichi": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Eillonorix": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Curyarainda": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Zunoe": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Oneau": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Vypsoiy": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Spue": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Larauna": {
+                "distance": 19,
+                "eta": "4.75"
+            },
+            "Ueshan": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Oraeroniea": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Illesichiosie": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Teraoeon": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Toreae": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Zunouy": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Ieo": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Visoreov": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Arsagua": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Aiaoarth": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Araionillon": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Oreorixypso": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Aueomia": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Fluailia": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Ieillon": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Illesoe": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Uoortholla": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Euortha": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Hiriion": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Ayadusarvis": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Billoniri": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Arviseuou": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Oiinda": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Eiea": {
+                "distance": 51,
+                "eta": "12.75"
+            }
+        },
+        "Ieillon": {
+            "Aueomia": {
+                "distance": 4,
+                "eta": "1"
+            },
+            "Illesoe": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Ieo": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Hiriion": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Teraoeon": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Illesichiosie": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Arsagua": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Arviseuou": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Fluailia": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Vypsoiy": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Oiinda": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Araionillon": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Zunoe": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Larauna": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Spue": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Visoreov": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Oueillon": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Oraeroniea": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Ueshan": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Ayadusarvis": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Eillonorix": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Apusichi": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Oneau": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Aiaoarth": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Eiea": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Curyarainda": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Zunouy": {
+                "distance": 54,
+                "eta": "13.5"
+            },
+            "Toreae": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Euortha": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Billoniri": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Oreorixypso": {
+                "distance": 59,
+                "eta": "14.75"
+            },
+            "Uoortholla": {
+                "distance": 68,
+                "eta": "17"
+            }
+        },
+        "Eillonorix": {
+            "Apusichi": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Oueillon": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Curyarainda": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Larauna": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Oraeroniea": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Toreae": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Zunouy": {
+                "distance": 19,
+                "eta": "4.75"
+            },
+            "Zunoe": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Oreorixypso": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Aiaoarth": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Visoreov": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Oneau": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Vypsoiy": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Illesichiosie": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Spue": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Araionillon": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Uoortholla": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Teraoeon": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Euortha": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Ueshan": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Arsagua": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Fluailia": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Ieo": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Billoniri": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Aueomia": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Ayadusarvis": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Illesoe": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Ieillon": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Hiriion": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Eiea": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Arviseuou": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Oiinda": {
+                "distance": 47,
+                "eta": "11.75"
+            }
+        },
+        "Ieo": {
+            "Aueomia": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Illesoe": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Illesichiosie": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Teraoeon": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Arsagua": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Ieillon": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Hiriion": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Arviseuou": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Fluailia": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Oiinda": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Araionillon": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Vypsoiy": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Larauna": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Visoreov": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Oraeroniea": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Zunoe": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Oueillon": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Spue": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Ayadusarvis": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Eillonorix": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Apusichi": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Aiaoarth": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Ueshan": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Oneau": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Eiea": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Curyarainda": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Zunouy": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Euortha": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Oreorixypso": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Toreae": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Billoniri": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Uoortholla": {
+                "distance": 60,
+                "eta": "15"
+            }
+        },
+        "Hiriion": {
+            "Illesoe": {
+                "distance": 4,
+                "eta": "1"
+            },
+            "Arviseuou": {
+                "distance": 5,
+                "eta": "1.25"
+            },
+            "Arsagua": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Ieillon": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Ieo": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Oiinda": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Aueomia": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Fluailia": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Illesichiosie": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Teraoeon": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Araionillon": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Visoreov": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Larauna": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Ayadusarvis": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Vypsoiy": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Oraeroniea": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Eiea": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Aiaoarth": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Zunoe": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Oueillon": {
+                "distance": 41,
+                "eta": "10.25"
+            },
+            "Spue": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Eillonorix": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Apusichi": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Ueshan": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Oneau": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Zunouy": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Curyarainda": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Billoniri": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Euortha": {
+                "distance": 54,
+                "eta": "13.5"
+            },
+            "Oreorixypso": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Toreae": {
+                "distance": 58,
+                "eta": "14.5"
+            },
+            "Uoortholla": {
+                "distance": 68,
+                "eta": "17"
+            }
+        },
+        "Uoortholla": {
+            "Oreorixypso": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Toreae": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Zunouy": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Euortha": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Billoniri": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Eillonorix": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Curyarainda": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Aiaoarth": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Oraeroniea": {
+                "distance": 33,
+                "eta": "8.25"
+            },
+            "Apusichi": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Larauna": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Oueillon": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Visoreov": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Araionillon": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Ayadusarvis": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Oneau": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Zunoe": {
+                "distance": 51,
+                "eta": "12.75"
+            },
+            "Eiea": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Fluailia": {
+                "distance": 54,
+                "eta": "13.5"
+            },
+            "Illesichiosie": {
+                "distance": 54,
+                "eta": "13.5"
+            },
+            "Spue": {
+                "distance": 55,
+                "eta": "13.75"
+            },
+            "Ueshan": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Vypsoiy": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Arsagua": {
+                "distance": 56,
+                "eta": "14"
+            },
+            "Teraoeon": {
+                "distance": 57,
+                "eta": "14.25"
+            },
+            "Ieo": {
+                "distance": 60,
+                "eta": "15"
+            },
+            "Aueomia": {
+                "distance": 64,
+                "eta": "16"
+            },
+            "Oiinda": {
+                "distance": 66,
+                "eta": "16.5"
+            },
+            "Illesoe": {
+                "distance": 66,
+                "eta": "16.5"
+            },
+            "Ieillon": {
+                "distance": 68,
+                "eta": "17"
+            },
+            "Hiriion": {
+                "distance": 68,
+                "eta": "17"
+            },
+            "Arviseuou": {
+                "distance": 69,
+                "eta": "17.25"
+            }
+        },
+        "Teraoeon": {
+            "Illesichiosie": {
+                "distance": 4,
+                "eta": "1"
+            },
+            "Aueomia": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Ieo": {
+                "distance": 8,
+                "eta": "2"
+            },
+            "Ieillon": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Vypsoiy": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Arsagua": {
+                "distance": 15,
+                "eta": "3.75"
+            },
+            "Illesoe": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Hiriion": {
+                "distance": 20,
+                "eta": "5"
+            },
+            "Zunoe": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Larauna": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Fluailia": {
+                "distance": 23,
+                "eta": "5.75"
+            },
+            "Spue": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Oueillon": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Arviseuou": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Araionillon": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Oraeroniea": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Eillonorix": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Visoreov": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Ueshan": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Apusichi": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Oiinda": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Oneau": {
+                "distance": 32,
+                "eta": "8"
+            },
+            "Curyarainda": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Aiaoarth": {
+                "distance": 37,
+                "eta": "9.25"
+            },
+            "Ayadusarvis": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Zunouy": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Toreae": {
+                "distance": 46,
+                "eta": "11.5"
+            },
+            "Eiea": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Oreorixypso": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Euortha": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Billoniri": {
+                "distance": 51,
+                "eta": "12.75"
+            },
+            "Uoortholla": {
+                "distance": 57,
+                "eta": "14.25"
+            }
+        },
+        "Zunouy": {
+            "Oreorixypso": {
+                "distance": 5,
+                "eta": "1.25"
+            },
+            "Toreae": {
+                "distance": 11,
+                "eta": "2.75"
+            },
+            "Euortha": {
+                "distance": 12,
+                "eta": "3"
+            },
+            "Aiaoarth": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Uoortholla": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Oraeroniea": {
+                "distance": 17,
+                "eta": "4.25"
+            },
+            "Billoniri": {
+                "distance": 18,
+                "eta": "4.5"
+            },
+            "Eillonorix": {
+                "distance": 19,
+                "eta": "4.75"
+            },
+            "Larauna": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Visoreov": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Curyarainda": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Apusichi": {
+                "distance": 27,
+                "eta": "6.75"
+            },
+            "Oueillon": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Araionillon": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Ayadusarvis": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Eiea": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Fluailia": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Arsagua": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Illesichiosie": {
+                "distance": 40,
+                "eta": "10"
+            },
+            "Zunoe": {
+                "distance": 42,
+                "eta": "10.5"
+            },
+            "Oneau": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Teraoeon": {
+                "distance": 44,
+                "eta": "11"
+            },
+            "Vypsoiy": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Ieo": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Spue": {
+                "distance": 47,
+                "eta": "11.75"
+            },
+            "Ueshan": {
+                "distance": 49,
+                "eta": "12.25"
+            },
+            "Oiinda": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Aueomia": {
+                "distance": 50,
+                "eta": "12.5"
+            },
+            "Illesoe": {
+                "distance": 51,
+                "eta": "12.75"
+            },
+            "Hiriion": {
+                "distance": 52,
+                "eta": "13"
+            },
+            "Arviseuou": {
+                "distance": 53,
+                "eta": "13.25"
+            },
+            "Ieillon": {
+                "distance": 54,
+                "eta": "13.5"
+            }
+        },
+        "Araionillon": {
+            "Visoreov": {
+                "distance": 6,
+                "eta": "1.5"
+            },
+            "Fluailia": {
+                "distance": 9,
+                "eta": "2.25"
+            },
+            "Larauna": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Ayadusarvis": {
+                "distance": 13,
+                "eta": "3.25"
+            },
+            "Oraeroniea": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Arsagua": {
+                "distance": 14,
+                "eta": "3.5"
+            },
+            "Aiaoarth": {
+                "distance": 16,
+                "eta": "4"
+            },
+            "Oiinda": {
+                "distance": 21,
+                "eta": "5.25"
+            },
+            "Eiea": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Illesichiosie": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Ieo": {
+                "distance": 22,
+                "eta": "5.5"
+            },
+            "Arviseuou": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Illesoe": {
+                "distance": 24,
+                "eta": "6"
+            },
+            "Hiriion": {
+                "distance": 25,
+                "eta": "6.25"
+            },
+            "Teraoeon": {
+                "distance": 26,
+                "eta": "6.5"
+            },
+            "Aueomia": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Billoniri": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Eillonorix": {
+                "distance": 28,
+                "eta": "7"
+            },
+            "Euortha": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Zunouy": {
+                "distance": 29,
+                "eta": "7.25"
+            },
+            "Ieillon": {
+                "distance": 30,
+                "eta": "7.5"
+            },
+            "Oueillon": {
+                "distance": 31,
+                "eta": "7.75"
+            },
+            "Oreorixypso": {
+                "distance": 34,
+                "eta": "8.5"
+            },
+            "Apusichi": {
+                "distance": 35,
+                "eta": "8.75"
+            },
+            "Vypsoiy": {
+                "distance": 36,
+                "eta": "9"
+            },
+            "Toreae": {
+                "distance": 38,
+                "eta": "9.5"
+            },
+            "Zunoe": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Curyarainda": {
+                "distance": 39,
+                "eta": "9.75"
+            },
+            "Spue": {
+                "distance": 43,
+                "eta": "10.75"
+            },
+            "Uoortholla": {
+                "distance": 45,
+                "eta": "11.25"
+            },
+            "Ueshan": {
+                "distance": 48,
+                "eta": "12"
+            },
+            "Oneau": {
+                "distance": 48,
+                "eta": "12"
+            }
+        }
+    },
+    "sectorName": "Sector-A",
+    "ships": []
+}

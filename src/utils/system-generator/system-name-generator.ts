@@ -191,7 +191,7 @@ export const systemNameGenerator = (count: number) => {
   ];
 
   const buildName = () => {
-    const maxLength = 5;
+    const maxLength = 3;
     const minLength = 2;
     const nameLength = Math.floor(Math.random() * (maxLength - minLength + 1) + minLength);
 
@@ -227,7 +227,7 @@ export const systemNameGenerator = (count: number) => {
     let name = buildName();
 
     // 1 in 10 chance to be numbered
-    const isNumbered = Math.floor(Math.random() * 10) === 1 ? true : false;
+    const isNumbered = Math.floor(Math.random() * 0) === 1 ? true : false;
 
     if (isNumbered) {
       name += ` ${numbers[Math.floor(Math.random() * numbers.length)]}`;

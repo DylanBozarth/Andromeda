@@ -4,7 +4,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { UImaster } from './UI/user-interface-master';
 import { SystemView } from './views/system-view';
 import { GalaticView } from './views/galatic-view';
-import { ReduxSector } from './views/sectors/redux-sector/redux-sector';
+import { ReduxSector } from './views/sectors/sector-a';
 import { DetailsMenu } from './UI/menu-pages/detailsMenu';
 
 function App() {
