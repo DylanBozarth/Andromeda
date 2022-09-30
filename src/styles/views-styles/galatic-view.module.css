@@ -9,7 +9,9 @@
   top: 50%;
   transform: translate(-50%, -50%);
   text-decoration: none;
-  color: red;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 .sectorawrapper {
   position: absolute;

@@ -10,6 +10,7 @@ import { DetailsMenu } from './UI/menu-pages/detailsMenu';
 function App() {
   return (
     <BrowserRouter>
+    <div className='background-class'></div>
       <UImaster />
       <Routes>
         <Route path='/' element={<GalaticView />} />

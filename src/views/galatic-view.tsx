@@ -9,7 +9,6 @@ export const GalaticView = () => {
   console.log({ sectors });
   return (
     <div>
-      <img src='./assets/Galaxy.jpg' className={styles['galaxy']} alt='galaxy' />
       <div className={styles['sectorawrapper']}>
         <img src='./assets/sample-image.png'></img>
         <Link
@@ -19,6 +18,8 @@ export const GalaticView = () => {
         >
           {' '}
           SECTOR A
+          <br /> 
+          Run generate before clicking
         </Link>
       </div>
     </div>

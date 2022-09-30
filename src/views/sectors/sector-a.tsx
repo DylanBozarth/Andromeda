@@ -24,6 +24,7 @@ export const SectorA = () => {
   {
     return (
       <div className={styles['sector-view-wrapper']}>
+        <div className={styles['sector-background']}></div>
         {sector.systems.map((item) => {
           return (
             <div
