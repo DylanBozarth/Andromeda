@@ -19,6 +19,8 @@ export const GalaticView = () => {
           {' '}
           SECTOR A
           <br /> 
+          First time? 
+          <br />
           Run generate before clicking
         </Link>
       </div>

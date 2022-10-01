@@ -30,13 +30,13 @@ export const SystemPowerBar = ({
           className={styles['system-power-toggle-button']}
           onClick={() => setToggleResources(!toggleResources)}
         >
-          Toggle resources
+          resources
         </button>
         <button
           className={styles['system-power-toggle-button']}
           onClick={() => setToggleBuildings(!toggleBuildings)}
         >
-          Toggle Buildings
+          buildings
         </button>
       </div>
     </div>

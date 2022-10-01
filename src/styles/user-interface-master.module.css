@@ -211,40 +211,32 @@
 
 /* redo this */
 .system-power-toggle-button {
-  color: rgba(255, 255, 255, 0.8);
-  text-shadow: 0px 1px #000;
-  font-size: 16px;
-  text-decoration: none;
-  padding: 0.5em 1.5em;
-  margin: 0.5em;
+  
+  color: aqua;
+  border: none;
+  background-color: transparent;
+  background-image: url("https://i.imgur.com/c4cssIq.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  mask-image: url("https://i.imgur.com/MpgqLcj.png");
+  mask-type: alpha;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: 90% 80%;
+  font-family: verdana, sans-serif;
+  font-size: 1em;
+  padding: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  outline: none;
   cursor: pointer;
-  width: 200px;
-  overflow: visible;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-  outline: 0;
-  color: black;
+  position: relative;
+  transition: all 0.3s;
 }
 
-.system-power-toggle-button:hover {
-  text-shadow: none;
-
-  border-color: rgba(0, 0, 0, 0.6);
-  border-image: none;
-  border-style: solid;
-  border-width: 1px;
-
-  box-shadow:
-    0 1px 0 0 rgba(255, 255, 255, 0.4) inset,
-    0 10px rgba(255, 255, 255, 0.5) inset,
-    0 0 5px 2px rgba(255, 255, 255, 0.75);
-
-}
 
 .power-bar-section {
   align-self: center;
@@ -303,8 +295,30 @@
 .side-tab {
   padding: .5rem;
   text-align: center;
-  background-color: black;
-  border: 1px solid chocolate;
+  color: aqua;
+  border: none;
+  background-color: transparent;
+  background-image: url("https://i.imgur.com/c4cssIq.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  mask-image: url("https://i.imgur.com/MpgqLcj.png");
+  mask-type: alpha;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: 90% 80%;
+  font-family: verdana, sans-serif;
+  font-size: .7em;
+  padding: .7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+  margin-right: 1em;
   cursor: pointer;
 }
 
