@@ -10,17 +10,9 @@
 .menu-blur-effect {
     background-color: black;
     border: 1px solid green;
-    margin-top: 5vh;
     height: 100%;
     width: 100%;
     z-index: 95;
-    position: fixed;
-    opacity: .6;
-}
-
-.not-transparent {
-    z-index: 98;
-    position: absolute;
 }
 
 .center-container {
