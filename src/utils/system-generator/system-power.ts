@@ -1,5 +1,6 @@
 import { Planet } from '../../types/planet-interface';
 import { System } from './generate-sector';
+import { Ship } from './ship';
 
 export const baseShipPowerValue = 1;
 export const baseBuildingPowerValue = 1;
@@ -24,11 +25,11 @@ const getBuildingPowerCounts = (planet: Planet) => {
   return buildingPower;
 };
 
-const getShipPowerCounts = (hanger: string[]) => {
+const getShipPowerCounts = (hanger: Ship[]) => {
   let shipPower = 0;
   hanger.forEach((_ship) => {
     console.log({ _ship });
-    shipPower += baseShipPowerValue;
+    shipPower += _ship.power;
   });
   return shipPower;
 };

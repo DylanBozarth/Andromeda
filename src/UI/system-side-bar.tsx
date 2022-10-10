@@ -1,5 +1,5 @@
 import styles from '../styles/user-interface-master.module.css';
-import { System } from '../utils/system-generator/generate-sector';
+import { buildShip, System } from '../utils/system-generator/generate-sector';
 import { useState } from 'react';
 import { SystemPowerBar } from './system-power-bar';
 interface systemInformation {
@@ -49,7 +49,12 @@ export const SystemSideBar = ({
           </div>
           <div className={tabNumber === 2 ? `${styles['side-tab-info']}` : 'hidden'}>
             Production
+            <button onClick={() => buildShip(playerSystem)
+            }>
+              Build ship
+            </button>
           </div>
+
           <div className={tabNumber === 3 ? `${styles['side-tab-info']}` : 'hidden'}>Alerts</div>
         </div>
         <SystemPowerBar

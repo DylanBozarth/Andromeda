@@ -1,3 +1,4 @@
+import { ship1 } from './ship';
 import { baseBuildingPowerValue, baseShipPowerValue, getSystemPower } from './system-power';
 
 test('getSystemPower() returns correct values when all buildings and ships are of same value', () => {
@@ -49,10 +50,10 @@ test('getSystemPower() returns correct values when all buildings and ships are o
       ],
       cords: 'R-4975',
       ownership: 'unowned',
-      hangar: ['ship1', 'ship2'],
+      hangar: [ship1],
     }),
   ).toStrictEqual({
-    shipPower: 2 * baseShipPowerValue,
+    shipPower: ship1.power,
     buildingPower: 16 * baseBuildingPowerValue,
   });
 });

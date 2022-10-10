@@ -16,6 +16,7 @@ import {
 } from './system-functions';
 import { systemNameGenerator } from './system-name-generator';
 import { Sector } from '../../redux/sectorSlice';
+import { Ship, ship1 } from './ship';
 
 export interface System {
   systemStar: string;
@@ -23,7 +24,13 @@ export interface System {
   systemName: string;
   cords: string;
   ownership: string;
-  hangar: string[];
+  hangar: Ship[];
+}
+
+export const buildShip = (system:System) => {
+  console.log('help')
+      setTimeout(function(){system.hangar.push(ship1); console.log(system.hangar)}, ship1.buildTime*1000)
+      console.log('build')
 }
 
 const generateSystem = (maxPlanets: number) => {
