@@ -3,5 +3,4 @@ export const playerRawResources = {
     'gas': 0,
     'water': 0,
     'ore': 0,
-    
 }
