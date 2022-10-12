@@ -323,7 +323,7 @@
 }
 
 .side-screen {
-  height: 50vh;
+  max-height: 40vh;
   text-align: center;
 }
 
