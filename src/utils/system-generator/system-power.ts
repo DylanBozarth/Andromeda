@@ -25,11 +25,10 @@ const getBuildingPowerCounts = (planet: Planet) => {
   return buildingPower;
 };
 
-const getShipPowerCounts = (hanger: Ship[]) => {
-  let shipPower = 0;
-  hanger.forEach((_ship) => {
+const getShipPowerCounts = (hangar: Ship[]) => {
+  const shipPower = 0;
+  hangar.forEach((_ship) => {
     console.log({ _ship });
-    shipPower += _ship.power;
   });
   return shipPower;
 };

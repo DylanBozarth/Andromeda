@@ -19,3 +19,4 @@ export const ship1: Ship ={
     buildTime: 30,
     cost: 1000,
 }
+

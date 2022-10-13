@@ -24,13 +24,16 @@ export interface System {
   systemName: string;
   cords: string;
   ownership: string;
-  hangar: Ship[];
+  hangar: Array<Ship>;
 }
 
 export const buildShip = (system:System) => {
-  console.log('help')
-      setTimeout(function(){system.hangar.push(ship1); console.log(system.hangar)}, ship1.buildTime*1000)
-      console.log('build')
+      setTimeout(() => {
+        system.hangar.push(ship1);
+      }, ship1.buildTime)
+      
+      // setTimeout(function(){system.hangar.push(ship1); console.log(system.hangar)}, ship1.buildTime*1000)
+      console.log(system.hangar)
 }
 
 const generateSystem = (maxPlanets: number) => {
