@@ -1,3 +1,6 @@
+import { System } from './generate-sector'
+
+
 export interface Ship {
     name: string
     power: number
@@ -16,6 +19,12 @@ export const ship1: Ship ={
     attack: 200,
     hull: 600,
     navigation: 75,
-    buildTime: 30,
+    buildTime: 5,
     cost: 1000,
 }
+
+export const buildShip = (system: System) => {
+    console.log('help')
+        setTimeout(function(){system.hangar.push(ship1); console.log(system.hangar)}, ship1.buildTime*1000)
+        console.log('build')
+  }
