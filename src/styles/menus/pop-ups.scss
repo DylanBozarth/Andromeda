@@ -1,12 +1,7 @@
-.menu-blur-effect {
-    background-color: black;
-    border: 1px solid green;
-    height: 100%;
-    width: 100%;
-    z-index: 95;
-    position: fixed;
-    opacity: .6;
-}
-.resource-menu-title {
+.resource-menu {
+    color: red;
     text-align: center;
+}
+.resource-menu-titles {
+    color: white;
 }

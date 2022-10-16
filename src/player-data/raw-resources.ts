@@ -4,3 +4,5 @@ export const playerRawResources = {
     'water': 0,
     'ore': 0,
 }
+/* These resources can only be mined or traded 
+*/
