@@ -2,6 +2,7 @@ import * as React from 'react';
 
 interface RegisterState {
   password: string;
+  confirmPassword: string;
   email: string;
   username: string;
   isLoading: boolean;
@@ -37,6 +38,7 @@ const registerReducer = (state: RegisterState, action: RegisterAction): Register
         username: '',
         email: '',
         password: '',
+        confirmPassword: '',
         error: 'Error username, email or password!',
       };
     }
@@ -48,18 +50,40 @@ const registerReducer = (state: RegisterState, action: RegisterAction): Register
 
 const initialState: RegisterState = {
   password: '',
+  confirmPassword: '',
   email: '',
   username: '',
   isLoading: false,
   error: '',
 };
 
-export default function Login() {
+export default function Register() {
   const [state, dispatch] = React.useReducer(registerReducer, initialState);
-  const { username, email, password, isLoading, error } = state;
+  const { username, email, password, confirmPassword,  isLoading, error } = state;
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+     
+      const strongRegex = new RegExp(
+        '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$'
+      );
+  
+      if (!strongRegex.test(email)) {
+        alert('invalid email');
+        return false;
+      } else if (password.length < 8) {
+       alert('invalid password');
+        return false;
+      }
+      else if (password != confirmPassword){
+        alert('passwords don\'t match!')
+        return false;
+      }
+      else if (username.length < 5) {
+        alert('invalid username');
+         return false;
+       };
+  
     dispatch({ type: 'register' });
   };
 
@@ -103,6 +127,19 @@ export default function Login() {
                 dispatch({
                   type: 'field',
                   fieldName: 'password',
+                  payload: e.currentTarget.value,
+                })
+              }
+            />
+            <input
+              type='password'
+              placeholder='Confirm Password'
+              autoComplete='confirm-password'
+              value={confirmPassword}
+              onChange={(e) =>
+                dispatch({
+                  type: 'field',
+                  fieldName: 'confirmPassword',
                   payload: e.currentTarget.value,
                 })
               }
