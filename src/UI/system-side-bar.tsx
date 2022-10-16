@@ -1,7 +1,8 @@
 import styles from '../styles/user-interface-master.module.css';
-import { buildShip, System } from '../utils/system-generator/generate-sector';
+import { System } from '../utils/system-generator/generate-sector';
 import { useState } from 'react';
 import { SystemPowerBar } from './system-power-bar';
+import { buildShip } from '../utils/system-generator/ship';
 interface systemInformation {
   playerSystem: System;
 }

@@ -16,7 +16,7 @@ import {
 } from './system-functions';
 import { systemNameGenerator } from './system-name-generator';
 import { Sector } from '../../redux/sectorSlice';
-import { Ship, ship1 } from './ship';
+import { Ship } from './ship';
 
 export interface System {
   systemStar: string;
@@ -24,13 +24,7 @@ export interface System {
   systemName: string;
   cords: string;
   ownership: string;
-  hangar: Ship[];
-}
-
-export const buildShip = (system:System) => {
-  console.log('help')
-      setTimeout(function(){system.hangar.push(ship1); console.log(system.hangar)}, ship1.buildTime*1000)
-      console.log('build')
+  hangar: Array<Ship>;
 }
 
 const generateSystem = (maxPlanets: number) => {
@@ -72,7 +66,7 @@ const timeScale = 15; // 15 minutes for each parsec
 export const generateSector = (maxSystems: number, maxPlanets: number): Sector => {
   const randomSystemNumber = generateRandomNumber(maxSystems);
   const systems: System[] = [];
-// control min number of planets here
+  // control min number of planets here
   for (let i = -30; i < randomSystemNumber; i++) {
     const system = generateSystem(maxPlanets);
     systems.push(system);
