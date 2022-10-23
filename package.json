@@ -1,8 +1,9 @@
 {
-  "name": "my-app",
+  "name": "andromeda",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@andromeda-packages/component-library-react": "^1.0.6",
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
