@@ -7,16 +7,8 @@ import { SectorA } from './views/sectors/sector-a';
 import { DetailsMenu } from './UI/menu-pages/detailsMenu';
 import Login from './components/Authenication/login';
 import Register from './components/Authenication/register';
-import buildingManager from './pseudo-backend';
-import { PlanetTypes } from './pseudo-backend/buildings/Buildings.types';
 
 function App() {
-  buildingManager.getAvailableBuildings({
-    planetType: PlanetTypes.Radioactive,
-    currency: 5000,
-    coal: 49,
-    uranium: 21,
-  });
   return (
     <BrowserRouter>
       <div className='background-class'></div>

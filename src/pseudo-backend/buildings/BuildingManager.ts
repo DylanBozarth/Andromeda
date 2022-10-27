@@ -1,9 +1,11 @@
 import { BuildingChecks, Buildings, BuildingsMapping, SystemValues } from './Buildings.types';
 
+export type PartialSystemValues = Partial<SystemValues>
+
 const checkMinValues = (
   buildingKey: string,
   buildingSchema: BuildingsMapping,
-  systemValues: SystemValues,
+  systemValues: PartialSystemValues,
 ) => {
   const buildingToCheck: BuildingChecks = buildingSchema[buildingKey];
   if (buildingToCheck.mins) {
@@ -18,7 +20,7 @@ const checkMinValues = (
 const checkMaxValues = (
   buildingKey: string,
   buildingSchema: BuildingsMapping,
-  systemValues: SystemValues,
+  systemValues: PartialSystemValues,
 ) => {
   const buildingToCheck: BuildingChecks = buildingSchema[buildingKey];
   if (buildingToCheck.maxs) {
@@ -33,10 +35,13 @@ const checkMaxValues = (
 const doesBuildingPassExclusions = (
   buildingKey: string,
   buildingSchema: BuildingsMapping,
-  systemValues: SystemValues,
+  systemValues: PartialSystemValues,
 ) => {
   const buildingToCheck: BuildingChecks = buildingSchema[buildingKey];
-  if (buildingToCheck.exclude?.planetType?.includes(systemValues.planetType)) {
+  if (
+    systemValues.planetType &&
+    buildingToCheck.exclude?.planetType?.includes(systemValues.planetType)
+  ) {
     return false;
   }
   return true;
@@ -45,11 +50,12 @@ const doesBuildingPassExclusions = (
 const doesBuildingPassInclusions = (
   buildingKey: string,
   buildingSchema: BuildingsMapping,
-  systemValues: SystemValues,
+  systemValues: PartialSystemValues,
 ) => {
   const buildingToCheck: BuildingChecks = buildingSchema[buildingKey];
   if (
     buildingToCheck.include &&
+    systemValues.planetType &&
     !buildingToCheck.include.planetType?.includes(systemValues.planetType)
   ) {
     return false;
@@ -63,7 +69,7 @@ export class BuildingManager {
     this.buildingSchema = buildingSchema;
   }
 
-  getAvailableBuildings(systemValues: SystemValues) {
+  getAvailableBuildings(systemValues: PartialSystemValues) {
     const availableBuildings: Array<Buildings> = [];
     for (const buildingKey of Object.keys(this.buildingSchema)) {
       if (
