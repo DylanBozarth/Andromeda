@@ -1,6 +1,6 @@
 import { System } from './generate-sector';
 
-export interface Ship {
+export interface ShipInterface {
   name: string;
   power: number;
   shield: number;
@@ -11,7 +11,7 @@ export interface Ship {
   cost: number;
 }
 
-export const ship1: Ship = {
+export const ship1: ShipInterface = {
   name: 'The Buzzard',
   power: 500,
   shield: 900,

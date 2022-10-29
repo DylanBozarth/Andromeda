@@ -16,7 +16,7 @@ import {
 } from './system-functions';
 import { systemNameGenerator } from './system-name-generator';
 import { Sector } from '../../redux/sectorSlice';
-import { Ship } from './ship';
+import { ShipInterface } from './ship';
 
 export interface System {
   systemStar: string;
@@ -24,7 +24,7 @@ export interface System {
   systemName: string;
   cords: string;
   ownership: string;
-  hangar: Array<Ship>;
+  hangar: Array<ShipInterface>;
 }
 
 const generateSystem = (maxPlanets: number) => {
@@ -37,7 +37,6 @@ const generateSystem = (maxPlanets: number) => {
     hangar: [],
   };
 
-  console.log({ system });
   system.cords = getSystemCoords('R');
 
   const randomPlanetNumber = generateRandomNumber(maxPlanets);

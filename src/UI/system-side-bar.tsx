@@ -1,8 +1,9 @@
 import styles from '../styles/user-interface-master.module.css';
 import { System } from '../utils/system-generator/generate-sector';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SystemPowerBar } from './system-power-bar';
 import { buildShip } from '../utils/system-generator/ship';
+
 interface systemInformation {
   playerSystem: System;
 }
@@ -21,6 +22,7 @@ export const SystemSideBar = ({
 }: systemInformation & toggles) => {
   const [expanded, setExpanded] = useState(true);
   const [tabNumber, setTabNumber] = useState(1);
+
   return (
     <div className={styles['side-bar-wrapper']}>
       <div

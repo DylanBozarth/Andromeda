@@ -1,6 +1,6 @@
 import { Planet } from '../../types/planet-interface';
 import { System } from './generate-sector';
-import { Ship } from './ship';
+import { ShipInterface } from './ship';
 
 export const baseShipPowerValue = 1;
 export const baseBuildingPowerValue = 1;
@@ -25,10 +25,11 @@ const getBuildingPowerCounts = (planet: Planet) => {
   return buildingPower;
 };
 
-const getShipPowerCounts = (hangar: Ship[]) => {
-  const shipPower = 0;
+const getShipPowerCounts = (hangar: ShipInterface[]) => {
+  let shipPower = 0;
   hangar.forEach((_ship) => {
-    console.log({ _ship });
+    shipPower += _ship.attack
+    console.log('hangar contains', hangar)
   });
   return shipPower;
 };
