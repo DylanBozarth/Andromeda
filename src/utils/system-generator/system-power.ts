@@ -19,7 +19,7 @@ export const getSystemPower = (playerSystem: System) => {
 const getBuildingPowerCounts = (planet: Planet) => {
   let buildingPower = 0;
   planet.buildings.forEach((_building) => {
-    console.log({ _building });
+    // console.log({ _building });
     buildingPower += baseBuildingPowerValue;
   });
   return buildingPower;

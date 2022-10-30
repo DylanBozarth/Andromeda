@@ -24,6 +24,6 @@ export const ship1: ShipInterface = {
 
 export const buildShip = (system: System) => {
   setTimeout(() => {
-    system.hangar.push(ship1);
+    system.hangar.push(...[ship1]);
   }, ship1.buildTime);
 };
