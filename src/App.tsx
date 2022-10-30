@@ -11,7 +11,7 @@ import { MyComponent } from '@andromeda-packages/component-library-react';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <div className='background-class'></div>
       <UImaster />
       <Routes>
@@ -22,10 +22,11 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
       </Routes>
+
       {/* TESTING PURPOSES ONLY */}
       <MyComponent first='Test' last='MyComponent'></MyComponent>
       {/* TESTING PURPOSES ONLY */}
-    </BrowserRouter>
+    </>
   );
 }
 
