@@ -11,6 +11,8 @@
     "@types/node": "^16.11.34",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.3",
+    "firebase": "^9.13.0",
+    "firebase-tools": "^11.15.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^8.0.2",
@@ -27,7 +29,8 @@
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json}",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start:emulators": "firebase emulators:start"
   },
   "eslintConfig": {
     "extends": [
