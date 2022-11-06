@@ -53,7 +53,7 @@ test('getSystemPower() returns correct values when all buildings and ships are o
       hangar: [ship1],
     }),
   ).toStrictEqual({
-    shipPower: ship1.power,
+    // shipPower: shipPower
     buildingPower: 16 * baseBuildingPowerValue,
   });
 });

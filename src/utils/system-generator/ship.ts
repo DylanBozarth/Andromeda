@@ -1,29 +1,31 @@
 import { System } from './generate-sector';
-
+import { useState } from 'react';
 export interface ShipInterface {
   name: string;
-  power: number;
-  shield: number;
-  attack: number;
+  armor: number;
+  manpower: number;
+  fuel: number;
   hull: number;
-  navigation: number;
+  munitions: number;
   buildTime: number;
-  cost: number;
+  weapons: Array<number>;
+  cost: Array<object>;
 }
 
 export const ship1: ShipInterface = {
   name: 'The Buzzard',
-  power: 500,
-  shield: 900,
-  attack: 200,
+  armor: 500,
+  manpower: 900,
+  fuel: 200,
   hull: 600,
-  navigation: 75,
-  buildTime: 5,
-  cost: 1000,
+  munitions: 75,
+  buildTime: 10,
+  weapons: [590, 200],
+  cost: [{'minerals': 1000}],
 };
 
 export const buildShip = (system: System) => {
   setTimeout(() => {
-    system.hangar.push(...[ship1]);
+     system.hangar.push(...[ship1]);
   }, ship1.buildTime);
 };

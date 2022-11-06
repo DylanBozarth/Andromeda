@@ -28,7 +28,7 @@ const getBuildingPowerCounts = (planet: Planet) => {
 const getShipPowerCounts = (hangar: ShipInterface[]) => {
   let shipPower = 0;
   hangar.forEach((_ship) => {
-    shipPower += _ship.attack
+    shipPower += _ship.weapons.reduce((a, b) => a + b, 0)
     console.log('hangar contains', hangar)
   });
   return shipPower;
