@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { useAuth } from '../../context/AuthContext';
 
 interface LoginState {
   password: string;
-  username: string;
+  email: string;
   isLoading: boolean;
   error: string;
   isLoggedIn: boolean;
@@ -35,9 +36,9 @@ const loginReducer = (state: LoginState, action: LoginAction): LoginState => {
         ...state,
         isLoading: false,
         isLoggedIn: false,
-        username: '',
+        email: '',
         password: '',
-        error: 'Error username or password!',
+        error: 'Error email or password!',
       };
     }
     case 'logout': {
@@ -53,36 +54,26 @@ const loginReducer = (state: LoginState, action: LoginAction): LoginState => {
 
 const initialState: LoginState = {
   password: '',
-  username: '',
+  email: '',
   isLoading: false,
   error: '',
   isLoggedIn: false,
 };
 
-const login = async (creds: { username: string; password: string }): Promise<void> => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (creds.username === 'John' && creds.password === 'password') {
-        resolve();
-      } else {
-        reject();
-      }
-    }, 1000);
-  });
-};
-
 export default function Login() {
   const [state, dispatch] = React.useReducer(loginReducer, initialState);
-  const { username, password, isLoading, error, isLoggedIn } = state;
+  const { email, password, isLoading, error, isLoggedIn } = state;
+  const { emailPasswordLogin } = useAuth();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch({ type: 'login' });
 
     try {
-      await login({ username, password });
+      await emailPasswordLogin(email, password);
       dispatch({ type: 'success' });
     } catch (error) {
+      console.log(error);
       dispatch({ type: 'error' });
     }
   };
@@ -92,7 +83,7 @@ export default function Login() {
       <div className='login-container'>
         {isLoggedIn ? (
           <>
-            <p>{`Login ${username}`}</p>
+            <p>{`Login ${email}`}</p>
             <button type='button' onClick={() => dispatch({ type: 'logout' })}>
               Log out
             </button>
@@ -103,12 +94,12 @@ export default function Login() {
             <p> Login</p>
             <input
               type='text'
-              placeholder='username'
-              value={username}
+              placeholder='email'
+              value={email}
               onChange={(e) =>
                 dispatch({
                   type: 'field',
-                  fieldName: 'username',
+                  fieldName: 'email',
                   payload: e.currentTarget.value,
                 })
               }
