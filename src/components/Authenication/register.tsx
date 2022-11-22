@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useAuth } from '../../context/AuthContext';
 
 interface RegisterState {
   password: string;
@@ -59,32 +60,35 @@ const initialState: RegisterState = {
 
 export default function Register() {
   const [state, dispatch] = React.useReducer(registerReducer, initialState);
-  const { username, email, password, confirmPassword,  isLoading, error } = state;
+  const { username, email, password, confirmPassword, isLoading, error } = state;
+  const { emailPasswordSignup } = useAuth();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-     
-      const strongRegex = new RegExp(
-        '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$'
+
+    const emailRegex = new RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$');
+    const passwordRegex = new RegExp(
+      '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})',
+    );
+
+    if (!emailRegex.test(email)) {
+      alert('invalid email');
+      return false;
+    } else if (!passwordRegex.test(password)) {
+      alert(
+        'password must contain 8 characters, 1 uppercase, 1 lowercase, 1 digit, and 1 special character',
       );
-  
-      if (!strongRegex.test(email)) {
-        alert('invalid email');
-        return false;
-      } else if (password.length < 8) {
-       alert('invalid password');
-        return false;
-      }
-      else if (password != confirmPassword){
-        alert('passwords don\'t match!')
-        return false;
-      }
-      else if (username.length < 5) {
-        alert('invalid username');
-         return false;
-       };
-  
+      return false;
+    } else if (password != confirmPassword) {
+      alert('passwords don\'t match!');
+      return false;
+    } else if (username.length < 5) {
+      alert('invalid username');
+      return false;
+    }
+
     dispatch({ type: 'register' });
+    emailPasswordSignup(email, password);
   };
 
   return (

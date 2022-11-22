@@ -1,5 +1,5 @@
 import './styles/global.css';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { UImaster } from './UI/user-interface-master';
 import { SystemView } from './views/system-view';
 import { GalaticView } from './views/galatic-view';
@@ -10,7 +10,7 @@ import Register from './components/Authenication/register';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <div className='background-class'></div>
       <UImaster />
       <Routes>
@@ -21,7 +21,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
