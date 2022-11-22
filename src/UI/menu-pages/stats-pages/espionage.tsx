@@ -1,6 +1,6 @@
 export const EspionageDetails = () => {
 
     return (
-        <div>SPY STUFF su=tuff</div>
+        <div>No ideas yet from Dylan, not apart of mvp</div>
     )
 }
