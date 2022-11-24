@@ -10,14 +10,15 @@ export const TopBar = () => {
       <div className={styles['sci-fi-thing']}></div>
       <div className={styles['top-bar-wrapper']}>
         <Link to='menu'>
-          <button className={styles['top-nav-1']} onClick={() => setOpenMenu(0)}>Big menu</button> {/* leads to destailsMenu.tsx */}
+          <button className={styles['top-nav-1']} onClick={() => setOpenMenu(0)}>Details Menus</button> {/* leads to destailsMenu.tsx */}
         </Link>
         <div className={styles['top-nav-button-base']}>
+          {/* Below are the 'pop-up menus' */}
           <button
             className={styles['top-nav-1']}
             onClick={() => (openMenu === 1 ? setOpenMenu(0) : setOpenMenu(1))} 
           >
-            Main menu
+            Main menu {/* Log in, log out, etc */}
           </button>
         </div>
         <div className={styles['top-nav-button-base']}>
