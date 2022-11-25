@@ -1,0 +1,21 @@
+.exploration-selection {
+    color: yellow;
+    border: 1px solid red;
+}
+.exploration-story-section {
+    flex: 1;
+}
+.exploration-image {
+    border: 1px solid blue;
+}
+.story {
+    
+}
+.container {
+    align-items: stretch;
+    flex: 1 100%;
+    display: flex;  
+    flex-flow: row wrap;
+    width: 100%;
+    border: 1px solid salmon;
+}
