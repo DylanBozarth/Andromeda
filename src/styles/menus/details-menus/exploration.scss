@@ -8,8 +8,15 @@
 .exploration-image {
     border: 1px solid blue;
 }
+.story-selection {
+    padding: 1rem;
+    border: 1px solid darkslateblue;
+}
+.story-selection:hover {
+    cursor: pointer;
+}
 .story {
-    
+    padding: .5rem;
 }
 .container {
     align-items: stretch;
@@ -18,4 +25,5 @@
     flex-flow: row wrap;
     width: 100%;
     border: 1px solid salmon;
+    padding: 2rem;
 }

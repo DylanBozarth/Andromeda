@@ -17,3 +17,10 @@ body {
   z-index: -1;
   overflow: hidden;
 }
+/* Thank you Princess.com */
+.img-responsive, .img-responsive-wrapper img, .img-responsive-wrapper picture {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+}
