@@ -1,6 +1,13 @@
 .exploration-selection {
-    color: yellow;
-    border: 1px solid red;
+    justify-content: center;
+}
+.story-selection {
+    color: black;
+    font-size: .8em;
+    padding: 1.5rem;
+}
+.story-selection:hover {
+    cursor: pointer;
 }
 .exploration-story-section {
     flex: 1;
@@ -8,15 +15,8 @@
 .exploration-image {
     border: 1px solid blue;
 }
-.story-selection {
-    padding: 1rem;
-    border: 1px solid darkslateblue;
-}
-.story-selection:hover {
-    cursor: pointer;
-}
 .story {
-    padding: .5rem;
+    padding: 1rem;
 }
 .container {
     align-items: stretch;
@@ -24,6 +24,5 @@
     display: flex;  
     flex-flow: row wrap;
     width: 100%;
-    border: 1px solid salmon;
     padding: 2rem;
 }
