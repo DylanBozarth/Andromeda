@@ -29,3 +29,5 @@ It will ask you to download emulator now and say `yes`
 Once the emulators are installed you can run `npm run start:emulators`
 
 Than you can open the `http://localhost:4000/auth` to see the emulator.
+
+Ensure you have created a local .env based upon the .env.example. Contact the repo owner to access those values.

@@ -7,7 +7,6 @@ import { SectorA } from './views/sectors/sector-a';
 import { DetailsMenu } from './UI/menu-pages/detailsMenu';
 import Login from './components/Authenication/login';
 import Register from './components/Authenication/register';
-import { MyComponent } from '@andromeda-packages/component-library-react';
 
 function App() {
   return (
@@ -22,10 +21,6 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
       </Routes>
-
-      {/* TESTING PURPOSES ONLY */}
-      <MyComponent first='Test' last='MyComponent'></MyComponent>
-      {/* TESTING PURPOSES ONLY */}
     </>
   );
 }
