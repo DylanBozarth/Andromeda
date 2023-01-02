@@ -1,0 +1,28 @@
+.exploration-selection {
+    justify-content: center;
+}
+.story-selection {
+    color: black;
+    font-size: .8em;
+    padding: 1.5rem;
+}
+.story-selection:hover {
+    cursor: pointer;
+}
+.exploration-story-section {
+    flex: 1;
+}
+.exploration-image {
+    border: 1px solid blue;
+}
+.story {
+    padding: 1rem;
+}
+.container {
+    align-items: stretch;
+    flex: 1 100%;
+    display: flex;  
+    flex-flow: row wrap;
+    width: 100%;
+    padding: 2rem;
+}
