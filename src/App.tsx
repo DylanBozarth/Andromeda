@@ -1,5 +1,5 @@
 import './styles/global.css';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { UImaster } from './UI/user-interface-master';
 import { SystemView } from './views/system-view';
 import { GalaticView } from './views/galatic-view';
