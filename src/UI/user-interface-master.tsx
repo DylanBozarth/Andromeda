@@ -11,7 +11,7 @@ export const UImaster: React.FC = () => {
           Generate new sector
         </a>
       </li>
-
+      <h1 className='text-3xl font-bold underline'>Tailwind, am I bold?</h1>
       <NavigationBar />
     </div>
   );
