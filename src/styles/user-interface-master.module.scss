@@ -1,9 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* color pallete */
+$border: #008bd6;
+$main: #d17a00;
+$text: #FFF;
 /* base UI style  */
 .ui-border-box {
-  color: aqua;
+  color: $text;
   border: none;
   background-color: transparent;
   background-image: url("https://i.imgur.com/c4cssIq.png");
@@ -58,7 +59,7 @@
 }
 
 .oneline {
-  white-space: nowrap;
+  $text-space: nowrap;
   width: 100%;
 }
 
@@ -135,7 +136,7 @@
 
 .navigation-bar-text:hover {
   text-decoration: none;
-  color: white;
+  color: $text;
 }
 
 .top-nav-button-base {
@@ -143,7 +144,7 @@
 }
 
 .top-nav-1 {
-  color: white;
+  color: $text;
   border: none;
   background-color: transparent;
   background-image: url("https://i.imgur.com/c4cssIq.png");
@@ -184,7 +185,7 @@
 
 .top-nav-1:hover,
 .top-nav-1:active {
-  color: white;
+  color: $text;
 }
 
 .top-nav-1:hover:after,
@@ -208,7 +209,7 @@
   border-radius: 8px;
   box-shadow: inset 0px 0px 45px 10px rgba(255, 255, 255, 0.4);
   border: aqua 1px solid;
-  color: white;
+  color: $text;
   padding: .5rem;
 }
 
@@ -261,7 +262,7 @@
 }
 
 .toggle-side-bar:hover {
-  color: white;
+  color: $text;
 }
 
 .side-bar-wrapper {
@@ -273,7 +274,7 @@
   border-radius: 8px;
   box-shadow: inset 0px 0px 45px 10px rgba(255, 255, 255, 0.4);
   border: aqua 2px solid;
-  color: white;
+  color: $text;
 }
 
 .side-bar-background {
@@ -339,10 +340,14 @@
 /* End of system-view menu */
 /* Details menu stuff */
 .go-back {
-  z-index: 99;
-  position: absolute;
-  right: 0;
-  padding: 2rem;
+  bottom: 0;
+  padding: 1rem;
+  position: fixed;
+  border: 1px solid $border;
+  margin-bottom: 4rem;
+}
+.go-back:hover {
+  cursor: pointer;
 }
 
 .details-menu-wrapper {
@@ -365,7 +370,7 @@
 
 .navigation-bar-text:hover {
   text-decoration: none;
-  color: white;
+  color: $text;
 }
 
 .details-nav-button-base {
@@ -373,7 +378,7 @@
 }
 
 .details-nav-1 {
-  color: white;
+  color: $text;
   border: none;
   background-color: transparent;
   background-image: url("https://i.imgur.com/c4cssIq.png");

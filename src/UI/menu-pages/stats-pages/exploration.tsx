@@ -1,5 +1,4 @@
-import '../../../styles/menus/details-menus/base-details-menu.scss';
-import '../../../styles/menus/details-menus/exploration.scss';
+
 export const ExploreDetails = () => {
     return (
         <div className='container'>

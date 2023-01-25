@@ -1,4 +1,4 @@
-import styles from '../styles/user-interface-master.module.css';
+import styles from '../styles/user-interface-master.module.scss';
 import { useState } from 'react';
 import { Alerts} from './menu-pages/pop-ups/alerts';
 import { ResourceMenu } from './menu-pages/pop-ups/resources';
@@ -39,13 +39,13 @@ export const TopBar = () => {
         </div>
       </div>
       {/* pop up menus */}
-      <div className={openMenu === 1 ? 'take-whole-screen' : 'hidden'}>
+      <div className={openMenu === 1 ? 'pop-up' : 'hidden'}>
          main menu will go here
       </div>
-      <div className={openMenu === 2 ? 'take-whole-screen' : 'hidden'}>
+      <div className={openMenu === 2 ? 'pop-up' : 'hidden'}>
         <Alerts />
       </div>
-      <div className={openMenu === 3 ? 'take-whole-screen' : 'hidden'}>
+      <div className={openMenu === 3 ? 'pop-up' : 'hidden'}>
         <ResourceMenu />
       </div>
     </div>
