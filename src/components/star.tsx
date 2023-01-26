@@ -1,5 +1,5 @@
 import styles from '../styles/components.module.css';
-import uiStyles from '../styles/user-interface-master.module.css';
+import uiStyles from '../styles/user-interface-master.module.scss';
 
 interface StarProps {
   systemName: string;

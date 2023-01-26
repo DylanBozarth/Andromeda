@@ -1,4 +1,4 @@
-import styles from '../styles/user-interface-master.module.css';
+import styles from '../styles/user-interface-master.module.scss';
 import { System } from '../utils/system-generator/generate-sector';
 import { getSystemPower } from '../utils/system-generator/system-power';
 interface systemInformation {

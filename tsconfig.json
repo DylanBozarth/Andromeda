@@ -18,5 +18,6 @@
     "noImplicitAny": false,
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": ["src"]
+  "include": ["src", "./declaration.d.ts"]
 }
+
