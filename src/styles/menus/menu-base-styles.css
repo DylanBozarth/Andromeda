@@ -2,11 +2,16 @@
 .take-whole-screen {
     height: 100%;
     width: 100%;
+    z-index: -99;
+    position: absolute;
+    padding-top: 5rem;
+    border: 1px solid red;
+}
+.pop-ups {
+    border: 1px solid yellow;
     z-index: 99;
     position: absolute;
-    padding: 2rem;
 }
-
 .menu-blur-effect {
     background-color: black;
     border: 1px solid green;
