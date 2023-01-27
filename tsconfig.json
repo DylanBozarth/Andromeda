@@ -12,7 +12,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "noImplicitAny": false,
@@ -20,4 +19,3 @@
   },
   "include": ["src", "./declaration.d.ts"]
 }
-
