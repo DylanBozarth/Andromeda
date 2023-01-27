@@ -8,32 +8,46 @@ import { EspionageDetails } from './stats-pages/espionage';
 import { ShipDesigner } from './stats-pages/ship-designer';
 import { ExploreDetails } from './stats-pages/exploration';
 export const DetailsMenu = () => {
-  const [openMenu, setOpenMenu] = useState<string>('systems')
+  const [openMenu, setOpenMenu] = useState<string>('systems');
   return (
     <div className={styles['details-menu-wrapper']}>
       <div className={styles['nav-container']}>
         <h2>Heading</h2>
         <div className={styles['details-bar-wrapper']}>
           <div className={styles['details-nav-button-base']}>
-            <div className={styles['details-nav-1']} onClick={() => setOpenMenu('systems')}>System Management </div>
+            <div className={styles['details-nav-1']} onClick={() => setOpenMenu('systems')}>
+              System Management{' '}
+            </div>
           </div>
           <div className={styles['details-nav-button-base']}>
-            <button className={styles['details-nav-1']} onClick={() => setOpenMenu('fleets')}>Fleets</button>
+            <button className={styles['details-nav-1']} onClick={() => setOpenMenu('fleets')}>
+              Fleets
+            </button>
           </div>
           <div className={styles['details-nav-button-base']}>
-            <button className={styles['details-nav-1']} onClick={() => setOpenMenu('research')}>research</button>
+            <button className={styles['details-nav-1']} onClick={() => setOpenMenu('research')}>
+              research
+            </button>
           </div>
           <div className={styles['details-nav-button-base']}>
-            <button className={styles['details-nav-1']} onClick={() => setOpenMenu('espionage')}>Espionage</button>
+            <button className={styles['details-nav-1']} onClick={() => setOpenMenu('espionage')}>
+              Espionage
+            </button>
           </div>
           <div className={styles['details-nav-button-base']}>
-            <button className={styles['details-nav-1']} onClick={() => setOpenMenu('exploration')}>Exploration</button>
+            <button className={styles['details-nav-1']} onClick={() => setOpenMenu('exploration')}>
+              Exploration
+            </button>
           </div>
           <div className={styles['details-nav-button-base']}>
-            <div className={styles['details-nav-1']} onClick={() => setOpenMenu('ship-designer')}>Ship designer</div>
+            <div className={styles['details-nav-1']} onClick={() => setOpenMenu('ship-designer')}>
+              Ship designer
+            </div>
           </div>
         </div>
-        <Link to='/' className={styles['go-back']}>Go back aaaaa</Link>
+        <Link to='/' className={styles['go-back']}>
+          Go back aaaaa
+        </Link>
       </div>
       <div>
         {/* All of these should be in the details-pages folder */}
