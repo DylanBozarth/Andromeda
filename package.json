@@ -24,7 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "coverage": "jest --coverage",
+    "coverage": "jest --coverage --watch",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json}",
