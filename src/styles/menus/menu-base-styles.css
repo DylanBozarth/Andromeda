@@ -1,70 +1,69 @@
-
 .take-whole-screen {
-    height: 100%;
-    width: 100%;
-    z-index: -99;
-    position: absolute;
-    padding-top: 5rem;
-    border: 1px solid red;
+  height: 100%;
+  width: 100%;
+  z-index: -99;
+  position: absolute;
+  padding-top: 5rem;
+  border: 1px solid red;
 }
 .pop-ups {
-    border: 1px solid yellow;
-    z-index: 99;
-    position: absolute;
+  border: 1px solid yellow;
+  z-index: 99;
+  position: absolute;
 }
 .menu-blur-effect {
-    background-color: black;
-    border: 1px solid green;
-    height: 100%;
-    width: 100%;
-    z-index: 95;
+  background-color: black;
+  border: 1px solid green;
+  height: 100%;
+  width: 100%;
+  z-index: 95;
 }
 
 .center-container {
-    left: 0;
-    right: 0;
-    margin: auto;
-    position: fixed;
-    width: 50%;
-    margin-top: 20vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: fixed;
+  width: 50%;
+  margin-top: 20vh;
 }
 
 .main-menu-item {
-    color: white;
-    font-weight: bolder;
-    text-align: center;
-    border: 1px solid salmon;
-    padding: 1rem;
-    margin: 2rem auto;
-    border-radius: 85%;
-    width: 25vw;
-    align-content: center;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+  border: 1px solid salmon;
+  padding: 1rem;
+  margin: 2rem auto;
+  border-radius: 85%;
+  width: 25vw;
+  align-content: center;
 }
 
 .main-menu-item:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* research */
 .split-screen {
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    margin-top: 200px;
-    z-index: 98;
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  margin-top: 200px;
+  z-index: 98;
 }
 
 .research-box {
-    left: 0;
-    margin: auto;
-    background-color: green;
+  left: 0;
+  margin: auto;
+  background-color: green;
 }
 
 .encrypt-box {
-    right: 0;
-    margin: auto;
-    background-color: greenyellow;
+  right: 0;
+  margin: auto;
+  background-color: greenyellow;
 }
