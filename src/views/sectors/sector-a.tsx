@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setSystem } from '../../redux/sectorSlice';
 import styles from '../../styles/components.module.css';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
+import UIstyles from '../../styles/user-interface-master.module.scss'
+import { ShipsSectorMenu } from '../../UI/sector-menus/ships';
 
 export const SectorA = () => {
   const dispatch = useAppDispatch();
@@ -22,6 +24,11 @@ export const SectorA = () => {
     return (
       <div className={styles['sector-view-wrapper']}>
         <div className={styles['sector-background']}></div>
+        {/* icons for menus */}
+        <div>
+        <h1 className={UIstyles['ui-border-box']}><img src='./assets/ship-icon.jpeg' height='50px' width='50px'></img></h1>
+        <h1 className={UIstyles['ui-border-box']}><img src='./assets/resource-icon.png' height='50px' width='50px'></img></h1>
+        </div>
         {sector.systems.map((item) => {
           return (
             <div
