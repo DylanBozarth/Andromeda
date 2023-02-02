@@ -389,7 +389,7 @@ $text: #FFF;
 /* End details menus */
 /* pop-up-menus */
 .pop-up-menu {
-  position: absolute;
+  position: fixed;
   border: 1px solid red;
   z-index: 99;
 }

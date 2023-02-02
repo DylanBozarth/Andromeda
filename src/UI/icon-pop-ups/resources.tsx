@@ -4,17 +4,17 @@ import { playerRareResources } from '../../player-data/rare-resources'
 import '../../styles/user-interface-master.module.scss';
 export const ResourcePopupMenu = () => {
     return (
-        <div className='resource-menu pop-up-menu'>
+        <div className='pop-up-menu flex'>
 
             {/* the big 4 */}
-            <div className="first-line">
+            <div className="">
                 <h4>Raw resources</h4>
                 <p>Gas: {playerRawResources.gas}</p>
                 <p>Oil: {playerRawResources.oil}</p>
                 <p>Water: {playerRawResources.water}</p>
                 <p>Ore : {playerRawResources.ore}</p>
             </div>
-            <div className='second-line'>
+            <div className=''>
                 <h4>Refined resources</h4>
                 <p>Approval: {playerRefinedResources.approval}</p>
                 <p>Energy: {playerRefinedResources.energy}</p>
@@ -25,7 +25,7 @@ export const ResourcePopupMenu = () => {
                 <p>Delicacies: {playerRefinedResources.delicacies}</p>
                 <p>Consumer Goods: {playerRefinedResources['consumer-goods']}</p>
             </div>
-            <div className='third-line'>
+            <div className='e'>
                 <h4>Unique resources</h4>
                 <p>Sector-a-crystals: {playerRareResources['sector-a-crystals']}</p>
                 <p>Sector-b-crystals: {playerRareResources['sector-b-crystals']}</p>
