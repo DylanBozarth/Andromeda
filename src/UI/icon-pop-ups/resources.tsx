@@ -1,11 +1,10 @@
-import '../../../styles/menus/pop-ups.scss'
-import '../../../styles/menus/menu-base-styles.css'
-import { playerRawResources } from '../../../player-data/raw-resources'
-import { playerRefinedResources } from '../../../player-data/refined-resources'
-import { playerRareResources } from '../../../player-data/rare-resources'
-export const ResourceMenu = () => {
+import { playerRawResources } from '../../player-data/raw-resources'
+import { playerRefinedResources } from '../../player-data/refined-resources'
+import { playerRareResources } from '../../player-data/rare-resources'
+import '../../styles/user-interface-master.module.scss';
+export const ResourcePopupMenu = () => {
     return (
-        <div className='resource-menu'>
+        <div className='resource-menu pop-up-menu'>
 
             {/* the big 4 */}
             <div className="first-line">
