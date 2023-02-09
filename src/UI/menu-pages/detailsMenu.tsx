@@ -1,18 +1,17 @@
 import styles from '../../styles/user-interface-master.module.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { SystemDetails } from './stats-pages/systems';
-import { FleetDetails } from './stats-pages/fleets';
-import { ResearchDetails } from './stats-pages/research';
-import { EspionageDetails } from './stats-pages/espionage';
-import { ShipDesigner } from './stats-pages/ship-designer';
-import { ExploreDetails } from './stats-pages/exploration';
+import { SystemDetails } from './details-pages/system-management';
+import { FleetDetails } from './details-pages/fleets';
+import { ResearchDetails } from './details-pages/research';
+import { EspionageDetails } from './details-pages/espionage';
+import { ShipDesigner } from './details-pages/ship-designer';
+import { ExploreDetails } from './details-pages/exploration';
 export const DetailsMenu = () => {
   const [openMenu, setOpenMenu] = useState<string>('systems');
   return (
     <div className={styles['details-menu-wrapper']}>
       <div className={styles['nav-container']}>
-        <h2>Heading</h2>
         <div className={styles['details-bar-wrapper']}>
           <div className={styles['details-nav-button-base']}>
             <div className={styles['details-nav-1']} onClick={() => setOpenMenu('systems')}>

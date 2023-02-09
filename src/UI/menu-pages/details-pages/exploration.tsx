@@ -1,9 +1,10 @@
+import styles from '../../styles/user-interface-master.module.scss';
 export const ExploreDetails = () => {
   return (
-    <div className='container'>
+    <div className='mt-20 container'>
       <div className='exploration-selection'>
-        <div className='story-selection white-border-button'>An unexpected guest</div>
-        <div className='story-selection white-border-button'>Pretend there&apos;s more stories</div>
+        <div className='white-border-button text-center'>An unexpected guest</div>
+        <div className='white-border-button text-center'>Pretend there&apos;s more stories</div>
       </div>
       <div className='exploration-story-section blue-border'>
         <img
