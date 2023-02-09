@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setSystem } from '../../redux/sectorSlice';
 import styles from '../../styles/components.module.css';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
+import { IconBar } from '../../UI/icon-bar';
 
 export const SectorA = () => {
   const dispatch = useAppDispatch();
@@ -22,6 +23,10 @@ export const SectorA = () => {
     return (
       <div className={styles['sector-view-wrapper']}>
         <div className={styles['sector-background']}></div>
+        {/* icons for menus */}
+        <div>
+        <IconBar />
+        </div>
         {sector.systems.map((item) => {
           return (
             <div
