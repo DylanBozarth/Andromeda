@@ -1,4 +1,4 @@
-import styles from '../styles/user-interface-master.module.scss';
+import '../styles/user-interface-master.module.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { playerRawResources } from '../player-data/raw-resources'
@@ -7,11 +7,11 @@ export const TopBar = () => {
   const [openMenu, setOpenMenu] = useState(0);
   return (
     <div>
-      <div className={styles['sci-fi-thing']}></div>
-      <div className={styles['top-bar-wrapper']}>
+      <div className='sci-fi-thing'></div>
+      <div className='top-bar-wrapper'>
         <h3 className='mt-3 m-1'>Fuel {playerRefinedResources.fuel} </h3>
         <Link to='menu'>
-          <button className={styles['top-nav-1']} onClick={() => setOpenMenu(0)}>
+          <button className='top-nav-1' onClick={() => setOpenMenu(0)}>
             Details Menus {/* leads to destailsMenu.tsx */}
           </button>{' '}
         </Link>
