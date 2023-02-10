@@ -15,7 +15,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "noImplicitAny": false,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": []
   },
   "include": ["src", "./declaration.d.ts"]
 }

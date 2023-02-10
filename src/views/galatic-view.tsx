@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { setSector } from '../redux/sectorSlice';
-import styles from '../styles/views-styles/galatic-view.module.css';
+import '../styles/views-styles/galatic-view.module.css';
 
 export const GalaticView = () => {
   const dispatch = useAppDispatch();
@@ -9,12 +9,12 @@ export const GalaticView = () => {
   console.log({ sectors });
   return (
     <div>
-      <div className={styles['sectorawrapper']}>
+      <div className='sectorawrapper'>
         <img src='./assets/sample-image.png'></img>
         <Link
           to='/sector-a'
           onClick={() => dispatch(setSector(sectors.activeSector))}
-          className={styles['sectora']}
+          className='sectora'
         >
           {' '}
           SECTOR A

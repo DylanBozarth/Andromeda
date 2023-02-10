@@ -1,5 +1,5 @@
-import styles from '../styles/components.module.css';
-import uiStyles from '../styles/user-interface-master.module.scss';
+import '../styles/components.module.css';
+import '../styles/user-interface-master.module.scss';
 
 interface StarProps {
   systemName: string;
@@ -9,12 +9,12 @@ interface StarProps {
 
 const handleAddOutline = (id: string) => {
   const planet = document.getElementById(id);
-  planet?.classList.add(uiStyles['outline-system']);
+  planet?.classList.add('outline-system');
 };
 
 const handleRemoveOutline = (id: string) => {
   const planet = document.getElementById(id);
-  planet?.classList.remove(uiStyles['outline-system']);
+  planet?.classList.remove('outline-system');
 };
 
 export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) => {
@@ -44,10 +44,10 @@ export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) =
     </>
   );
   return (
-    <div id={systemName} className={`${styles[systemStar]} ${styles['star']}`}>
-      <div className={`${styles['sector-view-star-name']} ${uiStyles.tooltip}`}>
+    <div id={systemName} className={`${systemStar} 'star'`}>
+      <div className={'sector-view-star-name tooltip'}>
         {systemName}
-        <span className={uiStyles.tooltiptext}>{display}</span>
+        <span className={'tooltiptext'}>{display}</span>
       </div>
     </div>
   );
