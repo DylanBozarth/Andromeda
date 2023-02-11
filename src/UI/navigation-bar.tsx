@@ -24,9 +24,10 @@ export const NavigationBar = () => {
     }
   }, [location]);
   return (
-    <div className='navigation-bar '>
-      <Link to='/' onClick={() => setUserSector('')} className='navigation-bar-text'>
-        <div className='navigation-bar-section ui-border-box'>
+    <div className='navigation-bar flex-auto mb-20'>
+      <h3 className='text-center'>Navigation</h3>
+      <Link to='/' onClick={() => setUserSector('')} className='navigation-bar-text flex-1 w-33'>
+        <div className='ui-border-box'>
           <div className='navigation-bar-text'>Andromeda</div>
         </div>
       </Link>
@@ -34,8 +35,8 @@ export const NavigationBar = () => {
         <div
           className={
             userSector
-              ? 'navigation-bar-section ui-border-box'
-              : 'navigation-bar-section-inactive'
+              ? 'ui-border-box'
+              : ''
           }
           onClick={() => setUserSystem('')}
         >
@@ -45,8 +46,8 @@ export const NavigationBar = () => {
       <div
         className={
           userSystem
-            ? 'navigation-bar-section'
-            : 'navigation-bar-section-inactive'
+            ? 'ui-border-box'
+            : ''
         }
       >
         <div className='navigation-bar-text'>{userSystem}</div>

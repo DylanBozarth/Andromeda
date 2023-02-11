@@ -64,17 +64,9 @@ $text: #FFF;
   z-index: 90;
   cursor: pointer;
   position: fixed;
-  display: flex;
-  flex-direction: row;
+  right: 0;
 }
 
-.navigation-bar-section {
-  padding: 0.5rem;
-}
-
-.navigation-bar-section-inactive {
-  padding: 0.5rem;
-}
 
 .navigation-bar-text {
   text-decoration: none;
@@ -83,9 +75,6 @@ $text: #FFF;
   font-size: 1rem;
 }
 
-.navigation-bar-section:hover {
-  color: green;
-}
 
 /* top bar */
 .sci-fi-thing {
