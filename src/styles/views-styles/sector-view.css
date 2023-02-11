@@ -8,3 +8,7 @@
   height: 100%;
   z-index: -1;
 }
+.star {
+  width: 20px;
+  height: 20px;
+}

@@ -44,10 +44,10 @@ export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) =
     </>
   );
   return (
-    <div id={systemName} className={`${systemStar} 'star'`}>
-      <div className={'sector-view-star-name tooltip'}>
+    <div id={systemName} className={`${systemStar} star`}>
+      <div className='sector-view-star-name tooltip'>
         {systemName}
-        <span className={'tooltiptext'}>{display}</span>
+        <span className='tooltiptext'>{display}</span>
       </div>
     </div>
   );

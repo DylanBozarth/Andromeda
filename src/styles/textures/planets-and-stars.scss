@@ -6,6 +6,10 @@
   position:  absolute;
 }
 */ 
+.star { /* stars base size on the sector pages */
+  width: 1em;
+  height: 1em;
+}
 .Yellow-Dwarf {
   box-shadow: 1px 1px 45px gold;
   box-shadow: 1px 1px 35px goldenrod;
@@ -23,6 +27,8 @@
   animation: translateBackground 120s infinite linear;
   background: url('./starTextures/blue-star.jpg') repeat-x;
   background-size: 200% 100%;
+  width: 2em;
+  height: 2em;
 }
 .White-Dwarf {
   transform: translate(-50%, -50%);
@@ -54,6 +60,8 @@
   animation: translateBackground 120s infinite linear;
   background: url('./starTextures/red-star.jpeg') repeat-x;
   background-size: 200% 100%;
+  height: 2em;
+  width: 2em;
 }
 .Red-Supergiant {
   transform: translate(-50%, -50%);
@@ -64,6 +72,8 @@
   animation: translateBackground 120s infinite linear;
   background: url('./starTextures/red-star.jpeg') repeat-x;
   background-size: 200% 100%;
+  height: 3em;
+  width: 3em;
 }
 .Red-Dwarf {
   transform: translate(-50%, -50%);

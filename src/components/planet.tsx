@@ -7,7 +7,7 @@ interface PlanetProps {
 
 export const PlanetComponent = ({ planet }: PlanetProps) => {
   return (
-    <div className={`system-planet ${planet.name}'`}>
+    <div className={`system-planet ${planet.name}`}>
       
     </div>
   );
