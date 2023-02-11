@@ -1,4 +1,4 @@
-import '../styles/user-interface-master.module.scss';
+import '../styles/user-interface-master.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAppSelector } from '../redux/hooks';

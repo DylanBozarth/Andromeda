@@ -1,4 +1,4 @@
-import styles from '../../styles/user-interface-master.module.scss';
+import styles from '../../styles/user-interface-master.scss';
 export const ExploreDetails = () => {
   return (
     <div className='mt-20 container'>

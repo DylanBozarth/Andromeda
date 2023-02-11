@@ -1,4 +1,4 @@
-import '../styles/user-interface-master.module.scss';
+import '../styles/user-interface-master.scss';
 import { System } from '../utils/system-generator/generate-sector';
 import { useState } from 'react';
 import { SystemPowerBar } from './system-power-bar';

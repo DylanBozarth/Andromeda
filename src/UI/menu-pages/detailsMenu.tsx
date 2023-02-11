@@ -1,4 +1,4 @@
-import '../../styles/user-interface-master.module.scss';
+import '../../styles/user-interface-master.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SystemDetails } from './details-pages/system-management';

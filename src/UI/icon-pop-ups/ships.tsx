@@ -1,4 +1,4 @@
-import '../../styles/user-interface-master.module.scss';
+import '../../styles/user-interface-master.scss';
 export const ShipsPopupMenu = () => {
     return (
         <div className='pop-up-menu'>

@@ -1,4 +1,4 @@
-import '../styles/user-interface-master.module.scss';
+import '../styles/user-interface-master.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { playerRawResources } from '../player-data/raw-resources'

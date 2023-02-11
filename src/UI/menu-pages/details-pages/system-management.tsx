@@ -1,4 +1,4 @@
-import styles from '../../../styles/user-interface-master.module.scss';
+import styles from '../../../styles/user-interface-master.scss';
 export const SystemDetails = () => {
 
     return (

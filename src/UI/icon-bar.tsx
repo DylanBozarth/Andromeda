@@ -1,4 +1,4 @@
-import '../styles/user-interface-master.module.scss'
+import '../styles/user-interface-master.scss'
 import { useState } from 'react';
 import { AlertsPopupMenu } from './icon-pop-ups/alerts';
 import { ResourcePopupMenu } from './icon-pop-ups/resources';

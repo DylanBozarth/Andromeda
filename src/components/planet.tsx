@@ -1,4 +1,4 @@
-import '../styles/components.module.css';
+import '../styles/textures/planets-and-stars.scss';
 import { Planet } from '../types/planet-interface';
 
 interface PlanetProps {

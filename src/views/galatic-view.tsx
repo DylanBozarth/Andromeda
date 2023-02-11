@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { setSector } from '../redux/sectorSlice';
-import '../styles/views-styles/galatic-view.module.css';
+import '../styles/views-styles/galatic-view.css';
 
 export const GalaticView = () => {
   const dispatch = useAppDispatch();
