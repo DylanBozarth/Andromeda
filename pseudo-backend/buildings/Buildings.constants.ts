@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { BuildingsMapping, PlanetTypes } from './Buildings.types';
 
 export const buildingsMapping: BuildingsMapping = {
