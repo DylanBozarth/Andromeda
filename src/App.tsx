@@ -5,10 +5,19 @@ import { SystemView } from './views/system-view';
 import { GalaticView } from './views/galatic-view';
 import { SectorA } from './views/sectors/sector-a';
 import { DetailsMenu } from './UI/menu-pages/detailsMenu';
+import { useEffect } from 'react';
+import { getAvailableBuildings } from './clientLibrary/buildings';
 // import Login from './components/Authenication/login';
 // import Register from './components/Authenication/register';
 
 function App() {
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await getAvailableBuildings();
+      console.log(response);
+    };
+    fetchData();
+  }, []);
   return (
     <BrowserRouter>
       <div className='background-class'></div>
