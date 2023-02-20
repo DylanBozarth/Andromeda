@@ -1,4 +1,4 @@
-import styles from '../styles/user-interface-master.module.scss';
+import '../styles/user-interface-master.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAppSelector } from '../redux/hooks';
@@ -24,32 +24,33 @@ export const NavigationBar = () => {
     }
   }, [location]);
   return (
-    <div className={styles['navigation-bar']}>
-      <Link to='/' onClick={() => setUserSector('')} className={styles['navigation-bar-text']}>
-        <div className={`${styles['navigation-bar-section']} ${styles['ui-border-box']}`}>
-          <div className={styles['navigation-bar-text']}>Andromeda</div>
+    <div className='navigation-bar flex-auto mb-20'>
+      <h3 className='text-center'>Navigation</h3>
+      <Link to='/' onClick={() => setUserSector('')} className='navigation-bar-text flex-1 w-33'>
+        <div className='ui-border-box'>
+          <div className='navigation-bar-text'>Andromeda</div>
         </div>
       </Link>
-      <Link to={`/${userSector}`} className={styles['navigation-bar-text']}>
+      <Link to={`/${userSector}`} className='navigation-bar-text'>
         <div
           className={
             userSector
-              ? `${styles['navigation-bar-section']} ${styles['ui-border-box']}`
-              : styles['navigation-bar-section-inactive']
+              ? 'ui-border-box'
+              : ''
           }
           onClick={() => setUserSystem('')}
         >
-          <div className={styles['navigation-bar-text']}>{userSector}</div>
+          <div className='navigation-bar-text'>{userSector}</div>
         </div>
       </Link>
       <div
         className={
           userSystem
-            ? `${styles['navigation-bar-section']} ${styles['ui-border-box']}`
-            : styles['navigation-bar-section-inactive']
+            ? 'ui-border-box'
+            : ''
         }
       >
-        <div className={styles['navigation-bar-text']}>{userSystem}</div>
+        <div className='navigation-bar-text'>{userSystem}</div>
       </div>
     </div>
   );

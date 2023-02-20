@@ -1,4 +1,4 @@
-import UIstyles from '../styles/user-interface-master.module.scss'
+import '../styles/user-interface-master.scss'
 import { useState } from 'react';
 import { AlertsPopupMenu } from './icon-pop-ups/alerts';
 import { ResourcePopupMenu } from './icon-pop-ups/resources';
@@ -8,16 +8,16 @@ export const IconBar = () => {
     return (
         <div className='flex'>
             <div>
-                <div className={UIstyles['ui-border-box']} onClick={() => (openMenu === 1 ? setOpenMenu(0) : setOpenMenu(1))}>
+                <div className='ui-border-box' onClick={() => (openMenu === 1 ? setOpenMenu(0) : setOpenMenu(1))}>
                     <img src='./assets/ship-icon.jpeg' height='50px' width='50px'></img>
                 </div>
-                <div className={UIstyles['ui-border-box']} onClick={() => (openMenu === 2 ? setOpenMenu(0) : setOpenMenu(2))}>
+                <div className='ui-border-box' onClick={() => (openMenu === 2 ? setOpenMenu(0) : setOpenMenu(2))}>
                     <img src='./assets/resource-icon.png' height='50px' width='50px'></img>
                 </div>
-                <div className={UIstyles['ui-border-box']} onClick={() => (openMenu === 3 ? setOpenMenu(0) : setOpenMenu(3))}>
+                <div className='ui-border-box' onClick={() => (openMenu === 3 ? setOpenMenu(0) : setOpenMenu(3))}>
                     <img src='./assets/alerts.png' height='50px' width='50px'></img>
                 </div>
-                <div className={UIstyles['ui-border-box']} onClick={() => (openMenu === 4 ? setOpenMenu(0) : setOpenMenu(4))}>
+                <div className='ui-border-box' onClick={() => (openMenu === 4 ? setOpenMenu(0) : setOpenMenu(4))}>
                     <img src='./assets/sample-image.png' height='50px' width='50px'></img>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import styles from '../styles/user-interface-master.module.scss';
+import '../styles/user-interface-master.scss';
 import { System } from '../utils/system-generator/generate-sector';
 import { getSystemPower } from '../utils/system-generator/system-power';
 interface systemInformation {
@@ -19,21 +19,21 @@ export const SystemPowerBar = ({
 }: systemInformation & toggles) => {
   const { shipPower, buildingPower } = getSystemPower(playerSystem);
   return (
-    <div className={styles['system-power-bar-wrapper']}>
-      <div className={styles['system-power-bar']}>
-        <div className={styles['power-bar-section']}>
+    <div className='system-power-bar-wrapper'>
+      <div className='system-power-bar'>
+        <div className='power-bar-section'>
           System Power
           <br /> Hangar {shipPower}
           <br /> Planetary defenses {buildingPower}
         </div>
         <button
-          className={styles['system-power-toggle-button']}
+          className='system-power-toggle-button'
           onClick={() => setToggleResources(!toggleResources)}
         >
           resources
         </button>
         <button
-          className={styles['system-power-toggle-button']}
+          className='system-power-toggle-button'
           onClick={() => setToggleBuildings(!toggleBuildings)}
         >
           buildings

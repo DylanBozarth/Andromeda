@@ -1,6 +1,6 @@
 import { PlanetComponent } from '../components/planet';
 import { useState } from 'react';
-import styles from '../styles/views-styles/system-view.module.css';
+import '../styles/views-styles/system-view.css';
 import { SystemSideBar } from '../UI/system-side-bar';
 import { useAppSelector } from '../redux/hooks';
 
@@ -10,7 +10,7 @@ export const SystemView = () => {
   const playerSystem = useAppSelector((state) => state.sector.activeSystem);
   console.log({ playerSystem });
   return (
-    <div className={`${styles['playerSystemArray-view-wrapper']} row`}>
+    <div className={'playerSystemArray-view-wrapper row'}>
       <SystemSideBar
         playerSystem={playerSystem}
         toggleResources={toggleResources}
@@ -21,7 +21,7 @@ export const SystemView = () => {
       {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
-            <div className={`col-sm-2 ${styles['planet-wrapper']}`}>
+            <div className={'planet-wrapper'}>
               <PlanetComponent planet={planet} />
             </div>
             {[
