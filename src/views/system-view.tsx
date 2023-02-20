@@ -8,7 +8,10 @@ export const SystemView = () => {
   const [toggleResources, setToggleResources] = useState(false);
   const [toggleBuildings, setToggleBuildings] = useState(false);
   const playerSystem = useAppSelector((state) => state.sector.activeSystem);
-  console.log({ playerSystem });
+  const addNewBuilding = (planet) => {
+    console.log(planet.planet.buildings)
+    // I have no idea why I have to do planet.planet, it's an object that's wrapped itself 
+  }
   return (
     <div className={'playerSystemArray-view-wrapper row'}>
       <SystemSideBar
@@ -48,7 +51,8 @@ export const SystemView = () => {
                   </div>
                 );
               }),
-            ]}<div className={toggleBuildings ? 'planet-buildings m-5 border-2 p-2' : 'hidden'}>Add more</div>
+            ]}
+            <div className={toggleBuildings ? 'planet-buildings m-5 border-2 p-2' : 'hidden'} onClick={() => addNewBuilding({planet})}>Add more</div>
           </>
         );
       })}
