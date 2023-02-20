@@ -44,11 +44,11 @@ export const SystemView = () => {
                     className={toggleBuildings ? 'planet-buildings' : 'hidden'}
                     key={`${planet}-${building}-${idx}`}
                   >
-                    {building}
+                    {building} 
                   </div>
                 );
               }),
-            ]}
+            ]}<div className={toggleBuildings ? 'planet-buildings m-5 border-2 p-2' : 'hidden'}>Add more</div>
           </>
         );
       })}
