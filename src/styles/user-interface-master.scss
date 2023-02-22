@@ -215,10 +215,9 @@ $text: #FFF;
 
 .toggle-side-bar {
   z-index: 99;
-  width: 100px;
   cursor: pointer;
-  display: flex;
-  justify-self: center;
+  border: 2px solid $main;
+  width: 90px;
 }
 
 .toggle-side-bar:hover {

@@ -24,9 +24,9 @@ export const SystemSideBar = ({
     <div className='side-bar-wrapper'>
       <div
         onClick={() => setExpanded(!expanded)}
-        className='ui-border-box toggle-side-bar'
+        className=' toggle-side-bar '
       >
-        Toggle UI
+        Build Menu
       </div>
       <div className={expanded ? 'side-bar' : 'hidden'}>
         <div className='side-bar-background-wrapper'>
