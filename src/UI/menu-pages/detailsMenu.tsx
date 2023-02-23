@@ -4,48 +4,48 @@ import { useState } from 'react';
 import { SystemDetails } from './details-pages/system-management';
 import { FleetDetails } from './details-pages/fleets';
 import { ResearchDetails } from './details-pages/research';
-import { EspionageDetails } from './details-pages/espionage';
+import { FactionsDetails } from './details-pages/factions';
 import { ShipDesigner } from './details-pages/ship-designer';
 import { ExploreDetails } from './details-pages/exploration';
 export const DetailsMenu = () => {
   const [openMenu, setOpenMenu] = useState<string>('systems');
   return (
-    <div className='details-menu-wrapper'>
+    <div className='details-menu-wrapper container-fluid'>
       <div className='nav-container'>
         <div className='details-bar-wrapper'>
-          <div className='details-nav-button-base'>
+          <div className=''>
             <div className='ui-border-box' onClick={() => setOpenMenu('systems')}>
               System Management{' '}
             </div>
           </div>
-          <div className='details-nav-button-base'>
+          <div className=''>
             <button className='ui-border-box' onClick={() => setOpenMenu('fleets')}>
               Fleets
             </button>
           </div>
-          <div className='details-nav-button-base'>
+          <div className=''>
             <button className='ui-border-box' onClick={() => setOpenMenu('research')}>
               research
             </button>
           </div>
-          <div className='details-nav-button-base'>
-            <button className='ui-border-box' onClick={() => setOpenMenu('espionage')}>
-              Espionage
+          <div className=''>
+            <button className='ui-border-box' onClick={() => setOpenMenu('factions')}>
+              Factions
             </button>
           </div>
-          <div className='details-nav-button-base'>
+          <div className=''>
             <button className='ui-border-box' onClick={() => setOpenMenu('exploration')}>
               Exploration
             </button>
           </div>
-          <div className='details-nav-button-base'>
+          <div className=''>
             <div className='ui-border-box' onClick={() => setOpenMenu('ship-designer')}>
               Ship designer
             </div>
           </div>
         </div>
         <Link to='/' className='go-back'>
-          Go back aaaaa
+          Go back 
         </Link>
       </div>
       <div>
@@ -59,8 +59,8 @@ export const DetailsMenu = () => {
         <div className={openMenu === 'research' ? 'take-whole-screen' : 'hidden'}>
           <ResearchDetails />
         </div>
-        <div className={openMenu === 'espionage' ? 'take-whole-screen' : 'hidden'}>
-          <EspionageDetails />
+        <div className={openMenu === 'factions' ? 'take-whole-screen' : 'hidden'}>
+          <FactionsDetails />
         </div>
         <div className={openMenu === 'exploration' ? 'take-whole-screen' : 'hidden'}>
           <ExploreDetails />
