@@ -15,7 +15,7 @@ export const AvailableBuildings = () => {
 
   return (
     <>
-      {availableBuildings.length > 0 && (
+      {availableBuildings && availableBuildings.length > 0 && (
         <div>
           {availableBuildings.map((building) => {
             return (
