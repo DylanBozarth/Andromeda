@@ -8,7 +8,6 @@ export const SystemView = () => {
   const [toggleResources, setToggleResources] = useState(false);
   const [toggleBuildings, setToggleBuildings] = useState(false);
   const playerSystem = useAppSelector((state) => state.sector.activeSystem);
-  console.log({ playerSystem });
   return (
     <div className={'playerSystemArray-view-wrapper row'}>
       <SystemSideBar

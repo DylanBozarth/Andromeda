@@ -2,6 +2,7 @@ import '../styles/user-interface-master.scss';
 import { System } from '../utils/system-generator/generate-sector';
 import { useState } from 'react';
 import { SystemPowerBar } from './system-power-bar';
+import { AvailableBuildings } from './buildings/AvailableBuildings';
 interface systemInformation {
   playerSystem: System;
 }
@@ -22,10 +23,7 @@ export const SystemSideBar = ({
   const [tabNumber, setTabNumber] = useState(1);
   return (
     <div className='side-bar-wrapper'>
-      <div
-        onClick={() => setExpanded(!expanded)}
-        className='ui-border-box toggle-side-bar'
-      >
+      <div onClick={() => setExpanded(!expanded)} className='ui-border-box toggle-side-bar'>
         Toggle UI
       </div>
       <div className={expanded ? 'side-bar' : 'hidden'}>
@@ -47,9 +45,8 @@ export const SystemSideBar = ({
           <div className={tabNumber === 1 ? 'side-tab-info' : 'hidden'}>
             A building is building on planet X
           </div>
-          <div className={tabNumber === 2 ? 'side-tab-info' : 'hidden'}>
-            Production
-          </div>
+          <AvailableBuildings />
+          <div className={tabNumber === 2 ? 'side-tab-info' : 'hidden'}>Production</div>
           <div className={tabNumber === 3 ? 'side-tab-info' : 'hidden'}>Alerts</div>
         </div>
         <SystemPowerBar
