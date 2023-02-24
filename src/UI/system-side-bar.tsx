@@ -32,22 +32,21 @@ export const SystemSideBar = ({
         </div>
         <div className='side-tab-row'>
           <div className='side-tab' onClick={() => setTabNumber(1)}>
-            Buildings
+            Production
           </div>
           <div className='side-tab' onClick={() => setTabNumber(2)}>
             Hangar
           </div>
-          <div className='side-tab' onClick={() => setTabNumber(3)}>
-            Alerts
-          </div>
+
         </div>
+
         <div className='side-screen'>
           <div className={tabNumber === 1 ? 'side-tab-info' : 'hidden'}>
-            A building is building on planet X
+            <div className='m-2 text-center border-2 flex'><p className='p-2'>ICON</p><p className='p-2'>A building is building on planet X</p></div>
           </div>
           <AvailableBuildings />
-          <div className={tabNumber === 2 ? 'side-tab-info' : 'hidden'}>Production</div>
-          <div className={tabNumber === 3 ? 'side-tab-info' : 'hidden'}>Alerts</div>
+          <div className={tabNumber === 2 ? 'side-tab-info' : 'hidden'}><div className='m-2 text-center border-2 flex'><p className='p-2'>Status</p><p className='p-2'>SHIP</p></div></div>
+
         </div>
         <SystemPowerBar
           playerSystem={playerSystem}
