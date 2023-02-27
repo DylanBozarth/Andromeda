@@ -2,6 +2,7 @@ import '../styles/user-interface-master.scss';
 import { System } from '../utils/system-generator/generate-sector';
 import { useState } from 'react';
 import { SystemPowerBar } from './system-power-bar';
+import { AvailableBuildings } from './buildings/AvailableBuildings';
 interface systemInformation {
   playerSystem: System;
 }
@@ -27,6 +28,8 @@ export const SystemSideBar = ({
         className=' toggle-side-bar '
       >
         Build Menu
+      <div onClick={() => setExpanded(!expanded)} className='ui-border-box toggle-side-bar'>
+        Toggle UI
       </div>
       <div className={expanded ? 'side-bar' : 'hidden'}>
         <div className='side-bar-background-wrapper'>
@@ -34,23 +37,21 @@ export const SystemSideBar = ({
         </div>
         <div className='side-tab-row'>
           <div className='side-tab' onClick={() => setTabNumber(1)}>
-            Buildings
+            Production
           </div>
           <div className='side-tab' onClick={() => setTabNumber(2)}>
             Hangar
           </div>
-          <div className='side-tab' onClick={() => setTabNumber(3)}>
-            Alerts
-          </div>
+
         </div>
+
         <div className='side-screen'>
           <div className={tabNumber === 1 ? 'side-tab-info' : 'hidden'}>
-            A building is building on planet X
+            <div className='m-2 text-center border-2 flex'><p className='p-2'>ICON</p><p className='p-2'>A building is building on planet X</p></div>
           </div>
-          <div className={tabNumber === 2 ? 'side-tab-info' : 'hidden'}>
-            Production
-          </div>
-          <div className={tabNumber === 3 ? 'side-tab-info' : 'hidden'}>Alerts</div>
+          <AvailableBuildings />
+          <div className={tabNumber === 2 ? 'side-tab-info' : 'hidden'}><div className='m-2 text-center border-2 flex'><p className='p-2'>Status</p><p className='p-2'>SHIP</p></div></div>
+
         </div>
         <SystemPowerBar
           playerSystem={playerSystem}

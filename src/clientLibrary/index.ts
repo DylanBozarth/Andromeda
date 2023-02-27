@@ -1,1 +1,1 @@
-export const DATA_API_URL = process.env.REACT_APP_DATA_API_URL;
+export const DATA_API_URL = 'https://andromeda-space-game.herokuapp.com';
