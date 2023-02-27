@@ -23,11 +23,6 @@ export const SystemSideBar = ({
   const [tabNumber, setTabNumber] = useState(1);
   return (
     <div className='side-bar-wrapper'>
-      <div
-        onClick={() => setExpanded(!expanded)}
-        className=' toggle-side-bar '
-      >
-        Build Menu
       <div onClick={() => setExpanded(!expanded)} className='ui-border-box toggle-side-bar'>
         Toggle UI
       </div>
