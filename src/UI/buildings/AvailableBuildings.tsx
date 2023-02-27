@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAvailableBuildings } from '../../clientLibrary/buildings';
 import { Buildings } from './AvailableBuildingsTypes';
-
+import '../../styles/user-interface-master.scss'
 export const AvailableBuildings = () => {
   const [availableBuildings, setAvailableBuildings] = useState<Array<Buildings>>([]);
 
@@ -19,12 +19,13 @@ export const AvailableBuildings = () => {
         <div>
           {availableBuildings.map((building) => {
             return (
-              <div key={building._id}>
+              <div key={building._id} className='available-building'>
                 <hr />
                 <p>Name: {building.name}</p>
                 <p>Description: {building.description}</p>
                 <p>Cost: {building.cost}</p>
-                <p>Tech Level: {building.techLevel}</p>
+                { /* <p>Tech Level: {building.techLevel}</p> */ }
+                <div>BUILD</div>
               </div>
             );
           })}

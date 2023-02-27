@@ -3,6 +3,7 @@ import { useState } from 'react';
 import '../styles/views-styles/system-view.css';
 import { SystemSideBar } from '../UI/system-side-bar';
 import { useAppSelector } from '../redux/hooks';
+import { AvailableBuildings } from '../UI/buildings/AvailableBuildings';
 
 export const SystemView = () => {
   const [toggleResources, setToggleResources] = useState(false);
@@ -48,11 +49,11 @@ export const SystemView = () => {
                     key={`${planet}-${building}-${idx}`}
                   >
                     {building} 
+                    
                   </div>
                 );
               }),
-            ]}
-            <div className={toggleBuildings ? 'planet-buildings m-5 border-2 p-2' : 'hidden'} onClick={() => addNewBuilding({planet})}>Add more</div>
+            ]} <div className={toggleBuildings ? '' : 'hidden'}><AvailableBuildings /></div>
           </>
         );
       })}
