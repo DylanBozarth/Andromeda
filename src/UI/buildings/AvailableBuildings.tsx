@@ -19,12 +19,11 @@ export const AvailableBuildings = () => {
         <div>
           {availableBuildings.map((building) => {
             return (
-              <div key={building._id} className='available-building'>
+              <div key={building._id} className='p-2'>
                 <hr />
                 <p>Name: {building.name}</p>
                 <p>Description: {building.description}</p>
                 <p>Cost: {building.cost}</p>
-                { /* <p>Tech Level: {building.techLevel}</p> */ }
                 <div>BUILD</div>
               </div>
             );
