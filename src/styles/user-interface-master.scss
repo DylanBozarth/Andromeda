@@ -60,19 +60,13 @@ $text: #FFF;
 
 /* navigation bar */
 .navigation-bar {
-  bottom: 0;
   z-index: 90;
   cursor: pointer;
-  position: fixed;
-  right: 0;
 }
 
 
 .navigation-bar-text {
-  text-decoration: none;
-  text-align: center;
-  color: aqua;
-  font-size: 1rem;
+  color: $text;
 }
 
 
@@ -371,6 +365,9 @@ $text: #FFF;
 /* pop-up-menus */
 .pop-up-menu {
   position: fixed;
-  border: 1px solid red;
+  border: 2.5px solid $main;
   z-index: 99;
+  width: 500px;
+  height: 250px;
+  padding: 1rem;
 }

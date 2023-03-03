@@ -6,12 +6,13 @@ export const UImaster: React.FC = () => {
   return (
     <div>
       <TopBar />
+      <NavigationBar />
       <li>
         <a href='#' onClick={() => generateSystems()}>
           Generate new sector
         </a>
       </li>
-      <NavigationBar />
+      
     </div>
   );
 };

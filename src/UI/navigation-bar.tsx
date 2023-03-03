@@ -24,9 +24,8 @@ export const NavigationBar = () => {
     }
   }, [location]);
   return (
-    <div className='navigation-bar flex-auto mb-20'>
-      <h3 className='text-center'>Navigation</h3>
-      <Link to='/' onClick={() => setUserSector('')} className='navigation-bar-text flex-1 w-33'>
+    <div className='navigation-bar flex justify-center p-2'>
+      <Link to='/' onClick={() => setUserSector('')} className='navigation-bar-text '>
         <div className='ui-border-box'>
           <div className='navigation-bar-text'>Andromeda</div>
         </div>

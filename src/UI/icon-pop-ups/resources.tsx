@@ -4,7 +4,7 @@ import { playerRareResources } from '../../player-data/rare-resources'
 import '../../styles/user-interface-master.scss';
 export const ResourcePopupMenu = () => {
     return (
-        <div className='pop-up-menu flex'>
+        <div className=''>
 
             {/* the big 4 */}
             <div className="">
