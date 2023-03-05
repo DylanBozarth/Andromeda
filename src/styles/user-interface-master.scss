@@ -22,7 +22,13 @@ $text: #FFF;
   position: relative;
   transition: all 0.3s;
 }
-
+.ui-orange-box {
+  color: $text;
+  border: 4px solid $main;
+  border-radius:15%;
+  background-color: black;
+  z-index: 99;
+}
 /* Tooltip container for showing star distance to each other*/
 .tooltip {
   position: relative;
