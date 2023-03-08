@@ -3,6 +3,7 @@ import { useState } from 'react';
 import '../styles/views-styles/system-view.css';
 import { SystemSideBar } from '../UI/system-side-bar';
 import { useAppSelector } from '../redux/hooks';
+import { Link } from 'react-router-dom';
 
 export const SystemView = () => {
   const [toggleResources, setToggleResources] = useState(false);
@@ -56,7 +57,7 @@ export const SystemView = () => {
           </>
         );
       })}
-      <div className='p-3 m-6 bottom-0 absolute' onClick={() => console.log(playerSystem)}>View star: {playerSystem.systemStar} </div>
+      {/* <div className='p-3 m-6 bottom-0 absolute'><Link to={`/system/${playerSystem.systemName}/${playerSystem.systemStar}`}>View star</Link> </div> */}
     </div>
   );
 };
