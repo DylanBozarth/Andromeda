@@ -56,6 +56,7 @@ export const SystemView = () => {
           </>
         );
       })}
+      <div className='p-3 m-6 bottom-0 absolute' onClick={() => console.log(playerSystem)}>View star: {playerSystem.systemStar} </div>
     </div>
   );
 };
