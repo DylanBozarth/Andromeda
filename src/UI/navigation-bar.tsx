@@ -25,9 +25,8 @@ export const NavigationBar = () => {
   }, [location]);
   return (
     <div className='navigation-bar flex-auto mb-20'>
-      <div className='text-center ui-border-box' onClick={() => setHidden(!hidden)}>Navigation</div>
-      <div className={hidden ? 'hidden' : ''}>
-        <Link to='/' onClick={() => setUserSector('')} className='navigation-bar-text flex-1 w-33'>
+      <div className='flex justify-content-center'>
+        <Link to='/' onClick={() => setUserSector('')} className=''>
           <div className='ui-border-box'>
             <div className='navigation-bar-text'>Andromeda</div>
           </div>
