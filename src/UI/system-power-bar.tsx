@@ -36,7 +36,7 @@ export const SystemPowerBar = ({
           className='system-power-toggle-button'
           onClick={() => setToggleBuildings(!toggleBuildings)}
         >
-          buildings
+          build
         </button>
       </div>
     </div>
