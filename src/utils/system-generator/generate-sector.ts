@@ -98,6 +98,6 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
   return {
     systems,
     distancesMap,
-    sectorName: 'Redux-Sector',
+    sectorName: 'Sector-A', // Change this for each sector that you make
   };
 };
