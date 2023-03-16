@@ -5,7 +5,7 @@ import { buildingTypes } from './buildings';
 import { planetList } from './planets';
 import { resources } from './resources';
 import { starList } from './stars';
-import { NCOS } from './NCOS';
+import { NCOList } from './NCOS';
 import {
   getRandomSystemStar,
   getRandomPlanet,
@@ -67,9 +67,9 @@ const generateSystem = (maxPlanets: number) => {
 
 const generateNCOs = () => {
   const NCO: NCO = {
-    name: 'Cheese',
-    effect: '',
-    cords: ''
+    name: 'cheese',
+    effect: '10 damage',
+    cords: '55'
   };
   return NCO
 }
@@ -81,14 +81,13 @@ const timeScale = 15; // 15 minutes for each parsec
 export const generateSector = (maxSystems: number, maxPlanets: number): Sector => {
   const randomSystemNumber = generateRandomNumber(maxSystems);
   const systems: System[] = [];
-  const NCOsInSector: NCO[] = [];
+  const NCO: NCO[] = [];
 // control min number of planets here
   for (let i = -30; i < randomSystemNumber; i++) {
     const system = generateSystem(maxPlanets);
     systems.push(system);
   }
   const NCOArray = generateNCOs()
-  NCOsInSector.push(NCOArray)
 
   const distancesMap = {} as DistanceMap;
   for (const system of systems) {
@@ -117,7 +116,7 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
   return {
     systems,
     distancesMap,
-    NCOsInSector,
+    NCO,
     sectorName: 'Sector-A', // Change this for each sector that you make
   };
 };

@@ -1,4 +1,4 @@
-export const NCOS: string[] = [
+export const NCOList: string[] = [
     'Black-hole',
     'Nebula',
     'Asteroid-cluster',
