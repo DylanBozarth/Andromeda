@@ -82,12 +82,16 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
   const randomSystemNumber = generateRandomNumber(maxSystems);
   const systems: System[] = [];
   const NCO: NCO[] = [];
-// control min number of planets here
+  // control min number of planets here
   for (let i = -30; i < randomSystemNumber; i++) {
     const system = generateSystem(maxPlanets);
     systems.push(system);
   }
-  const NCOArray = generateNCOs()
+  for (let i = -30; i < randomSystemNumber; i++) {
+    const NCOArray = generateNCOs()
+    NCO.push(NCOArray);
+    console.log(NCO)
+  }
 
   const distancesMap = {} as DistanceMap;
   for (const system of systems) {
