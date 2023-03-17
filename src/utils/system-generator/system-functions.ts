@@ -9,6 +9,9 @@ export const getRandomSystemStar = (systemStarArr: string[]) => {
   return getRandomString(systemStarArr);
 };
 
+export const getRandomNCO = (NCOArr: string[]) => {
+  return getRandomString(NCOArr)
+}
 export const getSystemCoords = (systemLetter: string) => {
   return `${systemLetter}-${generateRandomNumber(80, 20)}${generateRandomNumber(80, 20)}`;
 };

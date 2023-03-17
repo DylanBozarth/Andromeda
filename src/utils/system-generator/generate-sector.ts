@@ -14,6 +14,7 @@ import {
   parseOutXandYfromCords,
   calculateDistance,
   getRandomBuildings,
+  getRandomNCO
 } from './system-functions';
 import { systemNameGenerator } from './system-name-generator';
 import { Sector } from '../../redux/sectorSlice';
@@ -67,7 +68,7 @@ const generateSystem = (maxPlanets: number) => {
 
 const generateNCOs = () => {
   const NCO: NCO = {
-    name: 'cheese',
+    name: getRandomNCO(NCOList),
     effect: '10 damage',
     cords: '55'
   };
@@ -87,10 +88,10 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
     const system = generateSystem(maxPlanets);
     systems.push(system);
   }
-  for (let i = -30; i < randomSystemNumber; i++) {
+  for (let i = -15; i < randomSystemNumber; i++) {
     const NCOArray = generateNCOs()
     NCO.push(NCOArray);
-    console.log(NCO)
+    // console.log(NCOList)
   }
 
   const distancesMap = {} as DistanceMap;
