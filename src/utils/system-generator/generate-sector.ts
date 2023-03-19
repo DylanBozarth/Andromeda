@@ -72,6 +72,7 @@ const generateNCOs = () => {
     effect: '10 damage',
     cords: '55'
   };
+  console.log({NCO})
   return NCO
 }
 
@@ -84,14 +85,13 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
   const systems: System[] = [];
   const NCO: NCO[] = [];
   // control min number of planets here
-  for (let i = -30; i < randomSystemNumber; i++) {
+  for (let i = -60; i < randomSystemNumber; i++) {
     const system = generateSystem(maxPlanets);
     systems.push(system);
   }
-  for (let i = -15; i < randomSystemNumber; i++) {
+  for (let i = -25; i < randomSystemNumber; i++) {
     const NCOArray = generateNCOs()
     NCO.push(NCOArray);
-    // console.log(NCOList)
   }
 
   const distancesMap = {} as DistanceMap;
@@ -117,7 +117,6 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
     );
   }
 
-  console.log({ distancesMap });
   return {
     systems,
     distancesMap,

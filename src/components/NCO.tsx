@@ -1,11 +1,15 @@
 import '../styles/textures/planets-and-stars.scss';
 
+interface NCOProps {
+  NCOName: string;
+  effect: string;
+  cords: string;
+}
 
-
-export const NCOComponent = (ncoType) => {
+export const NCOComponent = ({NCOName, effect, cords}: NCOProps) => {
   return (
-    <div className={ncoType}>
-      
+    <div className={`${NCOName}`}>
+      {NCOName}
     </div>
   );
 };
