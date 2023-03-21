@@ -70,9 +70,9 @@ const generateNCOs = () => {
   const NCO: NCO = {
     name: getRandomNCO(NCOList),
     effect: '10 damage',
-    cords: '55'
+    cords: ''
   };
-  console.log({NCO})
+  NCO.cords = getSystemCoords('A')
   return NCO
 }
 
@@ -89,7 +89,7 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
     const system = generateSystem(maxPlanets);
     systems.push(system);
   }
-  for (let i = -25; i < randomSystemNumber; i++) {
+  for (let i = -45; i < randomSystemNumber; i++) {
     const NCOArray = generateNCOs()
     NCO.push(NCOArray);
   }

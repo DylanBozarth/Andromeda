@@ -15,11 +15,17 @@ export const SectorA = () => {
         <div className='sector-background'></div>
         {/* icons for menus */}
         <div>
-        <IconBar />
+          <IconBar />
         </div>
         {sector.NCO.map((single) => {
           return (
-            <NCOComponent NCOName={single.name} key={single.name} effect='yes' cords='yes' />
+            <div key={single.cords}  style={{
+              position: 'absolute',
+              left: `${getXfromCords(single.cords)}vw`,
+              top: `${getYfromCords(single.cords)}vh`,
+            }}>
+            <NCOComponent NCOName={single.name} effect={single.effect} cords={single.cords} distanceMapValues={sector.distancesMap[single.cords]} />
+            </div>
           )
         })}
         {sector.systems.map((item) => {
