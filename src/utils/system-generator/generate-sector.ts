@@ -5,6 +5,7 @@ import { buildingTypes } from './buildings';
 import { planetList } from './planets';
 import { resources } from './resources';
 import { starList } from './stars';
+import { NCOList } from './NCOS';
 import {
   getRandomSystemStar,
   getRandomPlanet,
@@ -13,6 +14,7 @@ import {
   parseOutXandYfromCords,
   calculateDistance,
   getRandomBuildings,
+  getRandomNCO
 } from './system-functions';
 import { systemNameGenerator } from './system-name-generator';
 import { Sector } from '../../redux/sectorSlice';
@@ -26,6 +28,12 @@ export interface System {
   hangar: string[];
 }
 
+export interface NCO { // NCO = Non-conolizable-object
+  name: string;
+  effect: string;
+  cords: string;
+
+}
 const generateSystem = (maxPlanets: number) => {
   const system: System = {
     systemStar: getRandomSystemStar(starList),
@@ -58,6 +66,16 @@ const generateSystem = (maxPlanets: number) => {
   return system;
 };
 
+const generateNCOs = () => {
+  const NCO: NCO = {
+    name: getRandomNCO(NCOList),
+    effect: '10 damage',
+    cords: ''
+  };
+  NCO.cords = getSystemCoords('A')
+  return NCO
+}
+
 export type DistanceMap = Record<string, Record<string, { distance: number; eta: string }>>;
 
 const timeScale = 15; // 15 minutes for each parsec
@@ -65,10 +83,15 @@ const timeScale = 15; // 15 minutes for each parsec
 export const generateSector = (maxSystems: number, maxPlanets: number): Sector => {
   const randomSystemNumber = generateRandomNumber(maxSystems);
   const systems: System[] = [];
-// control min number of planets here
-  for (let i = -30; i < randomSystemNumber; i++) {
+  const NCO: NCO[] = [];
+  // control min number of planets here
+  for (let i = -60; i < randomSystemNumber; i++) {
     const system = generateSystem(maxPlanets);
     systems.push(system);
+  }
+  for (let i = -45; i < randomSystemNumber; i++) {
+    const NCOArray = generateNCOs()
+    NCO.push(NCOArray);
   }
 
   const distancesMap = {} as DistanceMap;
@@ -94,10 +117,10 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
     );
   }
 
-  console.log({ distancesMap });
   return {
     systems,
     distancesMap,
+    NCO,
     sectorName: 'Sector-A', // Change this for each sector that you make
   };
 };

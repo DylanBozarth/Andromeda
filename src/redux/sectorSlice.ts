@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { DistanceMap, System } from '../utils/system-generator/generate-sector';
+import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 
 export interface Sector {
   systems: System[];
+  NCO: NCO[];
   distancesMap: DistanceMap;
   sectorName: string;
 }

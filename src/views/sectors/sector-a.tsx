@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setSystem } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { IconBar } from '../../UI/icon-bar';
+import { NCOComponent } from '../../components/NCO';
 
 export const SectorA = () => {
   const dispatch = useAppDispatch();
@@ -14,8 +15,19 @@ export const SectorA = () => {
         <div className='sector-background'></div>
         {/* icons for menus */}
         <div>
-        <IconBar />
+          <IconBar />
         </div>
+        {sector.NCO.map((single) => {
+          return (
+            <div key={single.cords}  style={{
+              position: 'absolute',
+              left: `${getXfromCords(single.cords)}vw`,
+              top: `${getYfromCords(single.cords)}vh`,
+            }}>
+            <NCOComponent NCOName={single.name} effect={single.effect} cords={single.cords} distanceMapValues={sector.distancesMap[single.cords]} />
+            </div>
+          )
+        })}
         {sector.systems.map((item) => {
           return (
             <div
