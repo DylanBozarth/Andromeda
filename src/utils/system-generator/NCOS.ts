@@ -5,3 +5,6 @@ export const NCOList: string[] = [
     'Pulsar',
     'Magnetar',
 ]
+export const NCOEffects: string[] = [
+    // need ideas here
+]
