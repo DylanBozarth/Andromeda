@@ -1,6 +1,6 @@
 const { app, BrowserWindow, screen: electronScreen } = require('electron');
 const path = require('path');
-
+// This controls the desktop behavior of the game
 const createMainWindow = () => {
   let mainWindow = new BrowserWindow({
     width: electronScreen.getPrimaryDisplay().workArea.width,
