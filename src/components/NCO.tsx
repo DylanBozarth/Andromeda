@@ -10,6 +10,7 @@ interface NCOProps {
 export const NCOComponent = ({NCOName, effect, cords, distanceMapValues}: NCOProps) => {
   return (
     <div className={`${NCOName}`}>
+      {NCOName}
     </div>
   );
 };
