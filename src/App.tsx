@@ -5,7 +5,7 @@ import { SystemView } from './views/system-view';
 import { GalaticView } from './views/galatic-view';
 import { SystemStarView } from './views/system-star-view'
 import { SectorA } from './views/sectors/sector-a';
-import { DetailsMenu } from './UI/menu-pages/detailsMenu';
+import { DetailsMenu } from './UI/detailsMenu';
 import { useEffect } from 'react';
 import { getAvailableBuildings } from './clientLibrary/buildings';
 // import Login from './components/Authenication/login';

@@ -1,6 +1,6 @@
-import styles from '../../styles/user-interface-master.scss';
+import '../../styles/user-interface-master.scss';
 import { useState } from 'react';
-export const FactionsDetails = () => {
+export const FactionsPopUpMenu = () => {
 const [hidden, setHidden] = useState(1);
     return ( 
         <div>

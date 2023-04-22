@@ -1,5 +1,5 @@
-import styles from '../../styles/user-interface-master.scss';
-export const ExploreDetails = () => {
+import '../../styles/user-interface-master.scss';
+export const ExplorePopUpMenu = () => {
   return (
     <div className='mt-20 container'>
       <div className='exploration-selection'>

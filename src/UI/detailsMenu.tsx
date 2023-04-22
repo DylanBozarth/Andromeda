@@ -1,12 +1,7 @@
-import '../../styles/user-interface-master.scss';
+import '../styles/user-interface-master.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { SystemDetails } from './details-pages/system-management';
-import { FleetDetails } from './details-pages/fleets';
-import { ResearchDetails } from './details-pages/research';
-import { FactionsDetails } from './details-pages/factions';
-import { ShipDesigner } from './details-pages/ship-designer';
-import { ExploreDetails } from './details-pages/exploration';
+{/* CURRENTLY A LEGACY COMPONENT 5/22/23 */}
 export const DetailsMenu = () => {
   const [openMenu, setOpenMenu] = useState<string>('systems');
   return (
@@ -49,25 +44,7 @@ export const DetailsMenu = () => {
         </Link>
       </div>
       <div>
-        {/* All of these should be in the details-pages folder */}
-        <div className={openMenu === 'systems' ? 'take-whole-screen' : 'hidden'}>
-          <SystemDetails />
-        </div>
-        <div className={openMenu === 'fleets' ? 'take-whole-screen' : 'hidden'}>
-          <FleetDetails />
-        </div>
-        <div className={openMenu === 'research' ? 'take-whole-screen' : 'hidden'}>
-          <ResearchDetails />
-        </div>
-        <div className={openMenu === 'factions' ? 'take-whole-screen' : 'hidden'}>
-          <FactionsDetails />
-        </div>
-        <div className={openMenu === 'exploration' ? 'take-whole-screen' : 'hidden'}>
-          <ExploreDetails />
-        </div>
-        <div className={openMenu === 'ship-designer' ? 'take-whole-screen' : 'hidden'}>
-          <ShipDesigner />
-        </div>
+        
       </div>
     </div>
   );

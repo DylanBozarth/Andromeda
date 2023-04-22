@@ -1,5 +1,5 @@
-import styles from '../../../styles/user-interface-master.scss';
-export const SystemDetails = () => {
+import '../../styles/user-interface-master.scss';
+export const PlanetManagerPopUpMenu = () => {
 
     return (
         <div className='mt-20'>Systems, Try to create a good way to visualize lots of info <br />
