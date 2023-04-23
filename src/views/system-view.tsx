@@ -5,6 +5,7 @@ import { SystemSideBar } from '../UI/system-side-bar';
 import { useAppSelector } from '../redux/hooks';
 import { Link } from 'react-router-dom';
 import { AvailableBuildings } from '../UI/buildings/AvailableBuildings';
+import { IconBar } from '../UI/icon-bar';
 
 
 export const SystemView = () => {
