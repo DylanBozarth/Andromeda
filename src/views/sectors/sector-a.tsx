@@ -13,10 +13,7 @@ export const SectorA = () => {
     return (
       <div className='sector-view-wrapper'>
         <div className='sector-background'></div>
-        {/* icons for menus */}
-        <div>
-          <IconBar />
-        </div>
+
         {sector.NCO.map((single) => {
           return (
             <div key={single.cords}  style={{

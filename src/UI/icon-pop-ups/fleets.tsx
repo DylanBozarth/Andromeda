@@ -1,5 +1,5 @@
 import '../../styles/user-interface-master.scss';
-export const ShipsPopupMenu = () => {
+export const FleetsPopupMenu = () => {
     return (
         <div className='container border-1 ui-orange-box p-3'>
             <h4 className='text-center'>Fleets</h4>

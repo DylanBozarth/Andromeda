@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { playerRawResources } from '../player-data/raw-resources'
 import { playerRefinedResources } from '../player-data/refined-resources';
+{/* CURRENTLY A LEGACY COMPONENT 5/22/23 */}
 export const TopBar = () => {
   const [openMenu, setOpenMenu] = useState(0);
   return (
@@ -20,3 +21,4 @@ export const TopBar = () => {
     </div>
   );
 };
+{/* CURRENTLY A LEGACY COMPONENT 5/22/23 */}

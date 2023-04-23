@@ -1,4 +1,4 @@
-export const ResearchDetails = () => {
+export const ResearchPopUpMenu = () => {
 
     return (
         <div className="mt-20">research example image: Focus on the bubble structure, and create an area to display more info on mouseover  <br />
