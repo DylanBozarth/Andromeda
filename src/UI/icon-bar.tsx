@@ -11,7 +11,7 @@ export const IconBar = () => {
     const [openMenu, setOpenMenu] = useState('none');
     return (
         <div className='grid'>
-            <div className='flex bottom-0 absolute text-center place-self-center'>
+            <div className='flex bottom-0 fixed text-center place-self-center'>
                 <div className='ui-border-box' onClick={() => (openMenu === 'fleets' ? setOpenMenu('none') : setOpenMenu('fleets'))}>
                     <img src='../assets/ship-icon.jpeg' height='50px' width='50px'></img> Fleets
                 </div>
