@@ -11,7 +11,7 @@ export const SectorA = () => {
   const sector = useAppSelector((state) => state.sector.activeSector);
   {
     return (
-      <div className='sector-view-wrapper'>
+      <div className='sector-view'>
         <div className='sector-background'></div>
 
         {sector.NCO.map((single) => {
@@ -34,7 +34,7 @@ export const SectorA = () => {
                 left: `${getXfromCords(item.cords)}vw`,
                 top: `${getYfromCords(item.cords)}vh`,
               }}
-              className='sector-star-wrapper'
+              className=''
             >
               <Link to={`/system/${item.systemName}`} onClick={() => dispatch(setSystem(item))}>
                 <Star

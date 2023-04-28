@@ -3,7 +3,6 @@
 @tailwind utilities;
 body {
   color: white;
-  overflow-x: hidden;
 }
 
 .hidden {
@@ -30,31 +29,4 @@ body::-webkit-scrollbar {
   height: auto;
   margin: 0 auto;
   max-width: 100%;
-}
-
-/* Common UI components */
-.white-border-button {
-  border: none;
-  background-color: transparent;
-  background-image: url("https://i.imgur.com/c4cssIq.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
-  mask-image: url("https://i.imgur.com/MpgqLcj.png");
-  mask-type: alpha;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: 90% 80%;
-  font-family: verdana, sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 0;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s;
-}
-.blue-border {
-  border: 2px solid blue;
 }
