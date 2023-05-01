@@ -12,11 +12,10 @@ export const IconBar = () => {
     return (
         <div className=''>
             <div className='fixed icon-bar '>
-                <div className=' flex'>
+                <div className='flex text-center'> {/* center this somehow */}
                     <div className='ui-border-box' onClick={() => (openMenu === 'fleets' ? setOpenMenu('none') : setOpenMenu('fleets'))}>
                         <img src='../assets/ship-icon.jpeg' height='50px' width='50px'></img> Fleets
                     </div>
-
                     <div className='ui-border-box ' onClick={() => (openMenu === 'alerts' ? setOpenMenu('none') : setOpenMenu('alerts'))}>
                         <img src='../assets/alerts.png' height='50px' width='50px'></img> Alerts
                     </div>
