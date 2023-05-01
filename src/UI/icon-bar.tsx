@@ -10,8 +10,8 @@ import { ExplorePopUpMenu } from './icon-pop-ups/exploration';
 export const IconBar = () => {
     const [openMenu, setOpenMenu] = useState('none');
     return (
-        <div className='grid z-99 icon-bar'>
-            <div className='flex bottom-0 fixed text-center place-self-center'>
+        <div className=''>
+            <div className='fixed icon-bar text-center place-self-center'>
                 <div className='ui-border-box' onClick={() => (openMenu === 'fleets' ? setOpenMenu('none') : setOpenMenu('fleets'))}>
                     <img src='../assets/ship-icon.jpeg' height='50px' width='50px'></img> Fleets
                 </div>
@@ -36,7 +36,7 @@ export const IconBar = () => {
                 </div>
 
             </div>
-            <div>
+            <div className=''>
                 {/* pop up menus, there's a way to do this DRY style but I cant be bothered to find it. */}
                 <div className={openMenu === 'fleets' ? '' : 'hidden'}>
                     <div className='pop-up-menu'>
