@@ -22,12 +22,33 @@ $text: #FFF;
   position: relative;
   transition: all 0.3s;
 }
+.white-border-button {
+  border: none;
+  background-color: transparent;
+  background-image: url("https://i.imgur.com/c4cssIq.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  mask-image: url("https://i.imgur.com/MpgqLcj.png");
+  mask-type: alpha;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: 90% 80%;
+  font-family: verdana, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+}
 .ui-orange-box {
   color: $text;
   border: 4px solid $main;
   border-radius:15%;
   background-color: black;
-  z-index: 99;
 }
 /* Tooltip container for showing star distance to each other*/
 .tooltip {
@@ -64,93 +85,19 @@ $text: #FFF;
   width: 100%;
 }
 
-/* navigation bar */
-.navigation-bar {
-  z-index: 90;
-  cursor: pointer;
-}
+
 
 
 .navigation-bar-text {
   color: $text;
 }
 
-
-/* top bar */
 .sci-fi-thing {
   width: 100%;
   height: 50px;
   background-image: url("https://i.imgur.com/9EfnzaH.png");
   background-repeat: no-repeat;
   background-position: center 0px;
-}
-
-.top-bar-wrapper {
-  top: 0;
-  position: fixed;
-  display: flex;
-  width: 100vw;
-  justify-content: center;
-  height: 50px;
-}
-
-.navigation-bar-text:hover {
-  text-decoration: none;
-  color: $text;
-}
-
-.top-nav-button-base {
-  display: inline-block;
-}
-
-.top-nav-1 {
-  color: $text;
-  border: none;
-  background-color: transparent;
-  background-image: url("https://i.imgur.com/c4cssIq.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
-  mask-image: url("https://i.imgur.com/MpgqLcj.png");
-  mask-type: alpha;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: 90% 80%;
-  font-family: verdana, sans-serif;
-  font-size: 1.5em;
-  padding: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 0;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s;
-  margin-right: 1em;
-}
-
-.top-nav-1:after {
-  background-image: url("https://i.imgur.com/esC8ptq.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 90% 80%;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.top-nav-1:hover,
-.top-nav-1:active {
-  color: $text;
-}
-
-.top-nav-1:hover:after,
-.top-nav-1:active:after {
-  opacity: 1;
 }
 
 /* system Power bar menu */
@@ -366,10 +313,23 @@ $text: #FFF;
 }
 
 /* End details menus */
+
+/* navigation bar */
+.navigation-bar {
+  z-index: 96;
+  position: fixed;
+}
 /* pop-up-menus */
 .pop-up-menu {
-  position: fixed;
-  border: 2.5px solid $main;
-  z-index: 99;
+  width: 100vw;
+  height: 100vh;
+  background-color: #008bd6;
   padding: 1rem;
+  position: absolute;
+  z-index: 95;
+}
+.icon-bar {
+  z-index: 99;
+  bottom: 0;
+  position: fixed;
 }

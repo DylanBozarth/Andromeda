@@ -5,8 +5,9 @@ export const UImaster: React.FC = () => {
   const generateSystems = useSystems(10, 8);
   return (
     <div>
-      <IconBar />
       <NavigationBar />
+      <IconBar />
+      
       <li>
         <a href='#' onClick={() => generateSystems()}>
           Generate new sector
