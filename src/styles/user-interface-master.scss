@@ -325,6 +325,8 @@ $text: #FFF;
   height: 100vh;
   background-color: #008bd6;
   padding: 1rem;
+  position: absolute;
+  z-index: 95;
 }
 .icon-bar {
   z-index: 99;

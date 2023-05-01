@@ -3,7 +3,6 @@ import { Star } from '../../components/star';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setSystem } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
-import { IconBar } from '../../UI/icon-bar';
 import { NCOComponent } from '../../components/NCO';
 
 export const SectorA = () => {
