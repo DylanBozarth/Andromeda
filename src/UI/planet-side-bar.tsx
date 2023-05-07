@@ -1,10 +1,9 @@
 import '../styles/user-interface-master.scss';
-import { System } from '../utils/system-generator/generate-sector';
+import { Planet } from '../types/planet-interface';
 import { useState } from 'react';
-import { SystemPowerBar } from './system-power-bar';
 import { AvailableBuildings } from './buildings/AvailableBuildings';
-interface systemInformation {
-    playerSystem: System;
+interface planetInformation {
+    playerPlanet: Planet;
 }
 interface toggles {
     toggleResources: boolean;
@@ -12,24 +11,20 @@ interface toggles {
     setToggleResources: (flag: boolean) => void;
     setToggleBuildings: (flag: boolean) => void;
 }
-export const SystemSideBar = ({
-    playerSystem,
-    toggleBuildings,
-    toggleResources,
-    setToggleBuildings,
-    setToggleResources,
-}: systemInformation & toggles) => {
-    const [expanded, setExpanded] = useState(true);
+export const PlanetSideBar = ({
+    playerPlanet
+}: planetInformation) => {
     const [tabNumber, setTabNumber] = useState(1);
     return (
         <div className='side-bar-wrapper'>
-            <div onClick={() => setExpanded(!expanded)} className='ui-border-box toggle-side-bar'>
-                Toggle UI
-            </div>
-            <div className={expanded ? 'side-bar' : 'hidden'}>
+ 
+            <div className='side-bar'>
+                <h3 className='text-center'>{playerPlanet.name}</h3>
                 <div className='side-bar-background-wrapper'>
+                    <p className='text-center'>Owned by: {playerPlanet.ownership}</p>
                     <div className='side-bar-background'></div>
                 </div>
+                {/* tabs */}
                 <div className='side-tab-row m-2 text-center'>
                     <div className='side-tab' onClick={() => setTabNumber(1)}>
                         Production
@@ -37,9 +32,10 @@ export const SystemSideBar = ({
                     <div className='side-tab' onClick={() => setTabNumber(2)}>
                         Hangar
                     </div>
-                    
+                    <div className='side-tab' onClick={() => setTabNumber(3)}>
+                        Resources
+                    </div>
                 </div>
-
                 <div className='side-screen'>
                     <div className={tabNumber === 1 ? 'side-tab-info' : 'hidden'}>
                         <div className='m-2 text-center border-2 flex'><p className='p-2'>ICON</p><p className='p-2'>A building is building on planet X</p></div>
@@ -47,15 +43,14 @@ export const SystemSideBar = ({
                     <div className={tabNumber === 2 ? 'side-tab-info' : 'hidden'}>
                         <div className='m-2 text-center border-2 flex'><p className='p-2'>Status</p><p className='p-2'>SHIP</p></div>
                     </div>
-                    
+                    <div className={tabNumber === 3 ? 'side-tab-info' : 'hidden'}>
+                        <div className='m-2 text-center border-2 flex'><p className='p-2'>Like 6 rocks</p></div>
+                    </div>
                 </div>
-                <SystemPowerBar
-                    playerSystem={playerSystem}
-                    toggleResources={toggleResources}
-                    toggleBuildings={toggleBuildings}
-                    setToggleResources={setToggleResources}
-                    setToggleBuildings={setToggleBuildings}
-                />
+                <div className='flex p-1'>
+                    <div>Buildings</div><div>Desposits</div>
+                </div>
+                
             </div>
             
         </div>

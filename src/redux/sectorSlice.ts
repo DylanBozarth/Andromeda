@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
+import { Planet } from '../types/planet-interface';
 
 export interface Sector {
   systems: System[];
@@ -11,13 +12,15 @@ export interface Sector {
 interface ActiveState {
   activeSector: Sector;
   activeSystem: System;
+  activePlanet: Planet;
 }
 
 const initialState: ActiveState = {
   activeSector: {} as Sector,
   activeSystem: {} as System,
+  activePlanet: {} as Planet
 };
-
+// Controls data being passed from Sector => System => Planet
 export const sectorSlice = createSlice({
   name: 'sector',
   initialState,
@@ -28,9 +31,12 @@ export const sectorSlice = createSlice({
     setSystem: (state, action: PayloadAction<System>) => {
       state.activeSystem = action.payload;
     },
+    setPlanet: (state, action: PayloadAction<Planet>) => {
+      state.activePlanet = action.payload;
+    },
   },
 });
 
-export const { setSector, setSystem } = sectorSlice.actions;
+export const { setSector, setSystem, setPlanet } = sectorSlice.actions;
 
 export default sectorSlice.reducer;

@@ -24,8 +24,6 @@ export interface System {
   systemPlanets: Array<Planet>;
   systemName: string;
   cords: string;
-  ownership: string;
-  hangar: string[];
 }
 
 export interface NCO { // NCO = Non-conolizable-object
@@ -34,14 +32,13 @@ export interface NCO { // NCO = Non-conolizable-object
   cords: string;
 
 }
+
 const generateSystem = (maxPlanets: number) => {
   const system: System = {
     systemStar: getRandomSystemStar(starList),
     systemName: systemNameGenerator(1)[0],
     systemPlanets: [],
     cords: '',
-    ownership: 'unowned',
-    hangar: [],
   };
 
   console.log({ system });
@@ -53,12 +50,14 @@ const generateSystem = (maxPlanets: number) => {
     const planetName = getRandomPlanet(planetList);
     const resource1 = getRandomResource(resources);
     const resource2 = getRandomResource(resources, resource1);
-    const building1 = getRandomBuildings(buildingTypes);
-    const building2 = getRandomBuildings(buildingTypes, building1);
     const planet: Planet = {
       name: planetName,
-      resources: [resource1, resource2],
-      buildings: [building1, building2],
+      naturalResources: [resource1, resource2],
+      buildings: [],
+      resourceStorage: [],
+      production: [],
+      hangar: [],
+      ownership: 'unowned'
     };
     system.systemPlanets.push(planet);
   }
@@ -84,7 +83,7 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
   const randomSystemNumber = generateRandomNumber(maxSystems);
   const systems: System[] = [];
   const NCO: NCO[] = [];
-  // control min number of planets here
+  // control min number of systems and NCOs here
   for (let i = -60; i < randomSystemNumber; i++) {
     const system = generateSystem(maxPlanets);
     systems.push(system);

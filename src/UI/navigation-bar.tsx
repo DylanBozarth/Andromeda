@@ -9,6 +9,9 @@ export const NavigationBar = () => {
   const [userSystem, setUserSystem] = useState(
     useAppSelector((state) => state.sector.activeSystem.systemName),
   );
+  const [userPlanet, setUserPlanet] = useState(
+    useAppSelector((state) => state.sector.activePlanet.name),
+  )
   const [hidden, setHidden] = useState(false)
   const location = useLocation();
   useEffect(() => {
@@ -18,22 +21,19 @@ export const NavigationBar = () => {
     } else if (window.location.href.includes('sector')) {
       const locationURL2 = window.location.href.split('/');
       setUserSector(locationURL2[locationURL2.length - 1]);
-    } else {
-      setUserSector('');
-      setUserSystem('');
     }
   }, [location]);
   return (
     <div className='navigation-bar flex-auto mb-20 sci-fi-thing absolute'>
       <div className='flex justify-content-center'>
-      <Link to='/' onClick={() => setUserSector('')} className=''>
+        <Link to='/' onClick={() => setUserSector('')} className=''>
           <div className='ui-border-box'>
             <div className='navigation-bar-text'>Andromeda</div>
           </div>
-        </Link> 
+        </Link>
       </div>
       <div className='flex justify-content-center'>
-        
+
         <Link to={`/${userSector}`} className='navigation-bar-text'>
           <div
             className={
@@ -46,14 +46,25 @@ export const NavigationBar = () => {
             <div className='navigation-bar-text'>{userSector}</div>
           </div>
         </Link>
+        <Link to={`/${userSystem}`} onClick={() => setUserPlanet('')}>
+          <div
+            className={
+              userSystem
+                ? 'ui-border-box'
+                : ''
+            }
+          >
+            <div className='navigation-bar-text'>{userSystem}</div>
+          </div>
+        </Link>
         <div
           className={
-            userSystem
+            userPlanet
               ? 'ui-border-box'
               : ''
           }
         >
-          <div className='navigation-bar-text'>{userSystem}</div>
+          <div className='navigation-bar-text'>{userPlanet}</div>
         </div>
       </div>
     </div>

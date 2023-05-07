@@ -1,17 +1,7 @@
 export const resources: string[] = [
-  'ore-low',
-  'ore-high',
-  'ore-medium',
-  'ore-trace',
-  'water-high',
-  'water-medium',
-  'water-low',
-  'water-trace',
-  'gas-low',
-  'gas-medium',
-  'population-tribal',
-  'population-scarce',
-  'population-cities',
-  'oil-low',
-  'oil-medium',
+  'ore',
+  'water',
+  'gas',
+  'oil',
+  'uranium'
 ];

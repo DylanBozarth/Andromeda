@@ -1,38 +1,29 @@
 import { PlanetComponent } from '../components/planet';
 import { useState } from 'react';
 import '../styles/views-styles/system-view.css';
-import { SystemSideBar } from '../UI/system-side-bar';
-import { useAppSelector } from '../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { Link } from 'react-router-dom';
 import { AvailableBuildings } from '../UI/buildings/AvailableBuildings';
-import { IconBar } from '../UI/icon-bar';
-
+import { setPlanet } from '../redux/sectorSlice';
 
 export const SystemView = () => {
+  const dispatch = useAppDispatch();
   const [toggleResources, setToggleResources] = useState(false);
   const [toggleBuildings, setToggleBuildings] = useState(false);
   const playerSystem = useAppSelector((state) => state.sector.activeSystem);
-  const addNewBuilding = (planet) => {
-    console.log(planet.planet.buildings)
-    // I have no idea why I have to do planet.planet, it's an object that's wrapped itself 
-  }
+
   return (
     <div className={'playerSystemArray-view-wrapper row'}>
-      <SystemSideBar
-        playerSystem={playerSystem}
-        toggleResources={toggleResources}
-        toggleBuildings={toggleBuildings}
-        setToggleResources={setToggleResources}
-        setToggleBuildings={setToggleBuildings}
-      />
       {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
             <div className={'planet-wrapper'}>
+            <Link to={`/system/${playerSystem.systemName}/${planet.name}`} onClick={() => dispatch(setPlanet(planet))}>
               <PlanetComponent planet={planet} />
+              </Link>
             </div>
             {[
-              planet.resources.map((resource, idx) => {
+              planet.naturalResources.map((resource, idx) => {
                 return (
                   <div
                     className={toggleResources ? 'planet-resources' : 'hidden'}

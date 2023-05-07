@@ -13,6 +13,7 @@ export const ResourcePopupMenu = () => {
                 <p>Oil: {playerRawResources.oil}</p>
                 <p>Water: {playerRawResources.water}</p>
                 <p>Ore : {playerRawResources.ore}</p>
+                <p>Uranium: {playerRawResources.uranium}</p>
             </div>
             <div className=''>
                 <h4>Refined resources</h4>
@@ -20,10 +21,9 @@ export const ResourcePopupMenu = () => {
                 <p>Energy: {playerRefinedResources.energy}</p>
                 <p>Fuel: {playerRefinedResources.fuel}</p>
                 <p> Alloys: {playerRefinedResources.alloys}</p>
-                <p>Ceramics and Plastics: {playerRefinedResources['ceramics-and-plastics']}</p>
+                <p>Ceramics {playerRefinedResources.ceramics}</p>
+                <p> Plastics: {playerRefinedResources.plastics}</p>
                 <p>Metals: {playerRefinedResources.metals}</p>
-                <p>Delicacies: {playerRefinedResources.delicacies}</p>
-                <p>Consumer Goods: {playerRefinedResources['consumer-goods']}</p>
             </div>
             <div className='e'>
                 <h4>Unique resources</h4>

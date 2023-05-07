@@ -10,7 +10,6 @@ export const getSystemPower = (playerSystem: System) => {
     buildingPower += getBuildingPowerCounts(planet);
   });
   return {
-    shipPower: getShipPowerCounts(playerSystem.hangar),
     buildingPower,
   };
 };

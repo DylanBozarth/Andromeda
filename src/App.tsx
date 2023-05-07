@@ -7,6 +7,7 @@ import { SystemStarView } from './views/system-star-view'
 import { SectorA } from './views/sectors/sector-a';
 import { useEffect } from 'react';
 import { getAvailableBuildings } from './clientLibrary/buildings';
+import { PlanetView } from './views/planet-view';
 // import Login from './components/Authenication/login';
 // import Register from './components/Authenication/register';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/' element={<GalaticView />} />
         <Route path='/sector-a' element={<SectorA />} />
         <Route path='/system/:systemName' element={<SystemView />} />
+        <Route path='/system/:systemName/:planetName' element={<PlanetView />} />
         <Route path='/system/:systemName/:systemStar' element={<SystemStarView /> } />
         {/* <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} /> */}
