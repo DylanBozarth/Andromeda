@@ -14,17 +14,17 @@ interface toggles {
 export const PlanetSideBar = ({
     playerPlanet
 }: planetInformation) => {
-    const [expanded, setExpanded] = useState(true);
     const [tabNumber, setTabNumber] = useState(1);
     return (
         <div className='side-bar-wrapper'>
-            <div onClick={() => setExpanded(!expanded)} className='ui-border-box toggle-side-bar'>
-                Toggle UI
-            </div>
-            <div className={expanded ? 'side-bar' : 'hidden'}>
+ 
+            <div className='side-bar'>
+                <h3 className='text-center'>{playerPlanet.name}</h3>
                 <div className='side-bar-background-wrapper'>
+                    <p className='text-center'>Owned by: {playerPlanet.ownership}</p>
                     <div className='side-bar-background'></div>
                 </div>
+                {/* tabs */}
                 <div className='side-tab-row m-2 text-center'>
                     <div className='side-tab' onClick={() => setTabNumber(1)}>
                         Production
@@ -32,9 +32,10 @@ export const PlanetSideBar = ({
                     <div className='side-tab' onClick={() => setTabNumber(2)}>
                         Hangar
                     </div>
-                    
+                    <div className='side-tab' onClick={() => setTabNumber(3)}>
+                        Resources
+                    </div>
                 </div>
-
                 <div className='side-screen'>
                     <div className={tabNumber === 1 ? 'side-tab-info' : 'hidden'}>
                         <div className='m-2 text-center border-2 flex'><p className='p-2'>ICON</p><p className='p-2'>A building is building on planet X</p></div>
@@ -42,7 +43,12 @@ export const PlanetSideBar = ({
                     <div className={tabNumber === 2 ? 'side-tab-info' : 'hidden'}>
                         <div className='m-2 text-center border-2 flex'><p className='p-2'>Status</p><p className='p-2'>SHIP</p></div>
                     </div>
-                    
+                    <div className={tabNumber === 3 ? 'side-tab-info' : 'hidden'}>
+                        <div className='m-2 text-center border-2 flex'><p className='p-2'>Like 6 rocks</p></div>
+                    </div>
+                </div>
+                <div className='flex p-1'>
+                    <div>Buildings</div><div>Desposits</div>
                 </div>
                 
             </div>

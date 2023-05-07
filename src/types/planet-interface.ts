@@ -2,7 +2,8 @@ export interface Planet {
     name: string
     buildings: Array<string>,
     naturalResources: Array<string>,
-    resourceStorage: Array<string>
+    resourceStorage: Array<string>,
+    production: [],
     hangar: Array<string>,
     ownership: string
 }

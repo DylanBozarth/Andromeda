@@ -55,6 +55,7 @@ const generateSystem = (maxPlanets: number) => {
       naturalResources: [resource1, resource2],
       buildings: [],
       resourceStorage: [],
+      production: [],
       hangar: [],
       ownership: 'unowned'
     };
