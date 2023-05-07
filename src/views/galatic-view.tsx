@@ -21,7 +21,7 @@ export const GalaticView = () => {
           <br /> 
           First time? 
           <br />
-          Run generate before clicking
+          Run generate before clicking otherwise it will fail
         </Link>
       </div>
     </div>
