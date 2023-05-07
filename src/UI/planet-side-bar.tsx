@@ -1,10 +1,9 @@
 import '../styles/user-interface-master.scss';
-import { System } from '../utils/system-generator/generate-sector';
+import { Planet } from '../types/planet-interface';
 import { useState } from 'react';
-import { SystemPowerBar } from './system-power-bar';
 import { AvailableBuildings } from './buildings/AvailableBuildings';
-interface systemInformation {
-    playerSystem: System;
+interface planetInformation {
+    playerPlanet: Planet;
 }
 interface toggles {
     toggleResources: boolean;
@@ -12,13 +11,9 @@ interface toggles {
     setToggleResources: (flag: boolean) => void;
     setToggleBuildings: (flag: boolean) => void;
 }
-export const SystemSideBar = ({
-    playerSystem,
-    toggleBuildings,
-    toggleResources,
-    setToggleBuildings,
-    setToggleResources,
-}: systemInformation & toggles) => {
+export const PlanetSideBar = ({
+    playerPlanet
+}: planetInformation) => {
     const [expanded, setExpanded] = useState(true);
     const [tabNumber, setTabNumber] = useState(1);
     return (
@@ -49,13 +44,7 @@ export const SystemSideBar = ({
                     </div>
                     
                 </div>
-                <SystemPowerBar
-                    playerSystem={playerSystem}
-                    toggleResources={toggleResources}
-                    toggleBuildings={toggleBuildings}
-                    setToggleResources={setToggleResources}
-                    setToggleBuildings={setToggleBuildings}
-                />
+                
             </div>
             
         </div>

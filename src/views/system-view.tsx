@@ -1,7 +1,6 @@
 import { PlanetComponent } from '../components/planet';
 import { useState } from 'react';
 import '../styles/views-styles/system-view.css';
-import { SystemSideBar } from '../UI/system-side-bar';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { Link } from 'react-router-dom';
 import { AvailableBuildings } from '../UI/buildings/AvailableBuildings';

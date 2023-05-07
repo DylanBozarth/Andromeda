@@ -20,7 +20,7 @@ const initialState: ActiveState = {
   activeSystem: {} as System,
   activePlanet: {} as Planet
 };
-
+// Controls data being passed from Sector => System => Planet
 export const sectorSlice = createSlice({
   name: 'sector',
   initialState,

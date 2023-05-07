@@ -32,6 +32,7 @@ export interface NCO { // NCO = Non-conolizable-object
   cords: string;
 
 }
+
 const generateSystem = (maxPlanets: number) => {
   const system: System = {
     systemStar: getRandomSystemStar(starList),
