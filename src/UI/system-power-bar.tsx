@@ -17,14 +17,13 @@ export const SystemPowerBar = ({
   setToggleBuildings,
   setToggleResources,
 }: systemInformation & toggles) => {
-  const { shipPower, buildingPower } = getSystemPower(playerSystem);
+  // const { shipPower, buildingPower } = getSystemPower(playerSystem);
   return (
     <div className='system-power-bar-wrapper'>
       <div className='system-power-bar'>
         <div className='power-bar-section'>
           System Power
-          <br /> Hangar {shipPower}
-          <br /> Planetary defenses {buildingPower}
+          <br /> 
         </div>
         <button
           className='system-power-toggle-button'

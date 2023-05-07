@@ -5,8 +5,6 @@ import { SystemSideBar } from '../UI/system-side-bar';
 import { useAppSelector } from '../redux/hooks';
 import { Link } from 'react-router-dom';
 import { AvailableBuildings } from '../UI/buildings/AvailableBuildings';
-import { IconBar } from '../UI/icon-bar';
-
 
 export const SystemView = () => {
   const [toggleResources, setToggleResources] = useState(false);
@@ -18,21 +16,16 @@ export const SystemView = () => {
   }
   return (
     <div className={'playerSystemArray-view-wrapper row'}>
-      <SystemSideBar
-        playerSystem={playerSystem}
-        toggleResources={toggleResources}
-        toggleBuildings={toggleBuildings}
-        setToggleResources={setToggleResources}
-        setToggleBuildings={setToggleBuildings}
-      />
       {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
             <div className={'planet-wrapper'}>
+            <Link to={`/${playerSystem.systemName}/${planet.name}`}>
               <PlanetComponent planet={planet} />
+              </Link>
             </div>
             {[
-              planet.resources.map((resource, idx) => {
+              planet.naturalResources.map((resource, idx) => {
                 return (
                   <div
                     className={toggleResources ? 'planet-resources' : 'hidden'}
