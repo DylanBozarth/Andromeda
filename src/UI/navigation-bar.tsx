@@ -10,7 +10,7 @@ export const NavigationBar = () => {
     useAppSelector((state) => state.sector.activeSystem.systemName),
   );
   const [userPlanet, setUserPlanet] = useState(
-    useAppSelector((state) => state.sector.activePlanet.name),
+    useAppSelector((state) => state.sector.activeSystem.activePlanet.name),
   )
   const [hidden, setHidden] = useState(false)
   const location = useLocation();
@@ -23,18 +23,19 @@ export const NavigationBar = () => {
       setUserSector(locationURL2[locationURL2.length - 1]);
     }
   }, [location]);
+
   return (
     <div className='navigation-bar flex-auto mb-20 sci-fi-thing absolute'>
       <div className='flex justify-content-center'>
-        <Link to='/' onClick={() => setUserSector('')} className=''>
+        <Link to='/'  className=''>
           <div className='ui-border-box'>
             <div className='navigation-bar-text'>Andromeda</div>
           </div>
         </Link>
       </div>
       <div className='flex justify-content-center'>
-
-        <Link to={`/${userSector}`} className='navigation-bar-text'>
+    { /* Sector */ }
+        <Link to={`/${userSector}`} className='navigation-bar-text' >
           <div
             className={
               userSector
@@ -46,7 +47,8 @@ export const NavigationBar = () => {
             <div className='navigation-bar-text'>{userSector}</div>
           </div>
         </Link>
-        <Link to={`/${userSystem}`} onClick={() => setUserPlanet('')}>
+        { /* System */ }
+        <Link to={`/${userSystem}`}>
           <div
             className={
               userSystem
@@ -57,6 +59,7 @@ export const NavigationBar = () => {
             <div className='navigation-bar-text'>{userSystem}</div>
           </div>
         </Link>
+        { /* planet */ }
         <div
           className={
             userPlanet

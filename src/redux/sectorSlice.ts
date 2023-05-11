@@ -32,7 +32,7 @@ export const sectorSlice = createSlice({
       state.activeSystem = action.payload;
     },
     setPlanet: (state, action: PayloadAction<Planet>) => {
-      state.activePlanet = action.payload;
+      state.activeSystem.activePlanet = action.payload;
     },
   },
 });
