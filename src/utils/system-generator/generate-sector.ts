@@ -131,5 +131,6 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
     distancesMap,
     NCO,
     sectorName: 'Sector-A', // Change this for each sector that you make
+    fleetsInTransit: []
   };
 };
