@@ -27,7 +27,7 @@ function App() {
         <Route path='/' element={<GalaticView />} />
         <Route path='/sector-a' element={<SectorA />} />
         <Route path='/system/:systemName' element={<SystemView />} />
-        <Route path='/system/:systemName/:planetName' element={<PlanetView />} />
+        <Route path='/system/:systemName/planet/:planetName' element={<PlanetView />} />
         <Route path='/system/:systemName/:systemStar' element={<SystemStarView /> } />
         {/* <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} /> */}
