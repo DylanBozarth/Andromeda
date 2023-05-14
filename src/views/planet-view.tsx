@@ -5,7 +5,7 @@ import { PlanetComponent } from '../components/planet';
 import { PlanetSideBar } from '../UI/planet-side-bar';
 
 export const PlanetView = () => {
-    const playerPlanet = useAppSelector((state) => state.sector.activePlanet);
+    const playerPlanet = useAppSelector((state) => state.sector.activeSystem.activePlanet);
     useEffect(() => {
         console.log(playerPlanet)
     })

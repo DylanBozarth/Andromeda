@@ -1,5 +1,5 @@
 import { PlanetComponent } from '../components/planet';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/views-styles/system-view.css';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { Link } from 'react-router-dom';
@@ -11,14 +11,16 @@ export const SystemView = () => {
   const [toggleResources, setToggleResources] = useState(false);
   const [toggleBuildings, setToggleBuildings] = useState(false);
   const playerSystem = useAppSelector((state) => state.sector.activeSystem);
-
+ useEffect(() => {
+  console.log(playerSystem)
+ })
   return (
     <div className={'playerSystemArray-view-wrapper row'}>
       {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
             <div className={'planet-wrapper'}>
-            <Link to={`/system/${playerSystem.systemName}/${planet.name}`} onClick={() => dispatch(setPlanet(planet))}>
+            <Link to={`/system/${playerSystem.systemName}/planet/${planet.name}`} onClick={() => dispatch(setPlanet(planet))}>
               <PlanetComponent planet={planet} />
               </Link>
             </div>

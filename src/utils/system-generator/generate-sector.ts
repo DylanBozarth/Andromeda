@@ -24,6 +24,7 @@ export interface System {
   systemPlanets: Array<Planet>;
   systemName: string;
   cords: string;
+  activePlanet: Planet
 }
 
 export interface NCO { // NCO = Non-conolizable-object
@@ -39,6 +40,15 @@ const generateSystem = (maxPlanets: number) => {
     systemName: systemNameGenerator(1)[0],
     systemPlanets: [],
     cords: '',
+    activePlanet: {
+      name: '',
+      naturalResources: [],
+      buildings: [],
+      resourceStorage: [],
+      production: [],
+      hangar: [],
+      ownership: ''
+    }
   };
 
   console.log({ system });

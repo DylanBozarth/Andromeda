@@ -10,31 +10,40 @@ export const NavigationBar = () => {
     useAppSelector((state) => state.sector.activeSystem.systemName),
   );
   const [userPlanet, setUserPlanet] = useState(
-    useAppSelector((state) => state.sector.activePlanet.name),
+    useAppSelector((state) =>  state.sector.activeSystem.activePlanet?.name || '')
   )
-  const [hidden, setHidden] = useState(false)
   const location = useLocation();
   useEffect(() => {
-    if (window.location.href.includes('system')) {
+    if (window.location.href.includes('sector')) {
+      const locationURL = window.location.href.split('/');
+      setUserSector(locationURL[locationURL.length - 1]);
+    } 
+    else if (window.location.href.includes('system') && !window.location.href.includes('planet')) {
       const locationURL = window.location.href.split('/');
       setUserSystem(locationURL[locationURL.length - 1]);
-    } else if (window.location.href.includes('sector')) {
-      const locationURL2 = window.location.href.split('/');
-      setUserSector(locationURL2[locationURL2.length - 1]);
+    }
+    else if (window.location.href.includes('planet')) {
+        const locationURL = window.location.href.split('/');
+        setUserPlanet(locationURL[locationURL.length - 1]);
     }
   }, [location]);
+  const clearEverything = () => {
+    setUserSector('')
+    setUserSystem('')
+    setUserPlanet('')
+  }
   return (
     <div className='navigation-bar flex-auto mb-20 sci-fi-thing absolute'>
       <div className='flex justify-content-center'>
-        <Link to='/' onClick={() => setUserSector('')} className=''>
+        <Link to='/'  className=''>
           <div className='ui-border-box'>
-            <div className='navigation-bar-text'>Andromeda</div>
+            <div className='navigation-bar-text' onClick={() => clearEverything()}>Andromeda</div>
           </div>
         </Link>
       </div>
       <div className='flex justify-content-center'>
-
-        <Link to={`/${userSector}`} className='navigation-bar-text'>
+    { /* Sector */ }
+        <Link to={`/${userSector}`} className='navigation-bar-text' onClick={() => setUserSystem('')}>
           <div
             className={
               userSector
@@ -46,7 +55,8 @@ export const NavigationBar = () => {
             <div className='navigation-bar-text'>{userSector}</div>
           </div>
         </Link>
-        <Link to={`/${userSystem}`} onClick={() => setUserPlanet('')}>
+        { /* System */ }
+        <Link to={`/system/${userSystem}`}>
           <div
             className={
               userSystem
@@ -54,9 +64,10 @@ export const NavigationBar = () => {
                 : ''
             }
           >
-            <div className='navigation-bar-text'>{userSystem}</div>
+            <div className='navigation-bar-text' onClick={() => setUserPlanet('')}>{userSystem}</div>
           </div>
         </Link>
+        { /* planet */ }
         <div
           className={
             userPlanet
@@ -64,7 +75,7 @@ export const NavigationBar = () => {
               : ''
           }
         >
-          <div className='navigation-bar-text'>{userPlanet}</div>
+          <div className='navigation-bar-text' onClick={() => console.log('PLANET')}>{userPlanet}</div>
         </div>
       </div>
     </div>
