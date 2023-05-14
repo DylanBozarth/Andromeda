@@ -14,8 +14,8 @@ import { PlanetView } from './views/planet-view';
 function App() {
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getAvailableBuildings();
-      console.log(response);
+      /* const response = await getAvailableBuildings();
+      console.log(response); Not needed for now */
     };
     fetchData();
   }, []);

@@ -4,13 +4,13 @@ import { useState, useEffect } from 'react';
 import { useAppSelector } from '../redux/hooks';
 export const NavigationBar = () => {
   const [userSector, setUserSector] = useState(
-    useAppSelector((state) => state.sector.activeSector.sectorName),
+    useAppSelector((state) => state.sector.activeSector?.sectorName || ''),
   );
   const [userSystem, setUserSystem] = useState(
-    useAppSelector((state) => state.sector.activeSystem.systemName),
+    useAppSelector((state) => state.sector.activeSystem?.systemName || ''),
   );
   const [userPlanet, setUserPlanet] = useState(
-    useAppSelector((state) =>  state.sector.activeSystem.activePlanet?.name || '')
+    useAppSelector((state) =>  state.sector.activeSystem?.activePlanet?.name || '')
   )
   const location = useLocation();
   useEffect(() => {

@@ -6,7 +6,7 @@ import '../styles/views-styles/galatic-view.css';
 export const GalaticView = () => {
   const dispatch = useAppDispatch();
   const sectors = useAppSelector((state) => state.sector);
-  console.log({ sectors });
+
   return (
     <div>
       <div className='sectorawrapper'>

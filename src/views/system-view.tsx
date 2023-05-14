@@ -11,9 +11,6 @@ export const SystemView = () => {
   const [toggleResources, setToggleResources] = useState(false);
   const [toggleBuildings, setToggleBuildings] = useState(false);
   const playerSystem = useAppSelector((state) => state.sector.activeSystem);
- useEffect(() => {
-  console.log(playerSystem)
- })
   return (
     <div className={'playerSystemArray-view-wrapper row'}>
       {playerSystem.systemPlanets.map((planet) => {
