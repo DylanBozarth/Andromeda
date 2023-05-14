@@ -4,10 +4,13 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setSystem } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
-
+import { useEffect } from 'react';
 export const SectorA = () => {
   const dispatch = useAppDispatch();
   const sector = useAppSelector((state) => state.sector.activeSector);
+  useEffect(() => {
+    console.log(sector)
+  })
   {
     return (
       <div className=''>
@@ -27,7 +30,7 @@ export const SectorA = () => {
         {sector.systems.map((item) => {
           return (
             <div
-              key={item.cords}
+              key={item.systemName}
               style={{
                 left: `${getXfromCords(item.cords)}vw`,
                 top: `${getYfromCords(item.cords)}vh`,

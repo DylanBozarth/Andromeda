@@ -7,6 +7,7 @@ export interface Sector {
   NCO: NCO[];
   distancesMap: DistanceMap;
   sectorName: string;
+  fleetsInTransit: Array<string> // fleets here will be storage of ships going from one place to another
 }
 
 interface ActiveState {
