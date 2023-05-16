@@ -8,6 +8,7 @@ import { SectorA } from './views/sectors/sector-a';
 import { useEffect } from 'react';
 import { getAvailableBuildings } from './clientLibrary/buildings';
 import { PlanetView } from './views/planet-view';
+import { NCOView } from './views/NCO-view';
 // import Login from './components/Authenication/login';
 // import Register from './components/Authenication/register';
 
@@ -29,6 +30,7 @@ function App() {
         <Route path='/system/:systemName' element={<SystemView />} />
         <Route path='/system/:systemName/planet/:planetName' element={<PlanetView />} />
         <Route path='/system/:systemName/:systemStar' element={<SystemStarView /> } />
+        <Route path='/sector-a/:nco' element={<NCOView />} /> {/* Hardcoded for now */ }
         {/* <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} /> */}
       </Routes>

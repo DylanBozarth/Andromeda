@@ -18,12 +18,14 @@ export const SectorA = () => {
 
         {sector.NCO.map((single) => {
           return (
-            <div key={single.cords}  style={{
+            <div key={single.cords} style={{
               left: `${getXfromCords(single.cords)}vw`,
               top: `${getYfromCords(single.cords)}vh`,
             }}
-            className='absolute '>
-            <NCOComponent NCOName={single.name} effect={single.effect} cords={single.cords} distanceMapValues={sector.distancesMap[single.cords]} />
+              className='absolute '>
+              <Link to={`/${sector.sectorName}/${single.name}`} >
+                <NCOComponent NCOName={single.name} effect={single.effect} cords={single.cords} distanceMapValues={sector.distancesMap[single.cords]} />
+              </Link>
             </div>
           )
         })}

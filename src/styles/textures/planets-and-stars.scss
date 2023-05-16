@@ -526,6 +526,10 @@
 }
 /* end planets css*/
 /* NCOS */ 
+.sector-view-nco {
+  width: 25px;
+  height: 25px;
+}
 .Black-hole {
   background-image: url('./NCOTextures/blackhole.png');
   background-size: 100% 100%;
@@ -533,6 +537,7 @@
 .Nebula {
   background-image: url('./NCOTextures/nebula.jpeg');
   background-size: 100% 100%;
+  border-radius: 50%;
 }
 .Asteroid-cluster {
   background-image: url('./NCOTextures/asteroids.png');
