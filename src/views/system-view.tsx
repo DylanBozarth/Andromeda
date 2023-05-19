@@ -17,7 +17,7 @@ export const SystemView = () => {
         return (
           <>
             <div className={'planet-wrapper'}>
-            <Link to={`/system/${playerSystem.systemName}/planet/${planet.name}`} onClick={() => dispatch(setPlanet(planet))}>
+            <Link to={`/system/${playerSystem.systemName}/planet/${planet.name}`} onClick={() => dispatch(setPlanet(planet))} >
               <PlanetComponent planet={planet} />
               </Link>
             </div>
