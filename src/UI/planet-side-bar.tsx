@@ -2,18 +2,21 @@ import '../styles/user-interface-master.scss';
 import { Planet } from '../types/planet-interface';
 import { useState } from 'react';
 import { AvailableBuildings } from './buildings/AvailableBuildings';
-interface planetInformation {
-    playerPlanet: Planet;
-}
+
 interface toggles {
+    playerPlanet: Planet;
     toggleResources: boolean;
     toggleBuildings: boolean;
     setToggleResources: (flag: boolean) => void;
     setToggleBuildings: (flag: boolean) => void;
 }
 export const PlanetSideBar = ({
-    playerPlanet
-}: planetInformation) => {
+    playerPlanet,
+    toggleBuildings,
+    toggleResources,
+    setToggleBuildings,
+    setToggleResources
+}: toggles) => {
     const [tabNumber, setTabNumber] = useState(1);
     return (
         <div className='side-bar-wrapper'>
@@ -47,8 +50,9 @@ export const PlanetSideBar = ({
                         <div className='m-2 text-center border-2 flex'><p className='p-2'>Like 6 rocks</p></div>
                     </div>
                 </div>
-                <div className='flex p-1'>
-                    <div>Buildings</div><div>Desposits</div>
+                <div className='flex p-1 '>
+                    <div onClick={() => setToggleBuildings(!toggleBuildings)} className='ui-border-box'>Buildings</div>
+                    <div onClick={() => setToggleResources(!toggleResources)} className='ui-border-box'>Desposits</div>
                 </div>
                 
             </div>

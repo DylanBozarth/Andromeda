@@ -172,355 +172,274 @@
 /* planets css */
 .system-planet {
   border-radius: 50%;
+  width: 250px;
+  height: 250px;
   margin:0 auto;
+  box-shadow: inset 10px 0px 12px -2px rgba(255,255,255,.2), 
+  inset -70px 0px 45px 0px black,
+  -5px 0px 5px -4px black;
+}
+.big-planet {
+  border-radius: 50%;
+  width: 1000px;
+  height:1000px;
+  position:fixed;
+  left: 0;
+  top: 0;
   box-shadow: inset 10px 0px 12px -2px rgba(255,255,255,.2), 
   inset -70px 0px 45px 0px black,
   -5px 0px 5px -4px black;
 }
 /* Lava1-5 will be using different textures/rotation times to create variation */
 .Lava1 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/lava/lava1.jpg') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Lava2 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/lava/lava1.jpg') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Lava3 {
-  width: 150px;
-  height: 150px;
   background: url('./planettextures/lava/lava2.png') repeat-x;
   animation: translateBackground 35s infinite linear;
   background-size: 100% 100%;
   
 }
 .Lava4 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/lava/lava2.png') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Lava5 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/lava/lava1.jpg') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Desert1 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/desert/desert.jpg') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Desert2 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/desert/desert2.png') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Desert3 {
-  width: 200px;
-  height: 200px;
   background: url('./planettextures/desert/desert3.png') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Desert4 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/desert/desert4.png') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Desert5 {
-  width: 150px;
-  height: 150px;
   background: url('./planettextures/desert/desert.jpg') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Frozen1 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/frozen/frozen1.png') repeat-x;
   animation: translateBackground 75s infinite linear;
   background-size: 100% 100%;
   
 }
 .Frozen2 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/frozen/frozen2.png') repeat-x;
   animation: translateBackground 75s infinite linear;
   background-size: 100% 100%;
   
 }
 .Frozen3 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/frozen/frozen3.png') repeat-x;
   animation: translateBackground 75s infinite linear;
   background-size: 100% 100%;
   
 }
 .Frozen4 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/frozen/frozen2.png') repeat-x;
   animation: translateBackground 75s infinite linear;
   background-size: 100% 100%;
   
 }
 .Frozen5 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/frozen/frozen3.png') repeat-x;
   animation: translateBackground 75s infinite linear;
   background-size: 100% 100%;
   
 }
 .Gas1 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/gas/gas1.png') repeat-x;
   animation: translateBackground 165s infinite linear;
   background-size: 100% 100%;
   
 }
 .Gas2 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/gas/gas2.png') repeat-x;
   animation: translateBackground 165s infinite linear;
   background-size: 100% 100%;
   
 }
 .Gas3 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/gas/gas3.png') repeat-x;
   animation: translateBackground 165s infinite linear;
   background-size: 100% 100%;
   
 }
 .Gas4 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/gas/gas4.png') repeat-x;
   animation: translateBackground 165s infinite linear;
   background-size: 100% 100%;
   
 }
 .Gas5 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/gas/gas5.png') repeat-x;
   animation: translateBackground 165s infinite linear;
   background-size: 100% 100%;
   
 }
 .Ocean1 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/ocean/ocean.jpg') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Ocean2 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/ocean/ocean2.png') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Ocean3 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/ocean/ocean.jpg') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Ocean4 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/ocean/ocean2.png') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Ocean5 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/ocean/ocean2.png') repeat-x;
   animation: translateBackground 45s infinite linear;
   background-size: 100% 100%;
   
 }
 .Rocky1 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/rocky/rocky1.jpg') repeat-x;
   animation: translateBackground 110s infinite linear;
   background-size: 100% 100%;
   
 }
 .Rocky2 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/rocky/rocky2.png') repeat-x;
   animation: translateBackground 110s infinite linear;
   background-size: 100% 100%;
   
 }
 .Rocky3 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/rocky/rocky3.jpg') repeat-x;
   animation: translateBackground 110s infinite linear;
   background-size: 100% 100%;
   
 }
 .Rocky4 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/rocky/rocky3.jpg') repeat-x;
   animation: translateBackground 110s infinite linear;
   background-size: 100% 100%;
   
 }
 .Rocky5 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/rocky/rocky3.jpg') repeat-x;
   animation: translateBackground 110s infinite linear;
   background-size: 100% 100%;
   
 }
 .Temperate1 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/temperate/temperate1.png') repeat-x;
   animation: translateBackground 85s infinite linear;
   background-size: 120% 100%;
   
 }
 .Temperate2 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/temperate/temperate2.png') repeat-x;
   animation: translateBackground 85s infinite linear;
   background-size: 120% 100%;
   
 }
 .Temperate3 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/temperate/temperate3.png') repeat-x;
   animation: translateBackground 85s infinite linear;
   background-size: 120% 100%;
   
 }
 .Temperate4 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/temperate/temperate4.png') repeat-x;
   animation: translateBackground 85s infinite linear;
   background-size: 120% 100%;
   
 }
 .Temperate5 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/temperate/temperate5.png') repeat-x;
   animation: translateBackground 85s infinite linear;
   background-size: 120% 100%;
   
 }
 .Greenhouse1 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/greenhouse/greenhouse.png') repeat-x;
   animation: translateBackground 85s infinite linear;
   background-size: 120% 100%;
   
 }
 .Greenhouse2 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/greenhouse/greenhouse.png') repeat-x;
   animation: translateBackground 85s infinite linear;
   background-size: 120% 100%;
   
 }
 .Greenhouse3 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/greenhouse/greenhouse2.png') repeat-x;
   animation: translateBackground 85s infinite linear;
   background-size: 120% 100%;
   
 }
 .Greenhouse4 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/greenhouse/greenhouse2.png') repeat-x;
   animation: translateBackground 85s infinite linear;
   background-size: 120% 100%;
   
 }
 .Greenhouse5 {
-  width: 250px;
-  height: 250px;
   background: url('./planettextures/greenhouse/greenhouse.png') repeat-x;
   animation: translateBackground 85s infinite linear;
   background-size: 120% 100%;
   
 }
-.Greenhouse1 {
-  width: 250px;
-  height: 250px;
-  background: url('./planettextures/greenhouse/greenhouse2.png') repeat-x;
-  animation: translateBackground 85s infinite linear;
-  background-size: 120% 100%;
-  
-}
 .Asteroid-Belt1 {
-  height: 250px;
-  width:  250px;
   background: url('./planettextures/asteroid.png');
   background-size: 100% 100%;
 }
 .Asteroid-Belt2 {
-  height:  250px;
-  width:  250px;
   background: url('./planettextures/asteroid.png');
   background-size: 100% 100%;
 }
 .Asteroid-Belt3 {
-  height:  250px;
-  width:  250px;
   background: url('./planettextures/asteroid.png');
   background-size: 100% 100%;
 }
