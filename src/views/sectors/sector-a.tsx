@@ -5,6 +5,7 @@ import { setSystem } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
 import { useEffect } from 'react';
+import axios from 'axios';
 export const SectorA = () => {
   const dispatch = useAppDispatch();
   const sector = useAppSelector((state) => state.sector.activeSector);
