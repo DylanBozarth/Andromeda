@@ -33,7 +33,7 @@ axios(config)
 /* curl --location --request POST 'https://data.mongodb-api.com/app/data-zrkhi/endpoint/data/v1/action/findOne' \
          --header 'Content-Type: application/json' \
          --header 'Access-Control-Request-Headers: *' \
-         --header 'api-key: 1S1e864tbZbvRGIKfeBtFt7Blkm0j3Prb5WQip6WSEjQobICmkNzH5cymFHVpK5c' \
+         --header 'api-key: ' \
          --data-raw '{
          "collection":"sectors",
          "database":"andromeda",
