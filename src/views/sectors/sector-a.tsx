@@ -1,17 +1,30 @@
 import { Link } from 'react-router-dom';
 import { Star } from '../../components/star';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { setSystem } from '../../redux/sectorSlice';
+import { setSystem, setNCO } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
 import { useEffect } from 'react';
+import { SectorACall } from '../../clientLibrary/sector-a-call';
 import axios from 'axios';
+
 export const SectorA = () => {
   const dispatch = useAppDispatch();
   const sector = useAppSelector((state) => state.sector.activeSector);
   useEffect(() => {
-    console.log(sector)
-  })
+    const fetchData = async () => {
+      const response = await axios.post(
+        'https://data.mongodb-api.com/app/data-zrkhi/endpoint/data/v1/action/findOne',
+        { collection: 'sectors', database: 'andromeda', dataSource: 'Cluster0' },
+        { headers: { 'Content-Type': 'application/json', 'api-key': `${process.env.MONGO_API_KEY}` } }
+      );
+
+      console.log(response.data);
+    };
+
+    fetchData();
+  }, []);
+
   {
     return (
       <div className=''>
@@ -24,7 +37,7 @@ export const SectorA = () => {
               top: `${getYfromCords(single.cords)}vh`,
             }}
               className='absolute '>
-              <Link to={`/${sector.sectorName}/${single.name}`} >
+              <Link to={`/${sector.sectorName}/${single.name}`} onClick={() => dispatch(setNCO(single))}>
                 <NCOComponent NCOName={single.name} effect={single.effect} cords={single.cords} distanceMapValues={sector.distancesMap[single.cords]} />
               </Link>
             </div>
