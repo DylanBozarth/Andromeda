@@ -5,24 +5,13 @@ import { setSystem, setNCO } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
 import { useEffect } from 'react';
-import { SectorACall } from '../../clientLibrary/sector-a-call';
 import axios from 'axios';
 
 export const SectorA = () => {
   const dispatch = useAppDispatch();
   const sector = useAppSelector((state) => state.sector.activeSector);
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.post(
-        'https://data.mongodb-api.com/app/data-zrkhi/endpoint/data/v1/action/findOne',
-        { collection: 'sectors', database: 'andromeda', dataSource: 'Cluster0' },
-        { headers: { 'Content-Type': 'application/json', 'api-key': `${process.env.MONGO_API_KEY}` } }
-      );
-
-      console.log(response.data);
-    };
-
-    fetchData();
+   console.log('a')
   }, []);
 
   {
