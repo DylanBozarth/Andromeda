@@ -14,12 +14,14 @@ interface ActiveState {
   activeSector: Sector;
   activeSystem: System;
   activePlanet: Planet;
+  activeNCO: NCO;
 }
 
 const initialState: ActiveState = {
   activeSector: {} as Sector,
   activeSystem: {} as System,
-  activePlanet: {} as Planet
+  activePlanet: {} as Planet,
+  activeNCO: {} as NCO
 };
 // Controls data being passed from Sector => System => Planet
 export const sectorSlice = createSlice({
@@ -35,9 +37,12 @@ export const sectorSlice = createSlice({
     setPlanet: (state, action: PayloadAction<Planet>) => {
       state.activeSystem.activePlanet = action.payload;
     },
+    setNCO: (state, action: PayloadAction<NCO>) => {
+      state.activeNCO = action.payload;
+    },
   },
 });
 
-export const { setSector, setSystem, setPlanet } = sectorSlice.actions;
+export const { setSector, setSystem, setPlanet, setNCO } = sectorSlice.actions;
 
 export default sectorSlice.reducer;

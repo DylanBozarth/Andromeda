@@ -1,17 +1,14 @@
 import { Link } from 'react-router-dom';
 import { Star } from '../../components/star';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { setSystem } from '../../redux/sectorSlice';
+import { setSystem, setNCO } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
 import { useEffect } from 'react';
-import axios from 'axios';
+
 export const SectorA = () => {
   const dispatch = useAppDispatch();
   const sector = useAppSelector((state) => state.sector.activeSector);
-  useEffect(() => {
-    console.log(sector)
-  })
   {
     return (
       <div className=''>
@@ -24,8 +21,8 @@ export const SectorA = () => {
               top: `${getYfromCords(single.cords)}vh`,
             }}
               className='absolute '>
-              <Link to={`/${sector.sectorName}/${single.name}`} >
-                <NCOComponent NCOName={single.name} effect={single.effect} cords={single.cords} distanceMapValues={sector.distancesMap[single.cords]} />
+              <Link to={`/${sector.sectorName}/${single.name}`} onClick={() => dispatch(setNCO(single))}>
+                <NCOComponent NCOType={single.type} effect={single.effect} cords={single.cords} NCOName={single.name} distanceMapValues={sector.distancesMap[single.cords]} />
               </Link>
             </div>
           )
@@ -40,7 +37,7 @@ export const SectorA = () => {
               }}
               className='absolute'
             >
-              <Link to={`/system/${item.systemName}`} onClick={() => dispatch(setSystem(item))}>
+              <Link to={`/${sector.sectorName}/system/${item.systemName}`} onClick={() => dispatch(setSystem(item))}>
                 <Star
                   systemName={item.systemName}
                   systemStar={item.systemStar}

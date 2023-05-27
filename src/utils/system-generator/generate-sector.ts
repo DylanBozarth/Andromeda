@@ -16,7 +16,7 @@ import {
   getRandomBuildings,
   getRandomNCO
 } from './system-functions';
-import { systemNameGenerator } from './system-name-generator';
+import { NCONameGenerator, systemNameGenerator } from './system-name-generator';
 import { Sector } from '../../redux/sectorSlice';
 
 export interface System {
@@ -28,6 +28,7 @@ export interface System {
 }
 
 export interface NCO { // NCO = Non-conolizable-object
+  type: string;
   name: string;
   effect: string;
   cords: string;
@@ -77,7 +78,8 @@ const generateSystem = (maxPlanets: number) => {
 
 const generateNCOs = () => {
   const NCO: NCO = {
-    name: getRandomNCO(NCOList),
+    type: getRandomNCO(NCOList),
+    name: NCONameGenerator('a'), // change here for sector letter
     effect: '10 damage',
     cords: '',
     fleets: []
@@ -131,7 +133,7 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
     systems,
     distancesMap,
     NCO,
-    sectorName: 'Sector-A', // Change this for each sector that you make
+    sectorName: 'sector-a', // Change this for each sector that you make
     fleetsInTransit: []
   };
 };

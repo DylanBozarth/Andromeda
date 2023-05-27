@@ -28,9 +28,6 @@ export const IconBar = () => {
                     <div className='ui-border-box' onClick={() => (openMenu === 'factions' ? setOpenMenu('none') : setOpenMenu('factions'))}>
                         <img src='../assets/sample-image.png' height='50px' width='50px'></img>Factions
                     </div>
-                    <div className='ui-border-box' onClick={() => (openMenu === 'resources' ? setOpenMenu('none') : setOpenMenu('resources'))}>
-                        <img src='../assets/resource-icon.png' height='50px' width='50px'></img> Resources
-                    </div>
                     <div className='ui-border-box' onClick={() => (openMenu === 'exploration' ? setOpenMenu('none') : setOpenMenu('exploration'))}>
                         <img src='../assets/sample-image.png' height='50px' width='50px'></img>Exploration
                     </div>
