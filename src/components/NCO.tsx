@@ -1,15 +1,15 @@
 import '../styles/textures/planets-and-stars.scss';
 
 interface NCOProps {
-  NCOName: string;
+  NCOType: string;
   effect: string;
   cords: string;
   distanceMapValues: Record<string, { distance: number; eta: string }>;
 }
 
-export const NCOComponent = ({NCOName, effect, cords, distanceMapValues}: NCOProps) => {
+export const NCOComponent = ({NCOType, effect, cords, distanceMapValues}: NCOProps) => {
   return (
-    <div className={`sector-view-nco ${NCOName}`}>
+    <div className={`sector-view-nco ${NCOType}`}>
       
     </div>
   );

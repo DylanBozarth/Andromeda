@@ -9,7 +9,7 @@ export const NCOView = () => {
     return (
         <div className="absolute text-center bold p-20">
             <BigNCOComponent NCO={playerNCO} />
-            A {playerNCO.name} will be shown here. And it will have {playerNCO.effect} on all fleets who battle in the system
+            A {playerNCO.type} will be shown here. And it will have {playerNCO.effect} on all fleets who battle in the system
         </div>
     )
 }

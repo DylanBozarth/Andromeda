@@ -28,7 +28,7 @@ export interface System {
 }
 
 export interface NCO { // NCO = Non-conolizable-object
-  name: string;
+  type: string;
   effect: string;
   cords: string;
   fleets: Array<string>;
@@ -77,7 +77,7 @@ const generateSystem = (maxPlanets: number) => {
 
 const generateNCOs = () => {
   const NCO: NCO = {
-    name: getRandomNCO(NCOList),
+    type: getRandomNCO(NCOList),
     effect: '10 damage',
     cords: '',
     fleets: []

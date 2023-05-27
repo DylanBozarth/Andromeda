@@ -26,8 +26,8 @@ export const SectorA = () => {
               top: `${getYfromCords(single.cords)}vh`,
             }}
               className='absolute '>
-              <Link to={`/${sector.sectorName}/${single.name}`} onClick={() => dispatch(setNCO(single))}>
-                <NCOComponent NCOName={single.name} effect={single.effect} cords={single.cords} distanceMapValues={sector.distancesMap[single.cords]} />
+              <Link to={`/${sector.sectorName}/${single.type}`} onClick={() => dispatch(setNCO(single))}>
+                <NCOComponent NCOType={single.type} effect={single.effect} cords={single.cords} distanceMapValues={sector.distancesMap[single.cords]} />
               </Link>
             </div>
           )
