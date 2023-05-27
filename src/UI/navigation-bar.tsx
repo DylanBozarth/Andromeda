@@ -3,30 +3,27 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAppSelector } from '../redux/hooks';
 export const NavigationBar = () => {
-  const [userSector, setUserSector] = useState(
-    useAppSelector((state) => state.sector.activeSector?.sectorName || ''),
-  );
-  const [userSystem, setUserSystem] = useState(
-    useAppSelector((state) => state.sector.activeSystem?.systemName || ''),
-  );
-  const [userPlanet, setUserPlanet] = useState(
-    useAppSelector((state) =>  state.sector.activeSystem?.activePlanet?.name || '')
-  )
+  const [userSector, setUserSector] = useState('');
+  const [userSystem, setUserSystem] = useState('');
+  const [userPlanet, setUserPlanet] = useState('');
   const location = useLocation();
   useEffect(() => {
-    if (window.location.href.includes('sector')) {
-      const locationURL = window.location.href.split('/');
+    if (location.pathname.includes('sector')) {
+      const locationURL = location.pathname.split('/');
       setUserSector(locationURL[locationURL.length - 1]);
-    } 
-    else if (window.location.href.includes('system') && !window.location.href.includes('planet')) {
-      const locationURL = window.location.href.split('/');
+    }
+    else if (location.pathname.includes('system') && !location.pathname.includes('planet')) {
+      const locationURL = location.pathname.split('/');
       setUserSystem(locationURL[locationURL.length - 1]);
     }
-    else if (window.location.href.includes('planet')) {
-        const locationURL = window.location.href.split('/');
-        setUserPlanet(locationURL[locationURL.length - 1]);
+    else if (/\d/.test(location.pathname)) { // detect NCO, NCOs fill the 'system' slot. 
+      const locationURL = location.pathname.split('/');
+      setUserSystem(locationURL[locationURL.length - 1]);
     }
-    console.log(location)
+    else if (location.pathname.includes('planet')) {
+      const locationURL = location.pathname.split('/');
+      setUserPlanet(locationURL[locationURL.length - 1]);
+    }
   }, [location]);
   const clearEverything = () => {
     setUserSector('')
@@ -36,14 +33,14 @@ export const NavigationBar = () => {
   return (
     <div className='navigation-bar flex-auto mb-20 sci-fi-thing absolute'>
       <div className='flex justify-content-center'>
-        <Link to='/'  className=''>
+        <Link to='/' className=''>
           <div className='ui-border-box'>
             <div className='navigation-bar-text' onClick={() => clearEverything()}>Andromeda</div>
           </div>
         </Link>
       </div>
       <div className='flex justify-content-center'>
-    { /* Sector */ }
+        { /* Sector */}
         <Link to={`/${userSector}`} className='navigation-bar-text' onClick={() => setUserSystem('')}>
           <div
             className={
@@ -56,7 +53,7 @@ export const NavigationBar = () => {
             <div className='navigation-bar-text'>{userSector}</div>
           </div>
         </Link>
-        { /* System */ }
+        { /* System */}
         <Link to={`/system/${userSystem}`}>
           <div
             className={
@@ -68,7 +65,7 @@ export const NavigationBar = () => {
             <div className='navigation-bar-text' onClick={() => setUserPlanet('')}>{userSystem}</div>
           </div>
         </Link>
-        { /* planet */ }
+        { /* planet */}
         <div
           className={
             userPlanet

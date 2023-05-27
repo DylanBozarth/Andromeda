@@ -9,10 +9,6 @@ import { useEffect } from 'react';
 export const SectorA = () => {
   const dispatch = useAppDispatch();
   const sector = useAppSelector((state) => state.sector.activeSector);
-  useEffect(() => {
-   console.log('a')
-  }, []);
-
   {
     return (
       <div className=''>
