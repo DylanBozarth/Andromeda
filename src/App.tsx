@@ -26,11 +26,11 @@ function App() {
       <UImaster />
       <Routes>
         <Route path='/' element={<GalaticView />} />
-        <Route path='/sector-a' element={<SectorA />} />
-        <Route path='/system/:systemName' element={<SystemView />} />
-        <Route path='/system/:systemName/planet/:planetName' element={<PlanetView />} />
-        <Route path='/system/:systemName/:systemStar' element={<SystemStarView /> } />
-        <Route path='/sector-a/:nco' element={<NCOView />} /> {/* Hardcoded for now */ }
+        <Route path='/:sectorName' element={<SectorA />} />
+        <Route path='/:sectorName/system/:systemName' element={<SystemView />} />
+        <Route path='/:sectorName/system/:systemName/planet/:planetName' element={<PlanetView />} />
+        <Route path='/:sectorName/system/:systemName/:systemStar' element={<SystemStarView /> } />
+        <Route path='/:sectorName/:nco' element={<NCOView />} /> {/* Hardcoded for now */ }
         {/* <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} /> */}
       </Routes>

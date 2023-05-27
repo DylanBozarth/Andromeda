@@ -79,7 +79,7 @@ const generateSystem = (maxPlanets: number) => {
 const generateNCOs = () => {
   const NCO: NCO = {
     type: getRandomNCO(NCOList),
-    name: NCONameGenerator('A'), // change here for sector letter
+    name: NCONameGenerator('a'), // change here for sector letter
     effect: '10 damage',
     cords: '',
     fleets: []
@@ -133,7 +133,7 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
     systems,
     distancesMap,
     NCO,
-    sectorName: 'Sector-A', // Change this for each sector that you make
+    sectorName: 'sector-a', // Change this for each sector that you make
     fleetsInTransit: []
   };
 };

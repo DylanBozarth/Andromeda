@@ -8,22 +8,30 @@ export const NavigationBar = () => {
   const [userPlanet, setUserPlanet] = useState('');
   const location = useLocation();
   useEffect(() => {
-    if (location.pathname.includes('sector')) {
-      const locationURL = location.pathname.split('/');
-      setUserSector(locationURL[locationURL.length - 1]);
+    const currentLocation = location.pathname
+    const getTheLocationString = (searchFor) => {
+          const index = currentLocation.indexOf(`${searchFor}`) + 1;
+          const nextIndex = index.toString().indexOf('/', index);
+          const result = currentLocation.substring(index - nextIndex);
+          console.log(result)
+          return result.toString();
     }
-    else if (location.pathname.includes('system') && !location.pathname.includes('planet')) {
-      const locationURL = location.pathname.split('/');
-      setUserSystem(locationURL[locationURL.length - 1]);
+    if (currentLocation.includes('sector')) {
+      userSector === '' ? setUserSector(getTheLocationString('/sector')) : ''
+      if (/\d/.test(currentLocation)) {
+        setUserSystem(getTheLocationString(''))
+      }
+      if (currentLocation.includes('system')) {
+        userSystem === '' ? setUserSystem(getTheLocationString('/system')) : ''
+        if (currentLocation.includes('planet')) {
+          userSystem === '' ? setUserPlanet(getTheLocationString('/planet')) : ''
+        }
+      }
     }
-    else if (/\d/.test(location.pathname)) { // detect NCO, NCOs fill the 'system' slot. 
-      const locationURL = location.pathname.split('/');
-      setUserSystem(locationURL[locationURL.length - 1]);
-    }
-    else if (location.pathname.includes('planet')) {
-      const locationURL = location.pathname.split('/');
-      setUserPlanet(locationURL[locationURL.length - 1]);
-    }
+    /* if (/\d/.test(location.pathname)) { // detect NCOs by number, NCOs fill the 'system' slot. 
+      const locationURL = location.pathname.split('system');
+      setUserSystem(currentLocation.split('system')[currentLocation.length - 1]);
+    } */
   }, [location]);
   const clearEverything = () => {
     setUserSector('')
@@ -54,7 +62,7 @@ export const NavigationBar = () => {
           </div>
         </Link>
         { /* System */}
-        <Link to={`/system/${userSystem}`}>
+        <Link to={`/${userSector}/system/${userSystem}`}>
           <div
             className={
               userSystem

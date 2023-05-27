@@ -10,6 +10,7 @@ export const SystemView = () => {
   const dispatch = useAppDispatch();
   const [toggleResources, setToggleResources] = useState(false);
   const [toggleBuildings, setToggleBuildings] = useState(false);
+  const sector = useAppSelector((state) => state.sector.activeSector);
   const playerSystem = useAppSelector((state) => state.sector.activeSystem);
   return (
     <div className={'playerSystemArray-view-wrapper row'}>
@@ -17,7 +18,7 @@ export const SystemView = () => {
         return (
           <>
             <div className={'planet-wrapper'}>
-            <Link to={`/system/${playerSystem.systemName}/planet/${planet.name}`} onClick={() => dispatch(setPlanet(planet))} >
+            <Link to={`/${sector.sectorName}/system/${playerSystem.systemName}/planet/${planet.name}`} onClick={() => dispatch(setPlanet(planet))} >
               <PlanetComponent planet={planet} />
               </Link>
             </div>

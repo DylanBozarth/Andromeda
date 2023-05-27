@@ -37,7 +37,7 @@ export const SectorA = () => {
               }}
               className='absolute'
             >
-              <Link to={`/system/${item.systemName}`} onClick={() => dispatch(setSystem(item))}>
+              <Link to={`/${sector.sectorName}/system/${item.systemName}`} onClick={() => dispatch(setSystem(item))}>
                 <Star
                   systemName={item.systemName}
                   systemStar={item.systemStar}
