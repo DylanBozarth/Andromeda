@@ -9,29 +9,20 @@ export const NavigationBar = () => {
   const location = useLocation();
   useEffect(() => {
     const currentLocation = location.pathname
-    const getTheLocationString = (searchFor) => {
-          const index = currentLocation.indexOf(`${searchFor}`) + 1;
-          const nextIndex = index.toString().indexOf('/', index);
-          const result = currentLocation.substring(index - nextIndex);
-          console.log(result)
-          return result.toString();
-    }
+    const splitLocation = currentLocation.split('/');
+    /* this system is dependent on the url and not state or anything fancy, if you change the url this will break */
     if (currentLocation.includes('sector')) {
-      userSector === '' ? setUserSector(getTheLocationString('/sector')) : ''
-      if (/\d/.test(currentLocation)) {
-        setUserSystem(getTheLocationString(''))
-      }
-      if (currentLocation.includes('system')) {
-        userSystem === '' ? setUserSystem(getTheLocationString('/system')) : ''
-        if (currentLocation.includes('planet')) {
-          userSystem === '' ? setUserPlanet(getTheLocationString('/planet')) : ''
-        }
-      }
+      userSector === '' ? setUserSector(splitLocation[1]) : ''
     }
-    /* if (/\d/.test(location.pathname)) { // detect NCOs by number, NCOs fill the 'system' slot. 
-      const locationURL = location.pathname.split('system');
-      setUserSystem(currentLocation.split('system')[currentLocation.length - 1]);
-    } */
+    if (/\d/.test(currentLocation)) {
+        setUserSystem(splitLocation[2])
+    }
+    if (currentLocation.includes('system') /* && !currentLocation.includes('planet') */ ) {
+      setUserSystem(splitLocation[3])
+    }
+    if (currentLocation.includes('planet')) {
+      setUserPlanet(splitLocation[5])
+    }
   }, [location]);
   const clearEverything = () => {
     setUserSector('')
