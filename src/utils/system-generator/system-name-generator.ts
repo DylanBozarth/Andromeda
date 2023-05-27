@@ -46,3 +46,10 @@ export const buildName = () => {
 
   return name.join('');
 };
+
+export const NCONameGenerator = (sectorLetter: string) => {
+  // NCO names will be more math heavy  (sector letter-random numbers)
+  // make five random numbers
+  const NCOname = sectorLetter + '-' + Math.floor(Math.random() * 500000);
+  return NCOname;
+};

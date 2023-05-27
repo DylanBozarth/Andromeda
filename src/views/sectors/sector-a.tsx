@@ -5,7 +5,6 @@ import { setSystem, setNCO } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
 import { useEffect } from 'react';
-import axios from 'axios';
 
 export const SectorA = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +26,7 @@ export const SectorA = () => {
             }}
               className='absolute '>
               <Link to={`/${sector.sectorName}/${single.type}`} onClick={() => dispatch(setNCO(single))}>
-                <NCOComponent NCOType={single.type} effect={single.effect} cords={single.cords} distanceMapValues={sector.distancesMap[single.cords]} />
+                <NCOComponent NCOType={single.type} effect={single.effect} cords={single.cords} NCOName={single.name} distanceMapValues={sector.distancesMap[single.cords]} />
               </Link>
             </div>
           )

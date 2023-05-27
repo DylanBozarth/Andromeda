@@ -75,7 +75,7 @@ export const NavigationBar = () => {
               : ''
           }
         >
-          <div className='navigation-bar-text' onClick={() => console.log('PLANET')}>{userPlanet}</div>
+          <div className='navigation-bar-text'>{userPlanet}</div>
         </div>
       </div>
     </div>
