@@ -26,6 +26,7 @@ export const NavigationBar = () => {
         const locationURL = window.location.href.split('/');
         setUserPlanet(locationURL[locationURL.length - 1]);
     }
+    console.log(location)
   }, [location]);
   const clearEverything = () => {
     setUserSector('')
