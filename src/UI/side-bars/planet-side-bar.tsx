@@ -1,7 +1,8 @@
-import '../styles/user-interface-master.scss';
-import { Planet } from '../types/planet-interface';
+import '../../styles/user-interface-master.scss';
+import { Planet } from '../../types/planet-interface';
 import { useState } from 'react';
-import { AvailableBuildings } from './buildings/AvailableBuildings';
+import { AvailableBuildings } from '../buildings/AvailableBuildings';
+import { FleetFloatMenu } from '../float-menus/fleets';
 
 interface toggles {
     playerPlanet: Planet;
@@ -28,14 +29,14 @@ export const PlanetSideBar = ({
                     <div className='side-bar-background'></div>
                 </div>
                 {/* tabs */}
-                <div className='side-tab-row m-2 text-center'>
-                    <div className='side-tab' onClick={() => setTabNumber(1)}>
+                <div className='flex'>
+                    <div className='p-1' onClick={() => setTabNumber(1)}>
                         Production
                     </div>
-                    <div className='side-tab' onClick={() => setTabNumber(2)}>
+                    <div className='p-1' onClick={() => setTabNumber(2)}>
                         Hangar
                     </div>
-                    <div className='side-tab' onClick={() => setTabNumber(3)}>
+                    <div className='p-1' onClick={() => setTabNumber(3)}>
                         Resources
                     </div>
                 </div>
@@ -54,7 +55,7 @@ export const PlanetSideBar = ({
                     <div onClick={() => setToggleBuildings(!toggleBuildings)} className='ui-border-box'>Buildings</div>
                     <div onClick={() => setToggleResources(!toggleResources)} className='ui-border-box'>Desposits</div>
                 </div>
-                
+                <FleetFloatMenu />
             </div>
             
         </div>

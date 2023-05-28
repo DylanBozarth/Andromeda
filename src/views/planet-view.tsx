@@ -1,8 +1,8 @@
 import '../styles/textures/planets-and-stars.scss';
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../redux/hooks';
-import { PlanetSideBar } from '../UI/planet-side-bar';
 import { BigPlanetComponent } from '../components/bigplanet';
+import { PlanetSideBar } from '../UI/side-bars/planet-side-bar';
 
 export const PlanetView = () => {
     const playerPlanetArray = useAppSelector((state) => [state.sector.activeSystem.activePlanet]);
@@ -18,7 +18,7 @@ export const PlanetView = () => {
             return (
               <>
                 <div className={'planet-wrapper'}>
-                <PlanetSideBar 
+                <PlanetSideBar
                     playerPlanet={playerPlanet} 
                     toggleResources={toggleResources}
                     toggleBuildings={toggleBuildings}
@@ -30,7 +30,7 @@ export const PlanetView = () => {
                   planet.naturalResources.map((resource, idx) => {
                     return (
                       <div
-                        className={toggleResources ? 'planet-resources' : 'hidden'}
+                        className={toggleResources ? 'planet-resources mt-5' : 'hidden'}
                         key={`${planet}-${resource}-${idx}`}
                       >
                         <div className=''>{resource}</div>
@@ -43,7 +43,7 @@ export const PlanetView = () => {
                   planet.buildings.map((building, idx) => {
                     return (
                       <div
-                        className={toggleBuildings ? 'planet-buildings ' : 'hidden'}
+                        className={toggleBuildings ? 'planet-buildings mt-5' : 'hidden'}
                         key={`${planet}-${building}-${idx}`}
                       >
                         {building} 

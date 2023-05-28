@@ -5,6 +5,7 @@ import { setSystem, setNCO } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
 import { useEffect } from 'react';
+import { SectorSideBar } from '../../UI/side-bars/sector-side-bar';
 
 export const SectorA = () => {
   const dispatch = useAppDispatch();
@@ -13,7 +14,6 @@ export const SectorA = () => {
     return (
       <div className=''>
         <div className='sector-background'></div>
-
         {sector.NCO.map((single) => {
           return (
             <div key={single.cords} style={{

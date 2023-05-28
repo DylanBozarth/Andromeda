@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { Link } from 'react-router-dom';
 import { AvailableBuildings } from '../UI/buildings/AvailableBuildings';
 import { setPlanet } from '../redux/sectorSlice';
+import { SystemSideBar } from '../UI/side-bars/system-side-bar';
 
 export const SystemView = () => {
   const dispatch = useAppDispatch();
@@ -17,10 +18,12 @@ export const SystemView = () => {
       {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
+          <SystemSideBar />
             <div className={'planet-wrapper'}>
             <Link to={`/${sector.sectorName}/system/${playerSystem.systemName}/planet/${planet.name}`} onClick={() => dispatch(setPlanet(planet))} >
               <PlanetComponent planet={planet} />
               </Link>
+              <p>{playerSystem.activePlanet.ownership}</p>
             </div>
             {[
               planet.naturalResources.map((resource, idx) => {

@@ -50,6 +50,15 @@ $text: #FFF;
   border-radius:15%;
   background-color: black;
 }
+.layer-1-menu {
+  z-index: 80;
+}
+.layer-2-menu {
+  z-index: 90;
+}
+.layer-3-menu {
+  z-index: 99;
+}
 /* Tooltip container for showing star distance to each other*/
 .tooltip {
   position: relative;
@@ -180,6 +189,8 @@ $text: #FFF;
   box-shadow: inset 0px 0px 45px 10px rgba(255, 255, 255, 0.4);
   border: aqua 2px solid;
   color: $text;
+  right: 0;
+  position: absolute;
 }
 
 .side-bar-background {
@@ -189,46 +200,6 @@ $text: #FFF;
   opacity: 50%;
   width: 300px;
   background-color: black;
-}
-
-.side-tab-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.side-tab-info {
-  padding: .5rem;
-}
-
-.side-tab {
-  padding: .5rem;
-  text-align: center;
-  color: aqua;
-  border: none;
-  background-color: transparent;
-  background-image: url("./ui-images/blue-button-border.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
-  mask-image: url("https://i.imgur.com/MpgqLcj.png");
-  mask-type: alpha;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: 90% 80%;
-  font-family: verdana, sans-serif;
-  font-size: .7em;
-  padding: .7rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 0;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s;
-  margin-right: 1em;
-  cursor: pointer;
 }
 
 .side-screen {
@@ -316,7 +287,7 @@ $text: #FFF;
 
 /* navigation bar */
 .navigation-bar {
-  z-index: 96;
+  z-index: 90;
   position: fixed;
 }
 /* pop-up-menus */
