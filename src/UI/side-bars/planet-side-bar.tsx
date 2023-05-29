@@ -22,7 +22,7 @@ export const PlanetSideBar = ({
     return (
         <div className='side-bar-wrapper'>
  
-            <div className='side-bar p-1'>
+            <div className='side-bar p-1 ui-orange-box'>
                 <h3 className='text-center'>{playerPlanet.name}</h3>
                 <p className='text-center'>Owned by: {playerPlanet.ownership}</p>
                 <div className='side-bar-background'></div>

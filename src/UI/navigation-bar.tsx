@@ -30,7 +30,7 @@ export const NavigationBar = () => {
     setUserPlanet('')
   }
   return (
-    <div className='navigation-bar flex-auto mb-20 sci-fi-thing absolute'>
+    <div className='navigation-bar flex-auto mb-20 sci-fi-thing top-0 middle-layer-menu'>
       <div className='flex justify-content-center'>
         <Link to='/' className=''>
           <div className='ui-border-box'>

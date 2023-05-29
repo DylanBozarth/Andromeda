@@ -3,9 +3,9 @@
   transform: scale(1.05);
   transition-duration: 1.43s;
   transform-origin: center;
-  position:  absolute;
 }
 */ 
+/* ONLY TEXTURES AND SHADOWS GO IN HERE, NO POSITION OR INDEXES */
 .star { /* stars base size on the sector pages */
   width: 1em;
   height: 1em;
@@ -183,7 +183,6 @@
   border-radius: 50%;
   width: 1000px;
   height:1000px;
-  position:fixed;
   left: 0;
   top: 0;
   box-shadow: inset 10px 0px 12px -2px rgba(255,255,255,.2), 

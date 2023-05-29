@@ -54,15 +54,15 @@ $text: #FFF;
   background-color: black;
 }
 
-.layer-1-menu {
+.bottom-layer-menu {
   z-index: 80;
 }
 
-.layer-2-menu {
+.middle-layer-menu {
   z-index: 90;
 }
 
-.layer-3-menu {
+.top-layer-menu {
   z-index: 99;
 }
 
@@ -101,14 +101,11 @@ $text: #FFF;
   width: 100%;
 }
 
-
-
-
 .navigation-bar-text {
   color: $text;
 }
 
-.sci-fi-thing {
+.sci-fi-thing { /* on top of page */
   width: 100%;
   height: 50px;
   background-image: url("https://i.imgur.com/9EfnzaH.png");
@@ -116,63 +113,11 @@ $text: #FFF;
   background-position: center 0px;
 }
 
-/* system Power bar menu */
-.system-power-bar-wrapper {
-  width: 300px;
-  position: absolute;
-  left: 0;
-  padding: 1rem;
-  padding-top: 0;
-}
-
-.system-power-bar {
-  color: aqua;
-  position: absolute;
-  width: 300px;
-  border-radius: 8px;
-  box-shadow: inset 0px 0px 45px 10px rgba(255, 255, 255, 0.4);
-  border: aqua 1px solid;
-  color: $text;
-  padding: .5rem;
-}
-
-/* redo this */
-.system-power-toggle-button {
-
-  color: aqua;
-  border: none;
-  background-color: transparent;
-  background-image: url("./ui-images/blue-button-border.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
-  mask-image: url("https://i.imgur.com/MpgqLcj.png");
-  mask-type: alpha;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: 90% 80%;
-  font-family: verdana, sans-serif;
-  font-size: 1em;
-  padding: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 0;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s;
-}
-
-
-.power-bar-section {
-  align-self: center;
-}
 
 /* system side bar */
 .side-bar-wrapper {
-  position: fixed;
   border-radius: 25%;
+  position: absolute;
 }
 
 .toggle-side-bar {
@@ -182,10 +127,6 @@ $text: #FFF;
 }
 
 .side-bar {
-  width: 300px;
-  border-radius: 8px;
-  box-shadow: inset 0px 0px 45px 10px rgba(255, 255, 255, 0.4);
-  border: aqua 2px solid;
   color: $text;
 }
 
@@ -206,81 +147,16 @@ $text: #FFF;
 }
 
 /* End of side bars menu */
-/* Details menu stuff */
-.go-back {
-  bottom: 0;
-  padding: 1rem;
-  position: fixed;
-  border: 1px solid $border;
-  margin-bottom: 4rem;
-}
 
-.go-back:hover {
-  cursor: pointer;
-}
-
-.details-menu-wrapper {
-  top: 0;
-  z-index: 91;
-  position: absolute;
-  background-color: darkslategrey;
-}
-
-.details-bar-wrapper {
-  top: 0;
-  position: fixed;
-  display: flex;
-  width: 100vw;
-  justify-content: center;
-  height: 50px;
-}
 
 .navigation-bar-text:hover {
   text-decoration: none;
   color: $text;
 }
 
-.details-nav-1 {
-  color: $text;
-  border: none;
-  background-color: transparent;
-  background-image: url("./ui-images/blue-button-border.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
-  mask-image: url("https://i.imgur.com/MpgqLcj.png");
-  mask-type: alpha;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: 90% 80%;
-  font-family: verdana, sans-serif;
-  font-size: 1em;
-  padding: .8rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 0;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s;
-  margin-right: 1em;
-}
-
-.details-nav-1:hover {
-  background-image: url("https://i.imgur.com/esC8ptq.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 90% 80%;
-  width: 100%;
-  height: 100%;
-}
-
-/* End details menus */
 
 /* navigation bar */
 .navigation-bar {
-  z-index: 90;
   position: fixed;
 }
 
@@ -291,7 +167,6 @@ $text: #FFF;
   background-color: #008bd6;
   padding: 1rem;
   position: absolute;
-  z-index: 95;
 }
 
 .icon-bar {

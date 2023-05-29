@@ -11,7 +11,7 @@ export const IconBar = () => {
     const [openMenu, setOpenMenu] = useState('none');
     return (
         <div className=''>
-            <div className='fixed bottom-0 icon-bar'>
+            <div className='fixed bottom-0 icon-bar top-layer-menu'>
                 <div className='flex justify-center'> {/* center this somehow */}
                     <div className='ui-border-box' onClick={() => (openMenu === 'fleets' ? setOpenMenu('none') : setOpenMenu('fleets'))}>
                         <img src='../assets/ship-icon.jpeg' height='50px' width='50px'></img> Fleets
@@ -33,7 +33,7 @@ export const IconBar = () => {
                     </div>
                 </div>
             </div>
-            <div className=''>
+            <div className='top-layer-menu'>
                 {/* pop up menus, im sure there's a way to do this DRY style but I cant be bothered to find it. */}
                 <div className={openMenu === 'fleets' ? '' : 'hidden'}>
                     <div className='pop-up-menu'>

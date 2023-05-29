@@ -9,8 +9,9 @@ export const GalaticView = () => {
 
   return (
     <div>
-      <div className='side-bar'>news & updates: <br />
-        still working on that front end
+      <div className='side-bar mt-20'>news & updates: <br />
+        still working on that front end <br /> 
+        This is where we will put patch notes
       </div>
       <div className='sectorawrapper'>
         
