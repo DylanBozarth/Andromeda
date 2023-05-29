@@ -11,8 +11,8 @@ export const IconBar = () => {
     const [openMenu, setOpenMenu] = useState('none');
     return (
         <div className=''>
-            <div className='fixed icon-bar '>
-                <div className='flex text-center'> {/* center this somehow */}
+            <div className='fixed bottom-0 icon-bar'>
+                <div className='flex justify-center'> {/* center this somehow */}
                     <div className='ui-border-box' onClick={() => (openMenu === 'fleets' ? setOpenMenu('none') : setOpenMenu('fleets'))}>
                         <img src='../assets/ship-icon.jpeg' height='50px' width='50px'></img> Fleets
                     </div>
@@ -70,16 +70,6 @@ export const IconBar = () => {
                         <ExplorePopUpMenu />
                     </div>
                 </div>
-                {/* if we need more 
-                <div className={openMenu === 8 ? '' : 'hidden'}>
-                    FORTH THING
-                </div>
-                <div className={openMenu === 9 ? '' : 'hidden'}>
-                    FORTH THING
-                </div>
-                <div className={openMenu === 10 ? '' : 'hidden'}>
-                    FORTH THING
-                </div>*/}
             </div>
         </div>
     )

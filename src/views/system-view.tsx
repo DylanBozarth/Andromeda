@@ -15,10 +15,10 @@ export const SystemView = () => {
   const playerSystem = useAppSelector((state) => state.sector.activeSystem);
   return (
     <div className={'playerSystemArray-view-wrapper row'}>
+      <SystemSideBar />
       {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
-          <SystemSideBar />
             <div className={'planet-wrapper'}>
             <Link to={`/${sector.sectorName}/system/${playerSystem.systemName}/planet/${planet.name}`} onClick={() => dispatch(setPlanet(planet))} >
               <PlanetComponent planet={planet} />

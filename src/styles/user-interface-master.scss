@@ -2,6 +2,7 @@
 $border: #008bd6;
 $main: #d17a00;
 $text: #FFF;
+
 /* base UI style  */
 .ui-border-box {
   color: $text;
@@ -22,6 +23,7 @@ $text: #FFF;
   position: relative;
   transition: all 0.3s;
 }
+
 .white-border-button {
   border: none;
   background-color: transparent;
@@ -44,21 +46,26 @@ $text: #FFF;
   position: relative;
   transition: all 0.3s;
 }
+
 .ui-orange-box {
   color: $text;
   border: 4px solid $main;
-  border-radius:15%;
+  border-radius: 15%;
   background-color: black;
 }
+
 .layer-1-menu {
   z-index: 80;
 }
+
 .layer-2-menu {
   z-index: 90;
 }
+
 .layer-3-menu {
   z-index: 99;
 }
+
 /* Tooltip container for showing star distance to each other*/
 .tooltip {
   position: relative;
@@ -131,7 +138,7 @@ $text: #FFF;
 
 /* redo this */
 .system-power-toggle-button {
-  
+
   color: aqua;
   border: none;
   background-color: transparent;
@@ -165,8 +172,7 @@ $text: #FFF;
 /* system side bar */
 .side-bar-wrapper {
   position: fixed;
-  right: 0;
-  padding: 1rem;
+  border-radius: 25%;
 }
 
 .toggle-side-bar {
@@ -175,24 +181,15 @@ $text: #FFF;
   width: 90px;
 }
 
-.toggle-side-bar:hover {
-  color: $text;
-}
-
-.side-bar-wrapper {
-  border-radius: 25%;
-}
-
 .side-bar {
   width: 300px;
   border-radius: 8px;
   box-shadow: inset 0px 0px 45px 10px rgba(255, 255, 255, 0.4);
   border: aqua 2px solid;
   color: $text;
-  right: 0;
-  position: absolute;
 }
 
+/* For readability */
 .side-bar-background {
   position: absolute;
   z-index: -99;
@@ -202,18 +199,13 @@ $text: #FFF;
   background-color: black;
 }
 
-.side-screen {
-  max-height: 40vh;
-  text-align: center;
-}
-
 .system-title {
   text-align: center;
   position: fixed;
 
 }
 
-/* End of system-view menu */
+/* End of side bars menu */
 /* Details menu stuff */
 .go-back {
   bottom: 0;
@@ -222,6 +214,7 @@ $text: #FFF;
   border: 1px solid $border;
   margin-bottom: 4rem;
 }
+
 .go-back:hover {
   cursor: pointer;
 }
@@ -290,6 +283,7 @@ $text: #FFF;
   z-index: 90;
   position: fixed;
 }
+
 /* pop-up-menus */
 .pop-up-menu {
   width: 100vw;
@@ -299,8 +293,10 @@ $text: #FFF;
   position: absolute;
   z-index: 95;
 }
+
 .icon-bar {
+  /* this is centering a fixed element */
   z-index: 99;
-  bottom: 0;
-  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -24,4 +24,4 @@ export const FleetFloatMenu = () => {
         </div>
     )
 }
-/* This menu will show what fleets are in the system, nco, planet, etc */
+/* This menu will show what fleets are in the system, nco, planet, etc, needs to be dynamic */

@@ -22,14 +22,12 @@ export const PlanetSideBar = ({
     return (
         <div className='side-bar-wrapper'>
  
-            <div className='side-bar'>
+            <div className='side-bar p-1'>
                 <h3 className='text-center'>{playerPlanet.name}</h3>
-                <div className='side-bar-background-wrapper'>
-                    <p className='text-center'>Owned by: {playerPlanet.ownership}</p>
-                    <div className='side-bar-background'></div>
-                </div>
+                <p className='text-center'>Owned by: {playerPlanet.ownership}</p>
+                <div className='side-bar-background'></div>
                 {/* tabs */}
-                <div className='flex'>
+                <div className='flex justify-center'>
                     <div className='p-1' onClick={() => setTabNumber(1)}>
                         Production
                     </div>
@@ -40,7 +38,7 @@ export const PlanetSideBar = ({
                         Resources
                     </div>
                 </div>
-                <div className='side-screen'>
+                <div className='side-screen p-1'>
                     <div className={tabNumber === 1 ? 'side-tab-info' : 'hidden'}>
                         <div className='m-2 text-center border-2 flex'><p className='p-2'>ICON</p><p className='p-2'>A building is building on planet X</p></div>
                     </div>
@@ -51,7 +49,7 @@ export const PlanetSideBar = ({
                         <div className='m-2 text-center border-2 flex'><p className='p-2'>Like 6 rocks</p></div>
                     </div>
                 </div>
-                <div className='flex p-1 '>
+                <div className='flex p-1 justify-center'>
                     <div onClick={() => setToggleBuildings(!toggleBuildings)} className='ui-border-box'>Buildings</div>
                     <div onClick={() => setToggleResources(!toggleResources)} className='ui-border-box'>Desposits</div>
                 </div>
