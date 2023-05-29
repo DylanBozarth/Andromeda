@@ -30,7 +30,7 @@ export const IconBar = () => {
                     </div>
                 </div>
             </div>
-            <div className=''>
+            <div className='top-layer-menu'>
                 {/* pop up menus, im sure there's a way to do this DRY style but I cant be bothered to find it. */}
                 <div className={openMenu === 'fleets' ? '' : 'hidden'}>
                     <div className='pop-up-menu'>
