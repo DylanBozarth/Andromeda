@@ -1,7 +1,6 @@
 import '../../styles/user-interface-master.scss';
 import { Planet } from '../../types/planet-interface';
 import { useState } from 'react';
-import { AvailableBuildings } from '../buildings/AvailableBuildings';
 import { FleetFloatMenu } from '../float-menus/fleets';
 
 interface toggles {
@@ -20,9 +19,8 @@ export const PlanetSideBar = ({
 }: toggles) => {
     const [tabNumber, setTabNumber] = useState(1);
     return (
-        <div className='side-bar-wrapper'>
- 
-            <div className='side-bar p-1 ui-orange-box'>
+        <div className='middle-layer-menu'>
+            <div className='side-bar p-1 ui-white-box'>
                 <h3 className='text-center'>{playerPlanet.name}</h3>
                 <p className='text-center'>Owned by: {playerPlanet.ownership}</p>
                 <div className='side-bar-background'></div>

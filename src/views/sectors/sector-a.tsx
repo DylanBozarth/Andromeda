@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setSystem, setNCO } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
-import { useEffect } from 'react';
 import { SectorSideBar } from '../../UI/side-bars/sector-side-bar';
 
 export const SectorA = () => {
@@ -20,7 +19,7 @@ export const SectorA = () => {
               left: `${getXfromCords(single.cords)}vw`,
               top: `${getYfromCords(single.cords)}vh`,
             }}
-              className='absolute '>
+              className='absolute'>
               <Link to={`/${sector.sectorName}/${single.name}`} onClick={() => dispatch(setNCO(single))}>
                 <NCOComponent NCOType={single.type} effect={single.effect} cords={single.cords} NCOName={single.name} distanceMapValues={sector.distancesMap[single.cords]} />
               </Link>

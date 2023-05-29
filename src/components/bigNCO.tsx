@@ -6,8 +6,8 @@ interface NCOProps {
 
 export const BigNCOComponent = ({ NCO }: NCOProps) => {
   return (
-    <div className={`big-NCO ${NCO.type}`}>
-      {NCO.type}
+    <div className={`big-nco ${NCO.type}`}>
+
     </div>
   );
 };

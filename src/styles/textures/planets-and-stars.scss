@@ -448,6 +448,16 @@
   width: 25px;
   height: 25px;
 }
+.big-nco {
+  border-radius: 50%;
+  width: 1000px;
+  height:1000px;
+  left: 0;
+  top: 0;
+  box-shadow: inset 10px 0px 12px -2px rgba(255,255,255,.2), 
+  inset -70px 0px 45px 0px black,
+  -5px 0px 5px -4px black;
+}
 .Black-hole {
   background-image: url('./NCOTextures/blackhole.png');
   background-size: 100% 100%;
