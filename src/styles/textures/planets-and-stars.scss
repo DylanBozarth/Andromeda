@@ -160,6 +160,15 @@
   background: url('./starTextures/red-star.jpeg') repeat-x;
   background-size: 200% 100%;
 }
+/* animations */
+@keyframes spinMeRightRoundBabyRightRound {
+  0% {
+    rotate: 0;
+  }
+  100% {
+    rotate: 180deg;
+  }
+}
 @keyframes translateBackground {
   0% {
     background-position-x: 0;
@@ -454,10 +463,8 @@
   height:1000px;
   left: 0;
   top: 0;
-  box-shadow: inset 10px 0px 12px -2px rgba(255,255,255,.2), 
-  inset -70px 0px 45px 0px black,
-  -5px 0px 5px -4px black;
 }
+
 .Black-hole {
   background-image: url('./NCOTextures/blackhole.png');
   background-size: 100% 100%;
@@ -474,8 +481,10 @@
 .Pulsar {
   background-image: url('./NCOTextures/pulsar.png');
   background-size: 100% 100%;
+  animation: spinMeRightRoundBabyRightRound .1s infinite linear;
 }
 .Magnetar {
   background-image: url('./NCOTextures/magnetar.png');
   background-size: 100% 100%;
+  animation: translateBackground 120s infinite linear;
 }

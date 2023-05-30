@@ -121,7 +121,12 @@ $text: #FFF;
   margin-top: 5vh;
   position: absolute;
 }
-
+.lower-side-bar {
+  color: $text;
+  right: 0;
+  margin-top: 30vh;
+  position: absolute;
+}
 /* For readability */
 .side-bar-background {
   position: absolute;
