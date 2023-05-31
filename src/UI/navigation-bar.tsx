@@ -17,6 +17,7 @@ export const NavigationBar = () => {
     }
     if (/\d/.test(currentLocation)) { // check for numbers in name for NCO
         setUserSystem(splitLocation[2]);
+        setUserPlanet(''); 
     }
     if (currentLocation.includes('system') /* && !currentLocation.includes('planet') */ ) {
       setUserSystem(splitLocation[3]);
