@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { Link } from 'react-router-dom';
 import { AvailableBuildings } from '../UI/buildings/AvailableBuildings';
 import { setPlanet } from '../redux/sectorSlice';
+import { SystemSideBar } from '../UI/side-bars/system-side-bar';
 
 export const SystemView = () => {
   const dispatch = useAppDispatch();
@@ -13,45 +14,23 @@ export const SystemView = () => {
   const sector = useAppSelector((state) => state.sector.activeSector);
   const playerSystem = useAppSelector((state) => state.sector.activeSystem);
   return (
-    <div className={'playerSystemArray-view-wrapper row'}>
+    <div className=''>
+      <SystemSideBar />
+      <div className='flex flex-wrap justify-center mt-20 '>
       {playerSystem.systemPlanets.map((planet) => {
         return (
           <>
-            <div className={'planet-wrapper'}>
+            <div className={'planet-wrapper p-10 '}>
             <Link to={`/${sector.sectorName}/system/${playerSystem.systemName}/planet/${planet.name}`} onClick={() => dispatch(setPlanet(planet))} >
               <PlanetComponent planet={planet} />
               </Link>
+              <p className='text-center'>{playerSystem.activePlanet.ownership}</p>
             </div>
-            {[
-              planet.naturalResources.map((resource, idx) => {
-                return (
-                  <div
-                    className={toggleResources ? 'planet-resources' : 'hidden'}
-                    key={`${planet}-${resource}-${idx}`}
-                  >
-                    {resource}
-                  </div>
-                );
-              }),
-            ]}
-
-            {[
-              planet.buildings.map((building, idx) => {
-                return (
-                  <div
-                    className={toggleBuildings ? 'planet-buildings' : 'hidden'}
-                    key={`${planet}-${building}-${idx}`}
-                  >
-                    {building} 
-                    
-                  </div>
-                );
-              }),
-            ]} <div className={toggleBuildings ? '' : 'hidden'}><AvailableBuildings /></div>
           </>
         );
       })}
-      {/* <div className='p-3 m-6 bottom-0 absolute'><Link to={`/system/${playerSystem.systemName}/${playerSystem.systemStar}`}>View star</Link> </div> */}
+      {/* <div className='p-3 m-6 bottom-0 absolute'><Link to={`/${sector.sectorName}/system/star/${playerSystem.systemStar}`}>View star</Link> </div> */}
+    </div>
     </div>
   );
 };

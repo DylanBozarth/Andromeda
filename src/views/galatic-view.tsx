@@ -9,7 +9,12 @@ export const GalaticView = () => {
 
   return (
     <div>
+      <div className='side-bar mt-20'>news & updates: <br />
+        still working on that front end <br /> 
+        This is where we will put patch notes
+      </div>
       <div className='sectorawrapper'>
+        
         <img src='./assets/sample-image.png'></img>
         <Link
           to='/sector-a'

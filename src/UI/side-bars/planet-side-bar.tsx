@@ -1,7 +1,7 @@
-import '../styles/user-interface-master.scss';
-import { Planet } from '../types/planet-interface';
+import '../../styles/user-interface-master.scss';
+import { Planet } from '../../types/planet-interface';
 import { useState } from 'react';
-import { AvailableBuildings } from './buildings/AvailableBuildings';
+import { FleetFloatMenu } from '../float-menus/fleets';
 
 interface toggles {
     playerPlanet: Planet;
@@ -19,27 +19,24 @@ export const PlanetSideBar = ({
 }: toggles) => {
     const [tabNumber, setTabNumber] = useState(1);
     return (
-        <div className='side-bar-wrapper'>
- 
-            <div className='side-bar'>
+        <div className='middle-layer-menu'>
+            <div className='side-bar p-1 ui-white-box'>
                 <h3 className='text-center'>{playerPlanet.name}</h3>
-                <div className='side-bar-background-wrapper'>
-                    <p className='text-center'>Owned by: {playerPlanet.ownership}</p>
-                    <div className='side-bar-background'></div>
-                </div>
+                <p className='text-center'>Owned by: {playerPlanet.ownership}</p>
+                <div className='side-bar-background'></div>
                 {/* tabs */}
-                <div className='side-tab-row m-2 text-center'>
-                    <div className='side-tab' onClick={() => setTabNumber(1)}>
+                <div className='flex justify-center'>
+                    <div className='p-1' onClick={() => setTabNumber(1)}>
                         Production
                     </div>
-                    <div className='side-tab' onClick={() => setTabNumber(2)}>
+                    <div className='p-1' onClick={() => setTabNumber(2)}>
                         Hangar
                     </div>
-                    <div className='side-tab' onClick={() => setTabNumber(3)}>
+                    <div className='p-1' onClick={() => setTabNumber(3)}>
                         Resources
                     </div>
                 </div>
-                <div className='side-screen'>
+                <div className='side-screen p-1'>
                     <div className={tabNumber === 1 ? 'side-tab-info' : 'hidden'}>
                         <div className='m-2 text-center border-2 flex'><p className='p-2'>ICON</p><p className='p-2'>A building is building on planet X</p></div>
                     </div>
@@ -50,11 +47,11 @@ export const PlanetSideBar = ({
                         <div className='m-2 text-center border-2 flex'><p className='p-2'>Like 6 rocks</p></div>
                     </div>
                 </div>
-                <div className='flex p-1 '>
+                <div className='flex p-1 justify-center'>
                     <div onClick={() => setToggleBuildings(!toggleBuildings)} className='ui-border-box'>Buildings</div>
                     <div onClick={() => setToggleResources(!toggleResources)} className='ui-border-box'>Desposits</div>
                 </div>
-                
+                <FleetFloatMenu />
             </div>
             
         </div>

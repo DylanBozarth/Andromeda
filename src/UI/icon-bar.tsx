@@ -10,12 +10,9 @@ import { ExplorePopUpMenu } from './icon-pop-ups/exploration';
 export const IconBar = () => {
     const [openMenu, setOpenMenu] = useState('none');
     return (
-        <div className=''>
-            <div className='fixed icon-bar '>
-                <div className='flex text-center'> {/* center this somehow */}
-                    <div className='ui-border-box' onClick={() => (openMenu === 'fleets' ? setOpenMenu('none') : setOpenMenu('fleets'))}>
-                        <img src='../assets/ship-icon.jpeg' height='50px' width='50px'></img> Fleets
-                    </div>
+        <div className='top-layer-menu'>
+            <div className='fixed bottom-0 icon-bar '>
+                <div className='flex justify-center'> {/* center this somehow */}
                     <div className='ui-border-box ' onClick={() => (openMenu === 'alerts' ? setOpenMenu('none') : setOpenMenu('alerts'))}>
                         <img src='../assets/alerts.png' height='50px' width='50px'></img> Alerts
                     </div>
@@ -33,20 +30,10 @@ export const IconBar = () => {
                     </div>
                 </div>
             </div>
-            <div className=''>
-                {/* pop up menus, there's a way to do this DRY style but I cant be bothered to find it. */}
-                <div className={openMenu === 'fleets' ? '' : 'hidden'}>
-                    <div className='pop-up-menu'>
-                        <FleetsPopupMenu />
-                    </div>
-                </div>
-                <div className={openMenu === 'resources' ? '' : 'hidden'}>
-                    <div className='pop-up-menu'>
-                        <ResourcePopupMenu />
-                    </div>
-                </div>
+            <div className='top-layer-menu'>
+                {/* pop up menus, im sure there's a way to do this DRY style but I cant be bothered to find it. */}
                 <div className={openMenu === 'alerts' ? '' : 'hidden'}>
-                    <div className='pop-up-menu'>
+                    <div className=''>
                         <AlertsPopupMenu />
                     </div>
                 </div>
@@ -70,16 +57,6 @@ export const IconBar = () => {
                         <ExplorePopUpMenu />
                     </div>
                 </div>
-                {/* if we need more 
-                <div className={openMenu === 8 ? '' : 'hidden'}>
-                    FORTH THING
-                </div>
-                <div className={openMenu === 9 ? '' : 'hidden'}>
-                    FORTH THING
-                </div>
-                <div className={openMenu === 10 ? '' : 'hidden'}>
-                    FORTH THING
-                </div>*/}
             </div>
         </div>
     )
