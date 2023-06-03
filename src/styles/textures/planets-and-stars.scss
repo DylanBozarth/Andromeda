@@ -15,7 +15,7 @@
   box-shadow: 1px 1px 35px goldenrod;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/yellow-star.png') repeat-x;
+  background: url('./starTextures/yellow-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Blue-Giant {
@@ -25,7 +25,7 @@
   box-shadow: 1px 1px 85px blueviolet;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/blue-star.jpg') repeat-x;
+  background: url('./starTextures/blue-star.webp') repeat-x;
   background-size: 200% 100%;
   width: 2em;
   height: 2em;
@@ -37,7 +37,7 @@
   box-shadow: 1px 1px 25px whitesmoke;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/white-star.jpg') repeat-x;
+  background: url('./starTextures/white-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 
@@ -48,7 +48,7 @@
   box-shadow: 1px 1px 35px goldenrod;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/brown-star.jpg') repeat-x;
+  background: url('./starTextures/brown-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Red-Giant {
@@ -58,7 +58,7 @@
   box-shadow: 1px 1px 85px firebrick;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/red-star.jpeg') repeat-x;
+  background: url('./starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
   height: 2em;
   width: 2em;
@@ -70,7 +70,7 @@
   box-shadow: 1px 1px 85px red;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/red-star.jpeg') repeat-x;
+  background: url('./starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
   height: 3em;
   width: 3em;
@@ -82,7 +82,7 @@
   box-shadow: 1px 1px 20px red;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/red-star.jpeg') repeat-x;
+  background: url('./starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Yellow-Dwarf-system-view {
@@ -90,7 +90,7 @@
   box-shadow: 1px 1px 35px goldenrod;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/yellow-star.png') repeat-x;
+  background: url('./starTextures/yellow-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Blue-Giant-system-view {
@@ -100,7 +100,7 @@
   box-shadow: 1px 1px 85px blueviolet;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/blue-star.jpg') repeat-x;
+  background: url('./starTextures/blue-star.webp') repeat-x;
   background-size: 200% 100%;
   width: 45em;
   height: 45em;
@@ -112,7 +112,7 @@
   box-shadow: 1px 1px 25px whitesmoke;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/white-star.jpg') repeat-x;
+  background: url('./starTextures/white-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 
@@ -123,7 +123,7 @@
   box-shadow: 1px 1px 35px goldenrod;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/brown-star.jpg') repeat-x;
+  background: url('./starTextures/brown-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Red-Giant-system-view {
@@ -133,7 +133,7 @@
   box-shadow: 1px 1px 85px firebrick;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/red-star.jpeg') repeat-x;
+  background: url('./starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
   height: 2em;
   width: 2em;
@@ -145,7 +145,7 @@
   box-shadow: 1px 1px 85px red;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/red-star.jpeg') repeat-x;
+  background: url('./starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
   height: 3em;
   width: 3em;
@@ -157,7 +157,7 @@
   box-shadow: 1px 1px 20px red;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/red-star.jpeg') repeat-x;
+  background: url('./starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 /* animations */
@@ -466,24 +466,24 @@
 }
 
 .Black-hole {
-  background-image: url('./NCOTextures/blackhole.png');
+  background-image: url('./NCOTextures/blackhole.webp');
   background-size: 100% 100%;
 }
 .Nebula {
-  background-image: url('./NCOTextures/nebula.jpeg');
+  background-image: url('./NCOTextures/nebula.webp');
   background-size: 100% 100%;
   border-radius: 50%;
 }
 .Asteroid-cluster {
-  background-image: url('./NCOTextures/asteroids.png');
+  background-image: url('./NCOTextures/asteroids.webp');
   background-size: 100% 100%;
 }
 .Pulsar {
-  background-image: url('./NCOTextures/pulsar.png');
+  background-image: url('./NCOTextures/pulsar.webp');
   background-size: 100% 100%;
   animation: spinMeRightRoundBabyRightRound .1s infinite linear;
 }
 .Magnetar {
-  background-image: url('./NCOTextures/magnetar.png');
+  background-image: url('./NCOTextures/magnetar.webp');
   background-size: 100% 100%;
 }
