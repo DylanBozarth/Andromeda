@@ -8,7 +8,7 @@ export const UImaster: React.FC = () => {
       <NavigationBar />
       <IconBar />
       
-        <a href='#' onClick={() => generateSystems()} className='absolute z-99 fixed mt-20'>
+        <a href='#' onClick={() => generateSystems()} className=' z-99 fixed mt-20'>
           Generate new sector (debug)
         </a>
     </div>

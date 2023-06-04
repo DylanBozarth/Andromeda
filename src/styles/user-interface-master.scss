@@ -150,20 +150,12 @@ $text: #FFF;
   color: $text;
 }
 
-
-/* navigation bar */
-.navigation-bar {
-  position: fixed;
-}
-
 /* pop-up-menus */
 .pop-up-menu {
-  width: 100vw;
-  height: 100vh;
-  background-color: $border;
-  padding: 1rem;
+  background-color: black;
+  border: 2px solid $border;
+  color: $main;
 }
-
 .icon-bar {
   /* this is centering a fixed element */
   z-index: 99;

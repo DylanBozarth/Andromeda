@@ -1,12 +1,33 @@
 import '../../styles/user-interface-master.scss';
 import { useState } from 'react';
 export const FactionsPopUpMenu = () => {
-const [hidden, setHidden] = useState(1);
+const [hidden, setHidden] = useState('active');
     return ( 
-        <div>
-            <div className=' mt-5 '>
-        <h3 className='text-center p-2' onClick={() => setHidden(1)}>Active missions</h3><h3 className='text-center p-2' onClick={() => setHidden(2)}>Available Missions</h3></div>
-        <div className=" flex container">
+        <div className='top-layer-menu pop-up-menu-background flex '>
+            
+                <div className='mt-5 mb-5'>
+        <h3 className='text-center p-2 border-1' onClick={() => setHidden('active')}>Active missions</h3>
+        <h3 className='text-center p-2 border-1' onClick={() => setHidden('available')}>Available Missions</h3>
+        <h3 className='text-center p-2 border-1' onClick={() => setHidden('factions')}>Factions</h3>
+        </div>
+        <div className={hidden === 'active' ? 'border-2 p-5 w-100' : 'hidden'}><h3 className='text-center'>ACTIVE MISSIONS</h3>
+            <div className='active-mission border-1 p-1'> <h4 className='m-1'>New Dawn:</h4>
+            <p>Free slaves on X system
+                <br />
+                 Reward: Reputation and 2 tantalum
+            </p>
+            </div>
+            </div>
+            
+            <div className={hidden === 'available' ? 'border-2 p-5 w-100' : 'hidden'}><h3 className='text-center'>Available missions</h3>
+            <div className='available-mission border-1'>
+            <p>Raid Trade routes of X
+                <br />
+                The Templars: Reward 10 Reputation and a cheeseburger
+            </p>
+            </div>
+            </div>
+        <div className={hidden === 'factions' ? 'border-2 p-5 w-100' : 'hidden'}>
             <div className='faction-list border-1'>
                 <div className='p-5 border-1'>
                     <h4 className='text-center'>The Templars</h4>
@@ -38,23 +59,7 @@ const [hidden, setHidden] = useState(1);
                 </div><div className='text-center '>Intel</div>
             </div>
            
-            <div className={hidden === 2 ? 'hidden' : 'border-2 p-5 w-100'}><h3>ACTIVE MISSIONS</h3>
-            <div>
-            <p>Free slaves on X system
-                <br />
-                New Dawn: Reward 10 Reputation and a cheeseburger
-            </p>
-            </div>
-            </div>
             
-            <div className={hidden === 1 ? 'hidden' : 'border-2 p-5 w-100'}><h3>Available missions</h3>
-            <div>
-            <p>Raid Trade routes of X
-                <br />
-                The Templars: Reward 10 Reputation and a cheeseburger
-            </p>
-            </div>
-            </div>
 
         </div>
         </div>

@@ -4,21 +4,23 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setSystem, setNCO } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
+import '../../styles/views-styles/sector-view.css'
 
 export const SectorA = () => {
   const dispatch = useAppDispatch();
   const sector = useAppSelector((state) => state.sector.activeSector);
   {
     return (
-      <div className='flex flex-wrap'>
+      <div className=''>
         <div className='sector-background'></div>
+        <div className=''>
         {sector.NCO.map((single) => {
           return (
             <div key={single.cords} style={{
               left: `${getXfromCords(single.cords)}vw`,
               top: `${getYfromCords(single.cords)}vh`,
             }}
-              className='relative'>
+              className='relative sector-star'>
               <Link to={`/${sector.sectorName}/${single.name}`} onClick={() => dispatch(setNCO(single))}>
                 <NCOComponent NCOType={single.type} effect={single.effect} cords={single.cords} NCOName={single.name} distanceMapValues={sector.distancesMap[single.cords]} />
               </Link>
@@ -33,7 +35,7 @@ export const SectorA = () => {
                 left: `${getXfromCords(item.cords)}vw`,
                 top: `${getYfromCords(item.cords)}vh`,
               }}
-              className='relative'
+              className='relative  sector-star'
             >
               <Link to={`/${sector.sectorName}/system/${item.systemName}`} onClick={() => dispatch(setSystem(item))}>
                 <Star
@@ -45,7 +47,7 @@ export const SectorA = () => {
             </div>
           );
         })}
-      </div>
+      </div></div>
     );
   }
 };
