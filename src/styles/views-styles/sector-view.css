@@ -3,6 +3,9 @@
   background-size: 100% 100%;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+}
+.sector-star {
+  width: 10px;
+  height:10px;
+  /* make sure the hitbox of the star doesn't grow to the other side of the page */
 }
