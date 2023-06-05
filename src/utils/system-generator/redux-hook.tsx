@@ -8,6 +8,7 @@ export const useSystems = (maxSystems: number, maxPlanets: number) => {
   const populateReduxWithSystems = () => {
     const sector = generateSector(maxSystems, maxPlanets);
     dispatch(setSector(sector));
+    console.log(sector)
   };
   
   return populateReduxWithSystems;

@@ -128,7 +128,6 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
       'distance',
     );
   }
-
   return {
     systems,
     distancesMap,
