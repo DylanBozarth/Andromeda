@@ -7,8 +7,18 @@
 */ 
 /* ONLY TEXTURES AND SHADOWS GO IN HERE, NO POSITION OR INDEXES */
 .star { /* stars base size on the sector pages */
-  width: 1em;
-  height: 1em;
+  width: 12px;
+  height: 12px;
+}
+.sector-view-nco {
+  width: 12px;
+  height: 12px;
+}
+.sector-view-nco:hover {
+  border: 2px solid lightblue
+}
+.star:hover {
+  border: 2px solid lightblue
 }
 .Yellow-Dwarf {
   box-shadow: 1px 1px 45px gold;
@@ -27,8 +37,6 @@
   animation: translateBackground 120s infinite linear;
   background: url('./starTextures/blue-star.webp') repeat-x;
   background-size: 200% 100%;
-  width: 2em;
-  height: 2em;
 }
 .White-Dwarf {
   transform: translate(-50%, -50%);
@@ -60,8 +68,6 @@
   animation: translateBackground 120s infinite linear;
   background: url('./starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
-  height: 2em;
-  width: 2em;
 }
 .Red-Supergiant {
   transform: translate(-50%, -50%);
@@ -72,8 +78,6 @@
   animation: translateBackground 120s infinite linear;
   background: url('./starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
-  height: 3em;
-  width: 3em;
 }
 .Red-Dwarf {
   transform: translate(-50%, -50%);
@@ -102,8 +106,6 @@
   animation: translateBackground 120s infinite linear;
   background: url('./starTextures/blue-star.webp') repeat-x;
   background-size: 200% 100%;
-  width: 45em;
-  height: 45em;
 }
 .White-Dwarf-system-view {
   transform: translate(-50%, -50%);
@@ -135,8 +137,6 @@
   animation: translateBackground 120s infinite linear;
   background: url('./starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
-  height: 2em;
-  width: 2em;
 }
 .Red-Supergiant-system-view {
   transform: translate(-50%, -50%);
@@ -147,8 +147,6 @@
   animation: translateBackground 120s infinite linear;
   background: url('./starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
-  height: 3em;
-  width: 3em;
 }
 .Red-Dwarf-system-view {
   transform: translate(-50%, -50%);
@@ -453,10 +451,6 @@
 }
 /* end planets css*/
 /* NCOS */ 
-.sector-view-nco {
-  width: 25px;
-  height: 25px;
-}
 .big-nco {
   border-radius: 50%;
   width: 1000px;
@@ -479,6 +473,10 @@
   background-size: 100% 100%;
 }
 .Pulsar {
+  background-image: url('./NCOTextures/pulsar.webp');
+  background-size: 100% 100%;
+}
+.Pulsar-system-view {
   background-image: url('./NCOTextures/pulsar.webp');
   background-size: 100% 100%;
   animation: spinMeRightRoundBabyRightRound .1s infinite linear;

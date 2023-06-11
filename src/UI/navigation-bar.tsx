@@ -31,6 +31,10 @@ export const NavigationBar = () => {
     setUserSystem('')
     setUserPlanet('')
   }
+  const clearPlanetAndSystem = () => {
+    setUserSystem('');
+    setUserPlanet('')
+  }
   return (
     <div className='navigation-bar flex-auto mb-20 sci-fi-thing top-0 middle-layer-menu'>
       <div className='flex justify-content-center'>
@@ -42,7 +46,7 @@ export const NavigationBar = () => {
       </div>
       <div className='flex justify-content-center'>
         { /* Sector */}
-        <Link to={`/${userSector}`} className='navigation-bar-text' onClick={() => setUserSystem('')}>
+        <Link to={`/${userSector}`} className='navigation-bar-text' onClick={() => clearPlanetAndSystem()}>
           <div
             className={
               userSector
