@@ -6,6 +6,7 @@ export const NavigationBar = () => {
   const [userSector, setUserSector] = useState('');
   const [userSystem, setUserSystem] = useState('');
   const [userPlanet, setUserPlanet] = useState('');
+  const [isNCO, setIsNCO] = useState(false);
   const location = useLocation();
   useEffect(() => {
     const currentLocation = location.pathname
@@ -18,9 +19,11 @@ export const NavigationBar = () => {
     if (/\d/.test(currentLocation)) { // check for numbers in name for NCO
         setUserSystem(splitLocation[2]);
         setUserPlanet(''); 
+        setIsNCO(true);
     }
-    if (currentLocation.includes('system') /* && !currentLocation.includes('planet') */ ) {
+    if (currentLocation.includes('system')) {
       setUserSystem(splitLocation[3]);
+      setIsNCO(false);
     }
     if (currentLocation.includes('planet')) {
       setUserPlanet(splitLocation[5]);
@@ -59,7 +62,7 @@ export const NavigationBar = () => {
           </div>
         </Link>
         { /* System */}
-        <Link to={`/${userSector}/system/${userSystem}`}> {/* TODO dont link away from NCO */}
+        <Link to={isNCO ? `/${userSector}/${userSystem}` : `/${userSector}/system/${userSystem}`}> {/* TODO dont link away from NCO */}
           <div
             className={
               userSystem
