@@ -9,6 +9,7 @@ export const SystemSideBar = () => {
  <div className='side-bar-background'></div>
             <div className='side-bar p-1  ui-white-box p-2'>
                 <h3 className='text-center'>{playerSystem.systemName}</h3>
+                <h5 className='text-center'>{playerSystem.systemStar} star</h5>
                 <p className='text-center'>{playerSystem.systemPlanets.length} Planets</p>
                 
                 <FleetFloatMenu />

@@ -13,7 +13,7 @@ export const getRandomNCO = (NCOArr: string[]) => {
   return getRandomString(NCOArr)
 }
 export const getSystemCoords = (systemLetter: string) => {
-  return `${systemLetter}-${generateRandomNumber(90, 5)}${generateRandomNumber(90, 5)}`;
+  return `${systemLetter}-${generateRandomNumber(90, -20)}${generateRandomNumber(90, -10)}`;
 };
 
 export const getRandomPlanet = (planetArr: string[]) => {
