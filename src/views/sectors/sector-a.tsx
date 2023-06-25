@@ -29,7 +29,7 @@ export const SectorA = () => {
     return (
       <div className=''>
         <div className='sector-background'></div>
-        <div className=''>
+        <div className='row'>
         {sector.NCO.map((single) => {
           return (
             <div key={single.cords} style={{
