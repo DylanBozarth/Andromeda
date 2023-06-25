@@ -2,14 +2,29 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { setSector } from '../redux/sectorSlice';
 import '../styles/views-styles/galatic-view.css';
+import { useEffect, useState } from 'react';
 
 export const GalaticView = () => {
   const dispatch = useAppDispatch();
+  const [sectorA, setSectorA] = useState({});
   const sectors = useAppSelector((state) => state.sector);
-
+  useEffect(() => {
+    fetch('https://andromeda-backend-production.up.railway.app/api/sectors')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(
+          `This is an HTTP error: The status is ${response.status}`
+        );
+      }
+      return response.json();
+    })
+    .then((actualData) => setSectorA(actualData.data[0].attributes.sectorA)) // this should be cleaned up 
+    console.log('sector a is', sectorA);
+    dispatch(setSector(sectors.activeSector))
+  }, [])
   return (
     <div>
-      <div className='side-bar mt-20'>news & updates: <br />
+      <div className='side-bar mt-20 border-1'>news & updates: <br />
         still working on that front end <br /> 
         This is where we will put patch notes
       </div>
