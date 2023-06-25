@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* IGNORE THE WARNING FOR TAILWIND, it is working just fine */
 body {
   color: white;
 }

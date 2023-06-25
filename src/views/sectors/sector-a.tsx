@@ -49,7 +49,14 @@ export const SectorA = () => {
                     distanceMapValues={sector.distancesMap[item.systemName]}
                   />
                 </Link>
-                <div className={hidden === item.systemName ? 'asda' : 'hidden'}>{item.systemName}</div>
+                <div className={hidden === item.systemName ? 'sector-ownership-menu' : 'hidden'}>
+                  {item.systemName}, {item.systemStar}
+                {item.systemPlanets.map((planets) => {
+                  return (
+                    <div key={planets.name}>{planets.ownership}</div>
+                  )
+                })}
+                </div>
               </div>
             );
           })}
