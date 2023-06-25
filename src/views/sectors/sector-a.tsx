@@ -5,50 +5,62 @@ import { setSystem, setNCO } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
 import '../../styles/views-styles/sector-view.css'
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 export const SectorA = () => {
   const dispatch = useAppDispatch();
+  const [hidden, setHidden] = useState('');
   const sector = useAppSelector((state) => state.sector.activeSector);
   {
     return (
       <div className=''>
         <div className='sector-background'></div>
         <div className='row'>
-        {sector.NCO.map((single) => {
-          return (
-            <div key={single.cords} style={{
-              left: `${getXfromCords(single.cords)}vw`,
-              top: `${getYfromCords(single.cords)}vh`,
-            }}
-              className='relative sector-star'>
-              <Link to={`/${sector.sectorName}/${single.name}`} onClick={() => dispatch(setNCO(single))}>
-                <NCOComponent NCOType={single.type} effect={single.effect} cords={single.cords} NCOName={single.name} distanceMapValues={sector.distancesMap[single.cords]} />
-              </Link>
-            </div>
-          )
-        })}
-        {sector.systems.map((item) => {
-          return (
-            <div
-              key={item.systemName}
-              style={{
-                left: `${getXfromCords(item.cords)}vw`,
-                top: `${getYfromCords(item.cords)}vh`,
+          {sector.NCO.map((single) => {
+            return (
+              <div key={single.cords} style={{
+                left: `${getXfromCords(single.cords)}vw`,
+                top: `${getYfromCords(single.cords)}vh`,
               }}
-              className='relative  sector-star'
-            >
-              <Link to={`/${sector.sectorName}/system/${item.systemName}`} onClick={() => dispatch(setSystem(item))}>
-                <Star
-                  systemName={item.systemName}
-                  systemStar={item.systemStar}
-                  distanceMapValues={sector.distancesMap[item.systemName]}
-                />
-              </Link>
-            </div>
-          );
-        })}
-      </div></div>
+              onMouseOver={() => setHidden(single.name)}
+                className='relative sector-star'>
+                <Link to={`/${sector.sectorName}/${single.name}`} onClick={() => dispatch(setNCO(single))}>
+                  <NCOComponent NCOType={single.type} effect={single.effect} cords={single.cords} NCOName={single.name} distanceMapValues={sector.distancesMap[single.cords]} />
+                </Link>
+                <div className={hidden === single.name ? 'asda' : 'hidden'}>{single.type}, <br /> {single.name}</div>
+              </div>
+            )
+          })}
+          {sector.systems.map((item) => {
+            return (
+              <div
+               key={item.systemName}
+                style={{
+                  left: `${getXfromCords(item.cords)}vw`,
+                  top: `${getYfromCords(item.cords)}vh`,
+                }}
+                className='relative  sector-star'
+                onMouseOver={() => setHidden(item.systemName)}
+              >
+                <Link to={`/${sector.sectorName}/system/${item.systemName}`} onClick={() => dispatch(setSystem(item))}>
+                  <Star
+                    systemName={item.systemName}
+                    systemStar={item.systemStar}
+                    distanceMapValues={sector.distancesMap[item.systemName]}
+                  />
+                </Link>
+                <div className={hidden === item.systemName ? 'sector-ownership-menu' : 'hidden'}>
+                  {item.systemName}, {item.systemStar}
+                {item.systemPlanets.map((planets) => {
+                  return (
+                    <div key={planets.name}>{planets.ownership}</div>
+                  )
+                })}
+                </div>
+              </div>
+            );
+          })}
+        </div></div>
     );
   }
 };

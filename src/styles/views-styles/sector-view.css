@@ -9,3 +9,13 @@
   height:10px;
   /* make sure the hitbox of the star doesn't grow to the other side of the page */
 }
+.sector-ownership-menu {
+  background-color: black;
+  border: 1px solid #d17a00;
+  border-radius: 5%;
+  width: 30vw;
+  text-align: center;
+  z-index: 90;
+  position: absolute;
+  color: #3acaec;
+}
