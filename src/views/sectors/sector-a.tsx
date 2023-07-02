@@ -6,6 +6,7 @@ import { getXfromCords, getYfromCords } from '../../utils/system-generator/syste
 import { NCOComponent } from '../../components/NCO';
 import '../../styles/views-styles/sector-view.css'
 import { useState } from 'react';
+import { SectorSideBar } from '../../UI/side-bars/sector-side-bar';
 
 export const SectorA = () => {
   const dispatch = useAppDispatch();
@@ -13,8 +14,9 @@ export const SectorA = () => {
   const sector = useAppSelector((state) => state.sector.activeSector);
   {
     return (
-      <div className=''>
+      <div className='sector-view'>
         <div className='sector-background'></div>
+        <SectorSideBar />
         <div className='row'>
           {sector.NCO.map((single) => {
             return (

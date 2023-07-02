@@ -24,7 +24,7 @@ export const SystemView = () => {
             <Link to={`/${sector.sectorName}/system/${playerSystem.systemName}/planet/${planet.name}`} onClick={() => dispatch(setPlanet(planet))} >
               <PlanetComponent planet={planet} />
               </Link>
-              <p className='text-center'>{playerSystem.activePlanet.ownership}</p> {/* does not display sometimes */}
+              <p className='text-center'>{planet.name}<br />{planet.ownership} </p> {/* does not display sometimes */}
             </div>
           </>
         );

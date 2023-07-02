@@ -43,6 +43,7 @@ const generateSystem = (maxPlanets: number) => {
     cords: '',
     activePlanet: {
       name: '',
+      class: '',
       naturalResources: [],
       buildings: [],
       resourceStorage: [],
@@ -62,7 +63,8 @@ const generateSystem = (maxPlanets: number) => {
     const resource1 = getRandomResource(resources);
     const resource2 = getRandomResource(resources, resource1);
     const planet: Planet = {
-      name: planetName,
+      name: system.systemName + '-' + (i + 1), // name the planet the star + number +1 so not 0
+      class: planetName,
       naturalResources: [resource1, resource2],
       buildings: [],
       resourceStorage: [],
@@ -97,11 +99,11 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
   const systems: System[] = [];
   const NCO: NCO[] = [];
   // control min number of systems and NCOs here
-  for (let i = -60; i < randomSystemNumber; i++) {
+  for (let i = -110; i < randomSystemNumber; i++) {
     const system = generateSystem(maxPlanets);
     systems.push(system);
   }
-  for (let i = -45; i < randomSystemNumber; i++) {
+  for (let i = -65; i < randomSystemNumber; i++) {
     const NCOArray = generateNCOs()
     NCO.push(NCOArray);
   }
