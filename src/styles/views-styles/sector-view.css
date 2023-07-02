@@ -4,6 +4,9 @@
   left: 0;
   top: 0;
 }
+.sector-view {
+  margin-top: 15vh;
+}
 .sector-star {
   width: 10px;
   height:10px;
