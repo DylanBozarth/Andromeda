@@ -21,18 +21,18 @@ export const PlanetSideBar = ({
     return (
         <div className='middle-layer-menu'>
             <div className='side-bar p-1 ui-white-box'>
-                <h3 className='text-center'>{playerPlanet.name}</h3>
+                <h3 className='text-center'>{playerPlanet.name} <br /> {playerPlanet.class.substring(0, playerPlanet.class.length - 1)} Planet</h3> {/* display planet type without the number on the end */}
                 <p className='text-center'>Owned by: {playerPlanet.ownership}</p>
                 <div className='side-bar-background'></div>
                 {/* tabs */}
                 <div className='flex justify-center'>
-                    <div className='p-1' onClick={() => setTabNumber(1)}>
+                    <div className='p-1 border-1' onClick={() => setTabNumber(1)}>
                         Production
                     </div>
-                    <div className='p-1' onClick={() => setTabNumber(2)}>
+                    <div className='p-1 border-1' onClick={() => setTabNumber(2)}>
                         Hangar
                     </div>
-                    <div className='p-1' onClick={() => setTabNumber(3)}>
+                    <div className='p-1 border-1' onClick={() => setTabNumber(3)}>
                         Resources
                     </div>
                 </div>

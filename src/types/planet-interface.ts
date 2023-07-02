@@ -1,5 +1,6 @@
 export interface Planet {
     name: string
+    class: string,
     buildings: Array<string>,
     naturalResources: Array<string>,
     resourceStorage: Array<string>,
