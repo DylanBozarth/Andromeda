@@ -39,7 +39,4 @@ export const planetList: string[] = [
   'Greenhouse3',
   'Greenhouse4',
   'Greenhouse5',
-  'Asteroid-Belt1',
-  'Asteroid-Belt2',
-  'Asteroid-Belt3',
 ];
