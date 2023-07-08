@@ -49,6 +49,7 @@ const generateSystem = (maxPlanets: number) => {
       resourceStorage: [],
       production: [],
       hangar: [],
+      orbit: [],
       ownership: ''
     }
   };
@@ -69,6 +70,7 @@ const generateSystem = (maxPlanets: number) => {
       buildings: [],
       resourceStorage: [],
       production: [],
+      orbit: [],
       hangar: [],
       ownership: 'unowned'
     };
