@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 
 export const GalaticView = () => {
   const dispatch = useAppDispatch();
-  const [sectorA, setSectorA] = useState({});
   const sectors = useAppSelector((state) => state.sector);
   useEffect(() => {
     fetch('https://andromeda-backend-production.up.railway.app/api/sectors')
@@ -18,8 +17,7 @@ export const GalaticView = () => {
       }
       return response.json();
     })
-    .then((actualData) => setSectorA(actualData.data[0].attributes.sectorA)) // this should be cleaned up 
-    console.log('sector a is', sectorA);
+    .then((actualData) => console.log(actualData.data[0].attributes.sectorA)) // this should be cleaned up 
     dispatch(setSector(sectors.activeSector))
   }, [])
   return (

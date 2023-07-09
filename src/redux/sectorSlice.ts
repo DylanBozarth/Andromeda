@@ -1,6 +1,16 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 import { Planet } from '../types/planet-interface';
+
+/* boilerplate
+const fetchUserById = createAsyncThunk(
+  'users/fetchByIdStatus',
+  async (userId: number, thunkAPI) => {
+    const response = await userAPI.fetchById(userId)
+    return response.data
+  }
+)
+*/
 
 export interface Sector {
   systems: System[];
