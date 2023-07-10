@@ -8,7 +8,7 @@ export const GalaticView = () => {
   const dispatch = useAppDispatch();
   const sectors = useAppSelector((state) => state.sector);
   useEffect(() => {
-    if (!sectors.activeSector) {
+    if (Object.keys(sectors.activeSector).length === 0) {
       fetch('https://andromeda-backend-production.up.railway.app/api/sectors')
     .then((response) => {
       if (!response.ok) {
