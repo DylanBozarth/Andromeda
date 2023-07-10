@@ -2,15 +2,14 @@ import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 import { Planet } from '../types/planet-interface';
 
-/* boilerplate
-const fetchUserById = createAsyncThunk(
-  'users/fetchByIdStatus',
-  async (userId: number, thunkAPI) => {
-    const response = await userAPI.fetchById(userId)
-    return response.data
+const fetchSectorData = createAsyncThunk(
+  'https://andromeda-backend-production.up.railway.app/api/sectors',
+  // if you type your function argument here
+  async (userId: number) => {
+    const response = await fetch('https://andromeda-backend-production.up.railway.app/api/sectors')
+    return (await response.json()) as Sector
   }
 )
-*/
 
 export interface Sector {
   systems: System[];
@@ -38,9 +37,9 @@ export const sectorSlice = createSlice({
   name: 'sector',
   initialState,
   reducers: {
-    setSector: (state, action: PayloadAction<Sector>) => {
-      state.activeSector = action.payload;
-    },
+    setSector: (fetchSectorData.fulfilled, (state, action) => {
+      state.activeSector = action.payload
+    }),
     setSystem: (state, action: PayloadAction<System>) => {
       state.activeSystem = action.payload;
     },

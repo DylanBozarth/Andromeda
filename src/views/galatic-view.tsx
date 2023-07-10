@@ -8,7 +8,8 @@ export const GalaticView = () => {
   const dispatch = useAppDispatch();
   const sectors = useAppSelector((state) => state.sector);
   useEffect(() => {
-    fetch('https://andromeda-backend-production.up.railway.app/api/sectors')
+    if (!sectors.activeSector) {
+      fetch('https://andromeda-backend-production.up.railway.app/api/sectors')
     .then((response) => {
       if (!response.ok) {
         throw new Error(
@@ -17,8 +18,10 @@ export const GalaticView = () => {
       }
       return response.json();
     })
-    .then((actualData) => console.log(actualData.data[0].attributes.sectorA)) // this should be cleaned up 
-    dispatch(setSector(sectors.activeSector))
+    .then((actualData) => dispatch(setSector(actualData.data[0].attributes.sectorA))) // this should be cleaned up 
+    console.log('active sector is', sectors.activeSector)
+    }
+    
   }, [])
   return (
     <div>
@@ -31,7 +34,7 @@ export const GalaticView = () => {
         <img src='./assets/sample-image.png'></img>
         <Link
           to='/sector-a'
-          onClick={() => dispatch(setSector(sectors.activeSector))}
+          // onClick={() => dispatch(setSector(sectors.activeSector))}
           className='sectora'
         >
           {' '}
