@@ -37,12 +37,7 @@ export const GalaticView = () => {
           // onClick={() => dispatch(setSector(sectors.activeSector))}
           className='sectora'
         >
-          {' '}
-          SECTOR A
-          <br /> 
-          First time? 
-          <br />
-          Run generate before clicking otherwise it will fail
+          Give it a few seconds before clicking this to make the network call
         </Link>
       </div>
     </div>
