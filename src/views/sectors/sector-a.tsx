@@ -11,7 +11,7 @@ import { SectorSideBar } from '../../UI/side-bars/sector-side-bar';
 export const SectorA = () => {
   const dispatch = useAppDispatch();
   const [hidden, setHidden] = useState('');
-  const sector = useAppSelector((state) => state.sector.activeSector);
+  const sector = useAppSelector((state) => state.sector.activeSector.sector);
   {
     return (
       <div className='sector-view'>

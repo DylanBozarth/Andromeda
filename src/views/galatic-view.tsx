@@ -6,7 +6,8 @@ import { fetchSectorData } from '../redux/sectorSlice';
 
 export const GalaticView = () => {
   const dispatch = useAppDispatch();
-  const activeSector = useAppSelector((state) => state.sector.activeSector);
+  const activeSector = useAppSelector((state) => state.sector.activeSector.sector);
+  const sectorLoading = useAppSelector((state) => state.sector.activeSector.loading);
   useEffect(() => {
     dispatch(fetchSectorData());
   }, []);
@@ -19,15 +20,20 @@ export const GalaticView = () => {
         still working on that front end <br />
         This is where we will put patch notes
       </div>
+
       <div className='sectorawrapper'>
-        <img src='./assets/sample-image.png'></img>
-        <Link
-          to='/sector-a'
-          // onClick={() => dispatch(setSector(sectors.activeSector))}
-          className='sectora'
-        >
-          Give it a few seconds before clicking this to make the network call
-        </Link>
+        {!sectorLoading ? (
+          <>
+            <img src='./assets/sample-image.png'></img>
+            <Link to='/sector-a' className='sectora'>
+              Go to Sector-A
+            </Link>
+          </>
+        ) : (
+          <div>
+            <h1>LOADING...</h1>
+          </div>
+        )}
       </div>
     </div>
   );
