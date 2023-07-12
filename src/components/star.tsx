@@ -20,25 +20,29 @@ export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) =
   const display = (
     <>
       <table>
-        <tr>
-          <th>Star</th>
-          <th>Distance</th>
-          <th>ETA(hours)</th>
-        </tr>
-        {Object.keys(distanceMapValues).map((key) => {
-          return (
-            <tr
-              key={key}
-              style={{ margin: 0 }}
-              onMouseEnter={() => handleAddOutline(key)}
-              onMouseLeave={() => handleRemoveOutline(key)}
-            >
-              <td>{key}</td>
-              <td>{distanceMapValues[key].distance} parsecs</td>
-              <td>{distanceMapValues[key].eta}</td>
-            </tr>
-          );
-        })}
+        <thead>
+          <tr>
+            <th>Star</th>
+            <th>Distance</th>
+            <th>ETA(hours)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.keys(distanceMapValues).map((key) => {
+            return (
+              <tr
+                key={key}
+                style={{ margin: 0 }}
+                onMouseEnter={() => handleAddOutline(key)}
+                onMouseLeave={() => handleRemoveOutline(key)}
+              >
+                <td>{key}</td>
+                <td>{distanceMapValues[key].distance} parsecs</td>
+                <td>{distanceMapValues[key].eta}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </>
   );
