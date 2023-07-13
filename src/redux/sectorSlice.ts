@@ -2,21 +2,22 @@ import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 import { Planet } from '../types/planet-interface';
 
-const fetchSectorData = createAsyncThunk(
-  'https://andromeda-backend-production.up.railway.app/api/sectors',
-  // if you type your function argument here
-  async (userId: number) => {
-    const response = await fetch('https://andromeda-backend-production.up.railway.app/api/sectors')
-    return (await response.json()) as Sector
+export const fetchSectorData = createAsyncThunk('sectorSlice/fetchSectorData', async () => {
+  try {
+    const response = await fetch('https://andromeda-backend-production.up.railway.app/api/sectors');
+    const responseJson = await response.json();
+    return responseJson.data[0].attributes.sectorA;
+  } catch (error) {
+    console.error(error);
   }
-)
+});
 
 export interface Sector {
   systems: System[];
   NCO: NCO[];
   distancesMap: DistanceMap;
   sectorName: string;
-  fleetsInTransit: Array<string> // fleets here will be storage of ships going from one place to another
+  fleetsInTransit: Array<string>; // fleets here will be storage of ships going from one place to another
 }
 
 interface ActiveState {
@@ -30,16 +31,13 @@ const initialState: ActiveState = {
   activeSector: {} as Sector,
   activeSystem: {} as System,
   activePlanet: {} as Planet,
-  activeNCO: {} as NCO
+  activeNCO: {} as NCO,
 };
 // Controls data being passed from Sector => System => Planet
 export const sectorSlice = createSlice({
   name: 'sector',
   initialState,
   reducers: {
-    setSector: (fetchSectorData.fulfilled, (state, action) => {
-      state.activeSector = action.payload
-    }),
     setSystem: (state, action: PayloadAction<System>) => {
       state.activeSystem = action.payload;
     },
@@ -50,8 +48,13 @@ export const sectorSlice = createSlice({
       state.activeNCO = action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(fetchSectorData.fulfilled, (state, action) => {
+      if (action.payload) state.activeSector = action.payload;
+    });
+  },
 });
 
-export const { setSector, setSystem, setPlanet, setNCO } = sectorSlice.actions;
+export const { setSystem, setPlanet, setNCO } = sectorSlice.actions;
 
 export default sectorSlice.reducer;
