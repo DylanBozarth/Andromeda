@@ -20,19 +20,25 @@ export interface Sector {
   fleetsInTransit: Array<string>; // fleets here will be storage of ships going from one place to another
 }
 
+interface ActiveSector {
+  sector: Sector;
+  loading: boolean;
+}
+
 interface ActiveState {
-  activeSector: Sector;
+  activeSector: ActiveSector;
   activeSystem: System;
   activePlanet: Planet;
   activeNCO: NCO;
 }
 
 const initialState: ActiveState = {
-  activeSector: {} as Sector,
+  activeSector: { sector: {} as Sector, loading: true },
   activeSystem: {} as System,
   activePlanet: {} as Planet,
   activeNCO: {} as NCO,
 };
+
 // Controls data being passed from Sector => System => Planet
 export const sectorSlice = createSlice({
   name: 'sector',
@@ -49,8 +55,14 @@ export const sectorSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(fetchSectorData.pending, (state) => {
+      state.activeSector.loading = true;
+    });
     builder.addCase(fetchSectorData.fulfilled, (state, action) => {
-      if (action.payload) state.activeSector = action.payload;
+      if (action.payload) {
+        state.activeSector.sector = action.payload;
+        state.activeSector.loading = false;
+      }
     });
   },
 });
