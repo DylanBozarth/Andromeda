@@ -31,7 +31,7 @@ export const Login = () => {
         Password
         <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
-      <button className='auth-btn' onClick={handleClick}>
+      <button style={{ border: '2px solid green' }} onClick={handleClick}>
         Login
       </button>
     </>

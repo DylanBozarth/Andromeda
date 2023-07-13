@@ -16,7 +16,7 @@ export const LoginData = () => {
       ) : (
         <p>Register or login if fresh load</p>
       )}
-      <button className='auth-btn' onClick={handleLogout}>
+      <button style={{ border: '2px solid green' }} onClick={handleLogout}>
         LogOut
       </button>
     </div>
