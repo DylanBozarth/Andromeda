@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import { RegisterUser, registerUser } from '../clientLibrary/auth';
+import { RegisterUser, getUserDetails, registerUser } from '../clientLibrary/auth';
+import { useAppDispatch } from '../redux/hooks';
+import { fetchSectorData } from '../redux/sectorSlice';
 
 export const Register = () => {
+  const dispatch = useAppDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,10 +15,11 @@ export const Register = () => {
       password,
     };
     await registerUser(registerObj);
+    await dispatch(fetchSectorData());
   };
 
   return (
-    <div style={{ background: 'white', color: 'black', position: 'absolute', bottom: 0 }}>
+    <>
       <p>Register</p>
       <label>
         Email
@@ -26,6 +30,6 @@ export const Register = () => {
         <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
       <button onClick={handleClick}>Register</button>
-    </div>
+    </>
   );
 };

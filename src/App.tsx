@@ -9,6 +9,7 @@ import { PlanetView } from './views/planet-view';
 import { NCOView } from './views/NCO-view';
 import { Login } from './non-game-pages/login';
 import { Register } from './non-game-pages/register';
+import { LoginData } from './non-game-pages/loginData';
 
 function App() {
   console.log('galactic view render');
@@ -26,7 +27,10 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
       </Routes>
-      <Register />
+      <div style={{ position: 'absolute', bottom: 0, background: '#ccc', color: 'black' }}>
+        <Register />
+        <LoginData />
+      </div>
     </BrowserRouter>
   );
 }
