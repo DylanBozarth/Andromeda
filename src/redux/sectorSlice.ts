@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 import { Planet } from '../types/planet-interface';
+import { STRAPI_URL } from '../clientLibrary';
 
 export const fetchSectorData = createAsyncThunk('sectorSlice/fetchSectorData', async () => {
   try {
-    const response = await fetch('https://andromeda-backend-production.up.railway.app/api/sectors');
+    const response = await fetch(`${STRAPI_URL}/api/sectors`);
     const responseJson = await response.json();
     return responseJson.data[0].attributes.sectorA;
   } catch (error) {

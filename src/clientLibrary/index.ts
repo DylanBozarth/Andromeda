@@ -1,1 +1,1 @@
-export const DATA_API_URL = 'https://andromeda-space-game.herokuapp.com';
+export const STRAPI_URL = 'https://andromeda-backend-production.up.railway.app';
