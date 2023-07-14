@@ -12,7 +12,6 @@ import { Register } from './non-game-pages/register';
 import { LoginData } from './non-game-pages/loginData';
 
 function App() {
-  console.log('galactic view render');
   return (
     <BrowserRouter>
       <div className='background-class'></div>
@@ -27,8 +26,12 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
       </Routes>
-      <div style={{ position: 'absolute', bottom: 0, background: '#ccc', color: 'black' }}>
+      <div
+        className='auth'
+        style={{ zIndex: 99, position: 'absolute', bottom: 0, background: '#ccc', color: 'black' }}
+      >
         <Register />
+        <Login />
         <LoginData />
       </div>
     </BrowserRouter>

@@ -7,7 +7,6 @@ import { getToken } from './localStorage';
 export const fetchSectorData = createAsyncThunk('sectorSlice/fetchSectorData', async () => {
   try {
     const token = getToken();
-    console.log({ token });
     const response = await fetch(`${STRAPI_URL}/api/sectors`, {
       method: 'GET',
       headers: {
