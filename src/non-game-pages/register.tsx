@@ -1,9 +1,14 @@
-import { useState } from 'react';
-import { RegisterUser, registerUser } from '../clientLibrary/auth';
+import { useContext, useState } from 'react';
+import { RegisterUser, getUserDetails, registerUser } from '../clientLibrary/auth';
+import { useAppDispatch } from '../redux/hooks';
+import { fetchSectorData } from '../redux/sectorSlice';
+import { AuthContext } from '../context/AuthContext';
 
 export const Register = () => {
+  const dispatch = useAppDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { setUser } = useContext(AuthContext);
 
   const handleClick = async () => {
     const registerObj: RegisterUser = {
@@ -12,11 +17,15 @@ export const Register = () => {
       password,
     };
     await registerUser(registerObj);
+    await dispatch(fetchSectorData());
+    setUser();
+    setEmail('');
+    setPassword('');
   };
 
   return (
-    <div style={{ background: 'white', color: 'black', position: 'absolute', bottom: 0 }}>
-      <p>Register</p>
+    <>
+      <p>REGISTER</p>
       <label>
         Email
         <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -25,7 +34,9 @@ export const Register = () => {
         Password
         <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
-      <button onClick={handleClick}>Register</button>
-    </div>
+      <button style={{ border: '2px solid green' }} onClick={handleClick}>
+        Register
+      </button>
+    </>
   );
 };

@@ -5,10 +5,10 @@ export const UImaster: React.FC = () => {
     <div>
       <NavigationBar />
       <IconBar />
-
-      {/* for debug <a href='#' onClick={() => generateSystems()} className=' z-99 fixed mt-20'>
-          Generate new sector (debug)
-  </a> */}
+      {/* for debug{' '}
+      <a href='#' onClick={() => generateSystems()} className=' z-99 fixed mt-20'>
+        Generate new sector (debug)
+      </a> */}
     </div>
   );
 };

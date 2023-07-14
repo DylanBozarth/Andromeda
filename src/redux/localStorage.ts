@@ -18,3 +18,11 @@ export const saveState = (state) => {
     console.log(err);
   }
 };
+
+export const setToken = (userToken: string) => {
+  localStorage.setItem('jwt', userToken);
+};
+
+export const getToken = () => {
+  return localStorage.getItem('jwt');
+};
