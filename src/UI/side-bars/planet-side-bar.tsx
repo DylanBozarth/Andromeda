@@ -51,6 +51,7 @@ export const PlanetSideBar = ({
                     <div onClick={() => setToggleBuildings(!toggleBuildings)} className='ui-border-box'>Buildings</div>
                     <div onClick={() => setToggleResources(!toggleResources)} className='ui-border-box'>Desposits</div>
                 </div>
+                {playerPlanet.ownership === 'unowned' ? 'Claim it' : ''}
                 <FleetFloatMenu />
             </div>
             

@@ -132,6 +132,7 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
       'distance',
     );
   }
+  console.log(systems) // for logging it all to the console.
   return {
     systems,
     distancesMap,
