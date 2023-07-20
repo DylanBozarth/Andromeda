@@ -132,7 +132,11 @@ export const generateSector = (maxSystems: number, maxPlanets: number): Sector =
       'distance',
     );
   }
-  console.log(systems) // for logging it all to the console.
+  console.log({systems,
+    distancesMap,
+    NCO,
+    sectorName: 'sector-a', // Change this for other sectors
+    fleetsInTransit: []}) // for logging it all to the console.
   return {
     systems,
     distancesMap,
