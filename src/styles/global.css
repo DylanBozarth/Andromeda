@@ -34,10 +34,9 @@ body::-webkit-scrollbar {
 .non-game-page {
   z-index: 100;
   position: absolute;
-  margin-top: -15vh;
   height: 100vh;
-  width: 100vw; 
-  background-color: black;
+  width: 100vw;
   color: white;
+  background-color: black;
   border: 1px solid red;
 }

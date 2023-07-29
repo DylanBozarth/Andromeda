@@ -3,6 +3,8 @@ import { useAppDispatch } from '../redux/hooks';
 import { LoginUser, loginUser } from '../clientLibrary/auth';
 import { fetchSectorData } from '../redux/sectorSlice';
 import { AuthContext } from '../context/AuthContext';
+import { LoginData } from './loginData';
+import { Link } from 'react-router-dom';
 
 export const Login = () => {
   const dispatch = useAppDispatch();
@@ -22,6 +24,7 @@ export const Login = () => {
   };
   return (
     <>
+    <div className='non-game-page'>
       <p>LOGIN</p>
       <label>
         Email
@@ -34,6 +37,9 @@ export const Login = () => {
       <button style={{ border: '2px solid green' }} onClick={handleClick}>
         Login
       </button>
+      <Link to='/' className='p-2'>Back to homepage</Link>
+      <LoginData />
+      </div>
     </>
   );
 };

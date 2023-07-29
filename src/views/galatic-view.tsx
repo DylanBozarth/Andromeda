@@ -19,6 +19,9 @@ export const GalaticView = () => {
         news & updates: <br />
         still working on that front end <br />
         This is where we will put patch notes
+        <div>
+      <Link to='/login'>Login</Link> <br />
+      <Link to='/register'>Register</Link></div>
       </div>
 
       <div className='sectorawrapper'>
@@ -31,7 +34,7 @@ export const GalaticView = () => {
           </>
         ) : (
           <div>
-            <h1>Register at bottom to load sectors go to /login or /register</h1>
+            <h1>Register in the top left to load sectors </h1>
           </div>
         )}
       </div>

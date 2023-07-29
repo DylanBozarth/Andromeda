@@ -3,6 +3,8 @@ import { RegisterUser, getUserDetails, registerUser } from '../clientLibrary/aut
 import { useAppDispatch } from '../redux/hooks';
 import { fetchSectorData } from '../redux/sectorSlice';
 import { AuthContext } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
+import { LoginData } from './loginData';
 
 export const Register = () => {
   const dispatch = useAppDispatch();
@@ -25,6 +27,7 @@ export const Register = () => {
 
   return (
     <>
+    <div className='non-game-page'>
       <p>REGISTER</p>
       <label>
         Email
@@ -37,6 +40,9 @@ export const Register = () => {
       <button style={{ border: '2px solid green' }} onClick={handleClick}>
         Register
       </button>
+      <Link to='/' className='p-2'>Back to homepage</Link>
+      <LoginData />
+      </div>
     </>
   );
 };
