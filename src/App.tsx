@@ -30,10 +30,6 @@ function App() {
         className='auth'
         style={{ zIndex: 99, position: 'absolute', bottom: 0, background: '#ccc', color: 'black' }}
       >
-        
-        <Register />
-        <Login />
-        <LoginData />
       </div>
     </BrowserRouter>
   );

@@ -31,7 +31,7 @@ export const GalaticView = () => {
           </>
         ) : (
           <div>
-            <h1>Register at bottom to load sectors</h1>
+            <h1>Register at bottom to load sectors go to /login or /register</h1>
           </div>
         )}
       </div>
