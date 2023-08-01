@@ -1,7 +1,7 @@
 import '../../styles/user-interface-master.scss';
 export const ExplorePopUpMenu = () => {
   return (
-    <div className='mt-20 container '>
+    <div className='mt- container-fluid'>
       <div className='exploration-selection'>
         <div className='white-border-button text-center'>An unexpected guest</div>
         <div className='white-border-button text-center'>Pretend there&apos;s more stories</div>

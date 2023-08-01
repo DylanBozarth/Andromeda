@@ -1,12 +1,12 @@
 import '../styles/user-interface-master.scss'
 import { useState } from 'react';
-import { AlertsPopupMenu } from './icon-pop-ups/alerts';
-import { ResourcePopupMenu } from './icon-pop-ups/resources';
-import { FleetsPopupMenu } from './icon-pop-ups/fleets';
-import { PlanetManagerPopUpMenu } from './icon-pop-ups/planet-manager';
-import { ResearchPopUpMenu } from './icon-pop-ups/research';
-import { FactionsPopUpMenu } from './icon-pop-ups/factions';
-import { ExplorePopUpMenu } from './icon-pop-ups/exploration';
+import { AlertsPopupMenu } from './icon-menu-pop-ups/alerts';
+import { ResourcePopupMenu } from './icon-menu-pop-ups/resources';
+import { FleetsPopupMenu } from './icon-menu-pop-ups/fleets';
+import { PlanetManagerPopUpMenu } from './icon-menu-pop-ups/planet-manager';
+import { ResearchPopUpMenu } from './icon-menu-pop-ups/research';
+import { FactionsPopUpMenu } from './icon-menu-pop-ups/factions';
+import { ExplorePopUpMenu } from './icon-menu-pop-ups/exploration';
 export const IconBar = () => {
     const [openMenu, setOpenMenu] = useState('none');
     return (
@@ -16,12 +16,13 @@ export const IconBar = () => {
                     <div className='ui-border-box ' onClick={() => (openMenu === 'alerts' ? setOpenMenu('none') : setOpenMenu('alerts'))}>
                         <img src='../assets/alerts.png' height='50px' width='50px'></img> Alerts
                     </div>
+                    {/*
                     <div className='ui-border-box' onClick={() => (openMenu === 'planetManager' ? setOpenMenu('none') : setOpenMenu('planetManager'))}>
                         <img src='../assets/sample-image.png' height='50px' width='50px'></img>Planet Manager
                     </div>
                     <div className='ui-border-box' onClick={() => (openMenu === 'research' ? setOpenMenu('none') : setOpenMenu('research'))}>
                         <img src='../assets/sample-image.png' height='50px' width='50px'></img>Research
-                    </div>
+                    </div>*/}
                     <div className='ui-border-box' onClick={() => (openMenu === 'factions' ? setOpenMenu('none') : setOpenMenu('factions'))}>
                         <img src='../assets/sample-image.png' height='50px' width='50px'></img>Factions
                     </div>
