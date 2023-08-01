@@ -12,8 +12,8 @@ export const IconBar = () => {
     return (
         <div className='top-layer-menu'>
             <div className='fixed bottom-0 icon-bar '>
-                <div className='flex justify-center'> {/* center this somehow */}
-                    <div className='ui-border-box ' onClick={() => (openMenu === 'alerts' ? setOpenMenu('none') : setOpenMenu('alerts'))}>
+                <div className='flex justify-center'>
+                    <div className='ui-border-box' onClick={() => (openMenu === 'alerts' ? setOpenMenu('none') : setOpenMenu('alerts'))}>
                         <img src='../assets/alerts.png' height='50px' width='50px'></img> Alerts
                     </div>
                     {/*
