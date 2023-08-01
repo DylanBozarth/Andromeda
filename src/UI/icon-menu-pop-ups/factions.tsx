@@ -28,35 +28,34 @@ const [hidden, setHidden] = useState('active');
             </div>
             </div>
         <div className={hidden === 'factions' ? 'border-2 p-5 w-100' : 'hidden'}>
-            <div className='faction-list border-1'>
+            <div className='faction-list border-1 flex'>
                 <div className='p-5 border-1'>
                     <h4 className='text-center'>The Templars</h4>
                     <p>Reputation: Alright</p></div>
-                    <div className='text-center '>Intel</div>
+                    
                 <div className='p-5 border-1'>
                     <h4 className='text-center'>Princess Andromeda</h4>
                     <p>Reputation: Alright</p></div>
-                    <div className='text-center '>Intel</div>
+                    
                 <div className='p-5 border-1'>
                     <h4 className='text-center'>The Colonial Republic</h4>
                     <p>Reputation: Alright</p>
-                    </div><div className='text-center '>Intel</div>
+                    </div>
                 <div className='p-5 border-1'>
                     <h4 className='text-center'>The Circle of life</h4>
                     <p>Reputation: Alright</p></div>
-                    <div className='text-center '>Intel</div>
+                    
                 <div className='p-5 border-1'>
                     <h4 className='text-center'>New Dawn</h4>
                     <p>Reputation: Alright</p></div>
-                    <div className='text-center '>Intel</div>
                 <div className='p-5 border-1'>
                     <h4 className='text-center'>Caretakers</h4>
                     <p>Reputation: Alright</p>
-                </div><div className='text-center '>Intel</div>
+                </div>
                 <div className='p-5 border-1'>
                     <h4 className='text-center'>Wai-Xing</h4>
                     <p>Reputation: hated</p>
-                </div><div className='text-center '>Intel</div>
+                </div>
             </div>
            
             
