@@ -10,8 +10,8 @@ import { ExplorePopUpMenu } from './icon-menu-pop-ups/exploration';
 export const IconBar = () => {
     const [openMenu, setOpenMenu] = useState('none');
     return (
-        <div className='top-layer-menu'>
-            <div className='fixed bottom-0 icon-bar '>
+        <div className='top-layer-menu'> {/* do not consolidate classes here, as they will apply to the pop up menus too */}
+            <div className='icon-bar fixed bottom-0'>
                 <div className='flex justify-center'>
                     <div className='ui-border-box' onClick={() => (openMenu === 'alerts' ? setOpenMenu('none') : setOpenMenu('alerts'))}>
                         <img src='../assets/alerts.png' height='50px' width='50px'></img> Alerts
@@ -22,12 +22,16 @@ export const IconBar = () => {
                     </div>
                     <div className='ui-border-box' onClick={() => (openMenu === 'research' ? setOpenMenu('none') : setOpenMenu('research'))}>
                         <img src='../assets/sample-image.png' height='50px' width='50px'></img>Research
+                    </div>
+                    
+                    <div className='ui-border-box' onClick={() => (openMenu === 'exploration' ? setOpenMenu('none') : setOpenMenu('exploration'))}>
+                        <img src='../assets/sample-image.png' height='50px' width='50px'></img>Exploration
                     </div>*/}
                     <div className='ui-border-box' onClick={() => (openMenu === 'factions' ? setOpenMenu('none') : setOpenMenu('factions'))}>
                         <img src='../assets/sample-image.png' height='50px' width='50px'></img>Factions
                     </div>
-                    <div className='ui-border-box' onClick={() => (openMenu === 'exploration' ? setOpenMenu('none') : setOpenMenu('exploration'))}>
-                        <img src='../assets/sample-image.png' height='50px' width='50px'></img>Exploration
+                    <div className='ui-border-box' onClick={() => (openMenu === 'fleets' ? setOpenMenu('none') : setOpenMenu('fleets'))}>
+                        <img src='../assets/sample-image.png' height='50px' width='50px'></img>Fleets
                     </div>
                 </div>
             </div>
@@ -56,6 +60,11 @@ export const IconBar = () => {
                 <div className={openMenu === 'exploration' ? '' : 'hidden'}>
                     <div className='pop-up-menu'>
                         <ExplorePopUpMenu />
+                    </div>
+                </div>
+                <div className={openMenu === 'fleets' ? '' : 'hidden'}>
+                    <div className='pop-up-menu'>
+                        <FleetsPopupMenu />
                     </div>
                 </div>
             </div>
