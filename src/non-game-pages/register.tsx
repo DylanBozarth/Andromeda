@@ -31,11 +31,11 @@ export const Register = () => {
       <p>REGISTER</p>
       <label>
         Email
-        <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type='email' value={email}  className=' text-black'  onChange={(e) => setEmail(e.target.value)} />
       </label>
       <label>
         Password
-        <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type='password' value={password}  className=' text-black'  onChange={(e) => setPassword(e.target.value)} />
       </label>
       <button style={{ border: '2px solid green' }} onClick={handleClick}>
         Register
