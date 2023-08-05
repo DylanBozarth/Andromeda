@@ -4,7 +4,7 @@ import { NavigationBar } from './navigation-bar';
 export const UImaster: React.FC = () => {
   // const sector = generateSector(10, 8);
   return (
-    <div>
+    <div className=''>
       <NavigationBar />
       <IconBar />
       {/* Uncomment all of this out if you need to generate a new sector

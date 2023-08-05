@@ -14,39 +14,11 @@ export const SectorA = () => {
   const sector = useAppSelector((state) => state.sector.activeSector.sector);
   {
     return (
-      <div className='sector-view'>
+      <div className='sector-view '>
         <div className='sector-background'></div>
         <SectorSideBar />
-        <div className='row'>
-          {sector.NCO.map((single) => {
-            return (
-              <div
-                key={single.cords}
-                style={{
-                  left: `${getXfromCords(single.cords)}vw`,
-                  top: `${getYfromCords(single.cords)}vh`,
-                }}
-                onMouseOver={() => setHidden(single.name)}
-                className='relative sector-star'
-              >
-                <Link
-                  to={`/${sector.sectorName}/${single.name}`}
-                  onClick={() => dispatch(setNCO(single))}
-                >
-                  <NCOComponent
-                    NCOType={single.type}
-                    effect={single.effect}
-                    cords={single.cords}
-                    NCOName={single.name}
-                    distanceMapValues={sector.distancesMap[single.cords]}
-                  />
-                </Link>
-                <div className={hidden === single.name ? 'asda' : 'hidden'}>
-                  {single.type}, <br /> {single.name}
-                </div>
-              </div>
-            );
-          })}
+        <div className=''>
+          
           {sector.systems.map((item) => {
             return (
               <div
@@ -73,6 +45,35 @@ export const SectorA = () => {
                   {item.systemPlanets.map((planets) => {
                     return <div key={planets.name}>{planets.ownership}</div>;
                   })}
+                </div>
+              </div>
+            );
+          })}
+          {sector.NCO.map((single) => {
+            return (
+              <div
+                key={single.cords}
+                style={{
+                  left: `${getXfromCords(single.cords)}vw`,
+                  top: `${getYfromCords(single.cords)}vh`,
+                }}
+                onMouseOver={() => setHidden(single.name)}
+                className='relative sector-star'
+              >
+                <Link
+                  to={`/${sector.sectorName}/${single.name}`}
+                  onClick={() => dispatch(setNCO(single))}
+                >
+                  <NCOComponent
+                    NCOType={single.type}
+                    effect={single.effect}
+                    cords={single.cords}
+                    NCOName={single.name}
+                    distanceMapValues={sector.distancesMap[single.cords]}
+                  />
+                </Link>
+                <div className={hidden === single.name ? 'asda' : 'hidden'}>
+                  {single.type}, <br /> {single.name}
                 </div>
               </div>
             );

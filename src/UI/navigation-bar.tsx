@@ -39,7 +39,7 @@ export const NavigationBar = () => {
     setUserPlanet('')
   }
   return (
-    <div className='top-layer-menu sticky top-0  mt-10 sci-fi-thing '>
+    <div className='top-layer-menu top-0 fixed  sci-fi-thing '>
       <div className='justify-content-center flex'>
           <Link to='/' className=''>
             <div className='ui-border-box'>
