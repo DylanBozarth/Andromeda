@@ -1,7 +1,7 @@
 import '../styles/user-interface-master.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useAppSelector } from '../redux/hooks';
+
 export const NavigationBar = () => {
   const [userSector, setUserSector] = useState('');
   const [userSystem, setUserSystem] = useState('');
@@ -17,9 +17,9 @@ export const NavigationBar = () => {
       userSector === '' ? setUserSector(splitLocation[1]) : '';
     }
     if (/\d/.test(currentLocation)) { // check for numbers in name for NCO
-        setUserSystem(splitLocation[2]);
-        setUserPlanet(''); 
-        setIsNCO(true);
+      setUserSystem(splitLocation[2]);
+      setUserPlanet('');
+      setIsNCO(true);
     }
     if (currentLocation.includes('system')) {
       setUserSystem(splitLocation[3]);
@@ -39,49 +39,51 @@ export const NavigationBar = () => {
     setUserPlanet('')
   }
   return (
-    <div className='navigation-bar sci-fi-thing fixed w-screen top-0 mt-10'>
-      <div className='flex justify-content-center'>
-        <Link to='/' className=''>
-          <div className='ui-border-box'>
-            <div className='navigation-bar-text' onClick={() => clearEverything()}>Andromeda</div>
-          </div>
-        </Link>
-      </div>
-      <div className='flex justify-content-center'>
-        { /* Sector */}
-        <Link to={`/${userSector}`} className='navigation-bar-text' onClick={() => clearPlanetAndSystem()}>
+    <div className='top-layer-menu sticky top-0  mt-10 sci-fi-thing '>
+      <div className='justify-content-center flex'>
+          <Link to='/' className=''>
+            <div className='ui-border-box'>
+              <div className='navigation-bar-text' onClick={() => clearEverything()}>Andromeda</div>
+            </div>
+          </Link>
+        </div>
+        <div className='justify-content-center flex'>
+        <div className=' flex'>
+          { /* Sector */}
+          <Link to={`/${userSector}`} className='navigation-bar-text' onClick={() => clearPlanetAndSystem()}>
+            <div
+              className={
+                userSector
+                  ? 'ui-border-box'
+                  : ''
+              }
+              onClick={() => setUserSystem('')}
+            >
+              <div className='navigation-bar-text'>{userSector}</div>
+            </div>
+          </Link>
+          { /* System */}
+          <Link to={isNCO ? `/${userSector}/${userSystem}` : `/${userSector}/system/${userSystem}`}> 
+            <div
+              className={
+                userSystem
+                  ? 'ui-border-box'
+                  : ''
+              }
+            >
+              <div className='navigation-bar-text' onClick={() => setUserPlanet('')}>{userSystem}</div>
+            </div>
+          </Link>
+          { /* planet */}
           <div
             className={
-              userSector
+              userPlanet
                 ? 'ui-border-box'
                 : ''
             }
-            onClick={() => setUserSystem('')}
           >
-            <div className='navigation-bar-text'>{userSector}</div>
+            <div className='navigation-bar-text'>{userPlanet}</div>
           </div>
-        </Link>
-        { /* System */}
-        <Link to={isNCO ? `/${userSector}/${userSystem}` : `/${userSector}/system/${userSystem}`}> {/* TODO dont link away from NCO */}
-          <div
-            className={
-              userSystem
-                ? 'ui-border-box'
-                : ''
-            }
-          >
-            <div className='navigation-bar-text' onClick={() => setUserPlanet('')}>{userSystem}</div>
-          </div>
-        </Link>
-        { /* planet */}
-        <div
-          className={
-            userPlanet
-              ? 'ui-border-box'
-              : ''
-          }
-        >
-          <div className='navigation-bar-text'>{userPlanet}</div>
         </div>
       </div>
     </div>
