@@ -13,7 +13,7 @@ export const PlanetView = () => {
     console.log(playerPlanet)
   }, [])
   return (
-    <div className={'playerSystemArray-view-wrapper '}>
+    <div className=''>
       {playerPlanetArray.map((planet) => {
         return (
           <div key="planet-view" className='flex'>

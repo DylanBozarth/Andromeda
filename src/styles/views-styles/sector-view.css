@@ -6,6 +6,8 @@
 }
 .sector-view {
   margin-top: 15vh;
+  overflow: hidden;
+  margin-bottom: 15vh;
 }
 .sector-star {
   width: 10px;
