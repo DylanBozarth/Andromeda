@@ -47,14 +47,15 @@ export const PlanetSideBar = ({
                         <div className='m-2 text-center border-2 flex'><p className='p-2'>Like 6 rocks</p></div>
                     </div>
                 </div>
-                <div className='flex p-1 justify-center'>
-                    <div onClick={() => setToggleBuildings(!toggleBuildings)} className='ui-border-box'>Buildings</div>
-                    <div onClick={() => setToggleResources(!toggleResources)} className='ui-border-box'>Desposits</div>
-                </div>
+                
                 <div className='text-center p-1 ui-border-box'>
                 {playerPlanet.ownership === 'unowned' ? 'Claim this planet' : ''}
                 </div>
                 <FleetFloatMenu />
+                <div className='flex p-1 justify-center'>
+                    <div onClick={() => setToggleBuildings(!toggleBuildings)} className='ui-border-box p-2'>Buildings</div>
+                    <div onClick={() => setToggleResources(!toggleResources)} className='ui-border-box p-2'>Desposits</div>
+                </div>
             </div>
             
         </div>

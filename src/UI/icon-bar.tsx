@@ -21,7 +21,6 @@ export const IconBar = () => {
                     </div>
                     <div className='ui-border-box' onClick={() => (openMenu === 'science' ? setOpenMenu('none') : setOpenMenu('science'))}>
                         <div className='icon-bar-science-icon p-4 icon-bar-text'>Science</div>
-                        <p></p>
                     </div>
                 </div>
             </div>
