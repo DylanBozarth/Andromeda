@@ -14,7 +14,6 @@ $blue-green: #7CBDBD;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
-  padding: 10px;
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s;
@@ -164,4 +163,34 @@ $blue-green: #7CBDBD;
   border-radius: 25%;
   width: 100vw;
 }
-
+.icon-bar-text {
+  color: $main;
+  text-shadow:
+  0.03em 0 black,
+  0 0.03em black,
+  -0.03em 0 black,
+  0 -0.03em black,
+  -0.03em -0.03em black,
+  -0.03em 0.03em black,
+  0.03em -0.03em black,
+  0.03em 0.03em black;
+  font-weight: bolder;
+}
+.icon-bar-military-icon {
+  background-image: url('../../public/assets/military.png');
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.icon-bar-economy-icon {
+  background-image: url('../../public/assets/economy.png');
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.icon-bar-science-icon {
+  background-image: url('../../public/assets/science.png');
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
