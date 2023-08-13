@@ -42,19 +42,19 @@ export const NavigationBar = () => {
     <div className='top-layer-menu top-0 fixed  sci-fi-thing '>
       <div className='justify-content-center flex'>
           <Link to='/' className=''>
-            <div className='ui-border-box'>
+            <div className='ui-border-box p-3'>
               <div className='navigation-bar-text' onClick={() => clearEverything()}>Andromeda</div>
             </div>
           </Link>
         </div>
         <div className='justify-content-center flex'>
-        <div className=' flex'>
+        <div className=' flex '>
           { /* Sector */}
           <Link to={`/${userSector}`} className='navigation-bar-text' onClick={() => clearPlanetAndSystem()}>
             <div
               className={
                 userSector
-                  ? 'ui-border-box'
+                  ? 'ui-border-box  p-3'
                   : ''
               }
               onClick={() => setUserSystem('')}
@@ -67,7 +67,7 @@ export const NavigationBar = () => {
             <div
               className={
                 userSystem
-                  ? 'ui-border-box'
+                  ? 'ui-border-box  p-3'
                   : ''
               }
             >
@@ -78,7 +78,7 @@ export const NavigationBar = () => {
           <div
             className={
               userPlanet
-                ? 'ui-border-box'
+                ? 'ui-border-box  p-3'
                 : ''
             }
           >
