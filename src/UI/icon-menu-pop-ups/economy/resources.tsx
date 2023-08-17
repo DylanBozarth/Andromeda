@@ -1,7 +1,7 @@
 import { playerRawResources } from '../../../player-data/raw-resources'
 import { playerRefinedResources } from '../../../player-data/refined-resources'
 import { playerRareResources } from '../../../player-data/rare-resources'
-import '../../styles/user-interface-master.scss';
+import '../../../styles/user-interface-master.scss';
 export const ResourcePopupMenu = () => {
     return (
         <div className='flex p-2'>

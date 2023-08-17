@@ -1,4 +1,4 @@
-import '../../styles/user-interface-master.scss';
+import '../../../styles/user-interface-master.scss';
 import { useState } from 'react';
 export const FactionsPopUpMenu = () => {
 const [hidden, setHidden] = useState('active');

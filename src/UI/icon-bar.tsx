@@ -1,13 +1,8 @@
 import '../styles/user-interface-master.scss'
 import { useState } from 'react';
-import { AlertsPopupMenu } from './icon-menu-pop-ups/military/alerts';
-import { ResourcePopupMenu } from './icon-menu-pop-ups/economy/resources';
-import { FleetsPopupMenu } from './icon-menu-pop-ups/military/fleets';
-import { PlanetManagerPopUpMenu } from './icon-menu-pop-ups/economy/planet-manager';
-import { ResearchPopUpMenu } from './icon-menu-pop-ups/science/research';
-import { FactionsPopUpMenu } from './icon-menu-pop-ups/science/factions';
-import { ExplorePopUpMenu } from './icon-menu-pop-ups/science/exploration';
 import { MilitaryMenu } from './icon-menu-pop-ups/military/military-menu';
+import { EconomyMenu } from './icon-menu-pop-ups/economy/economy-menu';
+import { ScienceMenu } from './icon-menu-pop-ups/science/science-menu';
 export const IconBar = () => {
     const [openMenu, setOpenMenu] = useState('none');
     return (
@@ -28,8 +23,7 @@ export const IconBar = () => {
                     </div>
                 </div>
             </div>
-            <div className='top-layer-menu m-10 fixed'>
-                {/* pop up menus, im sure there's a way to do this DRY style but I cant be bothered to find it. */}
+            <div className='middle-layer-menu m-10 fixed'>
                 <div className={openMenu === 'military' ? '' : 'hidden'}>
                     <div className='pop-up-menu'>
                         <MilitaryMenu />
@@ -37,12 +31,12 @@ export const IconBar = () => {
                 </div>
                 <div className={openMenu === 'economy' ? '' : 'hidden'}>
                     <div className='pop-up-menu'>
-                        <PlanetManagerPopUpMenu />
+                        <EconomyMenu />
                     </div>
                 </div>
                 <div className={openMenu === 'science' ? '' : 'hidden'}>
                     <div className='pop-up-menu'>
-                        <ResearchPopUpMenu />
+                        <ScienceMenu />
                     </div>
                 </div>
             </div>

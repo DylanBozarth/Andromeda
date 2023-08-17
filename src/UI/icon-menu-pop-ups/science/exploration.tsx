@@ -1,4 +1,4 @@
-import '../../styles/user-interface-master.scss';
+import '../../../styles/user-interface-master.scss';
 export const ExplorePopUpMenu = () => {
   return (
     <div className=' container-fluid'>
@@ -24,31 +24,6 @@ export const ExplorePopUpMenu = () => {
           Aenean vel elit scelerisque mauris pellentesque pulvinar. Scelerisque eleifend donec
           pretium vulputate sapien nec. Suspendisse interdum consectetur libero id faucibus nisl
           tincidunt eget. Vel orci porta non pulvinar. Tellus in metus vulputate eu scelerisque.
-          Ultricies mi eget mauris pharetra et. Velit euismod in pellentesque massa placerat
-          duis.Vel orci porta non pulvinar. Tellus in metus vulputate eu scelerisque. Ultricies mi
-          eget mauris pharetra et. Velit euismod in pellentesque massa placerat duis.Vel orci porta
-          non pulvinar. Tellus in metus vulputate eu scelerisque. Ultricies mi eget mauris pharetra
-          et. Velit euismod in pellentesque massa placerat duis.Vel orci porta non pulvinar. Tellus
-          in metus vulputate eu scelerisque. Ultricies mi eget mauris pharetra et. Velit euismod in
-          pellentesque massa placerat duis.Vel orci porta non pulvinar. Tellus in metus vulputate eu
-          scelerisque. Ultricies mi eget mauris pharetra et. Velit euismod in pellentesque massa
-          placerat duis.Vel orci porta non pulvinar. Tellus in metus vulputate eu scelerisque.
-          Ultricies mi eget mauris pharetra et. Velit euismod in pellentesque massa placerat
-          duis.Vel orci porta non pulvinar. Tellus in metus vulputate eu scelerisque. Ultricies mi
-          eget mauris pharetra et. Velit euismod in pellentesque massa placerat duis.Vel orci porta
-          non pulvinar. Tellus in metus vulputate eu scelerisque. Ultricies mi eget mauris pharetra
-          et. Velit euismod in pellentesque massa placerat duis.Vel orci porta non pulvinar. Tellus
-          in metus vulputate eu scelerisque. Ultricies mi eget mauris pharetra et. Velit euismod in
-          pellentesque massa placerat duis.Vel orci porta non pulvinar. Tellus in metus vulputate eu
-          scelerisque. Ultricies mi eget mauris pharetra et. Velit euismod in pellentesque massa
-          placerat duis.Vel orci porta non pulvinar. Tellus in metus vulputate eu scelerisque.
-          Ultricies mi eget mauris pharetra et. Velit euismod in pellentesque massa placerat duis.
-          Vel orci porta non pulvinar. Tellus in metus vulputate eu scelerisque. Ultricies mi eget
-          mauris pharetra et. Velit euismod in pellentesque massa placerat duis. Imperdiet massa
-          tincidunt nunc pulvinar. Lectus urna duis convallis convallis tellus id interdum velit.
-          Volutpat lacus laoreet non curabitur gravida arcu. Nec ultrices dui sapien eget mi proin
-          sed libero. At ultrices mi tempus imperdiet nulla malesuada. Orci nulla pellentesque
-          dignissim enim sit. Vitae et leo duis ut diam quam nulla.
         </div>
       </div>
     </div>

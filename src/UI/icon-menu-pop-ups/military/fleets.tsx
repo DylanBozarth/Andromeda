@@ -1,7 +1,7 @@
 import '../../../styles/user-interface-master.scss';
 export const FleetsPopupMenu = () => {
     return (
-        <div className='container border-1 ui-orange-box p-3'>
+        <div className='container ui-orange-box p-3'>
             <h4 className='text-center'>Fleets <br /> This will display ALL fleets not just local ones</h4>
             <div className='border-1 p-1 fleet-menu-fleet cursor-pointer'><b>ST@RK!LLERzXXX42069</b>
                 <p>alderon system</p> { /* location */ } 
