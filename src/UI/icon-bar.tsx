@@ -13,14 +13,17 @@ export const IconBar = () => {
         <div className='top-layer-menu'> {/* do not consolidate classes here, as they will apply to the pop up menus too */}
             <div className='icon-bar fixed bottom-0'>
                 <div className='flex justify-center'>
-                    <div className='ui-border-box ' onClick={() => (openMenu === 'military' ? setOpenMenu('none') : setOpenMenu('military'))}>
-                        <div className='icon-bar-military-icon p-4 icon-bar-text'>Military</div>
+                    <div className='ui-border-box p-3' onClick={() => (openMenu === 'military' ? setOpenMenu('none') : setOpenMenu('military'))}>
+                        <div className='icon-bar-military-icon p-4'></div>
+                        <p className='icon-bar-text'>Military</p>
                     </div>
-                    <div className='ui-border-box' onClick={() => (openMenu === 'economy' ? setOpenMenu('none') : setOpenMenu('economy'))}>
-                        <div className='icon-bar-economy-icon p-4 icon-bar-text'>Economy</div>
+                    <div className='ui-border-box p-3' onClick={() => (openMenu === 'economy' ? setOpenMenu('none') : setOpenMenu('economy'))}>
+                        <div className='icon-bar-economy-icon p-4'></div>
+                        <p className='icon-bar-text'>Economy</p>
                     </div>
-                    <div className='ui-border-box' onClick={() => (openMenu === 'science' ? setOpenMenu('none') : setOpenMenu('science'))}>
-                        <div className='icon-bar-science-icon p-4 icon-bar-text'>Science</div>
+                    <div className='ui-border-box p-3' onClick={() => (openMenu === 'science' ? setOpenMenu('none') : setOpenMenu('science'))}>
+                        <div className='icon-bar-science-icon p-4'></div>
+                        <p className='icon-bar-text'>Science</p>
                     </div>
                 </div>
             </div>
