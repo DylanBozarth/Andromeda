@@ -1,12 +1,13 @@
 import '../styles/user-interface-master.scss'
 import { useState } from 'react';
-import { AlertsPopupMenu } from './icon-menu-pop-ups/alerts';
-import { ResourcePopupMenu } from './icon-menu-pop-ups/resources';
-import { FleetsPopupMenu } from './icon-menu-pop-ups/fleets';
-import { PlanetManagerPopUpMenu } from './icon-menu-pop-ups/planet-manager';
-import { ResearchPopUpMenu } from './icon-menu-pop-ups/research';
-import { FactionsPopUpMenu } from './icon-menu-pop-ups/factions';
-import { ExplorePopUpMenu } from './icon-menu-pop-ups/exploration';
+import { AlertsPopupMenu } from './icon-menu-pop-ups/military/alerts';
+import { ResourcePopupMenu } from './icon-menu-pop-ups/economy/resources';
+import { FleetsPopupMenu } from './icon-menu-pop-ups/military/fleets';
+import { PlanetManagerPopUpMenu } from './icon-menu-pop-ups/economy/planet-manager';
+import { ResearchPopUpMenu } from './icon-menu-pop-ups/science/research';
+import { FactionsPopUpMenu } from './icon-menu-pop-ups/science/factions';
+import { ExplorePopUpMenu } from './icon-menu-pop-ups/science/exploration';
+import { MilitaryMenu } from './icon-menu-pop-ups/military/military-menu';
 export const IconBar = () => {
     const [openMenu, setOpenMenu] = useState('none');
     return (
@@ -29,34 +30,19 @@ export const IconBar = () => {
             </div>
             <div className='top-layer-menu m-10 fixed'>
                 {/* pop up menus, im sure there's a way to do this DRY style but I cant be bothered to find it. */}
-                <div className={openMenu === 'alerts' ? '' : 'hidden'}>
-                    <div className=''>
-                        <AlertsPopupMenu />
+                <div className={openMenu === 'military' ? '' : 'hidden'}>
+                    <div className='pop-up-menu'>
+                        <MilitaryMenu />
                     </div>
                 </div>
-                <div className={openMenu === 'planetManager' ? '' : 'hidden'}>
+                <div className={openMenu === 'economy' ? '' : 'hidden'}>
                     <div className='pop-up-menu'>
                         <PlanetManagerPopUpMenu />
                     </div>
                 </div>
-                <div className={openMenu === 'research' ? '' : 'hidden'}>
+                <div className={openMenu === 'science' ? '' : 'hidden'}>
                     <div className='pop-up-menu'>
                         <ResearchPopUpMenu />
-                    </div>
-                </div>
-                <div className={openMenu === 'factions' ? '' : 'hidden'}>
-                    <div className='pop-up-menu'>
-                        <FactionsPopUpMenu />
-                    </div>
-                </div>
-                <div className={openMenu === 'exploration' ? '' : 'hidden'}>
-                    <div className='pop-up-menu'>
-                        <ExplorePopUpMenu />
-                    </div>
-                </div>
-                <div className={openMenu === 'fleets' ? '' : 'hidden'}>
-                    <div className='pop-up-menu'>
-                        <FleetsPopupMenu />
                     </div>
                 </div>
             </div>

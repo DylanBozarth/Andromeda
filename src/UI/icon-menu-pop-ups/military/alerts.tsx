@@ -1,4 +1,4 @@
-import '../../styles/user-interface-master.scss';
+import '../../../styles/user-interface-master.scss';
 export const AlertsPopupMenu = () => {
     return (
         <div className='ui-blue-box top-layer-menu pop-up-menu-background  p-3'>
