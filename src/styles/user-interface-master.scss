@@ -153,7 +153,11 @@ $blue-green: #7CBDBD;
 .pop-up-menu {
   background-color: black;
   border: 2px solid $border;
+  position: fixed;
   color: $blue-green;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .icon-bar {
   /* this is centering a fixed element */

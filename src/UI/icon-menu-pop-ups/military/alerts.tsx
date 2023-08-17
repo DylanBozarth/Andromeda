@@ -1,7 +1,7 @@
-import '../../styles/user-interface-master.scss';
+import '../../../styles/user-interface-master.scss';
 export const AlertsPopupMenu = () => {
     return (
-        <div className='ui-blue-box top-layer-menu pop-up-menu-background  p-3'>
+        <div className=' top-layer-menu pop-up-menu-background  p-3'>
             <div className='border-1 cursor-pointer m-2'>
                 <p>Arrakis System</p> {/* location */ }
                 <p>Unknown ship detected</p> {/* brief summary */ }
