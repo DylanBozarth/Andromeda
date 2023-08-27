@@ -14,4 +14,9 @@ Feel free to reach out if you have any questions!
 To start the game in destop mode:
 First run ```npm start```
 Then run ```Electron .```
-````
+
+<br />
+In order to get started, assign yourself to a ticket and create a branch with that ticket's name or number. 
+<br />
+Good luck! Reach out to <a href="https://discord.gg/JQfTFY3MDb">our discord</a> with questions.
+
