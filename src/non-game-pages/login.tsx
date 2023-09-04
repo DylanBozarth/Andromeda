@@ -35,11 +35,11 @@ export const Login = () => {
         </div>
         <form>
           <div className="user-box">
-            <input type="text" value={email} name="" onChange={(e) => setEmail(e.target.value)} />
+            <input type="text" value={email} name="" onChange={(e) => setEmail(e.target.value)} required />
             <label className=''>Username</label>
           </div>
           <div className="user-box">
-            <input type="password" name="" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input type="password" name="" value={password} onChange={(e) => setPassword(e.target.value)} required={true} />
             <label>Password</label>
           </div>
           <a href="#" onClick={handleClick} className='glow'>

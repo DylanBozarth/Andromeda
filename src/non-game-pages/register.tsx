@@ -14,7 +14,14 @@ export const Register = () => {
   const { setUser } = useContext(AuthContext);
 
   const handleClick = async () => {
-    if (password === password2) {
+    if (password !== password2) {
+      alert('Your passwords do not match')
+    }
+    if (password.length < 6) {
+      alert('Your password needs to be a least 6 characters')
+    }
+    // add more validation here as we go
+    else {
       const registerObj: RegisterUser = {
         username: email,
         email,
@@ -25,9 +32,6 @@ export const Register = () => {
       setUser();
       setEmail('');
       setPassword('');
-    } 
-    else {
-      alert('Your passwords do not match')
     }
 
   };
