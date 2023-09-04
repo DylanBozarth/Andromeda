@@ -23,23 +23,29 @@ export const Login = () => {
     setPassword('');
   };
   return (
-    <>
-    <div className='non-game-page'>
-      <p>LOGIN</p>
-      <label>
-        Email
-        <input type='email' value={email} className=' text-black' onChange={(e) => setEmail(e.target.value)} />
-      </label>
-      <label>
-        Password
-        <input type='password' value={password}  className=' text-black'  onChange={(e) => setPassword(e.target.value)} />
-      </label>
-      <button style={{ border: '2px solid green' }} onClick={handleClick}>
-        Login
-      </button>
-      <Link to='/' className='p-2'>Back to homepage</Link>
-      <LoginData />
+
+    <div className='non-game-page flex'>
+      <div className="login-box">
+        <h2>Login </h2>
+        <form>
+          <div className="user-box">
+            <input type="text" name="" />
+            <label className=''>Username</label>
+          </div>
+          <div className="user-box">
+            <input type="password" name="" />
+            <label>Password</label>
+          </div>
+          <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Login
+          </a>
+        </form>
       </div>
-    </>
+      <LoginData />
+    </div>
   );
 };
