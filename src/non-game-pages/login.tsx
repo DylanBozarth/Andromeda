@@ -23,23 +23,35 @@ export const Login = () => {
     setPassword('');
   };
   return (
-    <>
-    <div className='non-game-page'>
-      <p>LOGIN</p>
-      <label>
-        Email
-        <input type='email' value={email} className=' text-black' onChange={(e) => setEmail(e.target.value)} />
-      </label>
-      <label>
-        Password
-        <input type='password' value={password}  className=' text-black'  onChange={(e) => setPassword(e.target.value)} />
-      </label>
-      <button style={{ border: '2px solid green' }} onClick={handleClick}>
-        Login
-      </button>
-      <Link to='/' className='p-2'>Back to homepage</Link>
-      <LoginData />
+
+    <div className='non-game-page flex'>
+      <Link to='/' className='m-5'>Back to homepage</Link>
+      <div className="login-box">
+
+        <div className='text-center p-3'>
+          <h2>Login </h2>
+          <LoginData />
+          If you don&apos;t have an account, <Link to='/register' className=''>Register here.</Link> 
+        </div>
+        <form>
+          <div className="user-box">
+            <input type="text" value={email} name="" onChange={(e) => setEmail(e.target.value)} required />
+            <label className=''>Username</label>
+          </div>
+          <div className="user-box">
+            <input type="password" name="" value={password} onChange={(e) => setPassword(e.target.value)} required={true} />
+            <label>Password</label>
+          </div>
+          <a href="#" onClick={handleClick} className='glow'>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Login
+          </a>
+          
+        </form>
       </div>
-    </>
+    </div>
   );
 };

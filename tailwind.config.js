@@ -6,3 +6,4 @@ module.exports = {
   },
   plugins: [],
 }
+/* DO NOT CHANGE TO TYPESCRIPT */

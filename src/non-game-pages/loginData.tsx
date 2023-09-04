@@ -12,13 +12,16 @@ export const LoginData = () => {
   return (
     <div>
       {user && user.username ? (
-        <p>Logged in user: {user?.username}</p>
+        <div>
+          <p>Logged in user: {user?.username}</p>
+          <button style={{ border: '2px solid green' }} onClick={handleLogout}>
+            LogOut
+          </button>
+        </div>
       ) : (
-        <p>Register or login if fresh load</p>
+        <p>You are not logged in</p>
       )}
-      <button style={{ border: '2px solid green' }} onClick={handleLogout}>
-        LogOut
-      </button>
+
     </div>
   );
 };
