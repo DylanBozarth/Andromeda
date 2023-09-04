@@ -25,21 +25,24 @@ export const Login = () => {
   return (
 
     <div className='non-game-page flex'>
+      <Link to='/' className='m-5'>Back to homepage</Link>
       <div className="login-box">
-        <div className='text-center'>
-        <h2>Login </h2>
-        <LoginData />
+
+        <div className='text-center p-3'>
+          <h2>Login </h2>
+          <LoginData />
+          If you don&apos;t have an account, <Link to='/register' className=''>Register here.</Link> 
         </div>
         <form>
           <div className="user-box">
-            <input type="text" name="" />
+            <input type="text" value={email} name="" onChange={(e) => setEmail(e.target.value)} />
             <label className=''>Username</label>
           </div>
           <div className="user-box">
-            <input type="password" name="" />
+            <input type="password" name="" value={password} onChange={(e) => setPassword(e.target.value)} />
             <label>Password</label>
           </div>
-          <a href="#">
+          <a href="#" onClick={handleClick} className='glow'>
             <span></span>
             <span></span>
             <span></span>
