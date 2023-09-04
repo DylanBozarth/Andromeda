@@ -26,7 +26,10 @@ export const Login = () => {
 
     <div className='non-game-page flex'>
       <div className="login-box">
+        <div className='text-center'>
         <h2>Login </h2>
+        <LoginData />
+        </div>
         <form>
           <div className="user-box">
             <input type="text" name="" />
@@ -43,9 +46,9 @@ export const Login = () => {
             <span></span>
             Login
           </a>
+          
         </form>
       </div>
-      <LoginData />
     </div>
   );
 };

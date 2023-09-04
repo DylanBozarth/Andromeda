@@ -35,7 +35,9 @@ body::-webkit-scrollbar {
 /* styles for menus and other not game pages */
 .non-game-page {
   z-index: 100; /* above everything else */
-
+  width: 100vw;
+  height: 100vh;
+  position: absolute; /* toggle this to allow things to show behind it */
   background-color: black;
 }
 .center-in-middle {
@@ -44,7 +46,7 @@ body::-webkit-scrollbar {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
-/* login form */
+/* login form, even though these are all labeled "login" we also use them for registration */
 html {
   height: 100%;
 }
