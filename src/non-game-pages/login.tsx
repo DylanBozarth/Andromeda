@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { useAppDispatch } from '../redux/hooks';
 import { LoginUser, loginUser } from '../clientLibrary/auth';
 import { fetchSectorData } from '../redux/sectorSlice';
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from './AuthProvider/context/AuthContext';
 import { LoginData } from './loginData';
 import { Link } from 'react-router-dom';
 

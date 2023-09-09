@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext } from './context/AuthContext';
 import { getToken } from '../../redux/localStorage';
 import { STRAPI_URL } from '../../clientLibrary';
 

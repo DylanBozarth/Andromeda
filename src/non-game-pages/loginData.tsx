@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from './AuthProvider/context/AuthContext';
 import { setToken } from '../redux/localStorage';
 
 export const LoginData = () => {
