@@ -1,4 +1,4 @@
-import { BACKEND_URL } from '.';
+import { BACKEND_URL } from './backendURL';
 import { setToken } from '../redux/localStorage';
 
 export interface LoginUser {

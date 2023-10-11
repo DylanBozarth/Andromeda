@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 import { Planet } from '../types/planet-interface';
-import { BACKEND_URL } from '../clientLibrary';
+import { BACKEND_URL } from '../clientLibrary/backendURL';
 import { getToken } from './localStorage';
 
 export const fetchSectorData = createAsyncThunk('sectorSlice/fetchSectorData', async () => {
@@ -9,14 +9,11 @@ export const fetchSectorData = createAsyncThunk('sectorSlice/fetchSectorData', a
     const token = getToken();
     const response = await fetch(`${BACKEND_URL}/sectors`, {
       method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
     });
     const responseJson = await response.json();
     return responseJson.data[0].attributes.sectorA;
   } catch (error) {
-    console.error(error);
+    console.error('Fetch sector data has failed', error);
   }
 });
 
@@ -41,7 +38,7 @@ interface ActiveState {
 }
 
 const initialState: ActiveState = {
-  activeSector: { sector: {} as Sector, loading: true },
+  activeSector: { sector: {} as Sector, loading: false }, // removed loading delay for now
   activeSystem: {} as System,
   activePlanet: {} as Planet,
   activeNCO: {} as NCO,
