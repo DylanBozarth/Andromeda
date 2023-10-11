@@ -1,13 +1,13 @@
-import { STRAPI_URL } from '.';
+import { BACKEND_URL } from '.';
 import { setToken } from '../redux/localStorage';
 
 export interface LoginUser {
   identifier: string;
   password: string;
 }
-
+// DO NOT USE 10-23
 export const loginUser = async (registerObj: LoginUser) => {
-  const responseData = await fetch(`${STRAPI_URL}/api/auth/local`, {
+  const responseData = await fetch(`${BACKEND_URL}/api/auth/local`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ export interface RegisterUser {
 }
 
 export const registerUser = async (registerObj: RegisterUser) => {
-  const responseData = await fetch(`${STRAPI_URL}/api/auth/local/register`, {
+  const responseData = await fetch(`${BACKEND_URL}/api/auth/local/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export const registerUser = async (registerObj: RegisterUser) => {
 };
 
 export const getUserDetails = async (userToken: string) => {
-  const responseData = await fetch(`${STRAPI_URL}/api/users/me`, {
+  const responseData = await fetch(`${BACKEND_URL}/api/users/me`, {
     headers: { Authorization: `Bearer ${userToken}` },
   })
     .then((resp) => resp.json())

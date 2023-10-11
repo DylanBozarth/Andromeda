@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 import { Planet } from '../types/planet-interface';
-import { STRAPI_URL } from '../clientLibrary';
+import { BACKEND_URL } from '../clientLibrary';
 import { getToken } from './localStorage';
 
 export const fetchSectorData = createAsyncThunk('sectorSlice/fetchSectorData', async () => {
   try {
     const token = getToken();
-    const response = await fetch(`${STRAPI_URL}/api/sectors`, {
+    const response = await fetch(`${BACKEND_URL}/sectors`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,

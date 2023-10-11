@@ -1,17 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getAvailableBuildings } from '../../clientLibrary/buildings';
 import { Buildings } from './AvailableBuildingsTypes';
 import '../../styles/user-interface-master.scss'
 export const AvailableBuildings = () => {
   const [availableBuildings, setAvailableBuildings] = useState<Array<Buildings>>([]);
-
-  useEffect(() => {
-    const fetchBuildings = async () => {
-      const fetchedBuildings = await getAvailableBuildings();
-      setAvailableBuildings(fetchedBuildings.buildingData);
-    };
-    fetchBuildings();
-  }, []);
 
   return (
     <>

@@ -1,1 +1,1 @@
-export const STRAPI_URL = 'https://andromeda-backend-production.up.railway.app';
+export const BACKEND_URL = 'https://andromeda-backend-production.up.railway.app';
