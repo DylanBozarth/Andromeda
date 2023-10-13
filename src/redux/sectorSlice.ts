@@ -6,12 +6,12 @@ import { getToken } from './localStorage';
 
 export const fetchSectorData = createAsyncThunk('sectorSlice/fetchSectorData', async () => {
   try {
-    const token = getToken();
     const response = await fetch(`${BACKEND_URL}/sectors`, {
       method: 'GET',
     });
     const responseJson = await response.json();
-    return responseJson.data[0].attributes.sectorA;
+    console.log('sector response is', responseJson[0])
+    return responseJson[0]
   } catch (error) {
     console.error('Fetch sector data has failed', error);
   }
@@ -38,7 +38,7 @@ interface ActiveState {
 }
 
 const initialState: ActiveState = {
-  activeSector: { sector: {} as Sector, loading: false }, // removed loading delay for now
+  activeSector: { sector: {} as Sector, loading: true }, 
   activeSystem: {} as System,
   activePlanet: {} as Planet,
   activeNCO: {} as NCO,

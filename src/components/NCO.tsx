@@ -5,10 +5,9 @@ interface NCOProps {
   NCOName: string;
   effect: string;
   cords: string;
-  distanceMapValues: Record<string, { distance: number; eta: string }>;
 }
 
-export const NCOComponent = ({NCOType, NCOName, effect, cords, distanceMapValues}: NCOProps) => {
+export const NCOComponent = ({NCOType, NCOName, effect, cords}: NCOProps) => {
   return (
     <div className={`sector-view-nco ${NCOType}`}>
       

@@ -3,7 +3,6 @@ import '../styles/user-interface-master.scss';
 interface StarProps {
   systemName: string;
   systemStar: string;
-  distanceMapValues: Record<string, { distance: number; eta: string }>;
 }
 
 const handleAddOutline = (id: string) => {
@@ -16,41 +15,11 @@ const handleRemoveOutline = (id: string) => {
   planet?.classList.remove('outline-system');
 };
 
-export const Star = ({ systemName, systemStar, distanceMapValues }: StarProps) => {
-  const display = (
-    <>
-      <table>
-        <thead>
-          <tr>
-            <th>Star</th>
-            <th>Distance</th>
-            <th>ETA(hours)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(distanceMapValues).map((key) => {
-            return (
-              <tr
-                key={key}
-                style={{ margin: 0 }}
-                onMouseEnter={() => handleAddOutline(key)}
-                onMouseLeave={() => handleRemoveOutline(key)}
-              >
-                <td>{key}</td>
-                <td>{distanceMapValues[key].distance} parsecs</td>
-                <td>{distanceMapValues[key].eta}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </>
-  );
+export const Star = ({ systemName, systemStar }: StarProps) => {
   return (
     <div id={systemName} className={`${systemStar} star`}>
       <div className='sector-view-star-name tooltip'>
         {systemName}
-        <span className='tooltiptext'>{display}</span>
       </div>
     </div>
   );
