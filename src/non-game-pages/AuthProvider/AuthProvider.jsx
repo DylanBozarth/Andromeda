@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AuthContext } from './context/AuthContext';
 import { getToken } from '../../redux/localStorage';
-import { STRAPI_URL } from '../../clientLibrary';
+import { BACKEND_URL } from '../../clientLibrary/backendURL';
 
 const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState();
@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
   const fetchLoggedInUser = async (token) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`${STRAPI_URL}/api/users/me`, {
+      const response = await fetch(`${BACKEND_URL}/api/users/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();

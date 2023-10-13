@@ -37,7 +37,6 @@ export const SectorA = () => {
                   <Star
                     systemName={item.systemName}
                     systemStar={item.systemStar}
-                    distanceMapValues={sector.distancesMap[item.systemName]}
                   />
                 </Link>
                 <div className={hidden === item.systemName ? 'sector-ownership-menu' : 'hidden'}>
@@ -69,7 +68,6 @@ export const SectorA = () => {
                     effect={single.effect}
                     cords={single.cords}
                     NCOName={single.name}
-                    distanceMapValues={sector.distancesMap[single.cords]}
                   />
                 </Link>
                 <div className={hidden === single.name ? 'asda' : 'hidden'}>

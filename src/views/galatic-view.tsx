@@ -34,7 +34,7 @@ export const GalaticView = () => {
           </>
         ) : (
           <div>
-            <h1>Register in the top left to load sectors </h1>
+            <h1>Still loading</h1>
           </div>
         )}
       </div>
