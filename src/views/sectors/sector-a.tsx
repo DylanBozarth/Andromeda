@@ -18,7 +18,7 @@ export const SectorA = () => {
         <div className='sector-background'></div>
         <SectorSideBar />
         <div className=''>
-          
+
           {sector.systems.map((item) => {
             return (
               <div
@@ -40,7 +40,7 @@ export const SectorA = () => {
                   />
                 </Link>
                 <div className={hidden === item.systemName ? 'sector-ownership-menu' : 'hidden'}>
-                  {item.systemName}, {item.systemStar}
+                  {item.systemName}, {item.systemStar}, {item.cords}
                   {item.systemPlanets.map((planets) => {
                     return <div key={planets.name}>{planets.ownership}</div>;
                   })}
@@ -71,7 +71,7 @@ export const SectorA = () => {
                   />
                 </Link>
                 <div className={hidden === single.name ? 'asda' : 'hidden'}>
-                  {single.type}, <br /> {single.name}
+                  {single.type}, <br /> {single.name} <br /> {single.cords}
                 </div>
               </div>
             );

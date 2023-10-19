@@ -15,13 +15,10 @@ export const GalaticView = () => {
 
   return (
     <div>
-      <div className='side-bar mt-20 border-1'>
+      <div className='side-bar mt-20 border-1 p-2'>
         news & updates: <br />
-        still working on that front end <br />
-        This is where we will put patch notes
-        <div>
-      <Link to='/login'>Login</Link> <br />
-      <Link to='/register'>Register</Link></div>
+        10/14/2023: <br />Server connection is back up!<br />
+        <div></div>
       </div>
 
       <div className='sectorawrapper'>
