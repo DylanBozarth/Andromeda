@@ -41,13 +41,16 @@ export const NavigationBar = () => {
   return (
     <div className='top-layer-menu top-0 fixed  sci-fi-thing '>
       <div className='justify-content-center flex'>
-          <Link to='/' className=''>
-            <div className='ui-border-box p-3'>
-              <div className='navigation-bar-text' onClick={() => clearEverything()}>Andromeda</div>
-            </div>
-          </Link>
-        </div>
-        <div className='justify-content-center flex'>
+        <Link to='/' className=''>
+          <div className='ui-border-box p-3'>
+            <div className='navigation-bar-text' onClick={() => clearEverything()}>Andromeda</div>
+          </div>
+        </Link> {/* Make this conditional to show nav when logged in, login when not */}
+        <Link to='/login' className='ui-border-box p-3'>Login</Link> <br />
+        <Link to='/register' className='ui-border-box p-3'>Register</Link>
+      </div>
+
+      <div className='justify-content-center flex'>
         <div className=' flex '>
           { /* Sector */}
           <Link to={`/${userSector}`} className='navigation-bar-text' onClick={() => clearPlanetAndSystem()}>
@@ -63,7 +66,7 @@ export const NavigationBar = () => {
             </div>
           </Link>
           { /* System */}
-          <Link to={isNCO ? `/${userSector}/${userSystem}` : `/${userSector}/system/${userSystem}`}> 
+          <Link to={isNCO ? `/${userSector}/${userSystem}` : `/${userSector}/system/${userSystem}`}>
             <div
               className={
                 userSystem
