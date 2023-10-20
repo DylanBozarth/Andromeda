@@ -8,18 +8,18 @@ import { Link } from 'react-router-dom';
 
 export const Login = () => {
   const dispatch = useAppDispatch();
-  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const { setUser } = useContext(AuthContext);
   const handleClick = async () => {
     const registerObj: LoginUser = {
-      identifier: email,
-      password,
+      userName: userName,
+      password: password
     };
     await loginUser(registerObj);
-    await dispatch(fetchSectorData());
+    // await dispatch(fetchSectorData());
     setUser();
-    setEmail('');
+    setUserName('');
     setPassword('');
   };
   return (
@@ -35,7 +35,7 @@ export const Login = () => {
         </div>
         <form>
           <div className="user-box">
-            <input type="text" value={email} name="" onChange={(e) => setEmail(e.target.value)} required />
+            <input type="text" value={userName} name="" onChange={(e) => setUserName(e.target.value)} required />
             <label className=''>Username</label>
           </div>
           <div className="user-box">

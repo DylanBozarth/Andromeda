@@ -2,12 +2,11 @@ import { BACKEND_URL } from './backendURL';
 import { setToken } from '../redux/localStorage';
 
 export interface LoginUser {
-  identifier: string;
+  userName: string;
   password: string;
 }
-// DO NOT USE 10-23
 export const loginUser = async (registerObj: LoginUser) => {
-  const responseData = await fetch(`${BACKEND_URL}/api/auth/local`, {
+  const responseData = await fetch(`${BACKEND_URL}auth/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -23,12 +22,11 @@ export const loginUser = async (registerObj: LoginUser) => {
 
 export interface RegisterUser {
   username: string;
-  email: string;
   password: string;
 }
 
 export const registerUser = async (registerObj: RegisterUser) => {
-  const responseData = await fetch(`${BACKEND_URL}/api/auth/local/register`, {
+  const responseData = await fetch(`${BACKEND_URL}auth/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

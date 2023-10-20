@@ -8,7 +8,7 @@ import { LoginData } from './loginData';
 
 export const Register = () => {
   const dispatch = useAppDispatch();
-  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const { setUser } = useContext(AuthContext);
@@ -23,14 +23,13 @@ export const Register = () => {
     // add more validation here as we go
     else {
       const registerObj: RegisterUser = {
-        username: email,
-        email,
-        password,
+        username: userName,
+        password: password
       };
       await registerUser(registerObj);
-      await dispatch(fetchSectorData());
+      // await dispatch(fetchSectorData());
       setUser();
-      setEmail('');
+      setUserName('');
       setPassword('');
     }
 
@@ -48,7 +47,7 @@ export const Register = () => {
           </div>
           <form>
             <div className="user-box">
-              <input type="text" value={email} name="" onChange={(e) => setEmail(e.target.value)} />
+              <input type="text" value={userName} name="" onChange={(e) => setUserName(e.target.value)} />
               <label className=''>Username</label>
             </div>
             <div className="user-box">
