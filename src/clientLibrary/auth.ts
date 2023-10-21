@@ -41,7 +41,7 @@ export const registerUser = async (registerObj: RegisterUser) => {
   return responseData.jwt;
   // Handle the JWT for future iterations
 };
-
+/*
 export const getUserDetails = async (userToken: string) => {
   const responseData = await fetch(`${BACKEND_URL}/api/users/me`, {
     headers: { Authorization: `Bearer ${userToken}` },
@@ -50,4 +50,4 @@ export const getUserDetails = async (userToken: string) => {
     .catch((err) => console.error(err));
   setToken(userToken);
   return responseData;
-};
+}; */
