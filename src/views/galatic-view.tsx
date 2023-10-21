@@ -9,9 +9,10 @@ export const GalaticView = () => {
   const activeSector = useAppSelector((state) => state.sector.activeSector.sector);
   const sectorLoading = useAppSelector((state) => state.sector.activeSector.loading);
   useEffect(() => {
-    dispatch(fetchSectorData());
+    if (!activeSector) {
+      dispatch(fetchSectorData());
+    }
   }, []);
-  console.log('active sector is', activeSector);
 
   return (
     <div>

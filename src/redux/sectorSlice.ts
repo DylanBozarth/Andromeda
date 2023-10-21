@@ -6,7 +6,7 @@ import { getToken } from './localStorage';
 
 export const fetchSectorData = createAsyncThunk('sectorSlice/fetchSectorData', async () => {
   try {
-    const response = await fetch(`${BACKEND_URL}/sectors`, {
+    const response = await fetch(`${BACKEND_URL}sectors`, {
       method: 'GET',
     });
     const responseJson = await response.json();

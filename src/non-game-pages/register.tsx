@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { RegisterUser, getUserDetails, registerUser } from '../clientLibrary/auth';
+import { RegisterUser, registerUser } from '../clientLibrary/auth';
 import { useAppDispatch } from '../redux/hooks';
 import { fetchSectorData } from '../redux/sectorSlice';
 import { AuthContext } from './AuthProvider/context/AuthContext';
