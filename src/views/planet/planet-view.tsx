@@ -1,7 +1,7 @@
 import '../../styles/textures/planets-and-stars.scss';
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../redux/hooks';
-import { BigPlanetComponent } from '../../components/bigplanet';
+import { BigPlanetComponent } from '../../components/planet/bigplanet';
 import { PlanetSideBar } from '../../UI/side-bars/planet-side-bar';
 
 export const PlanetView = () => {

@@ -1,11 +1,11 @@
-import { PlanetComponent } from '../../components/planet';
+import { PlanetComponent } from '../../components/planet/planet';
 import '../../styles/views-styles/system-view.css';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { Link } from 'react-router-dom';
 import { setPlanet } from '../../redux/sectorSlice';
 import { SystemSideBar } from '../../UI/side-bars/system-side-bar';
-import { Star } from '../../components/star';
-import { BigStar } from '../../components/bigStar';
+import { Star } from '../../components/star/star';
+import { BigStar } from '../../components/star/bigStar';
 
 export const SystemOrbitalView = () => {
   const dispatch = useAppDispatch();

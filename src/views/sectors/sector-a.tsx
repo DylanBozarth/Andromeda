@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Star } from '../../components/star';
+import { Star } from '../../components/star/star';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setSystem, setNCO } from '../../redux/sectorSlice';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
-import { NCOComponent } from '../../components/NCO';
+import { NCOComponent } from '../../components/NCO/NCO';
 import '../../styles/views-styles/sector-view.css';
 import { useState } from 'react';
 import { SectorSideBar } from '../../UI/side-bars/sector-side-bar';

@@ -1,4 +1,4 @@
-import { PlanetComponent } from '../../components/planet';
+import { PlanetComponent } from '../../components/planet/planet';
 import '../../styles/views-styles/system-view.css';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { Link } from 'react-router-dom';

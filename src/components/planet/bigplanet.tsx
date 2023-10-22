@@ -1,5 +1,5 @@
-import '../styles/textures/planets-and-stars.scss';
-import { Planet } from '../types/planet-interface';
+import '../../styles/textures/planets-and-stars.scss';
+import { Planet } from '../../types/planet-interface';
 
 interface PlanetProps {
   planet: Planet;
