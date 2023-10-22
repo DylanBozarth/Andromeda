@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { useAppSelector } from '../redux/hooks';
-import { BigNCOComponent } from '../components/bigNCO';
-import { NCOSideBar } from '../UI/side-bars/NCO-side-bar';
+import { useAppSelector } from '../../redux/hooks';
+import { BigNCOComponent } from '../../components/bigNCO';
+import { NCOSideBar } from '../../UI/side-bars/NCO-side-bar';
 export const NCOView = () => {
     const playerNCO = useAppSelector((state) => state.sector.activeNCO);
     useEffect(() => {

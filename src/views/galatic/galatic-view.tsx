@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import '../styles/views-styles/galatic-view.css';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import '../../styles/views-styles/galatic-view.css';
 import { useEffect } from 'react';
-import { fetchSectorData } from '../redux/sectorSlice';
+import { fetchSectorData } from '../../redux/sectorSlice';
 
 export const GalaticView = () => {
   const dispatch = useAppDispatch();
