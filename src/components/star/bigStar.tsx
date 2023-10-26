@@ -7,7 +7,7 @@ interface BigStarProps {
 
 export const BigStar = ({systemStar }: BigStarProps) => {
   return (
-    <div  className={`${systemStar} bigStar`}>
+    <div  className={`${systemStar}-system-view bigStar`}>
       <div className='sector-view-star-name tooltip'>
         {systemStar}
       </div>

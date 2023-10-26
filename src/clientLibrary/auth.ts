@@ -12,13 +12,13 @@ export const loginUser = async (registerObj: LoginUser) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(registerObj),
-  })
-    .then((resp) => resp.json())
+  }).then((resp) => resp.json())
     .catch((err) => console.error(err));
   setToken(responseData.jwt);
   return responseData.jwt;
   // Handle the JWT for future iterations
 };
+
 
 export interface RegisterUser {
   username: string;
