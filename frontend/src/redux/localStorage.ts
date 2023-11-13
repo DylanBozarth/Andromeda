@@ -20,7 +20,7 @@ export const saveState = (state) => {
 };
 
 export const setToken = (userToken: string) => {
-  localStorage.setItem('jwt', userToken);
+  localStorage.setItem('accessToken', userToken);
 };
 
 export const getToken = () => {
