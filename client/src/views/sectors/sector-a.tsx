@@ -18,7 +18,6 @@ export const SectorA = () => {
         <div className='sector-background'></div>
         <SectorSideBar />
         <div className=''>
-
           {sector.systems.map((item) => {
             return (
               <div

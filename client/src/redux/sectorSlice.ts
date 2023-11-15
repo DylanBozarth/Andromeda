@@ -45,6 +45,7 @@ const initialState: ActiveState = {
 };
 
 // Controls data being passed from Sector => System => Planet
+// THIS IS THE VERSION TO USE WITH A SERVER
 export const sectorSlice = createSlice({
   name: 'sector',
   initialState,

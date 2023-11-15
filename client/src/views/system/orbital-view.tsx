@@ -14,13 +14,14 @@ export const SystemOrbitalView = () => {
   return (
     <div className=''>
       <SystemSideBar />
+      <div className='absolute-center'><BigStar systemStar={playerSystem.systemStar} /></div>
       <div className='flex flex-wrap justify-center mt-20 '>
-        <BigStar systemStar={playerSystem.systemStar} />
+        NOT FINISHED
         {playerSystem.systemPlanets.map((planet) => {
           return (
             <>
               <div className={'planet-wrapper  '}>
-                
+
                 <Link
                   to={`/${sector.sectorName}/system/${playerSystem.systemName}/planet/${planet.name}`}
                   onClick={() => dispatch(setPlanet(planet))}
@@ -36,7 +37,7 @@ export const SystemOrbitalView = () => {
             </>
           );
         })}
-       
+
       </div>
     </div>
   );

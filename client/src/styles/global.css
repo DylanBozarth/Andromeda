@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* IGNORE THE WARNING FOR TAILWIND, it is working just fine */
 body {
   color: white;
@@ -19,10 +20,12 @@ body {
   height: 100%;
   z-index: -1;
 }
+
 /* remove scrollbar */
 body::-webkit-scrollbar {
   display: none;
 }
+
 /* Thank you Princess.com */
 .img-responsive,
 .img-responsive-wrapper img,
@@ -32,20 +35,25 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   max-width: 100%;
 }
+
 /* styles for menus and other not game pages */
 .non-game-page {
-  z-index: 100; /* above everything else */
+  z-index: 100;
+  /* above everything else */
   width: 100vw;
   height: 100vh;
-  position: absolute; /* toggle this to allow things to show behind it */
+  position: absolute;
+  /* toggle this to allow things to show behind it */
   background-color: black;
 }
+
 .center-in-middle {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
+
 /* login form, even though these are all labeled "login" we also use them for registration */
 html {
   height: 100%;
@@ -87,9 +95,10 @@ html {
   outline: none;
   background: transparent;
 }
+
 .login-box .user-box label {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   padding: 0px 0;
   font-size: 16px;
@@ -98,8 +107,8 @@ html {
   transition: .5s;
 }
 
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
   top: -20px;
   left: 0;
   color: #03e9f4;
@@ -125,9 +134,9 @@ html {
   color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
 }
 
 .login-box .glow span {
@@ -148,7 +157,9 @@ html {
   0% {
     left: -100%;
   }
-  50%,100% {
+
+  50%,
+  100% {
     left: 100%;
   }
 }
@@ -167,7 +178,9 @@ html {
   0% {
     top: -100%;
   }
-  50%,100% {
+
+  50%,
+  100% {
     top: 100%;
   }
 }
@@ -186,7 +199,9 @@ html {
   0% {
     right: -100%;
   }
-  50%,100% {
+
+  50%,
+  100% {
     right: 100%;
   }
 }
@@ -205,8 +220,17 @@ html {
   0% {
     bottom: -100%;
   }
-  50%,100% {
+
+  50%,
+  100% {
     bottom: 100%;
   }
 }
-/* end login form */ 
+
+/* end login form */
+.absolute-center {
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+  position: absolute;
+}
