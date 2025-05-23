@@ -1,1 +1,0 @@
-db.Collection.find() //returns everything in the collection
