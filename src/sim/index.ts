@@ -1,3 +1,4 @@
-export type { ShipState, Segment, Maneuver } from "./types";
+export type { ShipState, Segment, Maneuver, Orbit } from "./types";
 export { advance, stateAt, maneuverDuration, type SampledState } from "./evaluate";
-export { planManeuver, planDirection } from "./solver";
+export { planManeuver, planDirection, planOrbit } from "./solver";
+export { clampToCollision, type Body } from "./collision";

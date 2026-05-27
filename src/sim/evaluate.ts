@@ -18,6 +18,10 @@ export interface SampledState extends ShipState {
 
 // Closed-form ship state at any sim time. O(segments), no integration loop.
 export function stateAt(maneuver: Maneuver, time: number): SampledState {
+  // A collision halts the ship: freeze at the surface for all later times.
+  if (maneuver.stopTime !== undefined && time > maneuver.stopTime) {
+    time = maneuver.stopTime;
+  }
   let t = time - maneuver.startTime;
   let state: ShipState = {
     position: maneuver.start.position.clone(),
@@ -37,8 +41,27 @@ export function stateAt(maneuver: Maneuver, time: number): SampledState {
     t -= seg.duration;
   }
 
-  // Past the end of the plan: coast at the final velocity (which is zero for
-  // an arrive-at-rest course, but nonzero for a set-direction maneuver).
+  // Past the segments: follow the orbit forever, if one was attached.
+  if (maneuver.orbit) {
+    const o = maneuver.orbit;
+    const ang = o.angularSpeed * (time - o.startTime);
+    const c = Math.cos(ang);
+    const s = Math.sin(ang);
+    const position = o.center
+      .clone()
+      .addScaledVector(o.u, o.radius * c)
+      .addScaledVector(o.v, o.radius * s);
+    const velocity = o.u
+      .clone()
+      .multiplyScalar(-o.radius * o.angularSpeed * s)
+      .addScaledVector(o.v, o.radius * o.angularSpeed * c);
+    // accel is centripetal, but report zero so the ship faces its travel
+    // direction (coasting orbit) rather than pointing engines inward.
+    return { position, velocity, accel: new Vector3() };
+  }
+
+  // Otherwise coast at the final velocity (zero for an arrive-at-rest course,
+  // nonzero for a set-direction maneuver).
   return {
     position: state.position.clone().addScaledVector(state.velocity, t),
     velocity: state.velocity.clone(),

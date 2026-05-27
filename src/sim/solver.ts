@@ -153,6 +153,53 @@ export function planDirection(
   return { startTime, start: startState, segments };
 }
 
+// Fly to a circular orbit around `center` and orbit it forever. The transit is
+// a flip-and-burn to the nearest insertion point on the orbit (in the horizontal
+// XZ plane); the orbit then takes over. `angularSpeed`'s sign sets the direction.
+export function planOrbit(
+  start: ShipState,
+  center: Vector3,
+  orbitRadius: number,
+  angularSpeed: number,
+  maxAccel: number,
+  startTime: number,
+): Maneuver {
+  let dir = new Vector3(
+    start.position.x - center.x,
+    0,
+    start.position.z - center.z,
+  );
+  if (dir.lengthSq() < EPS) dir = new Vector3(1, 0, 0);
+  dir.normalize();
+
+  const u = dir;
+  const v = new Vector3(-u.z, 0, u.x); // perpendicular to u in the XZ plane
+  const insertion = center.clone().addScaledVector(u, orbitRadius);
+
+  const transit = planManeuver(start, insertion, maxAccel, startTime);
+  const transitDuration = transit.segments.reduce(
+    (sum, seg) => sum + seg.duration,
+    0,
+  );
+
+  return {
+    startTime,
+    start: {
+      position: start.position.clone(),
+      velocity: start.velocity.clone(),
+    },
+    segments: transit.segments,
+    orbit: {
+      center: center.clone(),
+      radius: orbitRadius,
+      u: u.clone(),
+      v,
+      angularSpeed,
+      startTime: startTime + transitDuration,
+    },
+  };
+}
+
 // Any unit vector perpendicular to v.
 function perpendicular(v: Vector3): Vector3 {
   const axis =

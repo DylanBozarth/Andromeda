@@ -1,14 +1,22 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   Canvas,
   useFrame,
   useThree,
   type ThreeEvent,
 } from "@react-three/fiber";
-import { Edges, Line, OrbitControls, Stars } from "@react-three/drei";
+import { Edges, Line, OrbitControls, useTexture } from "@react-three/drei";
 import {
   ArrowHelper,
   BufferAttribute,
+  Group,
   LineSegments,
   Mesh,
   MOUSE,
@@ -16,19 +24,45 @@ import {
   Vector3,
 } from "three";
 import {
+  clampToCollision,
   maneuverDuration,
   planDirection,
   planManeuver,
+  planOrbit,
   stateAt,
+  type Body,
   type Maneuver,
 } from "./sim";
+import yellowStarUrl from "./assets/celestial-objects/yellow-star.jpg";
+import barrenPlanetUrl from "./assets/celestial-objects/barren-planet.jpg";
 
-const MAX_ACCEL = 1; // units / s²
+const MAX_ACCEL = 1; // units / s² (fast — testing value)
 const CRUISE_SPEED = 5; // coast speed for a "set direction" maneuver (units / s)
 const COAST_PREVIEW_TIME = 8; // seconds of coasting drawn in a direction preview
 const ALT_PER_PIXEL = 0.25; // altitude units gained per pixel of vertical mouse movement
 const FORWARD = new Vector3(0, 0, 1); // ship's nose in local space (engines at -Z)
 const TURN_RATE = 4; // how fast the ship slews to face its thrust direction
+
+// Celestial bodies. Sizes use a realistic ~109:1 star-to-rocky-planet radius
+// ratio; distances are compressed so both are visible (true AU would be ~46k units).
+const SUN_RADIUS = 218;
+const SUN_POSITION: [number, number, number] = [0, 0, -800];
+const PLANET_RADIUS = 2;
+const PLANET_POSITION: [number, number, number] = [30, 0, 0];
+
+const ORBIT_RADIUS = PLANET_RADIUS * 4; // orbit altitude around the rocky planet
+const ORBIT_PERIOD = 12; // seconds per orbit
+const ORBIT_ANGULAR_SPEED = (2 * Math.PI) / ORBIT_PERIOD;
+const ORBIT_SELECT_DISTANCE = ORBIT_RADIUS * 1.5; // click within this of the planet to orbit it
+
+const SHIP_SCALE = 0.1; // ship rendered small, closer to true scale vs. planets
+const SHIP_COLLISION_RADIUS = SHIP_SCALE * 1.5;
+
+// Solid bodies the ship can't fly through.
+const BODIES: Body[] = [
+  { center: new Vector3(...PLANET_POSITION), radius: PLANET_RADIUS },
+  { center: new Vector3(...SUN_POSITION), radius: SUN_RADIUS },
+];
 
 type ViewId = "system" | "navigation";
 const VIEWS: { id: ViewId; label: string }[] = [
@@ -41,6 +75,8 @@ interface MenuState {
   y: number;
   course: Maneuver; // arrive-at-rest at the placed point
   direction: Maneuver; // head off toward the placed point and coast forever
+  orbitPlanet: Maneuver; // fly to the rocky planet and orbit it
+  canOrbit: boolean; // whether the placed point is near enough to a planet
 }
 
 // In-progress placement of a 3D destination: right-click sets X/Z, then moving
@@ -68,9 +104,17 @@ function isCoasting(maneuver: Maneuver): boolean {
 }
 
 function samplePath(maneuver: Maneuver, segmentsCount = 64): Vector3[] {
-  // Extend coasting maneuvers a bit so the ongoing direction is visible.
-  const total =
-    maneuverDuration(maneuver) + (isCoasting(maneuver) ? COAST_PREVIEW_TIME : 0);
+  // Extend the sample window so the ongoing path is visible: one full loop for
+  // an orbit, or a stretch of coast for a set-direction maneuver.
+  let total = maneuverDuration(maneuver);
+  if (maneuver.orbit) {
+    total += (2 * Math.PI) / Math.abs(maneuver.orbit.angularSpeed);
+  } else if (isCoasting(maneuver)) {
+    total += COAST_PREVIEW_TIME;
+  }
+  if (maneuver.stopTime !== undefined) {
+    total = Math.min(total, maneuver.stopTime - maneuver.startTime);
+  }
   if (total <= 0) return [];
   const pts: Vector3[] = [];
   for (let i = 0; i <= segmentsCount; i++) {
@@ -84,6 +128,46 @@ function samplePath(maneuver: Maneuver, segmentsCount = 64): Vector3[] {
 
 const fmt = (v: Vector3) =>
   `(${v.x.toFixed(1)}, ${v.y.toFixed(1)}, ${v.z.toFixed(1)})`;
+
+// Human-readable travel time in hours and minutes, e.g. "1h 3m", "15m".
+function formatDuration(seconds: number): string {
+  const totalMin = Math.round(Math.max(0, seconds) / 60);
+  const h = Math.floor(totalMin / 60);
+  const m = totalMin % 60;
+  return h > 0 ? `${h}h ${m}m` : `${m}m`;
+}
+
+// A deep-space starfield as a CSS background of many radial-gradient points
+// (computed once at load, since Math.random isn't allowed during render).
+// Painted behind the transparent canvas.
+function buildStarfield(): string {
+  const w = typeof window !== "undefined" ? window.innerWidth : 1920;
+  const h = typeof window !== "undefined" ? window.innerHeight : 1080;
+  // Subtle stellar color variation: white, blue-white, warm.
+  const palette = ["255,255,255", "200,216,255", "255,238,214"];
+  const layers: string[] = [];
+
+  for (let i = 0; i < 320; i++) {
+    const x = Math.floor(Math.random() * w);
+    const y = Math.floor(Math.random() * h);
+    const r = Math.random();
+    const bright = r > 0.9; // ~10% are prominent
+    const size = (bright ? 1.8 + Math.random() * 1.4 : 0.8 + Math.random() * 1.0).toFixed(1);
+    const alpha = (bright ? 0.95 : 0.45 + Math.random() * 0.45).toFixed(2);
+    const col = palette[Math.floor(Math.random() * palette.length)];
+    layers.push(
+      `radial-gradient(${size}px ${size}px at ${x}px ${y}px, rgba(${col},${alpha}) 0%, rgba(${col},${alpha}) 45%, transparent 100%)`,
+    );
+    // Soft glow halo around the brightest stars.
+    if (bright) {
+      layers.push(
+        `radial-gradient(${(Number(size) * 3).toFixed(1)}px ${(Number(size) * 3).toFixed(1)}px at ${x}px ${y}px, rgba(${col},0.18) 0%, transparent 70%)`,
+      );
+    }
+  }
+  return layers.join(", ");
+}
+const STARFIELD = buildStarfield();
 
 // Navigation-mode markers: velocity arrow, altitude stem, ground projection,
 // and a live position/velocity readout. Updated imperatively each frame so it
@@ -114,7 +198,7 @@ function NavMarkers({
     const arrow = arrowRef.current;
     if (arrow) {
       arrow.position.copy(position);
-      if (speed > 1e-4) {
+      if (speed > 1e-6) {
         arrow.setDirection(velocity.clone().normalize());
         arrow.setLength(speed * 1.5, 0.5, 0.3);
         arrow.visible = true;
@@ -159,39 +243,82 @@ function NavMarkers({
   );
 }
 
-// Line segments for a 3D grid box (grid lines on all six faces of a cube).
-function buildGridBox(half: number, divisions: number): Float32Array {
+const GRID_HALF = 40; // half-extent of the 3D grid volume
+const GRID_DIVISIONS = 16; // → 5-unit cells
+const GRID_CELL = (GRID_HALF * 2) / GRID_DIVISIONS;
+
+// Line segments for a 3D grid volume: lines along all three axes throughout the
+// volume (not just the faces), so there's spatial reference everywhere.
+function buildGridLattice(half: number, divisions: number): Float32Array {
   const ticks: number[] = [];
   for (let i = 0; i <= divisions; i++)
     ticks.push(-half + (2 * half * i) / divisions);
   const pts: number[] = [];
-  const push = (a: number[], b: number[]) =>
+  const line = (a: number[], b: number[]) =>
     pts.push(a[0], a[1], a[2], b[0], b[1], b[2]);
-  for (const c of [-half, half]) {
-    for (const t of ticks) {
-      push([-half, c, t], [half, c, t]); // y-faces: lines along X
-      push([t, c, -half], [t, c, half]); // y-faces: lines along Z
-      push([-half, t, c], [half, t, c]); // z-faces: lines along X
-      push([t, -half, c], [t, half, c]); // z-faces: lines along Y
-      push([c, -half, t], [c, half, t]); // x-faces: lines along Y
-      push([c, t, -half], [c, t, half]); // x-faces: lines along Z
+  for (const u of ticks) {
+    for (const v of ticks) {
+      line([-half, u, v], [half, u, v]); // along X
+      line([u, -half, v], [u, half, v]); // along Y
+      line([u, v, -half], [u, v, half]); // along Z
     }
   }
   return new Float32Array(pts);
 }
 
-function NavGrid() {
+// A 3D grid that fills the view by following the ship (snapped to cells so it
+// reads as a fixed world lattice the ship moves through).
+function NavGrid({ shipRef }: { shipRef: React.RefObject<Mesh | null> }) {
+  const groupRef = useRef<Group>(null);
   const args = useMemo<[Float32Array, number]>(
-    () => [buildGridBox(10, 10), 3],
+    () => [buildGridLattice(GRID_HALF, GRID_DIVISIONS), 3],
     [],
   );
+
+  useFrame(() => {
+    const g = groupRef.current;
+    const ship = shipRef.current;
+    if (!g || !ship) return;
+    g.position.set(
+      Math.round(ship.position.x / GRID_CELL) * GRID_CELL,
+      Math.round(ship.position.y / GRID_CELL) * GRID_CELL,
+      Math.round(ship.position.z / GRID_CELL) * GRID_CELL,
+    );
+  });
+
   return (
-    <lineSegments>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={args} />
-      </bufferGeometry>
-      <lineBasicMaterial color="#3a6ea5" transparent opacity={0.3} />
-    </lineSegments>
+    <group ref={groupRef}>
+      <lineSegments>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" args={args} />
+        </bufferGeometry>
+        <lineBasicMaterial color="#4a86c5" transparent opacity={0.16} />
+      </lineSegments>
+    </group>
+  );
+}
+
+// Sun (self-lit textured sphere + a light source) and a rocky planet.
+function CelestialBodies() {
+  const [sunMap, planetMap] = useTexture([yellowStarUrl, barrenPlanetUrl]);
+  return (
+    <>
+      <mesh position={SUN_POSITION}>
+        <sphereGeometry args={[SUN_RADIUS, 64, 64]} />
+        <meshBasicMaterial map={sunMap} />
+      </mesh>
+      <pointLight
+        position={SUN_POSITION}
+        intensity={2.5}
+        decay={0}
+        color="#fff3d6"
+      />
+
+      <mesh position={PLANET_POSITION}>
+        <sphereGeometry args={[PLANET_RADIUS, 48, 48]} />
+        <meshStandardMaterial map={planetMap} />
+      </mesh>
+    </>
   );
 }
 
@@ -288,9 +415,9 @@ function Scene({
 
     // Point the nose along thrust (engines face backward); fall back to the
     // travel direction when coasting. Slew gradually so the flip is visible.
-    const thrusting = accel.lengthSq() > 1e-6;
+    const thrusting = accel.lengthSq() > 1e-12;
     const dir = thrusting ? accel : velocity;
-    if (dir.lengthSq() > 1e-6) {
+    if (dir.lengthSq() > 1e-12) {
       const target = new Quaternion().setFromUnitVectors(
         FORWARD,
         dir.clone().normalize(),
@@ -326,7 +453,6 @@ function Scene({
 
   return (
     <>
-      <color attach="background" args={[navMode ? "#0a1f4d" : "#000010"]} />
       <ambientLight intensity={navMode ? 0.7 : 0.5} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
 
@@ -340,7 +466,7 @@ function Scene({
         <meshBasicMaterial transparent opacity={0} depthWrite={false} />
       </mesh>
 
-      <mesh ref={shipRef}>
+      <mesh ref={shipRef} scale={SHIP_SCALE}>
         <boxGeometry args={[1, 1, 3]} />
         <meshStandardMaterial
           color="orange"
@@ -360,11 +486,15 @@ function Scene({
         </mesh>
       </mesh>
 
+      <Suspense fallback={null}>
+        <CelestialBodies />
+      </Suspense>
+
       {/* Committed course (solid cyan) — navigation view only. */}
       {navMode && committedPath.length > 1 && (
         <>
           <Line points={committedPath} color="cyan" lineWidth={1.5} />
-          {!committedCoasting && (
+          {!committedCoasting && !maneuver.orbit && (
             <mesh position={committedEnd}>
               <sphereGeometry args={[0.3, 16, 16]} />
               <meshBasicMaterial color="cyan" />
@@ -377,7 +507,7 @@ function Scene({
       {previewPath.length > 1 && previewEnd && previewBase && (
         <>
           <Line points={previewPath} color="yellow" lineWidth={1} dashed />
-          {!previewCoasting && (
+          {!previewCoasting && !preview?.orbit && (
             <>
               <Line
                 points={[previewBase, previewEnd]}
@@ -399,12 +529,11 @@ function Scene({
 
       {navMode && (
         <>
-          <NavGrid />
+          <NavGrid shipRef={shipRef} />
           <NavMarkers maneuver={maneuver} readoutRef={readoutRef} />
         </>
       )}
 
-      {!navMode && <Stars />}
       <OrbitControls
         makeDefault
         enabled={!placing}
@@ -442,18 +571,28 @@ export default function App() {
     if (id === "system") centerOnShip(); // recenter when entering system view
   };
   // While placing, show the live placement preview; with the menu open, show the
-  // hovered action's preview, otherwise the default "set course" trajectory.
-  const preview = placing?.preview ?? hoveredPreview ?? menu?.course ?? null;
+  // hovered action's preview, otherwise the default enabled action (orbit when a
+  // planet is selected, otherwise the course).
+  const menuDefaultPreview = menu
+    ? menu.canOrbit
+      ? menu.orbitPlanet
+      : menu.course
+    : null;
+  const preview = placing?.preview ?? hoveredPreview ?? menuDefaultPreview;
   const navMode = viewMode === "navigation";
 
   const planToTarget = useCallback(
     (target: Vector3, now: number): Maneuver => {
       const current = stateAt(maneuver, now);
-      return planManeuver(
-        { position: current.position, velocity: current.velocity },
-        target,
-        MAX_ACCEL,
-        now,
+      return clampToCollision(
+        planManeuver(
+          { position: current.position, velocity: current.velocity },
+          target,
+          MAX_ACCEL,
+          now,
+        ),
+        BODIES,
+        SHIP_COLLISION_RADIUS,
       );
     },
     [maneuver],
@@ -491,11 +630,29 @@ export default function App() {
       velocity: current.velocity,
     };
     const target = new Vector3(p.anchorX, p.altitude, p.anchorZ);
+    const planetCenter = new Vector3(...PLANET_POSITION);
     setMenu({
       x: clientX,
       y: clientY,
-      course: planManeuver(from, target, MAX_ACCEL, now),
-      direction: planDirection(from, target, MAX_ACCEL, now, CRUISE_SPEED),
+      course: clampToCollision(
+        planManeuver(from, target, MAX_ACCEL, now),
+        BODIES,
+        SHIP_COLLISION_RADIUS,
+      ),
+      direction: clampToCollision(
+        planDirection(from, target, MAX_ACCEL, now, CRUISE_SPEED),
+        BODIES,
+        SHIP_COLLISION_RADIUS,
+      ),
+      orbitPlanet: planOrbit(
+        from,
+        planetCenter,
+        ORBIT_RADIUS,
+        ORBIT_ANGULAR_SPEED,
+        MAX_ACCEL,
+        now,
+      ),
+      canOrbit: target.distanceTo(planetCenter) < ORBIT_SELECT_DISTANCE,
     });
     placeRef.current = null;
     setPlacing(null);
@@ -540,8 +697,10 @@ export default function App() {
   // Right-click context-menu actions. Append here to add more options.
   const menuActions: MenuAction[] = [
     {
-      label: "Set course",
-      enabled: !!menu,
+      label: menu
+        ? `Set course  (${formatDuration(maneuverDuration(menu.course))})`
+        : "Set course",
+      enabled: !!menu && !menu.canOrbit,
       preview: menu?.course ?? null,
       onSelect: () => {
         if (menu) setManeuver(menu.course);
@@ -550,10 +709,19 @@ export default function App() {
     },
     {
       label: "Set direction",
-      enabled: !!menu,
+      enabled: !!menu && !menu.canOrbit,
       preview: menu?.direction ?? null,
       onSelect: () => {
         if (menu) setManeuver(menu.direction);
+        closeMenu();
+      },
+    },
+    {
+      label: "Orbit planet",
+      enabled: !!menu && menu.canOrbit,
+      preview: menu?.orbitPlanet ?? null,
+      onSelect: () => {
+        if (menu) setManeuver(menu.orbitPlanet);
         closeMenu();
       },
     },
@@ -564,10 +732,21 @@ export default function App() {
 
   return (
     <div
-      style={{ width: "100vw", height: "100vh", position: "relative" }}
+      style={{
+        width: "100vw",
+        height: "100vh",
+        position: "relative",
+        backgroundColor: navMode ? "#0a1f4d" : "#000",
+        backgroundImage: navMode ? "none" : STARFIELD,
+        backgroundRepeat: "no-repeat",
+      }}
       onContextMenu={(e) => e.preventDefault()}
     >
-      <Canvas camera={{ position: [0, 12, 16], fov: 60 }}>
+      <Canvas
+        camera={{ position: [0, 12, 16], fov: 60, near: 0.1, far: 20000 }}
+        gl={{ alpha: true, logarithmicDepthBuffer: true }}
+        onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
+      >
         <Scene
           maneuver={maneuver}
           preview={preview}
@@ -639,10 +818,10 @@ export default function App() {
           : "Right-click to plot a course."}
         <br />
         {placing
-          ? `Altitude: ${placing.altitude.toFixed(1)}   ETA: ${previewTime?.toFixed(1)}s`
+          ? `Altitude: ${placing.altitude.toFixed(1)}   ETA: ${previewTime !== null ? formatDuration(previewTime) : "--"}`
           : previewTime !== null
-            ? `Course preview: ${previewTime.toFixed(1)}s`
-            : `Planned travel time: ${committedTime.toFixed(1)}s`}
+            ? `Course preview: ${formatDuration(previewTime)}`
+            : `Planned travel time: ${formatDuration(committedTime)}`}
       </div>
 
       {navMode && (
