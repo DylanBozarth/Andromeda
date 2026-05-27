@@ -243,69 +243,19 @@ function NavMarkers({
   );
 }
 
-const GRID_HALF = 40; // half-extent of the 3D grid volume
-const GRID_DIVISIONS = 16; // → 5-unit cells
-const GRID_CELL = (GRID_HALF * 2) / GRID_DIVISIONS;
-
-// Line segments for a 3D grid volume: lines along all three axes throughout the
-// volume (not just the faces), so there's spatial reference everywhere.
-function buildGridLattice(half: number, divisions: number): Float32Array {
-  const ticks: number[] = [];
-  for (let i = 0; i <= divisions; i++)
-    ticks.push(-half + (2 * half * i) / divisions);
-  const pts: number[] = [];
-  const line = (a: number[], b: number[]) =>
-    pts.push(a[0], a[1], a[2], b[0], b[1], b[2]);
-  for (const u of ticks) {
-    for (const v of ticks) {
-      line([-half, u, v], [half, u, v]); // along X
-      line([u, -half, v], [u, half, v]); // along Y
-      line([u, v, -half], [u, v, half]); // along Z
-    }
-  }
-  return new Float32Array(pts);
-}
-
-// A 3D grid that fills the view by following the ship (snapped to cells so it
-// reads as a fixed world lattice the ship moves through).
-function NavGrid({ shipRef }: { shipRef: React.RefObject<Mesh | null> }) {
-  const groupRef = useRef<Group>(null);
-  const args = useMemo<[Float32Array, number]>(
-    () => [buildGridLattice(GRID_HALF, GRID_DIVISIONS), 3],
-    [],
-  );
-
-  useFrame(() => {
-    const g = groupRef.current;
-    const ship = shipRef.current;
-    if (!g || !ship) return;
-    g.position.set(
-      Math.round(ship.position.x / GRID_CELL) * GRID_CELL,
-      Math.round(ship.position.y / GRID_CELL) * GRID_CELL,
-      Math.round(ship.position.z / GRID_CELL) * GRID_CELL,
-    );
-  });
-
-  return (
-    <group ref={groupRef}>
-      <lineSegments>
-        <bufferGeometry>
-          <bufferAttribute attach="attributes-position" args={args} />
-        </bufferGeometry>
-        <lineBasicMaterial color="#4a86c5" transparent opacity={0.16} />
-      </lineSegments>
-    </group>
-  );
-}
-
-// Sun (self-lit textured sphere + a light source) and a rocky planet.
-function CelestialBodies() {
+// Sun and rocky planet. Textured in the system view; flat monocolor balls in
+// the navigation view for a clean tactical look.
+function CelestialBodies({ navMode }: { navMode: boolean }) {
   const [sunMap, planetMap] = useTexture([yellowStarUrl, barrenPlanetUrl]);
   return (
     <>
       <mesh position={SUN_POSITION}>
         <sphereGeometry args={[SUN_RADIUS, 64, 64]} />
-        <meshBasicMaterial map={sunMap} />
+        {navMode ? (
+          <meshBasicMaterial color="#ffd24a" />
+        ) : (
+          <meshBasicMaterial map={sunMap} />
+        )}
       </mesh>
       <pointLight
         position={SUN_POSITION}
@@ -316,9 +266,43 @@ function CelestialBodies() {
 
       <mesh position={PLANET_POSITION}>
         <sphereGeometry args={[PLANET_RADIUS, 48, 48]} />
-        <meshStandardMaterial map={planetMap} />
+        {navMode ? (
+          <meshBasicMaterial color="#9b8f80" />
+        ) : (
+          <meshStandardMaterial map={planetMap} />
+        )}
       </mesh>
     </>
+  );
+}
+
+// A green triangle reticle around the ship that faces the camera and keeps a
+// constant on-screen size (scaled by distance, so it doesn't shrink on zoom-out).
+function ShipMarker({ shipRef }: { shipRef: React.RefObject<Mesh | null> }) {
+  const groupRef = useRef<Group>(null);
+  const camera = useThree((s) => s.camera);
+
+  const points = useMemo(() => {
+    const verts = [90, 210, 330].map((deg) => {
+      const a = (deg * Math.PI) / 180;
+      return new Vector3(Math.cos(a), Math.sin(a), 0);
+    });
+    return [...verts, verts[0]]; // closed loop
+  }, []);
+
+  useFrame(() => {
+    const g = groupRef.current;
+    const ship = shipRef.current;
+    if (!g || !ship) return;
+    g.position.copy(ship.position);
+    g.quaternion.copy(camera.quaternion); // billboard toward the camera
+    g.scale.setScalar(camera.position.distanceTo(ship.position) * 0.035);
+  });
+
+  return (
+    <group ref={groupRef}>
+      <Line points={points} color="#39ff7a" lineWidth={2} />
+    </group>
   );
 }
 
@@ -334,6 +318,7 @@ function Scene({
   placing,
   follow,
   centerSignal,
+  movementKeys,
   readoutRef,
   onPlaceStart,
   onConfirm,
@@ -346,6 +331,7 @@ function Scene({
   placing: boolean;
   follow: boolean;
   centerSignal: number;
+  movementKeys: React.MutableRefObject<Set<string>>;
   readoutRef: React.RefObject<HTMLDivElement | null>;
   onPlaceStart: (anchorX: number, anchorZ: number, startClientY: number) => void;
   onConfirm: (clientX: number, clientY: number) => void;
@@ -435,6 +421,29 @@ function Scene({
       camera.position.add(shift);
       controls.update();
     }
+
+    // WASD pans the camera across the horizontal plane, relative to its facing.
+    const keys = movementKeys.current;
+    if (controls && keys.size > 0) {
+      const forward = new Vector3().subVectors(controls.target, camera.position);
+      forward.y = 0;
+      if (forward.lengthSq() > 1e-6) {
+        forward.normalize();
+        const right = new Vector3(-forward.z, 0, forward.x);
+        const move = new Vector3();
+        if (keys.has("KeyW")) move.add(forward);
+        if (keys.has("KeyS")) move.sub(forward);
+        if (keys.has("KeyD")) move.add(right);
+        if (keys.has("KeyA")) move.sub(right);
+        if (move.lengthSq() > 0) {
+          const dist = camera.position.distanceTo(controls.target);
+          move.normalize().multiplyScalar(dist * 1.2 * delta);
+          controls.target.add(move);
+          camera.position.add(move);
+          controls.update();
+        }
+      }
+    }
   });
 
   // Right-click reliably fires onContextMenu (unlike onPointerDown for the
@@ -487,7 +496,7 @@ function Scene({
       </mesh>
 
       <Suspense fallback={null}>
-        <CelestialBodies />
+        <CelestialBodies navMode={navMode} />
       </Suspense>
 
       {/* Committed course (solid cyan) — navigation view only. */}
@@ -529,8 +538,8 @@ function Scene({
 
       {navMode && (
         <>
-          <NavGrid shipRef={shipRef} />
           <NavMarkers maneuver={maneuver} readoutRef={readoutRef} />
+          <ShipMarker shipRef={shipRef} />
         </>
       )}
 
@@ -554,6 +563,7 @@ interface MenuAction {
 export default function App() {
   const timeRef = useRef(0);
   const placeRef = useRef<PlacementState | null>(null);
+  const movementKeys = useRef(new Set<string>());
   const navReadoutRef = useRef<HTMLDivElement>(null);
   const [viewMode, setViewMode] = useState<ViewId>("system");
   const [maneuver, setManeuver] = useState<Maneuver>(() =>
@@ -676,6 +686,24 @@ export default function App() {
     return () => window.removeEventListener("pointermove", onMove);
   }, [planToTarget]);
 
+  // WASD pans the camera; pressing it disengages follow so it doesn't snap back.
+  useEffect(() => {
+    const codes = new Set(["KeyW", "KeyA", "KeyS", "KeyD"]);
+    const onDown = (e: KeyboardEvent) => {
+      if (codes.has(e.code)) {
+        movementKeys.current.add(e.code);
+        setFollow(false);
+      }
+    };
+    const onUp = (e: KeyboardEvent) => movementKeys.current.delete(e.code);
+    window.addEventListener("keydown", onDown);
+    window.addEventListener("keyup", onUp);
+    return () => {
+      window.removeEventListener("keydown", onDown);
+      window.removeEventListener("keyup", onUp);
+    };
+  }, []);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -754,6 +782,7 @@ export default function App() {
           placing={placing !== null}
           follow={follow}
           centerSignal={centerSignal}
+          movementKeys={movementKeys}
           readoutRef={navReadoutRef}
           onPlaceStart={handlePlaceStart}
           onConfirm={handleConfirm}
