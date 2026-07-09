@@ -9,6 +9,7 @@ class User(Base):
 
     username: Mapped[str] = mapped_column(String(64), primary_key=True)
     password: Mapped[str] = mapped_column(String(256))
+    claimed_planet: Mapped[str | None] = mapped_column(String(256), nullable=True, default=None)
 
 
 class Sector(Base):

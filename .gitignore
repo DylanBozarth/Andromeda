@@ -30,3 +30,7 @@ firebase-debug.log
 /server/.env
 .env
 /.env
+/server/backend/.env 
+
+/server/database.env
+

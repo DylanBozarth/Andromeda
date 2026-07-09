@@ -132,11 +132,16 @@ $blue-green: #7CBDBD;
   justify-content: center;
   gap: 0.25rem;
   font-size: 0.75rem;
+  overflow: hidden;
 }
 
 .top-nav-crumb {
   color: rgba($title, 0.7);
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
   &:hover { color: $title; }
 }
 
@@ -147,12 +152,18 @@ $blue-green: #7CBDBD;
 .top-nav-sep {
   color: rgba($title, 0.35);
   font-size: 0.65rem;
+  flex-shrink: 0;
 }
 
 .top-nav-auth {
   display: flex;
   gap: 1rem;
   font-size: 0.7rem;
+  flex-shrink: 0;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 }
 
 .top-nav-auth-link {
@@ -230,6 +241,17 @@ $blue-green: #7CBDBD;
   border-right: 1px solid rgba($border, 0.2);
   border-radius: 8px 8px 0 0;
   z-index: 99;
+
+  @media (max-width: 640px) {
+    left: 0;
+    right: 0;
+    transform: none;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    justify-content: space-around;
+    padding: 6px 0;
+  }
 }
 
 .icon-dock-btn {
@@ -243,6 +265,12 @@ $blue-green: #7CBDBD;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
+
+  @media (max-width: 640px) {
+    flex: 1;
+    padding: 8px 4px;
+    border-radius: 0;
+  }
 
   &:hover {
     background: rgba($border, 0.12);
@@ -259,6 +287,11 @@ $blue-green: #7CBDBD;
   width: 28px;
   height: 28px;
   object-fit: contain;
+
+  @media (max-width: 640px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .icon-dock-label {
@@ -339,25 +372,92 @@ $blue-green: #7CBDBD;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  // leave room for side panel on tablet+
+  @media (min-width: 641px) {
+    margin-right: 220px;
+  }
+  @media (min-width: 1025px) {
+    margin-right: 280px;
+  }
 }
 
-/* planet right panel */
+/* planet panel — desktop/tablet: right sidebar; mobile: bottom sheet */
 .planet-panel {
   position: fixed;
-  top: 40px; // below top-nav
-  right: 0;
-  width: 280px;
-  height: calc(100vh - 40px);
   background: rgba(0, 0, 0, 0.82);
-  border-left: 1px solid rgba($border, 0.3);
   display: flex;
   flex-direction: column;
   z-index: 90;
+  transition: transform 0.3s ease;
+
+  // desktop
+  @media (min-width: 1025px) {
+    top: 40px;
+    right: 0;
+    width: 280px;
+    height: calc(100vh - 40px);
+    border-left: 1px solid rgba($border, 0.3);
+  }
+
+  // tablet
+  @media (min-width: 641px) and (max-width: 1024px) {
+    top: 40px;
+    right: 0;
+    width: 220px;
+    height: calc(100vh - 40px);
+    border-left: 1px solid rgba($border, 0.3);
+  }
+
+  // mobile — bottom sheet
+  @media (max-width: 640px) {
+    bottom: 48px; // above icon dock
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 70vh;
+    border-top: 1px solid rgba($border, 0.35);
+    border-radius: 12px 12px 0 0;
+    // collapsed: only show handle + tabs (~56px)
+    transform: translateY(calc(100% - 56px));
+
+    &--open {
+      transform: translateY(0);
+    }
+  }
+}
+
+// handle bar — mobile only
+.planet-panel-handle {
+  display: none;
+  justify-content: center;
+  padding: 8px 0 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  @media (max-width: 640px) {
+    display: flex;
+  }
+}
+
+.planet-panel-handle-bar {
+  width: 36px;
+  height: 4px;
+  background: rgba($title, 0.25);
+  border-radius: 2px;
 }
 
 .planet-panel-header {
-  padding: 1rem 1rem 0.75rem;
+  padding: 0.75rem 1rem 0.6rem;
   border-bottom: 1px solid rgba($border, 0.2);
+  flex-shrink: 0;
+
+  @media (max-width: 640px) {
+    display: none; // header hidden until open; title visible via breadcrumb
+    .planet-panel--open & {
+      display: block;
+    }
+  }
 }
 
 .planet-panel-title {
@@ -378,6 +478,7 @@ $blue-green: #7CBDBD;
 .planet-panel-tabs {
   display: flex;
   border-bottom: 1px solid rgba($border, 0.2);
+  flex-shrink: 0;
 }
 
 .planet-panel-tab {
@@ -423,6 +524,10 @@ $blue-green: #7CBDBD;
   .planet-panel-tab--active & {
     color: $blue-green;
   }
+
+  @media (max-width: 640px) {
+    display: none; // icon-only on mobile to save space
+  }
 }
 
 .planet-panel-body {
@@ -433,6 +538,13 @@ $blue-green: #7CBDBD;
   &::-webkit-scrollbar { width: 4px; }
   &::-webkit-scrollbar-track { background: transparent; }
   &::-webkit-scrollbar-thumb { background: rgba($border, 0.3); border-radius: 2px; }
+
+  @media (max-width: 640px) {
+    display: none;
+    .planet-panel--open & {
+      display: block;
+    }
+  }
 }
 
 .planet-panel-section {
@@ -468,6 +580,14 @@ $blue-green: #7CBDBD;
 .planet-panel-footer {
   padding: 0.75rem;
   border-top: 1px solid rgba($border, 0.2);
+  flex-shrink: 0;
+
+  @media (max-width: 640px) {
+    display: none;
+    .planet-panel--open & {
+      display: block;
+    }
+  }
 }
 
 .planet-panel-claim {
@@ -475,4 +595,16 @@ $blue-green: #7CBDBD;
   padding: 0.5rem;
   font-size: 0.75rem;
   letter-spacing: 1px;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.planet-panel-claim-error {
+  font-size: 0.7rem;
+  color: #e05555;
+  text-align: center;
+  margin: 0 0 0.5rem;
 }
