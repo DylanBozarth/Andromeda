@@ -3,7 +3,6 @@ import { Star } from '../../components/star';
 import { useGame } from '../../context/GameContext';
 import { getXfromCords, getYfromCords } from '../../utils/system-generator/system-functions';
 import { NCOComponent } from '../../components/NCO';
-import '@styles/views-styles/sector-view.css';
 import { useState } from 'react';
 import { SectorSideBar } from '../../UI/side-bars/sector-side-bar';
 

@@ -1,4 +1,3 @@
-import '@styles/user-interface-master.scss';
 import { FleetFloatMenu } from '../float-menus/fleets';
 import { useGame } from '../../context/GameContext';
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AuthContext } from './context/AuthContext';
-import { getToken } from '../../redux/localStorage';
+import { getToken } from '../../clientLibrary/localStorage';
 import { BACKEND_URL } from '../../clientLibrary/backendURL';
 
 const AuthProvider = ({ children }) => {

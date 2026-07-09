@@ -1,4 +1,3 @@
-import '@styles/textures/planets-and-stars.scss';
 import { NCO } from '../utils/system-generator/generate-sector';
 interface NCOProps {
   NCO: NCO;

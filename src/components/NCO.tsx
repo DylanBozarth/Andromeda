@@ -1,4 +1,3 @@
-import '@styles/textures/planets-and-stars.scss';
 
 interface NCOProps {
   NCOType: string;

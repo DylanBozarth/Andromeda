@@ -1,83 +1,115 @@
-import '@styles/user-interface-master.scss';
 import { Planet } from '../../types/planet-interface';
 import { useState } from 'react';
-import { FleetFloatMenu } from '../float-menus/fleets';
 
-interface toggles {
-    playerPlanet: Planet;
-}
-export const PlanetSideBar = ({
-    playerPlanet
-}: toggles) => {
-    const [tabNumber, setTabNumber] = useState(1);
-    const [toggleResources, setToggleResources] = useState(false);
-    const [toggleBuildings, setToggleBuildings] = useState(false);
-    return (
-        <div className='middle-layer-menu'>
-            <div className='side-bar p-1 ui-white-box'>
-                <h3 className='text-center'>{playerPlanet.name} <br /> {playerPlanet.class.substring(0, playerPlanet.class.length - 1)} Planet</h3> {/* display planet type without the number on the end */}
-                <p className='text-center'>Owned by: {playerPlanet.ownership}</p>
-                <div className='side-bar-background'></div>
-                {/* tabs */}
-                <div className='flex justify-center'>
-                    <div className='p-1 border-1' onClick={() => setTabNumber(1)}>
-                        Production
-                    </div>
-                    <div className='p-1 border-1' onClick={() => setTabNumber(2)}>
-                        Hangar
-                    </div>
-                    <div className='p-1 border-1' onClick={() => setTabNumber(3)}>
-                        Resources
-                    </div>
-                </div>
-                <div className='side-screen p-1'>
-                    <div className={tabNumber === 1 ? 'side-tab-info' : 'hidden'}>
-                        <div className='m-2 text-center border-2 flex'><p>Production: {playerPlanet.production}</p></div>
-                    </div>
-                    <div className={tabNumber === 2 ? 'side-tab-info' : 'hidden'}>
-                        <div className='m-2 text-center border-2 flex'><p>Hangar:</p>{playerPlanet.hangar}</div>
-                    </div>
-                    <div className={tabNumber === 3 ? 'side-tab-info' : 'hidden'}>
-                        <div className='m-2 text-center border-2 flex'><p>Resources in storage:</p>{playerPlanet.resourceStorage}</div>
-                    </div>
-                </div>
+const TABS = [
+  { key: 'production', label: 'Production', icon: '/assets/UI-icons/economy.png' },
+  { key: 'hangar',     label: 'Hangar',     icon: '/assets/UI-icons/ship-icon.jpeg' },
+  { key: 'resources',  label: 'Deposits',   icon: '/assets/UI-icons/resource-icon.png' },
+  { key: 'military',   label: 'Military',   icon: '/assets/UI-icons/military.png' },
+] as const;
 
+type TabKey = typeof TABS[number]['key'];
 
-                <FleetFloatMenu />
-                <div className='flex p-1 justify-center'>
-                    <div onClick={() => setToggleBuildings(!toggleBuildings)} className=' p-1'>{toggleBuildings ? <p>{playerPlanet.buildings.length} Buildings</p> : 'Buildings'}</div>
-                    <div onClick={() => setToggleResources(!toggleResources)} className=' p-1'>Desposits</div>
-                </div>
-                {[
-                    playerPlanet.naturalResources.map((resource, idx) => {
-                        return (
-                            <div
-                                className={toggleResources ? 'planet-resources mt-10 border-1 p-10 ' : 'hidden'}
-                                key={`${playerPlanet}-${resource}-${idx}`}
-                            >
-                                <div className=''>{resource}</div>
-                            </div>
-                        );
-                    }),
-                ]}
-                {[
-                    playerPlanet.buildings.map((building, idx) => {
-                        return (
-                            <div
-                                className={toggleBuildings ? 'planet-buildings mt-5' : 'hidden'}
-                                key={`${playerPlanet}-${building}-${idx}`}
-                            >
-                                {building}
+interface Props { playerPlanet: Planet; }
 
-                            </div>
-                        );
-                    }),
-                ]}
-                <div className='text-center p-4 ui-border-box'>
-                    {playerPlanet.ownership === 'unowned' ? 'Claim this planet' : ''}
-                </div>
-            </div>
+export const PlanetSideBar = ({ playerPlanet }: Props) => {
+  const [activeTab, setActiveTab] = useState<TabKey>('production');
 
+  return (
+    <aside className='planet-panel'>
+      {/* header */}
+      <div className='planet-panel-header'>
+        <p className='planet-panel-title'>{playerPlanet.name}</p>
+        <p className='planet-panel-subtitle'>
+          {playerPlanet.class.replace(/\d+$/, '')} · {playerPlanet.ownership}
+        </p>
+      </div>
+
+      {/* tab strip */}
+      <div className='planet-panel-tabs'>
+        {TABS.map(({ key, label, icon }) => (
+          <button
+            key={key}
+            className={`planet-panel-tab${activeTab === key ? ' planet-panel-tab--active' : ''}`}
+            onClick={() => setActiveTab(key)}
+            title={label}
+          >
+            <img src={icon} alt={label} className='planet-panel-tab-icon' />
+            <span className='planet-panel-tab-label'>{label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* tab content */}
+      <div className='planet-panel-body'>
+
+        {activeTab === 'production' && (
+          <div className='planet-panel-section'>
+            <p className='planet-panel-empty'>
+              {playerPlanet.production?.length
+                ? playerPlanet.production.join(', ')
+                : 'No active production'}
+            </p>
+          </div>
+        )}
+
+        {activeTab === 'hangar' && (
+          <div className='planet-panel-section'>
+            {playerPlanet.hangar.length === 0
+              ? <p className='planet-panel-empty'>Hangar is empty</p>
+              : playerPlanet.hangar.map((ship, i) => (
+                  <div key={i} className='planet-panel-row'>{ship}</div>
+                ))
+            }
+          </div>
+        )}
+
+        {activeTab === 'resources' && (
+          <div className='planet-panel-section'>
+            {playerPlanet.naturalResources.length === 0
+              ? <p className='planet-panel-empty'>No deposits found</p>
+              : playerPlanet.naturalResources.map((r, i) => (
+                  <div key={i} className='planet-panel-row'>{r}</div>
+                ))
+            }
+            {playerPlanet.resourceStorage.length > 0 && (
+              <>
+                <p className='planet-panel-section-label'>In storage</p>
+                {playerPlanet.resourceStorage.map((r, i) => (
+                  <div key={i} className='planet-panel-row'>{r}</div>
+                ))}
+              </>
+            )}
+          </div>
+        )}
+
+        {activeTab === 'military' && (
+          <div className='planet-panel-section'>
+            {playerPlanet.buildings.filter(b => b).length === 0
+              ? <p className='planet-panel-empty'>No military buildings</p>
+              : playerPlanet.buildings.map((b, i) => (
+                  <div key={i} className='planet-panel-row'>{b}</div>
+                ))
+            }
+            {playerPlanet.orbit.length > 0 && (
+              <>
+                <p className='planet-panel-section-label'>In orbit</p>
+                {playerPlanet.orbit.map((ship, i) => (
+                  <div key={i} className='planet-panel-row'>{ship}</div>
+                ))}
+              </>
+            )}
+          </div>
+        )}
+
+      </div>
+
+      {/* footer action */}
+      {playerPlanet.ownership === 'unowned' && (
+        <div className='planet-panel-footer'>
+          <button className='ui-border-box planet-panel-claim'>Claim this planet</button>
         </div>
-    );
+      )}
+    </aside>
+  );
 };

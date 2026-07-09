@@ -1,5 +1,4 @@
 import { PlanetComponent } from '../../components/planet';
-import '@styles/views-styles/system-view.css';
 import { useGame } from '../../context/GameContext';
 import { Link } from 'react-router-dom';
 import { SystemSideBar } from '../../UI/side-bars/system-side-bar';

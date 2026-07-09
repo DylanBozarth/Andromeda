@@ -1,4 +1,3 @@
-import '@styles/user-interface-master.scss';
 export const FleetsPopupMenu = () => {
     return (
         <div className='container ui-orange-box p-3'>

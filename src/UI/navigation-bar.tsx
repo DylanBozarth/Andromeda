@@ -1,4 +1,3 @@
-import '@styles/user-interface-master.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
@@ -8,15 +7,14 @@ export const NavigationBar = () => {
   const [userPlanet, setUserPlanet] = useState('');
   const [isNCO, setIsNCO] = useState(false);
   const location = useLocation();
+
   useEffect(() => {
-    const currentLocation = location.pathname
+    const currentLocation = location.pathname;
     const splitLocation = currentLocation.split('/');
-    // let systemLink = isNCO ? `/${userSector}/system/${userSystem}` : `/${userSector}/${userSystem}` ;
-    /* this system is dependent on the url and not state or anything fancy, if you change the url this will break */
     if (currentLocation.includes('sector')) {
       userSector === '' ? setUserSector(splitLocation[1]) : '';
     }
-    if (/\d/.test(currentLocation)) { // check for numbers in name for NCO
+    if (/\d/.test(currentLocation)) {
       setUserSystem(splitLocation[2]);
       setUserPlanet('');
       setIsNCO(true);
@@ -29,66 +27,50 @@ export const NavigationBar = () => {
       setUserPlanet(splitLocation[5]);
     }
   }, [location]);
-  const clearEverything = () => {
-    setUserSector('')
-    setUserSystem('')
-    setUserPlanet('')
-  }
-  const clearPlanetAndSystem = () => {
-    setUserSystem('');
-    setUserPlanet('')
-  }
+
+  const clearAll = () => { setUserSector(''); setUserSystem(''); setUserPlanet(''); };
+  const clearPlanetAndSystem = () => { setUserSystem(''); setUserPlanet(''); };
+
   return (
-    <div className='top-layer-menu top-0 fixed  sci-fi-thing '>
-      <div className='justify-content-center flex'>
-        <Link to='/' className=''>
-          <div className='ui-border-box p-3'>
-            <div className='navigation-bar-text' onClick={() => clearEverything()}>Andromeda</div>
-          </div>
-        </Link> {/* Make this conditional to show nav when logged in, login when not */}
-        <Link to='/login' className='ui-border-box p-3'>Login</Link> <br />
-        <Link to='/register' className='ui-border-box p-3'>Register</Link>
+    <nav className='top-nav'>
+      <Link to='/' className='top-nav-brand' onClick={clearAll}>Andromeda</Link>
+
+      <div className='top-nav-breadcrumb'>
+        {userSector && (
+          <>
+            <Link
+              to={`/${userSector}`}
+              className='top-nav-crumb'
+              onClick={clearPlanetAndSystem}
+            >
+              {userSector}
+            </Link>
+          </>
+        )}
+        {userSystem && (
+          <>
+            <span className='top-nav-sep'>›</span>
+            <Link
+              to={isNCO ? `/${userSector}/${userSystem}` : `/${userSector}/system/${userSystem}`}
+              className='top-nav-crumb'
+              onClick={() => setUserPlanet('')}
+            >
+              {userSystem}
+            </Link>
+          </>
+        )}
+        {userPlanet && (
+          <>
+            <span className='top-nav-sep'>›</span>
+            <span className='top-nav-crumb top-nav-crumb--active'>{userPlanet}</span>
+          </>
+        )}
       </div>
 
-      <div className='justify-content-center flex'>
-        <div className=' flex '>
-          { /* Sector */}
-          <Link to={`/${userSector}`} className='navigation-bar-text' onClick={() => clearPlanetAndSystem()}>
-            <div
-              className={
-                userSector
-                  ? 'ui-border-box  p-3'
-                  : ''
-              }
-              onClick={() => setUserSystem('')}
-            >
-              <div className='navigation-bar-text'>{userSector}</div>
-            </div>
-          </Link>
-          { /* System */}
-          <Link to={isNCO ? `/${userSector}/${userSystem}` : `/${userSector}/system/${userSystem}`}>
-            <div
-              className={
-                userSystem
-                  ? 'ui-border-box  p-3'
-                  : ''
-              }
-            >
-              <div className='navigation-bar-text' onClick={() => setUserPlanet('')}>{userSystem}</div>
-            </div>
-          </Link>
-          { /* planet */}
-          <div
-            className={
-              userPlanet
-                ? 'ui-border-box  p-3'
-                : ''
-            }
-          >
-            <div className='navigation-bar-text'>{userPlanet}</div>
-          </div>
-        </div>
+      <div className='top-nav-auth'>
+        <Link to='/login' className='top-nav-auth-link'>Login</Link>
+        <Link to='/register' className='top-nav-auth-link'>Register</Link>
       </div>
-    </div>
+    </nav>
   );
 };

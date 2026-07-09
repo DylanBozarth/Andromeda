@@ -1,5 +1,6 @@
 import { IconBar } from './icon-bar';
 import { NavigationBar } from './navigation-bar';
+import "../../styles/global.scss"
 // import { generateSector } from '../utils/system-generator/generate-sector';
 export const UImaster: React.FC = () => {
   // const sector = generateSector(10, 8);

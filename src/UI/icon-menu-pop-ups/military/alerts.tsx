@@ -1,4 +1,3 @@
-import '@styles/user-interface-master.scss';
 export const AlertsPopupMenu = () => {
     return (
         <div className=' top-layer-menu pop-up-menu-background  p-3'>

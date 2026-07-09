@@ -1,4 +1,3 @@
-import '@styles/user-interface-master.scss';
 export const PlanetManagerPopUpMenu = () => {
 
     return (

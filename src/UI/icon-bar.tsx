@@ -1,45 +1,46 @@
-import '@styles/user-interface-master.scss'
 import { useState } from 'react';
 import { MilitaryMenu } from './icon-menu-pop-ups/military/military-menu';
 import { EconomyMenu } from './icon-menu-pop-ups/economy/economy-menu';
 import { ScienceMenu } from './icon-menu-pop-ups/science/science-menu';
+
+const PANELS = [
+  { key: 'military', label: 'Military', icon: '/assets/UI-icons/military.png' },
+  { key: 'economy',  label: 'Economy',  icon: '/assets/UI-icons/economy.png'  },
+  { key: 'science',  label: 'Science',  icon: '/assets/UI-icons/science.png'  },
+] as const;
+
+type PanelKey = typeof PANELS[number]['key'] | 'none';
+
 export const IconBar = () => {
-    const [openMenu, setOpenMenu] = useState('none');
-    return (
-        <div className='top-layer-menu'> {/* do not consolidate classes here, as they will apply to the pop up menus too */}
-            <div className='icon-bar fixed bottom-0'>
-                <div className='flex justify-center'>
-                    <div className='ui-border-box p-3' onClick={() => (openMenu === 'military' ? setOpenMenu('none') : setOpenMenu('military'))}>
-                        <div className='icon-bar-military-icon p-4'></div>
-                        <p className='icon-bar-text'>Military</p>
-                    </div>
-                    <div className='ui-border-box p-3' onClick={() => (openMenu === 'economy' ? setOpenMenu('none') : setOpenMenu('economy'))}>
-                        <div className='icon-bar-economy-icon p-4'></div>
-                        <p className='icon-bar-text'>Economy</p>
-                    </div>
-                    <div className='ui-border-box p-3' onClick={() => (openMenu === 'science' ? setOpenMenu('none') : setOpenMenu('science'))}>
-                        <div className='icon-bar-science-icon p-4'></div>
-                        <p className='icon-bar-text'>Science</p>
-                    </div>
-                </div>
-            </div>
-            <div className='middle-layer-menu m-10 fixed'>
-                <div className={openMenu === 'military' ? '' : 'hidden'}>
-                    <div className='pop-up-menu'>
-                        <MilitaryMenu />
-                    </div>
-                </div>
-                <div className={openMenu === 'economy' ? '' : 'hidden'}>
-                    <div className='pop-up-menu'>
-                        <EconomyMenu />
-                    </div>
-                </div>
-                <div className={openMenu === 'science' ? '' : 'hidden'}>
-                    <div className='pop-up-menu'>
-                        <ScienceMenu />
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
+  const [openMenu, setOpenMenu] = useState<PanelKey>('none');
+
+  const toggle = (key: PanelKey) =>
+    setOpenMenu(prev => (prev === key ? 'none' : key));
+
+  return (
+    <div className='top-layer-menu'>
+      {/* pop-up panels */}
+      <div className='middle-layer-menu fixed bottom-0' style={{ left: '50%', transform: 'translateX(-50%)', marginBottom: '56px' }}>
+        <div className={openMenu === 'military' ? 'pop-up-menu' : 'hidden'}><MilitaryMenu /></div>
+        <div className={openMenu === 'economy'  ? 'pop-up-menu' : 'hidden'}><EconomyMenu /></div>
+        <div className={openMenu === 'science'  ? 'pop-up-menu' : 'hidden'}><ScienceMenu /></div>
+      </div>
+
+      {/* icon dock */}
+      <nav className='icon-dock'>
+        {PANELS.map(({ key, label, icon }) => (
+          <button
+            key={key}
+            className={`icon-dock-btn${openMenu === key ? ' icon-dock-btn--active' : ''}`}
+            onClick={() => toggle(key)}
+            aria-label={label}
+            title={label}
+          >
+            <img src={icon} alt={label} className='icon-dock-img' />
+            <span className='icon-dock-label'>{label}</span>
+          </button>
+        ))}
+      </nav>
+    </div>
+  );
+};

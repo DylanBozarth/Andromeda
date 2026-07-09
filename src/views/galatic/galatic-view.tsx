@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import '@styles/views-styles/galatic-view.css';
 import { useEffect } from 'react';
 import { useGame } from '../../context/GameContext';
 import sampleImage from '@assets/sample-image.png';

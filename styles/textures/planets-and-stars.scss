@@ -29,7 +29,7 @@
   box-shadow: 1px 1px 35px goldenrod;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./miniStarTextures/yellow-star.webp') repeat-x;
+  background: url('/styles/textures/miniStarTextures/yellow-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Blue-Giant {
@@ -39,7 +39,7 @@
   box-shadow: 1px 1px 85px blueviolet;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./miniStarTextures/blue-star.webp') repeat-x;
+  background: url('/styles/textures/miniStarTextures/blue-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .White-Dwarf {
@@ -49,7 +49,7 @@
   box-shadow: 1px 1px 25px whitesmoke;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./miniStarTextures/white-star.webp') repeat-x;
+  background: url('/styles/textures/miniStarTextures/white-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 
@@ -60,7 +60,7 @@
   box-shadow: 1px 1px 35px goldenrod;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./miniStarTextures/brown-star.webp') repeat-x;
+  background: url('/styles/textures/miniStarTextures/brown-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Red-Giant {
@@ -70,7 +70,7 @@
   box-shadow: 1px 1px 85px firebrick;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./miniStarTextures/red-star.webp') repeat-x;
+  background: url('/styles/textures/miniStarTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Red-Supergiant {
@@ -80,7 +80,7 @@
   box-shadow: 1px 1px 85px red;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./miniStarTextures/red-star.webp') repeat-x;
+  background: url('/styles/textures/miniStarTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Red-Dwarf {
@@ -90,7 +90,7 @@
   box-shadow: 1px 1px 20px red;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./miniStarTextures/red-star.webp') repeat-x;
+  background: url('/styles/textures/miniStarTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Yellow-Dwarf-system-view {
@@ -98,7 +98,7 @@
   box-shadow: 1px 1px 35px goldenrod;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/yellow-star.webp') repeat-x;
+  background: url('/styles/textures/starTextures/yellow-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Blue-Giant-system-view {
@@ -108,7 +108,7 @@
   box-shadow: 1px 1px 85px blueviolet;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/blue-star.webp') repeat-x;
+  background: url('/styles/textures/starTextures/blue-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .White-Dwarf-system-view {
@@ -118,7 +118,7 @@
   box-shadow: 1px 1px 25px whitesmoke;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/white-star.webp') repeat-x;
+  background: url('/styles/textures/starTextures/white-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 
@@ -129,7 +129,7 @@
   box-shadow: 1px 1px 35px goldenrod;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/brown-star.webp') repeat-x;
+  background: url('/styles/textures/starTextures/brown-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Red-Giant-system-view {
@@ -139,7 +139,7 @@
   box-shadow: 1px 1px 85px firebrick;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/red-star.webp') repeat-x;
+  background: url('/styles/textures/starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Red-Supergiant-system-view {
@@ -149,7 +149,7 @@
   box-shadow: 1px 1px 85px red;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/red-star.webp') repeat-x;
+  background: url('/styles/textures/starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 .Red-Dwarf-system-view {
@@ -159,7 +159,7 @@
   box-shadow: 1px 1px 20px red;
   border-radius: 50%;
   animation: translateBackground 120s infinite linear;
-  background: url('./starTextures/red-star.webp') repeat-x;
+  background: url('/styles/textures/starTextures/red-star.webp') repeat-x;
   background-size: 200% 100%;
 }
 /* animations */
@@ -202,255 +202,255 @@
 }
 /* Lava1-5 will be using different textures/rotation times to create variation */
 .Lava1 {
-  background: url('./planettextures/lava/lava1.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/lava/lava1.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Lava2 {
-  background: url('./planettextures/lava/lava1.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/lava/lava1.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Lava3 {
-  background: url('./planettextures/lava/lava2.webp') repeat-x;
-  animation: translateBackground 35s infinite linear;
+  background: url('/styles/textures/planettextures/lava/lava2.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 35s infinite linear;
   
 }
 .Lava4 {
-  background: url('./planettextures/lava/lava2.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/lava/lava2.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Lava5 {
-  background: url('./planettextures/lava/lava1.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/lava/lava1.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Desert1 {
-  background: url('./planettextures/desert/desert.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/desert/desert.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Desert2 {
-  background: url('./planettextures/desert/desert2.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/desert/desert2.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Desert3 {
-  background: url('./planettextures/desert/desert3.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/desert/desert3.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Desert4 {
-  background: url('./planettextures/desert/desert4.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/desert/desert4.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Desert5 {
-  background: url('./planettextures/desert/desert.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/desert/desert.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Frozen1 {
-  background: url('./planettextures/frozen/frozen1.webp') repeat-x;
-  animation: translateBackground 75s infinite linear;
+  background: url('/styles/textures/planettextures/frozen/frozen1.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 75s infinite linear;
   
 }
 .Frozen2 {
-  background: url('./planettextures/frozen/frozen2.webp') repeat-x;
-  animation: translateBackground 75s infinite linear;
+  background: url('/styles/textures/planettextures/frozen/frozen2.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 75s infinite linear;
   
 }
 .Frozen3 {
-  background: url('./planettextures/frozen/frozen3.webp') repeat-x;
-  animation: translateBackground 75s infinite linear;
+  background: url('/styles/textures/planettextures/frozen/frozen3.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 75s infinite linear;
   
 }
 .Frozen4 {
-  background: url('./planettextures/frozen/frozen2.webp') repeat-x;
-  animation: translateBackground 75s infinite linear;
+  background: url('/styles/textures/planettextures/frozen/frozen2.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 75s infinite linear;
   
 }
 .Frozen5 {
-  background: url('./planettextures/frozen/frozen3.webp') repeat-x;
-  animation: translateBackground 75s infinite linear;
+  background: url('/styles/textures/planettextures/frozen/frozen3.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 75s infinite linear;
   
 }
 .Gas1 {
-  background: url('./planettextures/gas/gas1.webp') repeat-x;
-  animation: translateBackground 165s infinite linear;
+  background: url('/styles/textures/planettextures/gas/gas1.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 165s infinite linear;
   
 }
 .Gas2 {
-  background: url('./planettextures/gas/gas2.webp') repeat-x;
-  animation: translateBackground 165s infinite linear;
+  background: url('/styles/textures/planettextures/gas/gas2.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 165s infinite linear;
   
 }
 .Gas3 {
-  background: url('./planettextures/gas/gas3.webp') repeat-x;
-  animation: translateBackground 165s infinite linear;
+  background: url('/styles/textures/planettextures/gas/gas3.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 165s infinite linear;
   
 }
 .Gas4 {
-  background: url('./planettextures/gas/gas4.webp') repeat-x;
-  animation: translateBackground 165s infinite linear;
+  background: url('/styles/textures/planettextures/gas/gas4.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 165s infinite linear;
   
 }
 .Gas5 {
-  background: url('./planettextures/gas/gas5.webp') repeat-x;
-  animation: translateBackground 165s infinite linear;
+  background: url('/styles/textures/planettextures/gas/gas5.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 165s infinite linear;
   
 }
 .Ocean1 {
-  background: url('./planettextures/ocean/ocean.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/ocean/ocean.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Ocean2 {
-  background: url('./planettextures/ocean/ocean2.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/ocean/ocean2.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Ocean3 {
-  background: url('./planettextures/ocean/ocean.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/ocean/ocean.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Ocean4 {
-  background: url('./planettextures/ocean/ocean2.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/ocean/ocean2.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Ocean5 {
-  background: url('./planettextures/ocean/ocean2.webp') repeat-x;
-  animation: translateBackground 45s infinite linear;
+  background: url('/styles/textures/planettextures/ocean/ocean2.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 45s infinite linear;
   
 }
 .Rocky1 {
-  background: url('./planettextures/rocky/rocky1.webp') repeat-x;
-  animation: translateBackground 110s infinite linear;
+  background: url('/styles/textures/planettextures/rocky/rocky1.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 110s infinite linear;
   
 }
 .Rocky2 {
-  background: url('./planettextures/rocky/rocky2.webp') repeat-x;
-  animation: translateBackground 110s infinite linear;
+  background: url('/styles/textures/planettextures/rocky/rocky2.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 110s infinite linear;
   
 }
 .Rocky3 {
-  background: url('./planettextures/rocky/rocky3.webp') repeat-x;
-  animation: translateBackground 110s infinite linear;
+  background: url('/styles/textures/planettextures/rocky/rocky3.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 110s infinite linear;
   
 }
 .Rocky4 {
-  background: url('./planettextures/rocky/rocky3.webp') repeat-x;
-  animation: translateBackground 110s infinite linear;
+  background: url('/styles/textures/planettextures/rocky/rocky3.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 110s infinite linear;
   
 }
 .Rocky5 {
-  background: url('./planettextures/rocky/rocky3.webp') repeat-x;
-  animation: translateBackground 110s infinite linear;
+  background: url('/styles/textures/planettextures/rocky/rocky3.webp') repeat-x;
   background-size: 100% 100%;
+  animation: translateBackground 110s infinite linear;
   
 }
 .Temperate1 {
-  background: url('./planettextures/temperate/temperate1.webp') repeat-x;
-  animation: translateBackground 85s infinite linear;
+  background: url('/styles/textures/planettextures/temperate/temperate1.webp') repeat-x;
   background-size: 120% 100%;
+  animation: translateBackground 85s infinite linear;
   
 }
 .Temperate2 {
-  background: url('./planettextures/temperate/temperate2.webp') repeat-x;
-  animation: translateBackground 85s infinite linear;
+  background: url('/styles/textures/planettextures/temperate/temperate2.webp') repeat-x;
   background-size: 120% 100%;
+  animation: translateBackground 85s infinite linear;
   
 }
 .Temperate3 {
-  background: url('./planettextures/temperate/temperate3.webp') repeat-x;
-  animation: translateBackground 85s infinite linear;
+  background: url('/styles/textures/planettextures/temperate/temperate3.webp') repeat-x;
   background-size: 120% 100%;
+  animation: translateBackground 85s infinite linear;
   
 }
 .Temperate4 {
-  background: url('./planettextures/temperate/temperate4.webp') repeat-x;
-  animation: translateBackground 85s infinite linear;
+  background: url('/styles/textures/planettextures/temperate/temperate4.webp') repeat-x;
   background-size: 120% 100%;
+  animation: translateBackground 85s infinite linear;
   
 }
 .Temperate5 {
-  background: url('./planettextures/temperate/temperate5.webp') repeat-x;
-  animation: translateBackground 85s infinite linear;
+  background: url('/styles/textures/planettextures/temperate/temperate5.webp') repeat-x;
   background-size: 120% 100%;
+  animation: translateBackground 85s infinite linear;
   
 }
 .Greenhouse1 {
-  background: url('./planettextures/greenhouse/greenhouse.webp') repeat-x;
-  animation: translateBackground 85s infinite linear;
+  background: url('/styles/textures/planettextures/greenhouse/greenhouse.webp') repeat-x;
   background-size: 120% 100%;
+  animation: translateBackground 85s infinite linear;
   
 }
 .Greenhouse2 {
-  background: url('./planettextures/greenhouse/greenhouse.webp') repeat-x;
-  animation: translateBackground 85s infinite linear;
+  background: url('/styles/textures/planettextures/greenhouse/greenhouse.webp') repeat-x;
   background-size: 120% 100%;
+  animation: translateBackground 85s infinite linear;
   
 }
 .Greenhouse3 {
-  background: url('./planettextures/greenhouse/greenhouse2.webp') repeat-x;
-  animation: translateBackground 85s infinite linear;
+  background: url('/styles/textures/planettextures/greenhouse/greenhouse2.webp') repeat-x;
   background-size: 120% 100%;
+  animation: translateBackground 85s infinite linear;
   
 }
 .Greenhouse4 {
-  background: url('./planettextures/greenhouse/greenhouse2.webp') repeat-x;
-  animation: translateBackground 85s infinite linear;
+  background: url('/styles/textures/planettextures/greenhouse/greenhouse2.webp') repeat-x;
   background-size: 120% 100%;
+  animation: translateBackground 85s infinite linear;
   
 }
 .Greenhouse5 {
-  background: url('./planettextures/greenhouse/greenhouse.webp') repeat-x;
-  animation: translateBackground 85s infinite linear;
+  background: url('/styles/textures/planettextures/greenhouse/greenhouse.webp') repeat-x;
   background-size: 120% 100%;
+  animation: translateBackground 85s infinite linear;
   
 }
 .Asteroid-Belt1 {
-  background: url('./planettextures/asteroid.webp');
+  background: url('/styles/textures/planettextures/asteroid.webp');
   background-size: 100% 100%;
 }
 .Asteroid-Belt2 {
-  background: url('./planettextures/asteroid.webp');
+  background: url('/styles/textures/planettextures/asteroid.webp');
   background-size: 100% 100%;
 }
 .Asteroid-Belt3 {
-  background: url('./planettextures/asteroid.webp');
+  background: url('/styles/textures/planettextures/asteroid.webp');
   background-size: 100% 100%;
 }
 /* end planets css*/
@@ -464,28 +464,28 @@
 }
 
 .Black-hole {
-  background-image: url('./NCOTextures/blackhole.webp');
+  background-image: url('/styles/textures/NCOTextures/blackhole.webp');
   background-size: 100% 100%;
 }
 .Nebula {
-  background-image: url('./NCOTextures/nebula.webp');
+  background-image: url('/styles/textures/NCOTextures/nebula.webp');
   background-size: 100% 100%;
   border-radius: 50%;
 }
 .Asteroid-cluster {
-  background-image: url('./NCOTextures/asteroids.webp');
+  background-image: url('/styles/textures/NCOTextures/asteroids.webp');
   background-size: 100% 100%;
 }
 .Pulsar {
-  background-image: url('./NCOTextures/pulsar.webp');
+  background-image: url('/styles/textures/NCOTextures/pulsar.webp');
   background-size: 100% 100%;
 }
 .Pulsar-system-view {
-  background-image: url('./NCOTextures/pulsar.webp');
+  background-image: url('/styles/textures/NCOTextures/pulsar.webp');
   background-size: 100% 100%;
   animation: spinMeRightRoundBabyRightRound .1s infinite linear;
 }
 .Magnetar {
-  background-image: url('./NCOTextures/magnetar.webp');
+  background-image: url('/styles/textures/NCOTextures/magnetar.webp');
   background-size: 100% 100%;
 }

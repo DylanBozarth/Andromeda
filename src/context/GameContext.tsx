@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { BACKEND_URL } from '../clientLibrary/backendURL';
-import { getToken } from '../redux/localStorage';
+import { getToken } from '../clientLibrary/localStorage';
 import { AuthContext } from '../non-game-pages/AuthProvider/context/AuthContext';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 import { Planet } from '../types/planet-interface';

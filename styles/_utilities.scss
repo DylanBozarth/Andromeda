@@ -1,0 +1,55 @@
+// Layout
+.flex         { display: flex; }
+.flex-wrap    { flex-wrap: wrap; }
+.fixed        { position: fixed; }
+.relative     { position: relative; }
+.container    { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+.container-fluid { width: 100%; padding: 0 1rem; }
+.row          { display: flex; flex-wrap: wrap; }
+
+// Alignment
+.justify-center         { justify-content: center; }
+.justify-content-center { justify-content: center; }
+.text-center            { text-align: center; }
+.items-center           { align-items: center; }
+
+// Position helpers
+.top-0    { top: 0; }
+.bottom-0 { bottom: 0; }
+.left-0   { left: 0; }
+
+// Z-index
+.z-99 { z-index: 99; }
+
+// Spacing — padding
+.p-1  { padding: 0.25rem; }
+.p-2  { padding: 0.5rem; }
+.p-3  { padding: 0.75rem; }
+.p-4  { padding: 1rem; }
+.p-5  { padding: 1.25rem; }
+.p-10 { padding: 2.5rem; }
+.p-20 { padding: 5rem; }
+
+// Spacing — margin
+.m-1  { margin: 0.25rem; }
+.m-2  { margin: 0.5rem; }
+.m-5  { margin: 1.25rem; }
+.m-10 { margin: 2.5rem; }
+
+// Margin top
+.mt-5  { margin-top: 1.25rem; }
+.mt-20 { margin-top: 5rem; }
+
+// Margin bottom
+.mb-5 { margin-bottom: 1.25rem; }
+
+// Borders
+.border-1 { border: 1px solid; }
+.border-2 { border: 2px solid; }
+
+// Cursor
+.cursor-pointer { cursor: pointer; }
+.pointer        { cursor: pointer; }
+
+// Typography
+.bold { font-weight: bold; }

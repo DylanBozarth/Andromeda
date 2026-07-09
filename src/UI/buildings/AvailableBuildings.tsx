@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Buildings } from './AvailableBuildingsTypes';
-import '@styles/user-interface-master.scss'
 export const AvailableBuildings = () => {
   const [availableBuildings, setAvailableBuildings] = useState<Array<Buildings>>([]);
 

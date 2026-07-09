@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./progressCircle.css";
 
 function ProgressCircles({ name, resources, icon }) {
   useEffect(() => {

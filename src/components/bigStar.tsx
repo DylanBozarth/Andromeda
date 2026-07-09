@@ -1,5 +1,3 @@
-import '@styles/textures/planets-and-stars.scss';
-import '@styles/user-interface-master.scss';
 interface BigStarProps {
   systemStar: string;
 }
