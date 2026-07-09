@@ -54,7 +54,8 @@ async def login(body: LoginRequest, db: AsyncSession = Depends(get_db)):
 @app.get("/me")
 async def me(db: AsyncSession = Depends(get_db), payload: dict = Depends(verify_token)):
     user = await db.get(User, payload["sub"])
-    return {"username": payload["sub"], "claimedPlanet": user.claimed_planet if user else None}
+    claimed_slots = list(user.claimed_slots) if user and user.claimed_slots else []
+    return {"username": payload["sub"], "claimedSlots": claimed_slots}
 
 
 @app.get("/sectors")
@@ -72,38 +73,45 @@ async def claim_planet(
     user = await db.get(User, payload["sub"])
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
-    if user.claimed_planet:
-        raise HTTPException(status_code=409, detail="You have already claimed a planet")
+
+    claimed_slots = list(user.claimed_slots) if user.claimed_slots else []
+    claim_key = f"{body.sector_name}/{body.system_name}/{body.planet_name}"
+
+    if len(claimed_slots) >= 10:
+        raise HTTPException(status_code=409, detail="You have reached the 10 colony limit")
+    if claim_key in claimed_slots:
+        raise HTTPException(status_code=409, detail="You already have a colony on this planet")
 
     sector = await db.get(Sector, body.sector_name)
     if not sector:
         raise HTTPException(status_code=404, detail="Sector not found")
 
-    # Find the planet in the JSONB systems list and verify it's unowned
     systems = list(sector.systems)
     planet_found = False
     for system in systems:
         if system.get("systemName") == body.system_name:
             for planet in system.get("systemPlanets", []):
                 if planet.get("name") == body.planet_name:
-                    if planet.get("ownership") != "unowned":
-                        raise HTTPException(status_code=409, detail="Planet is already owned")
-                    planet["ownership"] = user.username
+                    slots = planet.get("populationSlots", [])
+                    empty = next((s for s in slots if s.get("occupant") is None), None)
+                    if empty is None:
+                        raise HTTPException(status_code=409, detail="No empty population slots on this planet")
+                    empty["occupant"] = user.username
                     planet_found = True
                     break
 
     if not planet_found:
         raise HTTPException(status_code=404, detail="Planet not found")
 
-    # SQLAlchemy won't detect in-place JSONB mutations — reassign to flag dirty
     from sqlalchemy.orm.attributes import flag_modified
     flag_modified(sector, "systems")
 
-    claim_key = f"{body.sector_name}/{body.system_name}/{body.planet_name}"
-    user.claimed_planet = claim_key
+    user.claimed_slots = claimed_slots + [claim_key]
+    from sqlalchemy.orm.attributes import flag_modified as flag_user
+    flag_user(user, "claimed_slots")
     await db.commit()
 
-    return {"claimed": claim_key}
+    return {"claimed": claim_key, "claimedSlots": user.claimed_slots}
 
 
 @app.get("/sectors/{name}")

@@ -9,7 +9,8 @@ class User(Base):
 
     username: Mapped[str] = mapped_column(String(64), primary_key=True)
     password: Mapped[str] = mapped_column(String(256))
-    claimed_planet: Mapped[str | None] = mapped_column(String(256), nullable=True, default=None)
+    # list of "sector/system/planet" strings, max 10
+    claimed_slots: Mapped[list] = mapped_column(JSONB, nullable=False, server_default='[]')
 
 
 class Sector(Base):

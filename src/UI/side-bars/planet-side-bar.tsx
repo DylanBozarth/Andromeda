@@ -24,8 +24,19 @@ export const PlanetSideBar = ({ playerPlanet }: Props) => {
   const { user, setUser } = useContext(AuthContext);
   const { sector, activeSystem, fetchSector } = useGame();
 
-  const canClaim = playerPlanet.ownership === 'unowned' && !user?.claimedPlanet;
-  const alreadyClaimed = !!user?.claimedPlanet;
+  const claimedSlots: string[] = user?.claimedSlots ?? [];
+
+  const slots = playerPlanet.populationSlots ?? [];
+  const occupiedSlots = slots.filter(s => s.occupant !== null);
+  const hasEmptySlot = slots.some(s => s.occupant === null);
+  const userSlot = slots.find(s => s.occupant === user?.username);
+
+  const claimKey = sector && activeSystem
+    ? `${sector.sectorName}/${activeSystem.systemName}/${playerPlanet.name}`
+    : '';
+  const alreadyClaimedThis = claimedSlots.includes(claimKey);
+  const atLimit = claimedSlots.length >= 10;
+  const canClaim = hasEmptySlot && !alreadyClaimedThis && !atLimit;
 
   const handleClaim = async () => {
     if (!sector || !activeSystem) return;
@@ -51,6 +62,15 @@ export const PlanetSideBar = ({ playerPlanet }: Props) => {
     }
   };
 
+  const claimLabel = () => {
+    if (claiming) return 'Settling…';
+    if (userSlot) return 'Your colony';
+    if (alreadyClaimedThis) return 'Already settled here';
+    if (atLimit) return 'Colony limit reached (10)';
+    if (!hasEmptySlot) return 'Planet full';
+    return 'Settle here';
+  };
+
   return (
     <aside className={`planet-panel${panelOpen ? ' planet-panel--open' : ''}`}>
       {/* drag handle — mobile only */}
@@ -62,7 +82,7 @@ export const PlanetSideBar = ({ playerPlanet }: Props) => {
       <div className='planet-panel-header'>
         <p className='planet-panel-title'>{playerPlanet.name}</p>
         <p className='planet-panel-subtitle'>
-          {playerPlanet.class.replace(/\d+$/, '')} · {playerPlanet.ownership}
+          {playerPlanet.class.replace(/\d+$/, '')} · {occupiedSlots.length}/{slots.length} settlers
         </p>
       </div>
 
@@ -141,19 +161,42 @@ export const PlanetSideBar = ({ playerPlanet }: Props) => {
         )}
       </div>
 
-      {playerPlanet.ownership === 'unowned' && (
-        <div className='planet-panel-footer'>
-          {claimError && <p className='planet-panel-claim-error'>{claimError}</p>}
-          <button
-            className='ui-border-box planet-panel-claim'
-            onClick={handleClaim}
-            disabled={!canClaim || claiming}
-            title={alreadyClaimed ? 'You already own a planet' : 'Claim this planet'}
-          >
-            {claiming ? 'Claiming…' : alreadyClaimed ? 'Already own a planet' : 'Claim this planet'}
-          </button>
+      <div className='planet-panel-footer'>
+        <p className='planet-panel-section-label'>
+          Population slots &mdash; {occupiedSlots.length}/{slots.length}
+        </p>
+        <div className='planet-slots'>
+          {slots.map(slot => {
+            const isYours = slot.occupant === user?.username;
+            const initials = slot.occupant
+              ? slot.occupant.slice(0, 2).toUpperCase()
+              : null;
+            return (
+              <div
+                key={slot.slotId}
+                className={`planet-slot${slot.occupant ? (isYours ? ' planet-slot--yours' : ' planet-slot--occupied') : ' planet-slot--empty'}`}
+                title={slot.occupant ?? 'Empty'}
+              >
+                <div className='planet-slot-avatar'>
+                  {isYours ? '★' : initials ?? '+'}
+                </div>
+                <span className='planet-slot-name'>
+                  {slot.occupant ?? 'Open'}
+                </span>
+              </div>
+            );
+          })}
         </div>
-      )}
+        {claimError && <p className='planet-panel-claim-error'>{claimError}</p>}
+        <button
+          className='ui-border-box planet-panel-claim'
+          onClick={handleClaim}
+          disabled={!canClaim || claiming || !!userSlot}
+          title={claimLabel()}
+        >
+          {claimLabel()}
+        </button>
+      </div>
     </aside>
   );
 };

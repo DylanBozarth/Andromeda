@@ -1,6 +1,14 @@
 import { getSortedObjectByProperty } from '../arrays';
 import { Planet } from '../../types/planet-interface';
 import { generateRandomNumber } from '../math';
+
+const slotCountForClass = (planetClass: string): number => {
+  const base = planetClass.replace(/\d+$/, '');
+  if (['Temperate', 'Ocean', 'Greenhouse'].includes(base)) return generateRandomNumber(8, 5);
+  if (['Desert', 'Rocky', 'Frozen'].includes(base))        return generateRandomNumber(5, 3);
+  if (['Lava', 'Gas'].includes(base))                      return generateRandomNumber(3, 2);
+  return 1; // Asteroid-Belt
+};
 import { buildingTypes } from './buildings';
 import { planetList } from './planets';
 import { resources } from './resources';
@@ -50,7 +58,7 @@ const generateSystem = (maxPlanets: number) => {
       production: [],
       hangar: [],
       orbit: [],
-      ownership: ''
+      populationSlots: []
     }
   };
 
@@ -63,8 +71,9 @@ const generateSystem = (maxPlanets: number) => {
     const planetName = getRandomPlanet(planetList);
     const resource1 = getRandomResource(resources);
     const resource2 = getRandomResource(resources, resource1);
+    const slotCount = slotCountForClass(planetName);
     const planet: Planet = {
-      name: system.systemName + '-' + (i + 1), // name the planet the star + number +1 so not 0
+      name: system.systemName + '-' + (i + 1),
       class: planetName,
       naturalResources: [resource1, resource2],
       buildings: [],
@@ -72,7 +81,7 @@ const generateSystem = (maxPlanets: number) => {
       production: [],
       orbit: [],
       hangar: [],
-      ownership: 'unowned'
+      populationSlots: Array.from({ length: slotCount }, (_, idx) => ({ slotId: idx, occupant: null })),
     };
     system.systemPlanets.push(planet);
   }

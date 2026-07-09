@@ -21,7 +21,12 @@ export const SystemView = () => {
               <PlanetComponent planet={planet} />
             </Link>
             <p className='text-center'>
-              {planet.name}<br />{planet.ownership}
+              {planet.name}<br />
+              {(() => {
+                const slots = planet.populationSlots ?? [];
+                const filled = slots.filter(s => s.occupant).length;
+                return filled > 0 ? `${filled}/${slots.length} settlers` : 'Uninhabited';
+              })()}
             </p>
           </div>
         ))}
