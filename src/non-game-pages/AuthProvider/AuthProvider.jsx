@@ -4,37 +4,44 @@ import { getToken } from '../../redux/localStorage';
 import { BACKEND_URL } from '../../clientLibrary/backendURL';
 
 const AuthProvider = ({ children }) => {
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-
-  const authToken = getToken();
 
   const fetchLoggedInUser = async (token) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`${BACKEND_URL}/api/users/me`, {
+      const response = await fetch(`${BACKEND_URL}/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
+      if (!response.ok) {
+        setUserData(null);
+        return;
+      }
       const data = await response.json();
-
       setUserData(data);
     } catch (error) {
-      console.error(error);
-      console.error('Error While Getting Logged In User Details');
+      console.error('Error fetching logged in user:', error);
+      setUserData(null);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleUser = (user) => {
-    setUserData(user);
-  };
-
   useEffect(() => {
-    if (authToken) {
-      fetchLoggedInUser(authToken);
+    const token = getToken();
+    if (token) {
+      fetchLoggedInUser(token);
     }
-  }, [authToken]);
+  }, []);
+
+  const handleUser = () => {
+    const token = getToken();
+    if (token) {
+      fetchLoggedInUser(token);
+    } else {
+      setUserData(null);
+    }
+  };
 
   return (
     <AuthContext.Provider value={{ user: userData, setUser: handleUser, isLoading }}>

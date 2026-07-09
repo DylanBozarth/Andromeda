@@ -1,13 +1,10 @@
 import { useContext, useState } from 'react';
 import { RegisterUser, registerUser } from '../clientLibrary/auth';
-import { useAppDispatch } from '../redux/hooks';
-import { fetchSectorData } from '../redux/sectorSlice';
 import { AuthContext } from './AuthProvider/context/AuthContext';
 import { Link } from 'react-router-dom';
 import { LoginData } from './loginData';
 
 export const Register = () => {
-  const dispatch = useAppDispatch();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
@@ -27,7 +24,6 @@ export const Register = () => {
         password: password
       };
       await registerUser(registerObj);
-      // await dispatch(fetchSectorData());
       setUser();
       setUserName('');
       setPassword('');

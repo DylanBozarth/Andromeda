@@ -5,19 +5,22 @@ export interface LoginUser {
   userName: string;
   password: string;
 }
-export const loginUser = async (registerObj: LoginUser) => {
-  const responseData = await fetch(`${BACKEND_URL}auth/login`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(registerObj),
-  })
-    .then((resp) => resp.json())
-    .catch((err) => console.error(err));
-  setToken(responseData.jwt);
-  return responseData.jwt;
-  // Handle the JWT for future iterations
+
+export const loginUser = async (registerObj: LoginUser): Promise<string | null> => {
+  try {
+    const resp = await fetch(`${BACKEND_URL}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: registerObj.userName, password: registerObj.password }),
+    });
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    setToken(data.access_token);
+    return data.access_token;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
 };
 
 export interface RegisterUser {
@@ -25,27 +28,19 @@ export interface RegisterUser {
   password: string;
 }
 
-export const registerUser = async (registerObj: RegisterUser) => {
-  const responseData = await fetch(`${BACKEND_URL}auth/register`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(registerObj),
-  })
-    .then((resp) => resp.json())
-    .catch((err) => console.error(err));
-  setToken(responseData.jwt);
-  return responseData.jwt;
-  // Handle the JWT for future iterations
+export const registerUser = async (registerObj: RegisterUser): Promise<string | null> => {
+  try {
+    const resp = await fetch(`${BACKEND_URL}/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(registerObj),
+    });
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    setToken(data.access_token);
+    return data.access_token;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
 };
-/*
-export const getUserDetails = async (userToken: string) => {
-  const responseData = await fetch(`${BACKEND_URL}/api/users/me`, {
-    headers: { Authorization: `Bearer ${userToken}` },
-  })
-    .then((resp) => resp.json())
-    .catch((err) => console.error(err));
-  setToken(userToken);
-  return responseData;
-}; */

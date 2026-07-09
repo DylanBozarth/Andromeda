@@ -24,5 +24,5 @@ export const setToken = (userToken: string) => {
 };
 
 export const getToken = () => {
-  return localStorage.getItem('jwt');
+  return localStorage.getItem('accessToken');
 };

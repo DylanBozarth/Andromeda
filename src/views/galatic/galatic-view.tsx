@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import '@styles/views-styles/galatic-view.css';
 import { useEffect } from 'react';
-import { fetchSectorData } from '../../redux/sectorSlice';
+import { useGame } from '../../context/GameContext';
 import sampleImage from '@assets/sample-image.png';
 
 export const GalaticView = () => {
-  const dispatch = useAppDispatch();
-  const activeSector = useAppSelector((state) => state.sector.activeSector.sector);
-  const sectorLoading = useAppSelector((state) => state.sector.activeSector.loading);
+  const { sector, sectorLoading, fetchSector } = useGame();
+
   useEffect(() => {
-      dispatch(fetchSectorData());
+    if (!sector) fetchSector();
   }, []);
 
   return (
@@ -22,7 +20,7 @@ export const GalaticView = () => {
       </div>
 
       <div className='sectorawrapper'>
-        {!sectorLoading ? (
+        {!sectorLoading && sector ? (
           <>
             <img src={sampleImage}></img>
             <Link to='/sector-a' className='sectora'>
@@ -30,9 +28,7 @@ export const GalaticView = () => {
             </Link>
           </>
         ) : (
-          <div>
-            <h1>Still loading, did you start the server?</h1>
-          </div>
+          <p>Loading...</p>
         )}
       </div>
     </div>

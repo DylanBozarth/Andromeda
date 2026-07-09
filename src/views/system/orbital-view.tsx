@@ -1,42 +1,33 @@
 import { PlanetComponent } from '../../components/planet';
 import '@styles/views-styles/system-view.css';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useGame } from '../../context/GameContext';
 import { Link } from 'react-router-dom';
-import { setPlanet } from '../../redux/sectorSlice';
 import { SystemSideBar } from '../../UI/side-bars/system-side-bar';
-import { Star } from '../../components/star';
 import { BigStar } from '../../components/bigStar';
 
 export const SystemOrbitalView = () => {
-  const dispatch = useAppDispatch();
-  const sector = useAppSelector((state) => state.sector.activeSector.sector);
-  const playerSystem = useAppSelector((state) => state.sector.activeSystem);
+  const { sector, activeSystem, setActivePlanet } = useGame();
+
+  if (!activeSystem || !sector) return null;
+
   return (
     <div className=''>
       <SystemSideBar />
-      <div className='flex flex-wrap justify-center mt-20 '>
-        <BigStar systemStar={playerSystem.systemStar} />
-        {playerSystem.systemPlanets.map((planet) => {
-          return (
-            <>
-              <div className={'planet-wrapper  '}>
-                
-                <Link
-                  to={`/${sector.sectorName}/system/${playerSystem.systemName}/planet/${planet.name}`}
-                  onClick={() => dispatch(setPlanet(planet))}
-                >
-                  <PlanetComponent planet={planet} />
-                </Link>
-                <p className='text-center'>
-                  {planet.name}
-                  <br />
-                  {planet.ownership}{' '}
-                </p>{' '}
-              </div>
-            </>
-          );
-        })}
-       
+      <div className='flex flex-wrap justify-center mt-20'>
+        <BigStar systemStar={activeSystem.systemStar} />
+        {activeSystem.systemPlanets.map((planet) => (
+          <div key={planet.name} className='planet-wrapper'>
+            <Link
+              to={`/${sector.sectorName}/system/${activeSystem.systemName}/planet/${planet.name}`}
+              onClick={() => setActivePlanet(planet)}
+            >
+              <PlanetComponent planet={planet} />
+            </Link>
+            <p className='text-center'>
+              {planet.name}<br />{planet.ownership}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

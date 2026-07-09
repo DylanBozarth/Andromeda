@@ -17,7 +17,7 @@ import {
   getRandomNCO
 } from './system-functions';
 import { NCONameGenerator, systemNameGenerator } from './system-name-generator';
-import { Sector } from '../../redux/sectorSlice';
+import { Sector } from '../../context/GameContext';
 
 export interface System {
   systemStar: string;
