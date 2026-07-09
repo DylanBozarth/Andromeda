@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { BACKEND_URL } from '../clientLibrary/backendURL';
 import { getToken } from '../redux/localStorage';
+import { AuthContext } from '../non-game-pages/AuthProvider/context/AuthContext';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 import { Planet } from '../types/planet-interface';
 
@@ -29,8 +30,9 @@ const GameContext = createContext<GameState>({} as GameState);
 export const useGame = () => useContext(GameContext);
 
 export const GameProvider = ({ children }: { children: ReactNode }) => {
+  const { user } = useContext(AuthContext);
   const [sector, setSector] = useState<Sector | null>(null);
-  const [sectorLoading, setSectorLoading] = useState(true);
+  const [sectorLoading, setSectorLoading] = useState(false);
   const [activeSystem, setActiveSystem] = useState<System | null>(null);
   const [activePlanet, setActivePlanet] = useState<Planet | null>(null);
   const [activeNCO, setActiveNCO] = useState<NCO | null>(null);
@@ -53,8 +55,12 @@ export const GameProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    fetchSector();
-  }, []);
+    if (user?.username) {
+      fetchSector();
+    } else {
+      setSector(null);
+    }
+  }, [user]);
 
   return (
     <GameContext.Provider value={{
