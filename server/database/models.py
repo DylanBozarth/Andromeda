@@ -1,4 +1,4 @@
-from sqlalchemy import String
+from sqlalchemy import Integer, String
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 from database.database import Base
@@ -21,3 +21,14 @@ class Sector(Base):
     distances_map: Mapped[dict] = mapped_column(JSONB, nullable=False, default=dict)
     nco: Mapped[dict] = mapped_column(JSONB, nullable=False, default=dict)
     fleets_in_transit: Mapped[dict] = mapped_column(JSONB, nullable=False, default=list)
+
+
+class Building(Base):
+    __tablename__ = "buildings"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    # "sector/system/planet"
+    planet_key: Mapped[str] = mapped_column(String(256), nullable=False, index=True)
+    owner: Mapped[str] = mapped_column(String(64), nullable=False)
+    building_type: Mapped[str] = mapped_column(String(64), nullable=False)
+    level: Mapped[int] = mapped_column(Integer, nullable=False, default=1)

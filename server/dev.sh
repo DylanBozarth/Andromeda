@@ -14,7 +14,7 @@ PYTHON=/opt/homebrew/Caskroom/miniconda/base/bin/python3
 UVICORN=/opt/homebrew/Caskroom/miniconda/base/bin/uvicorn
 
 echo "Seeding database..."
-cd server
+cd backend
 $PYTHON -m database.seed
 
 echo "Starting backend..."

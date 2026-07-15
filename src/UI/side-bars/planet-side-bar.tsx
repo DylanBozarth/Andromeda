@@ -73,12 +73,10 @@ export const PlanetSideBar = ({ playerPlanet }: Props) => {
 
   return (
     <aside className={`planet-panel${panelOpen ? ' planet-panel--open' : ''}`}>
-      {/* drag handle — mobile only */}
       <div className='planet-panel-handle' onClick={() => setPanelOpen(o => !o)} aria-label='Toggle panel'>
         <div className='planet-panel-handle-bar' />
       </div>
 
-      {/* header */}
       <div className='planet-panel-header'>
         <p className='planet-panel-title'>{playerPlanet.name}</p>
         <p className='planet-panel-subtitle'>
@@ -86,7 +84,6 @@ export const PlanetSideBar = ({ playerPlanet }: Props) => {
         </p>
       </div>
 
-      {/* tab strip */}
       <div className='planet-panel-tabs'>
         {TABS.map(({ key, label, icon }) => (
           <button
@@ -101,7 +98,6 @@ export const PlanetSideBar = ({ playerPlanet }: Props) => {
         ))}
       </div>
 
-      {/* tab content */}
       <div className='planet-panel-body'>
         {activeTab === 'production' && (
           <div className='planet-panel-section'>
