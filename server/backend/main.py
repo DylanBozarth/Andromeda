@@ -14,6 +14,7 @@ from sqlalchemy import select
 from backend.auth import create_access_token, verify_token
 from backend.player_actions import router as player_actions_router
 from backend.buildings.routes import router as buildings_router
+from backend.fleets.routes import router as fleets_router
 from database.database import get_db
 from database.models import Sector, User
 
@@ -29,6 +30,7 @@ app.add_middleware(
 
 app.include_router(player_actions_router)
 app.include_router(buildings_router)
+app.include_router(fleets_router)
 
 
 class LoginRequest(BaseModel):

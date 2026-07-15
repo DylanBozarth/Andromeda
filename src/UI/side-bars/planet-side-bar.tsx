@@ -6,6 +6,9 @@ import { claimPlanet } from '../../clientLibrary/planets';
 import { PlanetBuilding, cancelBuilding } from '../../clientLibrary/buildings';
 import { BUILDING_TYPES } from '../buildings/buildingTypes';
 import { BuildingProgressBar } from '../buildings/BuildingProgressBar';
+import { BuildShipPanel } from '../../fleets/BuildShipPanel';
+import { Ship } from '../../fleets/types';
+import { SHIP_TYPES } from '../../fleets/shipTypes';
 
 const TABS = [
   { key: 'production', label: 'Production', icon: '/assets/UI-icons/economy.png' },
@@ -19,9 +22,12 @@ type TabKey = typeof TABS[number]['key'];
 interface Props {
   playerPlanet: Planet;
   buildings: PlanetBuilding[];
+  shipsInProduction: Ship[];
+  onCancelBuild: (type: string) => Promise<void>;
+  onShipBuilt: () => void;
 }
 
-export const PlanetSideBar = ({ playerPlanet, buildings, onCancelBuild }: Props & { onCancelBuild: (type: string) => Promise<void> }) => {
+export const PlanetSideBar = ({ playerPlanet, buildings, shipsInProduction, onCancelBuild, onShipBuilt }: Props) => {
   const [activeTab, setActiveTab] = useState<TabKey>('production');
   const [panelOpen, setPanelOpen] = useState(false);
   const [claiming, setClaiming] = useState(false);
@@ -120,9 +126,25 @@ export const PlanetSideBar = ({ playerPlanet, buildings, onCancelBuild }: Props 
       <div className='planet-panel-body'>
         {activeTab === 'production' && (
           <div className='planet-panel-section'>
-            {buildings.filter(b => b.status === 'constructing' || b.status === 'queued').length === 0 ? (
+            {shipsInProduction.map(ship => {
+              const def = SHIP_TYPES.find(d => d.type === ship.type);
+              return (
+                <div key={ship.id} className='construction-item'>
+                  <div className='construction-item-header'>
+                    <span className='construction-item-icon'>{def?.icon ?? '🚀'}</span>
+                    <span className='construction-item-name'>{ship.name}</span>
+                  </div>
+                  <BuildingProgressBar
+                    startedAt={ship.startedAt}
+                    durationSeconds={ship.durationSeconds}
+                    queued={false}
+                  />
+                </div>
+              );
+            })}
+            {buildings.filter(b => b.status === 'constructing' || b.status === 'queued').length === 0 && shipsInProduction.length === 0 ? (
               <p className='planet-panel-empty'>No active construction</p>
-            ) : (
+            ) : buildings.filter(b => b.status === 'constructing' || b.status === 'queued').length > 0 ? (
               [...buildings]
                 .filter(b => b.status === 'constructing' || b.status === 'queued')
                 .sort((a, b) => {
@@ -179,18 +201,23 @@ export const PlanetSideBar = ({ playerPlanet, buildings, onCancelBuild }: Props 
                     </div>
                   );
                 })
-            )}
+            ) : null}
           </div>
         )}
 
         {activeTab === 'hangar' && (
           <div className='planet-panel-section'>
-            {playerPlanet.hangar.length === 0
-              ? <p className='planet-panel-empty'>Hangar is empty</p>
-              : playerPlanet.hangar.map((ship, i) => (
-                  <div key={i} className='planet-panel-row'>{ship}</div>
-                ))
-            }
+            {buildings.length === 0 ? (
+              <p className='planet-panel-empty'>Build a structure on this planet to unlock ship construction.</p>
+            ) : sector && activeSystem ? (
+              <BuildShipPanel
+                sectorName={sector.sectorName}
+                systemName={activeSystem.systemName}
+                planetName={playerPlanet.name}
+                buildings={buildings}
+                onShipOrdered={onShipBuilt}
+              />
+            ) : null}
           </div>
         )}
 

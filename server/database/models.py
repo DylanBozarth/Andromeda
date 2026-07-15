@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy import DateTime, Integer, String
+from sqlalchemy import DateTime, ForeignKey, Integer, String
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 from database.database import Base
@@ -36,3 +36,34 @@ class Building(Base):
     status: Mapped[str] = mapped_column(String(16), nullable=False, default='complete')
     started_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     duration_seconds: Mapped[int] = mapped_column(Integer, nullable=False, default=60)
+
+
+class Ship(Base):
+    __tablename__ = "ships"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    owner: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    ship_type: Mapped[str] = mapped_column(String(64), nullable=False)
+    name: Mapped[str] = mapped_column(String(128), nullable=False)
+    power: Mapped[int] = mapped_column(Integer, nullable=False)
+    max_power: Mapped[int] = mapped_column(Integer, nullable=False)
+    # where the ship was built / currently docked ("sector/system/planet" or fleet id)
+    location: Mapped[str] = mapped_column(String(256), nullable=False)
+    # null = docked at planet, otherwise the fleet id it belongs to
+    fleet_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("fleets.id", ondelete="SET NULL"), nullable=True)
+    # 'constructing' while being built, 'complete' when ready
+    status: Mapped[str] = mapped_column(String(16), nullable=False, server_default='complete')
+    started_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    duration_seconds: Mapped[int] = mapped_column(Integer, nullable=False, server_default='60')
+
+
+class Fleet(Base):
+    __tablename__ = "fleets"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    owner: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    name: Mapped[str] = mapped_column(String(128), nullable=False)
+    # idle | in-transit | in-battle | retreating
+    status: Mapped[str] = mapped_column(String(16), nullable=False, default='idle')
+    location: Mapped[str | None] = mapped_column(String(256), nullable=True)
+    destination: Mapped[str | None] = mapped_column(String(256), nullable=True)

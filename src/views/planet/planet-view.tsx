@@ -4,6 +4,8 @@ import { BigPlanetComponent } from '../../components/bigplanet';
 import { PlanetSideBar } from '../../UI/side-bars/planet-side-bar';
 import { BuildingMenu } from '../../UI/buildings/BuildingMenu';
 import { fetchPlanetBuildings, cancelBuilding, PlanetBuilding } from '../../clientLibrary/buildings';
+import { fetchShipProduction } from '../../fleets/clientLibrary';
+import { Ship } from '../../fleets/types';
 import { AuthContext } from '../../non-game-pages/AuthProvider/context/AuthContext';
 
 export const PlanetView = () => {
@@ -11,6 +13,7 @@ export const PlanetView = () => {
   const { user } = useContext(AuthContext);
   const [buildMenuOpen, setBuildMenuOpen] = useState(false);
   const [buildings, setBuildings] = useState<PlanetBuilding[]>([]);
+  const [shipsInProduction, setShipsInProduction] = useState<Ship[]>([]);
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const sectorName = sector?.sectorName ?? '';
@@ -25,8 +28,12 @@ export const PlanetView = () => {
   const refresh = async () => {
     if (!sectorName || !systemName || !planetName) return;
     try {
-      const data = await fetchPlanetBuildings(sectorName, systemName, planetName);
-      setBuildings(data);
+      const [buildingData, shipData] = await Promise.all([
+        fetchPlanetBuildings(sectorName, systemName, planetName),
+        fetchShipProduction(sectorName, systemName, planetName),
+      ]);
+      setBuildings(buildingData);
+      setShipsInProduction(shipData);
     } catch {}
   };
 
@@ -35,14 +42,16 @@ export const PlanetView = () => {
   }, [sectorName, systemName, planetName]);
 
   useEffect(() => {
-    const hasActive = buildings.some(b => b.status === 'constructing' || b.status === 'queued');
+    const hasActive =
+      buildings.some(b => b.status === 'constructing' || b.status === 'queued') ||
+      shipsInProduction.length > 0;
     if (hasActive) {
       pollRef.current = setInterval(refresh, 5000);
     } else {
       if (pollRef.current) clearInterval(pollRef.current);
     }
     return () => { if (pollRef.current) clearInterval(pollRef.current); };
-  }, [buildings]);
+  }, [buildings, shipsInProduction]);
 
   if (!activePlanet) return null;
 
@@ -63,10 +72,12 @@ export const PlanetView = () => {
       <PlanetSideBar
         playerPlanet={activePlanet}
         buildings={buildings}
+        shipsInProduction={shipsInProduction}
         onCancelBuild={async (type) => {
           await cancelBuilding(sectorName, systemName, planetName, type);
           await refresh();
         }}
+        onShipBuilt={refresh}
       />
 
       {buildMenuOpen && (
