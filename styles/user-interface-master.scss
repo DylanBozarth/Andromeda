@@ -1238,6 +1238,138 @@ $blue-green: #7CBDBD;
   }
 }
 
+/* constructing / queued card states */
+.building-card--constructing {
+  border-color: rgba($border, 0.5);
+  background: rgba($border, 0.07);
+  opacity: 0.8;
+}
+
+.building-card--queued {
+  border-color: rgba($title, 0.12);
+  background: rgba($title, 0.02);
+  opacity: 0.65;
+}
+
+.building-card-badge--constructing {
+  color: rgba($title, 0.7);
+  background: rgba($border, 0.2);
+  border-color: rgba($border, 0.4);
+  animation: pulse-badge 1.5s ease-in-out infinite;
+}
+
+.building-card-badge--queued {
+  color: rgba($title, 0.5);
+  background: rgba($title, 0.06);
+  border-color: rgba($title, 0.18);
+}
+
+@keyframes pulse-badge {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* ── Construction progress (production tab) ─────────────────── */
+
+.construction-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  border: 1px solid rgba($border, 0.2);
+  border-radius: 5px;
+  background: rgba($border, 0.04);
+  margin-bottom: 0.4rem;
+
+  &--queued {
+    border-color: rgba($title, 0.1);
+    background: rgba($title, 0.02);
+    opacity: 0.6;
+  }
+}
+
+.construction-item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.construction-item-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.construction-item-name {
+  font-size: 0.78rem;
+  color: $title;
+  font-weight: 500;
+  flex: 1;
+}
+
+.construction-item-queue-badge {
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: rgba($title, 0.4);
+  background: rgba($title, 0.06);
+  border: 1px solid rgba($title, 0.15);
+  border-radius: 3px;
+  padding: 0.1rem 0.35rem;
+  flex-shrink: 0;
+}
+
+.construction-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.construction-progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba($border, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.construction-progress-fill {
+  height: 100%;
+  background: $blue-green;
+  border-radius: 2px;
+  transition: width 0.8s linear;
+}
+
+.construction-progress-bar--queued {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 6px,
+      rgba($title, 0.12) 6px,
+      rgba($title, 0.12) 10px
+    );
+    animation: queued-march 1.2s linear infinite;
+  }
+}
+
+@keyframes queued-march {
+  from { background-position-x: 0; }
+  to   { background-position-x: 16px; }
+}
+
+.construction-progress-label {
+  font-size: 0.62rem;
+  color: rgba($title, 0.4);
+  flex-shrink: 0;
+  min-width: 2.5rem;
+  text-align: right;
+}
+
 .building-overlay-error {
   font-size: 0.8rem;
   color: #e05555;

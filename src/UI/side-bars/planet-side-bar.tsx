@@ -1,8 +1,11 @@
 import { Planet } from '../../types/planet-interface';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../non-game-pages/AuthProvider/context/AuthContext';
 import { useGame } from '../../context/GameContext';
 import { claimPlanet } from '../../clientLibrary/planets';
+import { PlanetBuilding } from '../../clientLibrary/buildings';
+import { BUILDING_TYPES } from '../buildings/buildingTypes';
+import { BuildingProgressBar } from '../buildings/BuildingProgressBar';
 
 const TABS = [
   { key: 'production', label: 'Production', icon: '/assets/UI-icons/economy.png' },
@@ -13,9 +16,12 @@ const TABS = [
 
 type TabKey = typeof TABS[number]['key'];
 
-interface Props { playerPlanet: Planet; }
+interface Props {
+  playerPlanet: Planet;
+  buildings: PlanetBuilding[];
+}
 
-export const PlanetSideBar = ({ playerPlanet }: Props) => {
+export const PlanetSideBar = ({ playerPlanet, buildings }: Props) => {
   const [activeTab, setActiveTab] = useState<TabKey>('production');
   const [panelOpen, setPanelOpen] = useState(false);
   const [claiming, setClaiming] = useState(false);
@@ -101,9 +107,39 @@ export const PlanetSideBar = ({ playerPlanet }: Props) => {
       <div className='planet-panel-body'>
         {activeTab === 'production' && (
           <div className='planet-panel-section'>
-            <p className='planet-panel-empty'>
-              {playerPlanet.production?.length ? playerPlanet.production.join(', ') : 'No active production'}
-            </p>
+            {buildings.filter(b => b.status === 'constructing' || b.status === 'queued').length === 0 ? (
+              <p className='planet-panel-empty'>No active construction</p>
+            ) : (
+              [...buildings]
+                .filter(b => b.status === 'constructing' || b.status === 'queued')
+                .sort((a, b) => {
+                  if (a.status === 'constructing') return -1;
+                  if (b.status === 'constructing') return 1;
+                  return (a.queuePosition ?? 99) - (b.queuePosition ?? 99);
+                })
+                .map(b => {
+                  const def = BUILDING_TYPES.find(t => t.type === b.buildingType);
+                  return (
+                    <div key={b.buildingType} className={`construction-item${b.status === 'queued' ? ' construction-item--queued' : ''}`}>
+                      <div className='construction-item-header'>
+                        <span className='construction-item-icon'>{def?.icon ?? '🏗'}</span>
+                        <span className='construction-item-name'>
+                          {def?.displayName ?? b.buildingType}
+                          {b.level > 1 ? ` (Lv ${b.level})` : ''}
+                        </span>
+                        {b.status === 'queued' && (
+                          <span className='construction-item-queue-badge'>#{b.queuePosition}</span>
+                        )}
+                      </div>
+                      <BuildingProgressBar
+                        startedAt={b.startedAt}
+                        durationSeconds={b.durationSeconds}
+                        queued={b.status === 'queued'}
+                      />
+                    </div>
+                  );
+                })
+            )}
           </div>
         )}
 

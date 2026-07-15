@@ -1,12 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useGame } from '../../context/GameContext';
 import { BigPlanetComponent } from '../../components/bigplanet';
 import { PlanetSideBar } from '../../UI/side-bars/planet-side-bar';
 import { BuildingMenu } from '../../UI/buildings/BuildingMenu';
+import { fetchPlanetBuildings, PlanetBuilding } from '../../clientLibrary/buildings';
 
 export const PlanetView = () => {
   const { activePlanet, sector, activeSystem } = useGame();
   const [buildMenuOpen, setBuildMenuOpen] = useState(false);
+  const [buildings, setBuildings] = useState<PlanetBuilding[]>([]);
+  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const sectorName = sector?.sectorName ?? '';
+  const systemName = activeSystem?.systemName ?? '';
+  const planetName = activePlanet?.name ?? '';
+
+  const refresh = async () => {
+    if (!sectorName || !systemName || !planetName) return;
+    try {
+      const data = await fetchPlanetBuildings(sectorName, systemName, planetName);
+      setBuildings(data);
+    } catch {}
+  };
+
+  useEffect(() => {
+    refresh();
+  }, [sectorName, systemName, planetName]);
+
+  // poll every 5s while anything is constructing
+  useEffect(() => {
+    const hasConstructing = buildings.some(b => b.status === 'constructing');
+    if (hasConstructing) {
+      pollRef.current = setInterval(refresh, 5000);
+    } else {
+      if (pollRef.current) clearInterval(pollRef.current);
+    }
+    return () => { if (pollRef.current) clearInterval(pollRef.current); };
+  }, [buildings]);
 
   if (!activePlanet) return null;
 
@@ -16,7 +46,6 @@ export const PlanetView = () => {
         <BigPlanetComponent planet={activePlanet} />
       </div>
 
-      {/* trigger tab pinned to left edge of the sidebar */}
       <button
         className='buildings-tab-trigger'
         onClick={() => setBuildMenuOpen(true)}
@@ -25,14 +54,16 @@ export const PlanetView = () => {
         Buildings
       </button>
 
-      <PlanetSideBar playerPlanet={activePlanet} />
+      <PlanetSideBar playerPlanet={activePlanet} buildings={buildings} />
 
       {buildMenuOpen && (
         <BuildingMenu
           onClose={() => setBuildMenuOpen(false)}
-          sectorName={sector?.sectorName ?? ''}
-          systemName={activeSystem?.systemName ?? ''}
-          planetName={activePlanet.name}
+          buildings={buildings}
+          onBuildStart={refresh}
+          sectorName={sectorName}
+          systemName={systemName}
+          planetName={planetName}
         />
       )}
     </div>

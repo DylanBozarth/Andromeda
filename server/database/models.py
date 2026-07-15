@@ -1,4 +1,5 @@
-from sqlalchemy import Integer, String
+from datetime import datetime
+from sqlalchemy import DateTime, Integer, String
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 from database.database import Base
@@ -27,8 +28,11 @@ class Building(Base):
     __tablename__ = "buildings"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    # "sector/system/planet"
     planet_key: Mapped[str] = mapped_column(String(256), nullable=False, index=True)
     owner: Mapped[str] = mapped_column(String(64), nullable=False)
     building_type: Mapped[str] = mapped_column(String(64), nullable=False)
     level: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
+    # 'constructing' until duration_seconds elapses, then 'complete'
+    status: Mapped[str] = mapped_column(String(16), nullable=False, default='complete')
+    started_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    duration_seconds: Mapped[int] = mapped_column(Integer, nullable=False, default=60)

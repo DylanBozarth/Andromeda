@@ -1,38 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BUILDING_TYPES } from './buildingTypes';
-import {
-  fetchPlanetBuildings,
-  constructBuilding,
-  PlanetBuilding,
-} from '../../clientLibrary/buildings';
+import { constructBuilding, PlanetBuilding } from '../../clientLibrary/buildings';
 
 interface Props {
   onClose: () => void;
+  buildings: PlanetBuilding[];
+  onBuildStart: () => void;
   sectorName: string;
   systemName: string;
   planetName: string;
 }
 
-export const BuildingMenu = ({ onClose, sectorName, systemName, planetName }: Props) => {
-  const [built, setBuilt] = useState<PlanetBuilding[]>([]);
+export const BuildingMenu = ({
+  onClose,
+  buildings,
+  onBuildStart,
+  sectorName,
+  systemName,
+  planetName,
+}: Props) => {
   const [pending, setPending] = useState<string | null>(null);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    if (!sectorName || !systemName || !planetName) return;
-    fetchPlanetBuildings(sectorName, systemName, planetName).then(setBuilt).catch(() => {});
-  }, [sectorName, systemName, planetName]);
-
-  const builtMap: Record<string, number> = {};
-  for (const b of built) builtMap[b.buildingType] = b.level;
+  const builtMap: Record<string, PlanetBuilding> = {};
+  for (const b of buildings) builtMap[b.buildingType] = b;
 
   const handleBuild = async (type: string) => {
     setPending(type);
     setError('');
     try {
       await constructBuilding(sectorName, systemName, planetName, type);
-      const updated = await fetchPlanetBuildings(sectorName, systemName, planetName);
-      setBuilt(updated);
+      onBuildStart();
     } catch (err: any) {
       setError(err.message ?? 'Build failed');
     } finally {
@@ -54,38 +52,52 @@ export const BuildingMenu = ({ onClose, sectorName, systemName, planetName }: Pr
 
           <div className='building-overlay-grid'>
             {BUILDING_TYPES.map((def) => {
-              const level = builtMap[def.type] ?? 0;
-              const maxed = level >= def.maxLevel;
-              const busy  = pending === def.type;
+              const existing = builtMap[def.type];
+              const level = existing?.level ?? 0;
+              const isConstructing = existing?.status === 'constructing';
+              const isQueued = existing?.status === 'queued';
+              const maxed = !isConstructing && !isQueued && level >= def.maxLevel;
+              const busy = pending === def.type;
 
               return (
                 <div
                   key={def.type}
                   className={[
                     'building-card',
-                    level > 0 ? 'building-card--built' : '',
-                    maxed     ? 'building-card--maxed'  : '',
+                    level > 0 && !isConstructing && !isQueued ? 'building-card--built' : '',
+                    isConstructing ? 'building-card--constructing' : '',
+                    isQueued ? 'building-card--queued' : '',
+                    maxed ? 'building-card--maxed' : '',
                   ].join(' ').trim()}
                 >
                   <div className='building-card-top'>
                     <div className='building-card-icon'>{def.icon}</div>
-                    {level > 0 && (
+                    {isConstructing && (
+                      <span className='building-card-badge building-card-badge--constructing'>Building…</span>
+                    )}
+                    {existing?.status === 'queued' && (
+                      <span className='building-card-badge building-card-badge--queued'>
+                        Queue #{existing.queuePosition}
+                      </span>
+                    )}
+                    {!isConstructing && existing?.status !== 'queued' && level > 0 && (
                       <span className='building-card-badge'>
-                        {maxed ? `MAX` : `Lv ${level}`}
+                        {maxed ? 'MAX' : `Lv ${level}`}
                       </span>
                     )}
                   </div>
+
                   <div className='building-card-name'>{def.displayName}</div>
                   <div className='building-card-desc'>{def.description}</div>
 
                   <div className='building-card-footer'>
-                    <div className='building-card-cost'>Free · Instant</div>
+                    <div className='building-card-cost'>Free · 1 min</div>
                     <button
                       className='building-card-btn'
-                      disabled={maxed || busy}
+                      disabled={maxed || busy || isConstructing || isQueued}
                       onClick={() => handleBuild(def.type)}
                     >
-                      {busy ? 'Building…' : maxed ? 'Max' : level > 0 ? 'Upgrade' : 'Build'}
+                      {busy ? '…' : isConstructing ? 'Building…' : isQueued ? 'Queued' : maxed ? 'Max' : level > 0 ? 'Upgrade' : 'Build'}
                     </button>
                   </div>
                 </div>

@@ -19,6 +19,10 @@ export interface PlanetBuilding {
   buildingType: string;
   level: number;
   owner: string;
+  status: 'constructing' | 'queued' | 'complete';
+  startedAt: string | null;
+  durationSeconds: number;
+  queuePosition: number | null;
 }
 
 export async function fetchBuildingTypes(): Promise<BuildingType[]> {
