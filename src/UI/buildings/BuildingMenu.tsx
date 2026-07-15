@@ -6,6 +6,7 @@ interface Props {
   onClose: () => void;
   buildings: PlanetBuilding[];
   onBuildStart: () => void;
+  isClaimed: boolean;
   sectorName: string;
   systemName: string;
   planetName: string;
@@ -15,6 +16,7 @@ export const BuildingMenu = ({
   onClose,
   buildings,
   onBuildStart,
+  isClaimed,
   sectorName,
   systemName,
   planetName,
@@ -48,9 +50,18 @@ export const BuildingMenu = ({
         </div>
 
         <div className='building-overlay-body'>
+          {!isClaimed && (
+            <div className='building-overlay-unclaimed'>
+              <span className='building-overlay-unclaimed-icon'>🔒</span>
+              <p className='building-overlay-unclaimed-text'>
+                You must settle this planet before constructing buildings.
+              </p>
+            </div>
+          )}
+
           {error && <p className='building-overlay-error'>{error}</p>}
 
-          <div className='building-overlay-grid'>
+          <div className={`building-overlay-grid${!isClaimed ? ' building-overlay-grid--locked' : ''}`}>
             {BUILDING_TYPES.map((def) => {
               const existing = builtMap[def.type];
               const level = existing?.level ?? 0;
@@ -94,7 +105,7 @@ export const BuildingMenu = ({
                     <div className='building-card-cost'>Free · 1 min</div>
                     <button
                       className='building-card-btn'
-                      disabled={maxed || busy || isConstructing || isQueued}
+                      disabled={!isClaimed || maxed || busy || isConstructing || isQueued}
                       onClick={() => handleBuild(def.type)}
                     >
                       {busy ? '…' : isConstructing ? 'Building…' : isQueued ? 'Queued' : maxed ? 'Max' : level > 0 ? 'Upgrade' : 'Build'}

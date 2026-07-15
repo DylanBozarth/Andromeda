@@ -46,6 +46,28 @@ export async function fetchPlanetBuildings(
   return data.buildings;
 }
 
+export async function cancelBuilding(
+  sectorName: string,
+  systemName: string,
+  planetName: string,
+  buildingType: string,
+): Promise<void> {
+  const resp = await fetch(`${BACKEND_URL}/buildings/cancel`, {
+    method: 'POST',
+    headers: authHeaders(),
+    body: JSON.stringify({
+      sector_name: sectorName,
+      system_name: systemName,
+      planet_name: planetName,
+      building_type: buildingType,
+    }),
+  });
+  if (!resp.ok) {
+    const err = await resp.json().catch(() => ({}));
+    throw new Error(err.detail ?? 'Failed to cancel build');
+  }
+}
+
 export async function constructBuilding(
   sectorName: string,
   systemName: string,

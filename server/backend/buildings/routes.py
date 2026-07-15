@@ -86,6 +86,9 @@ async def construct_building(
 
     planet_key = f"{body.sector_name}/{body.system_name}/{body.planet_name}"
 
+    if planet_key not in (user.claimed_slots or []):
+        raise HTTPException(status_code=403, detail="You must have a colony on this planet to build here")
+
     # check if this building type is already active
     existing_result = await db.execute(
         select(Building).where(
@@ -164,7 +167,56 @@ async def get_planet_buildings(
     }
 
 
+@router.post("/cancel")
+async def cancel_building(
+    body: "CancelRequest",
+    db: AsyncSession = Depends(get_db),
+    payload: dict = Depends(verify_token),
+):
+    username = payload["sub"]
+    planet_key = f"{body.sector_name}/{body.system_name}/{body.planet_name}"
+
+    result = await db.execute(
+        select(Building).where(
+            Building.planet_key == planet_key,
+            Building.building_type == body.building_type,
+        )
+    )
+    building = result.scalar_one_or_none()
+
+    if not building or building.status not in ('constructing', 'queued'):
+        raise HTTPException(status_code=404, detail="No active build found")
+
+    if building.level <= 1:
+        # brand new build — remove entirely
+        await db.delete(building)
+    else:
+        # upgrade in progress — roll back one level
+        building.level -= 1
+        building.status = 'complete'
+        building.started_at = None
+
+    await db.commit()
+
+    # promote next queued item if the cancelled one was constructing
+    if building.status != 'complete':  # was deleted (new build)
+        remaining_result = await db.execute(
+            select(Building).where(Building.planet_key == planet_key)
+        )
+        remaining = remaining_result.scalars().all()
+        await _tick(remaining, db)
+
+    return {"cancelled": body.building_type}
+
+
 class BuildRequest(BaseModel):
+    sector_name: str
+    system_name: str
+    planet_name: str
+    building_type: str
+
+
+class CancelRequest(BaseModel):
     sector_name: str
     system_name: str
     planet_name: str

@@ -1306,6 +1306,67 @@ $blue-green: #7CBDBD;
   flex: 1;
 }
 
+.construction-item-cancel-btn {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: rgba($title, 0.25);
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+  transition: color 0.15s;
+
+  &:hover { color: #e05555; }
+}
+
+.construction-confirm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  background: rgba(#e05555, 0.07);
+  border: 1px solid rgba(#e05555, 0.25);
+  border-radius: 4px;
+  margin-top: 0.25rem;
+}
+
+.construction-confirm-text {
+  font-size: 0.72rem;
+  color: rgba($title, 0.7);
+}
+
+.construction-confirm-actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.construction-confirm-btn {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.7rem;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid;
+  transition: background 0.15s;
+
+  &--yes {
+    background: rgba(#e05555, 0.2);
+    border-color: rgba(#e05555, 0.5);
+    color: #e05555;
+    &:hover:not(:disabled) { background: rgba(#e05555, 0.35); }
+  }
+
+  &--no {
+    background: rgba($title, 0.06);
+    border-color: rgba($title, 0.2);
+    color: rgba($title, 0.6);
+    &:hover:not(:disabled) { background: rgba($title, 0.12); }
+  }
+
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
 .construction-item-queue-badge {
   font-size: 0.6rem;
   font-weight: bold;
@@ -1368,6 +1429,35 @@ $blue-green: #7CBDBD;
   flex-shrink: 0;
   min-width: 2.5rem;
   text-align: right;
+}
+
+.building-overlay-unclaimed {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba($title, 0.15);
+  border-radius: 8px;
+  background: rgba($title, 0.03);
+}
+
+.building-overlay-unclaimed-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.building-overlay-unclaimed-text {
+  font-size: 0.82rem;
+  color: rgba($title, 0.5);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.building-overlay-grid--locked {
+  opacity: 0.35;
+  pointer-events: none;
+  filter: grayscale(0.4);
 }
 
 .building-overlay-error {

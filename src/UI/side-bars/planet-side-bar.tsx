@@ -1,9 +1,9 @@
 import { Planet } from '../../types/planet-interface';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { AuthContext } from '../../non-game-pages/AuthProvider/context/AuthContext';
 import { useGame } from '../../context/GameContext';
 import { claimPlanet } from '../../clientLibrary/planets';
-import { PlanetBuilding } from '../../clientLibrary/buildings';
+import { PlanetBuilding, cancelBuilding } from '../../clientLibrary/buildings';
 import { BUILDING_TYPES } from '../buildings/buildingTypes';
 import { BuildingProgressBar } from '../buildings/BuildingProgressBar';
 
@@ -21,11 +21,13 @@ interface Props {
   buildings: PlanetBuilding[];
 }
 
-export const PlanetSideBar = ({ playerPlanet, buildings }: Props) => {
+export const PlanetSideBar = ({ playerPlanet, buildings, onCancelBuild }: Props & { onCancelBuild: (type: string) => Promise<void> }) => {
   const [activeTab, setActiveTab] = useState<TabKey>('production');
   const [panelOpen, setPanelOpen] = useState(false);
   const [claiming, setClaiming] = useState(false);
   const [claimError, setClaimError] = useState('');
+  const [confirmCancel, setConfirmCancel] = useState<string | null>(null);
+  const [cancelling, setCancelling] = useState(false);
 
   const { user, setUser } = useContext(AuthContext);
   const { sector, activeSystem, fetchSector } = useGame();
@@ -43,6 +45,17 @@ export const PlanetSideBar = ({ playerPlanet, buildings }: Props) => {
   const alreadyClaimedThis = claimedSlots.includes(claimKey);
   const atLimit = claimedSlots.length >= 10;
   const canClaim = hasEmptySlot && !alreadyClaimedThis && !atLimit;
+
+  const handleConfirmCancel = async () => {
+    if (!confirmCancel) return;
+    setCancelling(true);
+    try {
+      await onCancelBuild(confirmCancel);
+    } finally {
+      setCancelling(false);
+      setConfirmCancel(null);
+    }
+  };
 
   const handleClaim = async () => {
     if (!sector || !activeSystem) return;
@@ -119,6 +132,7 @@ export const PlanetSideBar = ({ playerPlanet, buildings }: Props) => {
                 })
                 .map(b => {
                   const def = BUILDING_TYPES.find(t => t.type === b.buildingType);
+                  const isConfirming = confirmCancel === b.buildingType;
                   return (
                     <div key={b.buildingType} className={`construction-item${b.status === 'queued' ? ' construction-item--queued' : ''}`}>
                       <div className='construction-item-header'>
@@ -130,12 +144,38 @@ export const PlanetSideBar = ({ playerPlanet, buildings }: Props) => {
                         {b.status === 'queued' && (
                           <span className='construction-item-queue-badge'>#{b.queuePosition}</span>
                         )}
+                        <button
+                          className='construction-item-cancel-btn'
+                          onClick={() => setConfirmCancel(b.buildingType)}
+                          title='Cancel'
+                        >✕</button>
                       </div>
                       <BuildingProgressBar
                         startedAt={b.startedAt}
                         durationSeconds={b.durationSeconds}
                         queued={b.status === 'queued'}
                       />
+                      {isConfirming && (
+                        <div className='construction-confirm'>
+                          <span className='construction-confirm-text'>Cancel build?</span>
+                          <div className='construction-confirm-actions'>
+                            <button
+                              className='construction-confirm-btn construction-confirm-btn--yes'
+                              onClick={handleConfirmCancel}
+                              disabled={cancelling}
+                            >
+                              {cancelling ? '…' : 'Yes'}
+                            </button>
+                            <button
+                              className='construction-confirm-btn construction-confirm-btn--no'
+                              onClick={() => setConfirmCancel(null)}
+                              disabled={cancelling}
+                            >
+                              No
+                            </button>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   );
                 })
