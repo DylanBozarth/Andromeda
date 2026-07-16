@@ -7,7 +7,7 @@ const slotCountForClass = (planetClass: string): number => {
   if (['Temperate', 'Ocean', 'Greenhouse'].includes(base)) return generateRandomNumber(8, 5);
   if (['Desert', 'Rocky', 'Frozen'].includes(base))        return generateRandomNumber(5, 3);
   if (['Lava', 'Gas'].includes(base))                      return generateRandomNumber(3, 2);
-  return 1; // Asteroid-Belt
+  return 2; // Asteroid-Belt
 };
 
 import { planetList } from './planets';
@@ -27,13 +27,51 @@ import {
 import { NCONameGenerator, systemNameGenerator } from './system-name-generator';
 import { Sector } from '../../context/GameContext';
 
+export type SystemPositions = Record<string, null>;
+
+const generatePositions = (systemName: string, planets: string[]): SystemPositions => {
+  const positions: SystemPositions = {};
+
+  for (const planet of planets) {
+    for (let i = 1; i <= 8; i++) {
+      positions[`${planet}-orbit-${i}`] = null;
+    }
+    for (let i = 1; i <= 10; i++) {
+      positions[`${planet}-above-${i}`] = null;
+    }
+    for (let i = 1; i <= 10; i++) {
+      positions[`${planet}-below-${i}`] = null;
+    }
+  }
+
+  for (let i = 1; i <= 50; i++) {
+    positions[`${systemName}-outer-${i}`] = null;
+  }
+
+  return positions;
+};
+
 export interface System {
   systemStar: string;
   systemPlanets: Array<Planet>;
   systemName: string;
   cords: string;
-  activePlanet: Planet
+  activePlanet: Planet;
+  positions: SystemPositions;
 }
+
+export type NCOPositions = Record<string, null>;
+
+const generateNCOPositions = (ncoName: string): NCOPositions => {
+  const positions: NCOPositions = {};
+  for (let i = 1; i <= 50; i++) {
+    positions[`${ncoName}-outer-${i}`] = null;
+  }
+  for (let i = 1; i <= 20; i++) {
+    positions[`${ncoName}-inner-${i}`] = null;
+  }
+  return positions;
+};
 
 export interface NCO { // NCO = Non-conolizable-object
   type: string;
@@ -41,6 +79,7 @@ export interface NCO { // NCO = Non-conolizable-object
   effect: string;
   cords: string;
   fleets: Array<string>;
+  positions: NCOPositions;
 }
 
 const generateSystem = (maxPlanets: number) => {
@@ -49,6 +88,7 @@ const generateSystem = (maxPlanets: number) => {
     systemName: systemNameGenerator(1)[0],
     systemPlanets: [],
     cords: '',
+    positions: {},
     activePlanet: {
       name: '',
       class: '',
@@ -86,6 +126,11 @@ const generateSystem = (maxPlanets: number) => {
     system.systemPlanets.push(planet);
   }
 
+  system.positions = generatePositions(
+    system.systemName,
+    system.systemPlanets.map(p => p.name),
+  );
+
   return system;
 };
 
@@ -95,9 +140,11 @@ const generateNCOs = () => {
     name: NCONameGenerator('a'), // change here for sector letter
     effect: '10 damage',
     cords: '',
-    fleets: []
+    fleets: [],
+    positions: {}
   };
-  NCO.cords = getSystemCoords('A')
+  NCO.cords = getSystemCoords('A');
+  NCO.positions = generateNCOPositions(NCO.name);
   return NCO
 }
 

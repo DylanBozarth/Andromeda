@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { Link } from 'react-router-dom';
 import { useGame } from '../../context/GameContext';
 import { parseCoords } from '../../utils/system-generator/system-functions';
-import type { System } from '../../utils/system-generator/generate-sector';
+import type { System, NCO } from '../../utils/system-generator/generate-sector';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
 // ── colours ──────────────────────────────────────────────────────────────────
@@ -33,6 +33,7 @@ function toVec3(cords: string, name = ''): THREE.Vector3 {
 
 // ── shared geometry (created once, never recreated) ───────────────────────────
 const SPHERE_GEO = new THREE.SphereGeometry(0.35, 7, 7);
+const NCO_GEO    = new THREE.OctahedronGeometry(0.3, 0);
 
 // ── line drawing using raw BufferGeometry — avoids LineSegmentsGeometry NaN bug
 function DistanceLine({ from, to }: { from: THREE.Vector3; to: THREE.Vector3 }) {
@@ -161,21 +162,76 @@ function StarMesh({
   );
 }
 
+// ── NCO mesh ─────────────────────────────────────────────────────────────────
+function NCOMesh({
+  position, isSelected, isHovered, onClick, onPointerOver, onPointerOut,
+}: {
+  position: THREE.Vector3;
+  isSelected: boolean;
+  isHovered: boolean;
+  onClick: () => void;
+  onPointerOver: () => void;
+  onPointerOut: () => void;
+}) {
+  const meshRef = useRef<THREE.Mesh>(null!);
+  const targetScale = isSelected ? 1.6 : isHovered ? 1.3 : 1;
+  const needsAnim = useRef(false);
+
+  useEffect(() => { needsAnim.current = true; invalidate(); }, [isSelected, isHovered]);
+
+  useFrame((_, delta) => {
+    if (!meshRef.current) return;
+    meshRef.current.rotation.y += delta * 0.8;
+    if (needsAnim.current) {
+      const s = meshRef.current.scale.x;
+      const next = THREE.MathUtils.lerp(s, targetScale, delta * 8);
+      meshRef.current.scale.setScalar(next);
+      if (Math.abs(next - targetScale) < 0.01) {
+        meshRef.current.scale.setScalar(targetScale);
+        needsAnim.current = false;
+      }
+    }
+    invalidate();
+  });
+
+  return (
+    <mesh
+      ref={meshRef}
+      geometry={NCO_GEO}
+      position={position}
+      onClick={(e) => { e.stopPropagation(); onClick(); }}
+      onPointerOver={(e) => { e.stopPropagation(); onPointerOver(); }}
+      onPointerOut={onPointerOut}
+    >
+      <meshBasicMaterial color={isSelected ? '#ff6644' : isHovered ? '#ff9966' : '#cc3311'} />
+    </mesh>
+  );
+}
+
 // ── scene — no per-star lights, just one ambient + one directional ────────────
 function Scene({
-  systems, positions, distancesMap,
+  systems, ncos, positions, ncoPositions, distancesMap,
   selectedName, hoveredName,
   onSelect, onHover, onHoverEnd,
+  selectedNCO, hoveredNCO,
+  onSelectNCO, onHoverNCO, onHoverNCOEnd,
   focusTarget, onFocusDone, controlsRef,
 }: {
   systems: System[];
+  ncos: NCO[];
   positions: Map<string, THREE.Vector3>;
+  ncoPositions: Map<string, THREE.Vector3>;
   distancesMap: Record<string, Record<string, { distance: number }>>;
   selectedName: string | null;
   hoveredName: string | null;
   onSelect: (name: string) => void;
   onHover: (name: string) => void;
   onHoverEnd: () => void;
+  selectedNCO: string | null;
+  hoveredNCO: string | null;
+  onSelectNCO: (name: string) => void;
+  onHoverNCO: (name: string) => void;
+  onHoverNCOEnd: () => void;
   focusTarget: THREE.Vector3 | null;
   onFocusDone: () => void;
   controlsRef: React.RefObject<OrbitControlsImpl>;
@@ -222,6 +278,22 @@ function Scene({
         );
       })}
 
+      {ncos.map((n) => {
+        const p = ncoPositions.get(n.name);
+        if (!p) return null;
+        return (
+          <NCOMesh
+            key={n.name}
+            position={p}
+            isSelected={selectedNCO === n.name}
+            isHovered={hoveredNCO === n.name}
+            onClick={() => onSelectNCO(n.name)}
+            onPointerOver={() => onHoverNCO(n.name)}
+            onPointerOut={onHoverNCOEnd}
+          />
+        );
+      })}
+
       {selectedName && selectedPos && (
         <DistanceLines
           from={selectedPos}
@@ -236,9 +308,11 @@ function Scene({
 
 // ── main component ────────────────────────────────────────────────────────────
 export const SectorView3D = () => {
-  const { sector, setActiveSystem } = useGame();
+  const { sector, setActiveSystem, setActiveNCO } = useGame();
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const [hoveredName,  setHoveredName]  = useState<string | null>(null);
+  const [selectedNCO,  setSelectedNCO]  = useState<string | null>(null);
+  const [hoveredNCO,   setHoveredNCO]   = useState<string | null>(null);
   const [focusTarget,  setFocusTarget]  = useState<THREE.Vector3 | null>(null);
   const controlsRef = useRef<OrbitControlsImpl>(null!);
 
@@ -248,7 +322,14 @@ export const SectorView3D = () => {
     return map;
   }, [sector]);
 
+  const ncoPositions = useMemo(() => {
+    const map = new Map<string, THREE.Vector3>();
+    sector?.NCO.forEach(n => map.set(n.name, toVec3(n.cords, n.name)));
+    return map;
+  }, [sector]);
+
   const handleSelect = useCallback((name: string) => {
+    setSelectedNCO(null);
     setSelectedName(prev => {
       if (prev === name) { setFocusTarget(null); return null; }
       const p = positions.get(name);
@@ -257,7 +338,18 @@ export const SectorView3D = () => {
     });
   }, [positions]);
 
+  const handleSelectNCO = useCallback((name: string) => {
+    setSelectedName(null);
+    setSelectedNCO(prev => {
+      if (prev === name) { setFocusTarget(null); return null; }
+      const p = ncoPositions.get(name);
+      if (p) setFocusTarget(p.clone());
+      return name;
+    });
+  }, [ncoPositions]);
+
   const selectedSystem = sector?.systems.find(s => s.systemName === selectedName) ?? null;
+  const selectedNCOData = sector?.NCO.find(n => n.name === selectedNCO) ?? null;
 
   if (!sector) return null;
 
@@ -271,18 +363,56 @@ export const SectorView3D = () => {
       >
         <Scene
           systems={sector.systems}
+          ncos={sector.NCO}
           positions={positions}
+          ncoPositions={ncoPositions}
           distancesMap={sector.distancesMap}
           selectedName={selectedName}
           hoveredName={hoveredName}
           onSelect={handleSelect}
           onHover={setHoveredName}
           onHoverEnd={() => setHoveredName(null)}
+          selectedNCO={selectedNCO}
+          hoveredNCO={hoveredNCO}
+          onSelectNCO={handleSelectNCO}
+          onHoverNCO={setHoveredNCO}
+          onHoverNCOEnd={() => setHoveredNCO(null)}
           focusTarget={focusTarget}
           onFocusDone={() => setFocusTarget(null)}
           controlsRef={controlsRef}
         />
       </Canvas>
+
+      {selectedNCOData && (
+        <div style={{
+          position: 'fixed', top: '50%', right: '24px', transform: 'translateY(-50%)',
+          background: 'rgba(0,0,0,0.82)', border: '1px solid rgba(204,51,17,0.5)',
+          borderRadius: '8px', padding: '16px', minWidth: '160px',
+          color: '#fff', fontSize: '13px', lineHeight: '1.7', zIndex: 10,
+        }}>
+          <div style={{ color: '#ff6644', fontWeight: 'bold', marginBottom: '2px' }}>
+            {selectedNCOData.name}
+          </div>
+          <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '10px', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '10px' }}>
+            {selectedNCOData.type}
+          </div>
+          <div style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '12px' }}>
+            Effect: {selectedNCOData.effect}
+          </div>
+          <Link
+            to={`/${sector.sectorName}/${selectedNCOData.name}`}
+            onClick={() => setActiveNCO(selectedNCOData)}
+            style={{
+              display: 'block', textAlign: 'center', color: '#ff6644',
+              textDecoration: 'none', fontSize: '11px', letterSpacing: '1px',
+              textTransform: 'uppercase', border: '1px solid rgba(204,51,17,0.5)',
+              borderRadius: '4px', padding: '5px 0',
+            }}
+          >
+            Enter →
+          </Link>
+        </div>
+      )}
 
       {selectedSystem && (
         <div style={{
