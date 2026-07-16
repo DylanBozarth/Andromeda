@@ -36,12 +36,13 @@ const generatePositions = (systemName: string, planets: string[]): SystemPositio
     for (let i = 1; i <= 8; i++) {
       positions[`${planet}-orbit-${i}`] = null;
     }
-    for (let i = 1; i <= 10; i++) {
-      positions[`${planet}-above-${i}`] = null;
-    }
-    for (let i = 1; i <= 10; i++) {
-      positions[`${planet}-below-${i}`] = null;
-    }
+  }
+
+  for (let i = 1; i <= 20; i++) {
+    positions[`${systemName}-above-${i}`] = null;
+  }
+  for (let i = 1; i <= 20; i++) {
+    positions[`${systemName}-below-${i}`] = null;
   }
 
   for (let i = 1; i <= 50; i++) {
