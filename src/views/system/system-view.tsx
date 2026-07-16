@@ -32,15 +32,15 @@ const PLANET_CLASS_COLORS: Record<string, string> = {
 // Sol planet config: name → { color, size, ring? }
 type PlanetConfig = { color: string; size: number; ring?: boolean };
 const SOL_PLANET_CONFIG: Record<string, PlanetConfig> = {
-  'Sol-1': { color: '#8a8a8a', size: 0.28 },              // Mercury — gray
-  'Sol-2': { color: '#d4b483', size: 0.48 },              // Venus — pale tan
-  'Sol-3': { color: '#2a6ea6', size: 0.50 },              // Earth — blue
-  'Sol-4': { color: '#b84422', size: 0.35 },              // Mars — red-orange
-  'Sol-5': { color: '#7a6a5a', size: 0.18 },              // Asteroid Belt — dusty gray
-  'Sol-6': { color: '#c8883a', size: 1.10 },              // Jupiter — orange-brown
-  'Sol-7': { color: '#e4d191', size: 0.95, ring: true },  // Saturn — pale gold + ring
-  'Sol-8': { color: '#7de8e8', size: 0.65 },              // Uranus — teal
-  'Sol-9': { color: '#3f54ba', size: 0.60 },              // Neptune — deep blue
+  'Mercury':       { color: '#8a8a8a', size: 0.28 },
+  'Venus':         { color: '#d4b483', size: 0.48 },
+  'Earth':         { color: '#2a6ea6', size: 0.50 },
+  'Mars':          { color: '#b84422', size: 0.35 },
+  'Asteroid-Belt': { color: '#7a6a5a', size: 0.18 },
+  'Jupiter':       { color: '#c8883a', size: 1.10 },
+  'Saturn':        { color: '#e4d191', size: 0.95, ring: true },
+  'Uranus':        { color: '#7de8e8', size: 0.65 },
+  'Neptune':       { color: '#3f54ba', size: 0.60 },
 };
 
 const ORBIT_BASE   = 5;
@@ -113,6 +113,52 @@ function PositionDots({ planetCount }: { planetCount: number }) {
   }
 
   return <>{dots}</>;
+}
+
+// ── asteroid belt ─────────────────────────────────────────────────────────────
+const ASTEROID_GEO = new THREE.SphereGeometry(0.07, 4, 4);
+const ASTEROID_MAT = new THREE.MeshBasicMaterial({ color: '#8a7a6a' });
+const ASTEROID_COUNT = 180;
+
+// Seeded pseudo-random so positions are stable across renders
+function seededRand(seed: number) {
+  const x = Math.sin(seed + 1) * 43758.5453;
+  return x - Math.floor(x);
+}
+
+function AsteroidBelt({ radius }: { radius: number }) {
+  const meshRef = useRef<THREE.InstancedMesh>(null!);
+  const dummy   = useMemo(() => new THREE.Object3D(), []);
+  const speeds  = useMemo(() =>
+    Array.from({ length: ASTEROID_COUNT }, (_, i) => (ORBIT_SPEED * 0.6) / Math.sqrt(1 + seededRand(i * 7) * 0.4)),
+    []
+  );
+  const angles = useRef(
+    Array.from({ length: ASTEROID_COUNT }, (_, i) => seededRand(i * 3) * Math.PI * 2)
+  );
+  const offsets = useMemo(() =>
+    Array.from({ length: ASTEROID_COUNT }, (_, i) => ({
+      r: radius + (seededRand(i * 5) - 0.5) * 3.5,
+      y: (seededRand(i * 11) - 0.5) * 0.8,
+    })), [radius]
+  );
+
+  useFrame((_, delta) => {
+    if (!meshRef.current) return;
+    for (let i = 0; i < ASTEROID_COUNT; i++) {
+      angles.current[i] += speeds[i] * delta;
+      const { r, y } = offsets[i];
+      dummy.position.set(Math.cos(angles.current[i]) * r, y, Math.sin(angles.current[i]) * r);
+      dummy.updateMatrix();
+      meshRef.current.setMatrixAt(i, dummy.matrix);
+    }
+    meshRef.current.instanceMatrix.needsUpdate = true;
+    invalidate();
+  });
+
+  return (
+    <instancedMesh ref={meshRef} args={[ASTEROID_GEO, ASTEROID_MAT, ASTEROID_COUNT]} />
+  );
 }
 
 // ── orbit ring ────────────────────────────────────────────────────────────────
@@ -208,6 +254,16 @@ function Scene({
 
       {planets.map((planet, i) => {
         const radius = ORBIT_BASE + i * ORBIT_STEP;
+        const isAsteroidBelt = planet.name === 'Asteroid-Belt';
+
+        if (isAsteroidBelt) {
+          return (
+            <group key={planet.name}>
+              <AsteroidBelt radius={radius} />
+            </group>
+          );
+        }
+
         const speed  = ORBIT_SPEED / Math.sqrt(i + 1);
         const phase  = (i / planets.length) * Math.PI * 2;
         const solCfg = SOL_PLANET_CONFIG[planet.name];

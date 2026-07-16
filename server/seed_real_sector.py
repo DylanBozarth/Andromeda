@@ -283,6 +283,14 @@ def fetch_simbad_names(stars):
             if not chosen:
                 chosen = fallback
 
+            # De-duplicate: if this name is already taken, append a counter
+            if chosen in used_known:
+                base, n = chosen, 2
+                while f"{base}-{n}" in used_known:
+                    n += 1
+                chosen = f"{base}-{n}"
+            used_known.add(chosen)
+
             names.append(chosen)
             print(f"  [{i+1}/100] {chosen} ({dist:.2f} ly)")
 
@@ -296,19 +304,16 @@ def fetch_simbad_names(stars):
 # ── sector builder ────────────────────────────────────────────────────────────
 
 SOL_PLANETS = [
-    {"name": "Sol-1", "class": "Rocky1",       "resources": ["Iron", "Silica"],          "slots": 2},
-    {"name": "Sol-2", "class": "Greenhouse1",   "resources": ["Sulfur", "Carbon"],        "slots": 2},
-    {"name": "Sol-3", "class": "Temperate1",    "resources": ["Iron", "Ice"],             "slots": 8},
-    {"name": "Sol-4", "class": "Desert1",       "resources": ["Iron", "Silica"],          "slots": 3},
-    {"name": "Sol-5", "class": "Rocky3",        "resources": ["Iron", "Nickel"],          "slots": 2},
-    {"name": "Sol-6", "class": "Gas1",          "resources": ["Helium-3", "Hydrogen"],    "slots": 2},
-    {"name": "Sol-7", "class": "Gas2",          "resources": ["Helium-3", "Ice"],         "slots": 2},
-    {"name": "Sol-8", "class": "Frozen1",       "resources": ["Ice", "Methane"],          "slots": 2},
-    {"name": "Sol-9", "class": "Frozen2",       "resources": ["Ice", "Nitrogen"],         "slots": 2},
+    {"name": "Mercury",       "class": "Rocky1",      "resources": ["Iron", "Silica"],    "slots": 2},
+    {"name": "Venus",         "class": "Greenhouse1", "resources": ["Sulfur", "Carbon"],  "slots": 2},
+    {"name": "Earth",         "class": "Temperate1",  "resources": ["Iron", "Ice"],        "slots": 8},
+    {"name": "Mars",          "class": "Desert1",     "resources": ["Iron", "Silica"],    "slots": 3},
+    {"name": "Asteroid-Belt", "class": "Rocky3",      "resources": ["Iron", "Nickel"],    "slots": 2},
+    {"name": "Jupiter",       "class": "Gas1",        "resources": ["Helium-3", "Carbon"],"slots": 2},
+    {"name": "Saturn",        "class": "Gas2",        "resources": ["Helium-3", "Ice"],   "slots": 2},
+    {"name": "Uranus",        "class": "Frozen1",     "resources": ["Ice", "Methane"],    "slots": 2},
+    {"name": "Neptune",       "class": "Frozen2",     "resources": ["Ice", "Nitrogen"],   "slots": 2},
 ]
-
-# Hydrogen isn't in RESOURCES, use Carbon as stand-in for Jupiter
-SOL_PLANETS[5]["resources"] = ["Helium-3", "Carbon"]
 
 
 def make_sol_system():

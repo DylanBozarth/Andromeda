@@ -461,7 +461,10 @@ export const SectorView3D = () => {
             {selectedSystem.systemStar}
           </div>
           <div style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '12px' }}>
-            {selectedSystem.systemPlanets.length} planet{selectedSystem.systemPlanets.length !== 1 ? 's' : ''}
+            {(() => {
+              const n = selectedSystem.systemPlanets.filter(p => p.name !== 'Asteroid-Belt').length;
+              return `${n} planet${n !== 1 ? 's' : ''}`;
+            })()}
           </div>
           <Link
             to={`/${sector.sectorName}/system/${selectedSystem.systemName}`}
