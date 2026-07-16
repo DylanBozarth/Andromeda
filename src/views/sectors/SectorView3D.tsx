@@ -1,6 +1,6 @@
 import { useRef, useState, useCallback, useMemo, useEffect } from 'react';
 import { Canvas, useFrame, useThree, invalidate } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Text } from '@react-three/drei';
 import * as THREE from 'three';
 import { Link } from 'react-router-dom';
 import { useGame } from '../../context/GameContext';
@@ -8,16 +8,19 @@ import { parseCoords } from '../../utils/system-generator/system-functions';
 import type { System, NCO } from '../../utils/system-generator/generate-sector';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
-// ── colours ──────────────────────────────────────────────────────────────────
+// ── colours — match the seed script's temp_to_color() palette ────────────────
 const STAR_COLORS: Record<string, string> = {
-  'Yellow-Dwarf':   '#FFD700',
-  'Blue-Giant':     '#6699FF',
-  'White-Dwarf':    '#EEEEFF',
-  'Brown-Dwarf':    '#A0522D',
-  'Red-Giant':      '#FF4422',
-  'Red-Supergiant': '#FF2200',
-  'Red-Dwarf':      '#FF5533',
+  'Yellow-Dwarf':   '#fff2cc',
+  'Blue-Giant':     '#aac0ff',
+  'White-Dwarf':    '#cce0ff',
+  'Brown-Dwarf':    '#ff8833',
+  'Red-Giant':      '#ff6622',
+  'Red-Supergiant': '#ff2200',
+  'Red-Dwarf':      '#ff6622',
 };
+
+// Sol's known scene-space position (R-23_23_23 → toVec3)
+const SOL_SCENE_POS = new THREE.Vector3(23 * 0.55, 23 * 0.08, 23 * 0.55);
 
 const SCALE   = 0.55;
 const Y_SCALE = 0.08;
@@ -120,11 +123,12 @@ function CameraFocuser({
 
 // ── star mesh — MeshBasicMaterial (unlit), no per-star pointLight ─────────────
 function StarMesh({
-  position, color, isSelected, isHovered,
+  position, color, scale: baseScale = 1, isSelected, isHovered,
   onClick, onPointerOver, onPointerOut,
 }: {
   position: THREE.Vector3;
   color: string;
+  scale?: number;
   isSelected: boolean;
   isHovered: boolean;
   onClick: () => void;
@@ -132,7 +136,7 @@ function StarMesh({
   onPointerOut: () => void;
 }) {
   const meshRef   = useRef<THREE.Mesh>(null!);
-  const targetScale = isSelected ? 1.6 : isHovered ? 1.3 : 1;
+  const targetScale = (isSelected ? 1.6 : isHovered ? 1.3 : 1) * baseScale;
   const needsAnim  = useRef(false);
 
   useEffect(() => { needsAnim.current = true; invalidate(); }, [isSelected, isHovered]);
@@ -262,18 +266,38 @@ function Scene({
       {systems.map((s) => {
         const p = positions.get(s.systemName);
         if (!p) return null;
-        const color = STAR_COLORS[s.systemStar] ?? '#AAAACC';
+        const isSol = s.systemName === 'Sol';
+        const color = isSol ? '#fff5cc' : (s.starColor ?? STAR_COLORS[s.systemStar] ?? '#AAAACC');
+        const mag = s.starMagnitude ?? 9;
+        const starScale = isSol ? 1.8 : Math.max(0.4, Math.min(1.4, 1.6 - mag * 0.1));
         return (
           <group key={s.systemName}>
+            {isSol && (
+              <mesh position={p} rotation={[-Math.PI / 2, 0, 0]}>
+                <ringGeometry args={[0.85, 1.05, 48]} />
+                <meshBasicMaterial color='#fff5cc' transparent opacity={0.25} side={THREE.DoubleSide} />
+              </mesh>
+            )}
             <StarMesh
               position={p}
               color={color}
+              scale={starScale}
               isSelected={selectedName === s.systemName}
               isHovered={hoveredName === s.systemName}
               onClick={() => onSelect(s.systemName)}
               onPointerOver={() => onHover(s.systemName)}
               onPointerOut={onHoverEnd}
             />
+            <Text
+              position={[p.x, p.y + 0.7, p.z]}
+              fontSize={isSol ? 0.45 : 0.35}
+              color={selectedName === s.systemName ? '#7CBDBD' : hoveredName === s.systemName ? '#ffffff' : isSol ? 'rgba(255,245,200,0.8)' : 'rgba(255,255,255,0.45)'}
+              anchorX='center'
+              anchorY='bottom'
+              renderOrder={2}
+            >
+              {s.systemName}
+            </Text>
           </group>
         );
       })}
@@ -316,6 +340,15 @@ export const SectorView3D = () => {
   const [focusTarget,  setFocusTarget]  = useState<THREE.Vector3 | null>(null);
   const controlsRef = useRef<OrbitControlsImpl>(null!);
 
+  // Fly to Sol as soon as the sector data is ready
+  const didInitFocus = useRef(false);
+  useEffect(() => {
+    if (sector && !didInitFocus.current) {
+      didInitFocus.current = true;
+      setFocusTarget(SOL_SCENE_POS.clone());
+    }
+  }, [sector]);
+
   const positions = useMemo(() => {
     const map = new Map<string, THREE.Vector3>();
     sector?.systems.forEach(s => map.set(s.systemName, toVec3(s.cords, s.systemName)));
@@ -356,7 +389,7 @@ export const SectorView3D = () => {
   return (
     <div style={{ width: '100vw', height: '100vh', background: '#000', position: 'relative' }}>
       <Canvas
-        camera={{ position: [28, 75, 28], fov: 60, near: 0.1, far: 1000 }}
+        camera={{ position: [SOL_SCENE_POS.x + 8, SOL_SCENE_POS.y + 55, SOL_SCENE_POS.z + 8], fov: 60, near: 0.1, far: 1000 }}
         gl={{ antialias: true, powerPreference: 'high-performance' }}
         frameloop='demand'
         onPointerMissed={() => { setSelectedName(null); setFocusTarget(null); invalidate(); }}

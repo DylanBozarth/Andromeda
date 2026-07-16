@@ -8,19 +8,40 @@ import { useGame } from '../../context/GameContext';
 import { Planet } from '../../types/planet-interface';
 
 const STAR_COLORS: Record<string, string> = {
-  'Yellow-Dwarf':   '#FFD700',
-  'Blue-Giant':     '#6699FF',
-  'White-Dwarf':    '#EEEEFF',
-  'Brown-Dwarf':    '#A0522D',
-  'Red-Giant':      '#FF4422',
-  'Red-Supergiant': '#FF2200',
-  'Red-Dwarf':      '#FF5533',
+  'Yellow-Dwarf':   '#fff2cc',
+  'Blue-Giant':     '#aac0ff',
+  'White-Dwarf':    '#cce0ff',
+  'Brown-Dwarf':    '#ff8833',
+  'Red-Giant':      '#ff6622',
+  'Red-Supergiant': '#ff2200',
+  'Red-Dwarf':      '#ff6622',
 };
 
-const PLANET_COLORS = [
-  '#4488cc', '#88aa44', '#cc8844', '#8844cc',
-  '#44ccaa', '#cc4488', '#aacc44', '#44aacc',
-];
+// Per planet-class color fallback for non-Sol systems
+const PLANET_CLASS_COLORS: Record<string, string> = {
+  Rocky:       '#9a8f7a',
+  Temperate:   '#4a90c4',
+  Ocean:       '#2255aa',
+  Frozen:      '#aaccee',
+  Lava:        '#cc4422',
+  Gas:         '#c8883a',
+  Desert:      '#c8944a',
+  Greenhouse:  '#d4aa66',
+};
+
+// Sol planet config: name → { color, size, ring? }
+type PlanetConfig = { color: string; size: number; ring?: boolean };
+const SOL_PLANET_CONFIG: Record<string, PlanetConfig> = {
+  'Sol-1': { color: '#8a8a8a', size: 0.28 },              // Mercury — gray
+  'Sol-2': { color: '#d4b483', size: 0.48 },              // Venus — pale tan
+  'Sol-3': { color: '#2a6ea6', size: 0.50 },              // Earth — blue
+  'Sol-4': { color: '#b84422', size: 0.35 },              // Mars — red-orange
+  'Sol-5': { color: '#7a6a5a', size: 0.18 },              // Asteroid Belt — dusty gray
+  'Sol-6': { color: '#c8883a', size: 1.10 },              // Jupiter — orange-brown
+  'Sol-7': { color: '#e4d191', size: 0.95, ring: true },  // Saturn — pale gold + ring
+  'Sol-8': { color: '#7de8e8', size: 0.65 },              // Uranus — teal
+  'Sol-9': { color: '#3f54ba', size: 0.60 },              // Neptune — deep blue
+};
 
 const ORBIT_BASE   = 5;
 const ORBIT_STEP   = 3.5;
@@ -106,13 +127,15 @@ function OrbitRing({ radius }: { radius: number }) {
 
 // ── planet mesh ───────────────────────────────────────────────────────────────
 function PlanetMesh({
-  planet, radius, speed, color, phaseOffset,
+  planet, radius, speed, color, size, ring, phaseOffset,
   isHovered, onHover, onHoverEnd, onClick,
 }: {
   planet: Planet;
   radius: number;
   speed: number;
   color: string;
+  size: number;
+  ring?: boolean;
   phaseOffset: number;
   isHovered: boolean;
   onHover: () => void;
@@ -131,19 +154,27 @@ function PlanetMesh({
     invalidate();
   });
 
-  const scale = isHovered ? 1.4 : 1;
+  const displayScale = isHovered ? 1.35 : 1;
+  const ringInner = size * 1.4;
+  const ringOuter = size * 2.3;
 
   return (
     <group ref={groupRef}>
       <mesh
-        scale={scale}
+        scale={displayScale}
         onClick={(e) => { e.stopPropagation(); onClick(); }}
         onPointerOver={(e) => { e.stopPropagation(); onHover(); }}
         onPointerOut={onHoverEnd}
       >
-        <sphereGeometry args={[0.5, 16, 16]} />
+        <sphereGeometry args={[size, 20, 20]} />
         <meshBasicMaterial color={isHovered ? '#ffffff' : color} />
       </mesh>
+      {ring && (
+        <mesh rotation={[-Math.PI / 3.5, 0, 0.3]} scale={displayScale}>
+          <ringGeometry args={[ringInner, ringOuter, 64]} />
+          <meshBasicMaterial color='#d4c472' transparent opacity={0.55} side={THREE.DoubleSide} />
+        </mesh>
+      )}
     </group>
   );
 }
@@ -178,8 +209,12 @@ function Scene({
       {planets.map((planet, i) => {
         const radius = ORBIT_BASE + i * ORBIT_STEP;
         const speed  = ORBIT_SPEED / Math.sqrt(i + 1);
-        const color  = PLANET_COLORS[i % PLANET_COLORS.length];
         const phase  = (i / planets.length) * Math.PI * 2;
+        const solCfg = SOL_PLANET_CONFIG[planet.name];
+        const baseClass = planet.class.replace(/\d+$/, '');
+        const color = solCfg?.color ?? PLANET_CLASS_COLORS[baseClass] ?? '#aaaaaa';
+        const size  = solCfg?.size ?? 0.5;
+        const ring  = solCfg?.ring;
         return (
           <group key={planet.name}>
             <OrbitRing radius={radius} />
@@ -188,6 +223,8 @@ function Scene({
               radius={radius}
               speed={speed}
               color={color}
+              size={size}
+              ring={ring}
               phaseOffset={phase}
               isHovered={hoveredPlanet === planet.name}
               onHover={() => onHover(planet.name)}

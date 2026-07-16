@@ -82,7 +82,7 @@ export const NavigationBar = () => {
         {userSector && (
           <>
             <Link to={`/${userSector}`} className='top-nav-crumb' onClick={clearPlanetAndSystem}>
-              {userSector}
+              Interstellar View
             </Link>
           </>
         )}

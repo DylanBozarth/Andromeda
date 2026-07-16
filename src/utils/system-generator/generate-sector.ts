@@ -26,6 +26,7 @@ import {
 } from './system-functions';
 import { NCONameGenerator, systemNameGenerator } from './system-name-generator';
 import { Sector } from '../../context/GameContext';
+import { realStars } from './real-stars';
 
 export type SystemPositions = Record<string, null>;
 
@@ -59,6 +60,8 @@ export interface System {
   cords: string;
   activePlanet: Planet;
   positions: SystemPositions;
+  starColor?: string;
+  starMagnitude?: number;
 }
 
 export type NCOPositions = Record<string, null>;
@@ -153,18 +156,11 @@ export type DistanceMap = Record<string, Record<string, { distance: number; eta:
 
 const timeScale = 15; // 15 minutes for each parsec
 
-export const generateSector = (maxSystems: number, maxPlanets: number): Sector => {
-  const randomSystemNumber = generateRandomNumber(maxSystems);
-  const systems: System[] = [];
+export const generateSector = (_maxSystems: number, _maxPlanets: number): Sector => {
+  const systems: System[] = [...realStars];
   const NCO: NCO[] = [];
-  // control min number of systems and NCOs here
-  for (let i = -110; i < randomSystemNumber; i++) {
-    const system = generateSystem(maxPlanets);
-    systems.push(system);
-  }
-  for (let i = -65; i < randomSystemNumber; i++) {
-    const NCOArray = generateNCOs()
-    NCO.push(NCOArray);
+  for (let i = -65; i < 10; i++) {
+    NCO.push(generateNCOs());
   }
 
   const distancesMap = {} as DistanceMap;

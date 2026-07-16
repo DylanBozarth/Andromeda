@@ -1,0 +1,1402 @@
+[
+  {
+    "gaia_id": "5853498713190525696",
+    "distance_light_years": 4.246,
+    "coordinates": {
+      "ra": 217.39232147200883,
+      "dec": -62.67607511676666
+    },
+    "star": {
+      "temperature_kelvin": 2829.354248046875,
+      "magnitude": 8.984748840332031
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4472832130942575872",
+    "distance_light_years": 5.963,
+    "coordinates": {
+      "ra": 269.44850252543836,
+      "dec": 4.739420051112412
+    },
+    "star": {
+      "temperature_kelvin": 3099.633544921875,
+      "magnitude": 8.193974494934082
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3864972938605115520",
+    "distance_light_years": 7.856,
+    "coordinates": {
+      "ra": 164.10319030755974,
+      "dec": 7.002726940984864
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 11.03839111328125
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "762815470562110464",
+    "distance_light_years": 8.304,
+    "coordinates": {
+      "ra": 165.83095967577933,
+      "dec": 35.948653032660104
+    },
+    "star": {
+      "temperature_kelvin": 3511.044921875,
+      "magnitude": 6.551171779632568
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2947050466531873024",
+    "distance_light_years": 8.709,
+    "coordinates": {
+      "ra": 101.28662552099249,
+      "dec": -16.720932526023173
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 8.52413272857666
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5140693571158946048",
+    "distance_light_years": 8.724,
+    "coordinates": {
+      "ra": 24.771674208211856,
+      "dec": -17.947682860008488
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 10.817837715148926
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5140693571158739840",
+    "distance_light_years": 8.87,
+    "coordinates": {
+      "ra": 24.771554293454546,
+      "dec": -17.948299887129313
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 10.50754165649414
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4075141768785646848",
+    "distance_light_years": 9.706,
+    "coordinates": {
+      "ra": 282.4587890175222,
+      "dec": -23.83709744872712
+    },
+    "star": {
+      "temperature_kelvin": 3117.3759765625,
+      "magnitude": 9.12641429901123
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "1926461164913660160",
+    "distance_light_years": 10.306,
+    "coordinates": {
+      "ra": 355.4800152581559,
+      "dec": 44.170375700747755
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 10.379277229309082
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5164707970261890560",
+    "distance_light_years": 10.502,
+    "coordinates": {
+      "ra": 53.22829341517546,
+      "dec": -9.458168216292322
+    },
+    "star": {
+      "temperature_kelvin": 5002.04345703125,
+      "magnitude": 3.465751886367798
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6553614253923452800",
+    "distance_light_years": 10.724,
+    "coordinates": {
+      "ra": 346.5039166796005,
+      "dec": -35.8471642082214
+    },
+    "star": {
+      "temperature_kelvin": 3376.08447265625,
+      "magnitude": 6.522032260894775
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3796072592206250624",
+    "distance_light_years": 11.007,
+    "coordinates": {
+      "ra": 176.93768799004127,
+      "dec": 0.7991199702364985
+    },
+    "star": {
+      "temperature_kelvin": 3093.39990234375,
+      "magnitude": 9.60099983215332
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "1872046574983497216",
+    "distance_light_years": 11.404,
+    "coordinates": {
+      "ra": 316.753662752556,
+      "dec": 38.75607277205679
+    },
+    "star": {
+      "temperature_kelvin": 3889.6328125,
+      "magnitude": 5.450644493103027
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "1872046609345556480",
+    "distance_light_years": 11.404,
+    "coordinates": {
+      "ra": 316.7484792940004,
+      "dec": 38.76386244649797
+    },
+    "star": {
+      "temperature_kelvin": 4353.74365234375,
+      "magnitude": 4.7667131423950195
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2154880616774131840",
+    "distance_light_years": 11.491,
+    "coordinates": {
+      "ra": 280.6830708352289,
+      "dec": 59.638357907754816
+    },
+    "star": {
+      "temperature_kelvin": 3352.19189453125,
+      "magnitude": 7.854393005371094
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2154880616774131712",
+    "distance_light_years": 11.491,
+    "coordinates": {
+      "ra": 280.68308624583415,
+      "dec": 59.635145454818776
+    },
+    "star": {
+      "temperature_kelvin": 3179.63330078125,
+      "magnitude": 8.524703979492188
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "385334230892516480",
+    "distance_light_years": 11.619,
+    "coordinates": {
+      "ra": 4.613226257557736,
+      "dec": 44.02478674398518
+    },
+    "star": {
+      "temperature_kelvin": 3352.20849609375,
+      "magnitude": 7.21856689453125
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "385334196532776576",
+    "distance_light_years": 11.62,
+    "coordinates": {
+      "ra": 4.625300681217554,
+      "dec": 44.02874451664357
+    },
+    "star": {
+      "temperature_kelvin": 3020.286865234375,
+      "magnitude": 9.686646461486816
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "703790044252850688",
+    "distance_light_years": 11.68,
+    "coordinates": {
+      "ra": 127.45009240230564,
+      "dec": 26.77328596508202
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 12.167454719543457
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6412595290592307840",
+    "distance_light_years": 11.867,
+    "coordinates": {
+      "ra": 330.8724078795965,
+      "dec": -56.79725466122902
+    },
+    "star": {
+      "temperature_kelvin": 4560.30322265625,
+      "magnitude": 4.322904109954834
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2452378776434477184",
+    "distance_light_years": 11.912,
+    "coordinates": {
+      "ra": 26.009055057160104,
+      "dec": -15.933680200693857
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 3.3003997802734375
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4848140361962951552",
+    "distance_light_years": 11.984,
+    "coordinates": {
+      "ra": 54.00339387736301,
+      "dec": -44.51436231604776
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 10.995455741882324
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6412596012146801152",
+    "distance_light_years": 12.05,
+    "coordinates": {
+      "ra": 331.07645259656397,
+      "dec": -56.79381206688221
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 18.030664443969727
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2358524597030794112",
+    "distance_light_years": 12.122,
+    "coordinates": {
+      "ra": 18.13325425370941,
+      "dec": -16.996154872479234
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 10.436525344848633
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3139847906307949696",
+    "distance_light_years": 12.348,
+    "coordinates": {
+      "ra": 111.85462844259372,
+      "dec": 5.209382701706996
+    },
+    "star": {
+      "temperature_kelvin": 3024.39501953125,
+      "magnitude": 8.576388359069824
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "35227046884571776",
+    "distance_light_years": 12.497,
+    "coordinates": {
+      "ra": 43.26964247679057,
+      "dec": 16.86437381897744
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 12.263102531433105
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4810594479418041856",
+    "distance_light_years": 12.831,
+    "coordinates": {
+      "ra": 77.9599373502188,
+      "dec": -45.0438126993602
+    },
+    "star": {
+      "temperature_kelvin": 3451.870361328125,
+      "magnitude": 8.063551902770996
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6583272171336048640",
+    "distance_light_years": 12.947,
+    "coordinates": {
+      "ra": 319.2950181380955,
+      "dec": -38.872456400701786
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 5.984104156494141
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6439125097427143808",
+    "distance_light_years": 13.064,
+    "coordinates": {
+      "ra": 281.29804386226,
+      "dec": -63.96056736658412
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 14.005345344543457
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5393446658454453632",
+    "distance_light_years": 13.193,
+    "coordinates": {
+      "ra": 162.05388771666577,
+      "dec": -39.93962594730691
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 14.005882263183594
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4330690742322011520",
+    "distance_light_years": 14.05,
+    "coordinates": {
+      "ra": 247.57481416249274,
+      "dec": -12.66785108081103
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 8.80187702178955
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2552928187080872832",
+    "distance_light_years": 14.072,
+    "coordinates": {
+      "ra": 12.296740250462333,
+      "dec": 5.376556608426358
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 12.299162864685059
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3902874650602495232",
+    "distance_light_years": 14.112,
+    "coordinates": {
+      "ra": 188.3144928018531,
+      "dec": 9.022091624851694
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 11.235116004943848
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2306965202564744064",
+    "distance_light_years": 14.175,
+    "coordinates": {
+      "ra": 1.3832841523481234,
+      "dec": -37.36774402806293
+    },
+    "star": {
+      "temperature_kelvin": 3355.353271484375,
+      "magnitude": 7.682493686676025
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "76868614540049408",
+    "distance_light_years": 14.578,
+    "coordinates": {
+      "ra": 30.058987047653364,
+      "dec": 13.044071201123836
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 10.681061744689941
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3902874650601954816",
+    "distance_light_years": 14.595,
+    "coordinates": {
+      "ra": 188.3146767758809,
+      "dec": 9.021829208339808
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 11.240161895751953
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "1637645127018395776",
+    "distance_light_years": 14.839,
+    "coordinates": {
+      "ra": 264.1040525731971,
+      "dec": 68.3334976375916
+    },
+    "star": {
+      "temperature_kelvin": 3192.275146484375,
+      "magnitude": 8.028639793395996
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5951824121022278144",
+    "distance_light_years": 14.849,
+    "coordinates": {
+      "ra": 262.1701639221161,
+      "dec": -46.89910489864381
+    },
+    "star": {
+      "temperature_kelvin": 3274.97509765625,
+      "magnitude": 8.336430549621582
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3757613049856225792",
+    "distance_light_years": 14.871,
+    "coordinates": {
+      "ra": 162.05518399901217,
+      "dec": -11.342803319735205
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 12.837447166442871
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5332606522595645952",
+    "distance_light_years": 15.123,
+    "coordinates": {
+      "ra": 176.45664661730092,
+      "dec": -64.843052846102
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 11.423104286193848
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2079073928612821760",
+    "distance_light_years": 15.2,
+    "coordinates": {
+      "ra": 298.48192590176114,
+      "dec": 44.41290615922913
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 11.908310890197754
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2603090003484152064",
+    "distance_light_years": 15.238,
+    "coordinates": {
+      "ra": 343.3241110018443,
+      "dec": -14.266689393516607
+    },
+    "star": {
+      "temperature_kelvin": 3185.440673828125,
+      "magnitude": 8.875059127807617
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5254061535106490112",
+    "distance_light_years": 15.759,
+    "coordinates": {
+      "ra": 161.08527551332452,
+      "dec": -61.20263830459439
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 11.859421730041504
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2441630500517079808",
+    "distance_light_years": 15.806,
+    "coordinates": {
+      "ra": 1.6763504259443918,
+      "dec": -7.5464753252597605
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 11.773832321166992
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4752399493622045696",
+    "distance_light_years": 15.877,
+    "coordinates": {
+      "ra": 43.77198593477078,
+      "dec": -47.01672835622661
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 18.57292938232422
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "823773494718931968",
+    "distance_light_years": 15.886,
+    "coordinates": {
+      "ra": 152.8329289582321,
+      "dec": 49.451988897100506
+    },
+    "star": {
+      "temperature_kelvin": 3978.864013671875,
+      "magnitude": 5.9611735343933105
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "778947814402602752",
+    "distance_light_years": 15.997,
+    "coordinates": {
+      "ra": 166.34205974427476,
+      "dec": 43.53094856108456
+    },
+    "star": {
+      "temperature_kelvin": 3382.19677734375,
+      "magnitude": 7.912664890289307
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "778947608243864320",
+    "distance_light_years": 16.001,
+    "coordinates": {
+      "ra": 166.35208967877313,
+      "dec": 43.52590762036144
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 12.25725269317627
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "625453654702751872",
+    "distance_light_years": 16.194,
+    "coordinates": {
+      "ra": 154.89881370110675,
+      "dec": 19.869809905451323
+    },
+    "star": {
+      "temperature_kelvin": 3187.361572265625,
+      "magnitude": 8.20409107208252
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6562924609150908416",
+    "distance_light_years": 16.2,
+    "coordinates": {
+      "ra": 323.3912518776402,
+      "dec": -49.01263039681064
+    },
+    "star": {
+      "temperature_kelvin": 3310.124267578125,
+      "magnitude": 7.7399468421936035
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5955305209191546112",
+    "distance_light_years": 16.333,
+    "coordinates": {
+      "ra": 264.26088738973226,
+      "dec": -44.323382243038424
+    },
+    "star": {
+      "temperature_kelvin": 3155.8037109375,
+      "magnitude": 9.602152824401855
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3195919254111315712",
+    "distance_light_years": 16.333,
+    "coordinates": {
+      "ra": 63.830787524383176,
+      "dec": -7.672952135407352
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 9.542240142822266
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3195919528989223040",
+    "distance_light_years": 16.34,
+    "coordinates": {
+      "ra": 63.80795300602079,
+      "dec": -7.6680778150199815
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 4.179893970489502
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3195919254111314816",
+    "distance_light_years": 16.353,
+    "coordinates": {
+      "ra": 63.82965602087436,
+      "dec": -7.670903382610344
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 9.775308609008789
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "1934263333784036736",
+    "distance_light_years": 16.476,
+    "coordinates": {
+      "ra": 341.7028254522359,
+      "dec": 44.3319533233193
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 9.005234718322754
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "660597997697274752",
+    "distance_light_years": 16.618,
+    "coordinates": {
+      "ra": 134.5586915113887,
+      "dec": 19.76257888198771
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 12.485569953918457
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4468557611977674496",
+    "distance_light_years": 16.653,
+    "coordinates": {
+      "ra": 271.36591160903725,
+      "dec": 2.4941987580927343
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 5.539218425750732
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4468557611984384512",
+    "distance_light_years": 16.677,
+    "coordinates": {
+      "ra": 271.364453818457,
+      "dec": 2.495224095912567
+    },
+    "star": {
+      "temperature_kelvin": 5204.63623046875,
+      "magnitude": 3.9873640537261963
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "660597997696173440",
+    "distance_light_years": 16.8,
+    "coordinates": {
+      "ra": 134.55918967906837,
+      "dec": 19.762959843487355
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 11.966279983520508
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "1695191332232990720",
+    "distance_light_years": 16.817,
+    "coordinates": {
+      "ra": 226.70263614661923,
+      "dec": 70.46161913358111
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 20.199527740478516
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3316364602541746048",
+    "distance_light_years": 16.986,
+    "coordinates": {
+      "ra": 90.01597644159976,
+      "dec": 2.7063740799024933
+    },
+    "star": {
+      "temperature_kelvin": 3138.287109375,
+      "magnitude": 9.901327133178711
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5278042880077383040",
+    "distance_light_years": 17.002,
+    "coordinates": {
+      "ra": 124.37351805519963,
+      "dec": -61.91613022264878
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 20.009702682495117
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "1129149723913123456",
+    "distance_light_years": 17.137,
+    "coordinates": {
+      "ra": 176.9394079814786,
+      "dec": 78.69329745305299
+    },
+    "star": {
+      "temperature_kelvin": 3056.1953125,
+      "magnitude": 9.551337242126465
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5985290231327158144",
+    "distance_light_years": 17.374,
+    "coordinates": {
+      "ra": 235.1951774625917,
+      "dec": -51.028101306904475
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 12.735929489135742
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3187115498866675456",
+    "distance_light_years": 17.531,
+    "coordinates": {
+      "ra": 75.4868052125233,
+      "dec": -6.948587409027854
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 10.64930534362793
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3741297293732404352",
+    "distance_light_years": 17.726,
+    "coordinates": {
+      "ra": 206.4405658448607,
+      "dec": 14.885052704598573
+    },
+    "star": {
+      "temperature_kelvin": 3424.99072265625,
+      "magnitude": 7.610583305358887
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "470826482637310848",
+    "distance_light_years": 17.993,
+    "coordinates": {
+      "ra": 67.81389197465391,
+      "dec": 58.969481205135885
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 12.336190223693848
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "470826482637310080",
+    "distance_light_years": 17.995,
+    "coordinates": {
+      "ra": 67.80919062832808,
+      "dec": 58.967979971547436
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 9.70256519317627
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "939072613334579328",
+    "distance_light_years": 18.215,
+    "coordinates": {
+      "ra": 103.70012922713916,
+      "dec": 33.266408018167255
+    },
+    "star": {
+      "temperature_kelvin": 3337.70166015625,
+      "magnitude": 8.863551139831543
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6882963066420161664",
+    "distance_light_years": 18.33,
+    "coordinates": {
+      "ra": 313.1361327596479,
+      "dec": -16.974558468206272
+    },
+    "star": {
+      "temperature_kelvin": 3000.155517578125,
+      "magnitude": 10.081701278686523
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2091177593123254016",
+    "distance_light_years": 18.553,
+    "coordinates": {
+      "ra": 278.90744884954285,
+      "dec": 32.994787158699616
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 14.850961685180664
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3209938366665770752",
+    "distance_light_years": 18.604,
+    "coordinates": {
+      "ra": 82.86754111476276,
+      "dec": -3.6865276019053095
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 7.1082892417907715
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6305165514134625024",
+    "distance_light_years": 18.742,
+    "coordinates": {
+      "ra": 224.97665286074593,
+      "dec": -18.53775641089888
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 20.43537712097168
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2940856402123426176",
+    "distance_light_years": 18.791,
+    "coordinates": {
+      "ra": 92.64357908167638,
+      "dec": -21.86782311323394
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 7.31347131729126
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2261614264931057664",
+    "distance_light_years": 18.799,
+    "coordinates": {
+      "ra": 293.09759805108064,
+      "dec": 69.65345106254792
+    },
+    "star": {
+      "temperature_kelvin": 5153.2470703125,
+      "magnitude": 4.44904088973999
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3340477717172813568",
+    "distance_light_years": 18.888,
+    "coordinates": {
+      "ra": 85.547707594821,
+      "dec": 12.482359917793618
+    },
+    "star": {
+      "temperature_kelvin": 3000.028564453125,
+      "magnitude": 10.11378002166748
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6232511606838403968",
+    "distance_light_years": 19.199,
+    "coordinates": {
+      "ra": 224.37159427348143,
+      "dec": -21.423140396261676
+    },
+    "star": {
+      "temperature_kelvin": 4503.0302734375,
+      "magnitude": 5.364036560058594
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "5918660719983560192",
+    "distance_light_years": 19.208,
+    "coordinates": {
+      "ra": 266.6334444727895,
+      "dec": -57.32506180218072
+    },
+    "star": {
+      "temperature_kelvin": 3104.318359375,
+      "magnitude": 9.592272758483887
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6663600360560306560",
+    "distance_light_years": 19.272,
+    "coordinates": {
+      "ra": 290.20411626707914,
+      "dec": -45.57110617010142
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 10.752913475036621
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2739689239311660672",
+    "distance_light_years": 19.274,
+    "coordinates": {
+      "ra": 357.3066038231343,
+      "dec": 2.3969179441959985
+    },
+    "star": {
+      "temperature_kelvin": 3619.114501953125,
+      "magnitude": 8.15291690826416
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4293318823182081408",
+    "distance_light_years": 19.292,
+    "coordinates": {
+      "ra": 289.2276515036191,
+      "dec": 5.162976302668586
+    },
+    "star": {
+      "temperature_kelvin": 3235.74462890625,
+      "magnitude": 8.099910736083984
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6002807341299977216",
+    "distance_light_years": 19.3,
+    "coordinates": {
+      "ra": 233.0469274248337,
+      "dec": -41.28017408697192
+    },
+    "star": {
+      "temperature_kelvin": 3211.744873046875,
+      "magnitude": 8.274178504943848
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4293315765165489536",
+    "distance_light_years": 19.304,
+    "coordinates": {
+      "ra": 289.2373736967538,
+      "dec": 5.14437331543419
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 14.303287506103516
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "425040000962559616",
+    "distance_light_years": 19.318,
+    "coordinates": {
+      "ra": 12.285227381524425,
+      "dec": 57.81272812559009
+    },
+    "star": {
+      "temperature_kelvin": 5726.009765625,
+      "magnitude": 3.3200666904449463
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "425040000962497792",
+    "distance_light_years": 19.331,
+    "coordinates": {
+      "ra": 12.281184764215306,
+      "dec": 57.815739188554126
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 6.7620439529418945
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4109030160308317312",
+    "distance_light_years": 19.399,
+    "coordinates": {
+      "ra": 258.83511696459266,
+      "dec": -26.60789783205067
+    },
+    "star": {
+      "temperature_kelvin": 4997.0126953125,
+      "magnitude": 4.8285908699035645
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4109030160308320128",
+    "distance_light_years": 19.414,
+    "coordinates": {
+      "ra": 258.83412017812816,
+      "dec": -26.606806615399403
+    },
+    "star": {
+      "temperature_kelvin": 4991.23583984375,
+      "magnitude": 4.831335067749023
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4109034455276324608",
+    "distance_light_years": 19.418,
+    "coordinates": {
+      "ra": 259.05329410009625,
+      "dec": -26.551146094884785
+    },
+    "star": {
+      "temperature_kelvin": 4381.2255859375,
+      "magnitude": 5.889863014221191
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "3136952686035250688",
+    "distance_light_years": 19.533,
+    "coordinates": {
+      "ra": 116.1658359308822,
+      "dec": 3.5504844454883244
+    },
+    "star": {
+      "temperature_kelvin": 3098.96484375,
+      "magnitude": 9.692206382751465
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6697578465310949376",
+    "distance_light_years": 19.609,
+    "coordinates": {
+      "ra": 302.8022690433109,
+      "dec": -36.10821653736984
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 5.033037185668945
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "4847957293278177024",
+    "distance_light_years": 19.704,
+    "coordinates": {
+      "ra": 50.00034361894219,
+      "dec": -43.06655252783423
+    },
+    "star": {
+      "temperature_kelvin": 5427.318359375,
+      "magnitude": 4.063914775848389
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "946632924007399936",
+    "distance_light_years": 19.741,
+    "coordinates": {
+      "ra": 107.50514340448903,
+      "dec": 38.52526941964586
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 9.934659004211426
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6427464123776727168",
+    "distance_light_years": 19.893,
+    "coordinates": {
+      "ra": 302.19503988923026,
+      "dec": -66.18709128441725
+    },
+    "star": {
+      "temperature_kelvin": 5437.54736328125,
+      "magnitude": 3.364138126373291
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2572901021957789568",
+    "distance_light_years": 19.955,
+    "coordinates": {
+      "ra": 24.24124978791965,
+      "dec": 9.563070454755835
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 19.461196899414062
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6673000841376349696",
+    "distance_light_years": 20.106,
+    "coordinates": {
+      "ra": 303.4773905559996,
+      "dec": -45.16473054247641
+    },
+    "star": {
+      "temperature_kelvin": 3588.5205078125,
+      "magnitude": 7.242661476135254
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "1638979384378696704",
+    "distance_light_years": 20.259,
+    "coordinates": {
+      "ra": 267.01612290514834,
+      "dec": 70.88157381434476
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 13.77820110321045
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6324325225803432320",
+    "distance_light_years": 20.395,
+    "coordinates": {
+      "ra": 218.56843175696892,
+      "dec": -12.516923853592898
+    },
+    "star": {
+      "temperature_kelvin": 3000.054931640625,
+      "magnitude": 9.89498233795166
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2824770686019004032",
+    "distance_light_years": 20.396,
+    "coordinates": {
+      "ra": 352.9716753030632,
+      "dec": 19.937313746866927
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 10.828941345214844
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "2824770686019003904",
+    "distance_light_years": 20.428,
+    "coordinates": {
+      "ra": 352.97012375450475,
+      "dec": 19.93699282660293
+    },
+    "star": {
+      "temperature_kelvin": NaN,
+      "magnitude": 9.043997764587402
+    },
+    "planets": [],
+    "asteroid_belt": null
+  },
+  {
+    "gaia_id": "6322070093095493504",
+    "distance_light_years": 20.549,
+    "coordinates": {
+      "ra": 229.85630133329227,
+      "dec": -7.722707024157902
+    },
+    "star": {
+      "temperature_kelvin": 3110.406494140625,
+      "magnitude": 9.42178726196289
+    },
+    "planets": [],
+    "asteroid_belt": null
+  }
+]

@@ -23,7 +23,7 @@ export const GalaticView = () => {
           <>
             <img src={sampleImage}></img>
             <Link to='/sector-a' className='sectora'>
-              Go to Sector-A
+              Interstellar View
             </Link>
           </>
         ) : (
