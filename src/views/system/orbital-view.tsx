@@ -23,7 +23,7 @@ export const SystemOrbitalView = () => {
               <PlanetComponent planet={planet} />
             </Link>
             <p className='text-center'>
-              {planet.name}<br />{planet.ownership}
+              {planet.name}
             </p>
           </div>
         ))}

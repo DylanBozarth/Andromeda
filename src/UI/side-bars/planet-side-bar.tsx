@@ -2,7 +2,6 @@ import { Planet } from '../../types/planet-interface';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../non-game-pages/AuthProvider/context/AuthContext';
 import { useGame } from '../../context/GameContext';
-import { claimPlanet } from '../../clientLibrary/planets';
 import { PlanetBuilding, cancelBuilding } from '../../clientLibrary/buildings';
 import { BUILDING_TYPES } from '../buildings/buildingTypes';
 import { BuildingProgressBar } from '../buildings/BuildingProgressBar';
@@ -30,27 +29,15 @@ interface Props {
 export const PlanetSideBar = ({ playerPlanet, buildings, shipsInProduction, onCancelBuild, onShipBuilt }: Props) => {
   const [activeTab, setActiveTab] = useState<TabKey>('production');
   const [panelOpen, setPanelOpen] = useState(false);
-  const [claiming, setClaiming] = useState(false);
-  const [claimError, setClaimError] = useState('');
   const [confirmCancel, setConfirmCancel] = useState<string | null>(null);
   const [cancelling, setCancelling] = useState(false);
 
-  const { user, setUser } = useContext(AuthContext);
-  const { sector, activeSystem, fetchSector } = useGame();
-
-  const claimedSlots: string[] = user?.claimedSlots ?? [];
+  const { user } = useContext(AuthContext);
+  const { sector, activeSystem } = useGame();
 
   const slots = playerPlanet.populationSlots ?? [];
   const occupiedSlots = slots.filter(s => s.occupant !== null);
-  const hasEmptySlot = slots.some(s => s.occupant === null);
   const userSlot = slots.find(s => s.occupant === user?.username);
-
-  const claimKey = sector && activeSystem
-    ? `${sector.sectorName}/${activeSystem.systemName}/${playerPlanet.name}`
-    : '';
-  const alreadyClaimedThis = claimedSlots.includes(claimKey);
-  const atLimit = claimedSlots.length >= 10;
-  const canClaim = hasEmptySlot && !alreadyClaimedThis && !atLimit;
 
   const handleConfirmCancel = async () => {
     if (!confirmCancel) return;
@@ -63,21 +50,6 @@ export const PlanetSideBar = ({ playerPlanet, buildings, shipsInProduction, onCa
     }
   };
 
-  const handleClaim = async () => {
-    if (!sector || !activeSystem) return;
-    setClaiming(true);
-    setClaimError('');
-    try {
-      await claimPlanet(sector.sectorName, activeSystem.systemName, playerPlanet.name);
-      await fetchSector();
-      setUser();
-    } catch (err: any) {
-      setClaimError(err.message ?? 'Could not claim planet');
-    } finally {
-      setClaiming(false);
-    }
-  };
-
   const handleTabClick = (key: TabKey) => {
     if (activeTab === key) {
       setPanelOpen(o => !o);
@@ -85,15 +57,6 @@ export const PlanetSideBar = ({ playerPlanet, buildings, shipsInProduction, onCa
       setActiveTab(key);
       setPanelOpen(true);
     }
-  };
-
-  const claimLabel = () => {
-    if (claiming) return 'Settling…';
-    if (userSlot) return 'Your colony';
-    if (alreadyClaimedThis) return 'Already settled here';
-    if (atLimit) return 'Colony limit reached (10)';
-    if (!hasEmptySlot) return 'Planet full';
-    return 'Settle here';
   };
 
   return (
@@ -286,15 +249,6 @@ export const PlanetSideBar = ({ playerPlanet, buildings, shipsInProduction, onCa
             );
           })}
         </div>
-        {claimError && <p className='planet-panel-claim-error'>{claimError}</p>}
-        <button
-          className='ui-border-box planet-panel-claim'
-          onClick={handleClaim}
-          disabled={!canClaim || claiming || !!userSlot}
-          title={claimLabel()}
-        >
-          {claimLabel()}
-        </button>
       </div>
     </aside>
   );

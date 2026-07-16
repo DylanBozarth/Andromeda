@@ -9,7 +9,7 @@ const slotCountForClass = (planetClass: string): number => {
   if (['Lava', 'Gas'].includes(base))                      return generateRandomNumber(3, 2);
   return 1; // Asteroid-Belt
 };
-import { buildingTypes } from './buildings';
+
 import { planetList } from './planets';
 import { resources } from './resources';
 import { starList } from './stars';

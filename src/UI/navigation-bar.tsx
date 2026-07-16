@@ -22,17 +22,14 @@ export const NavigationBar = () => {
   const [userSystem, setUserSystem] = useState('');
   const [userPlanet, setUserPlanet] = useState('');
   const [isNCO, setIsNCO] = useState(false);
-  const [coloniesOpen, setColoniesOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [fleetsOpen, setFleetsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const coloniesRef  = useRef<HTMLDivElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
   const fleetsRef    = useRef<HTMLDivElement>(null);
 
   const { user } = useContext(AuthContext);
-  const claimedSlots: string[] = user?.claimedSlots ?? [];
 
   useEffect(() => {
     const currentLocation = location.pathname;
@@ -58,7 +55,6 @@ export const NavigationBar = () => {
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       const t = e.target as Node;
-      if (coloniesRef.current  && !coloniesRef.current.contains(t))  setColoniesOpen(false);
       if (resourcesRef.current && !resourcesRef.current.contains(t)) setResourcesOpen(false);
       if (fleetsRef.current    && !fleetsRef.current.contains(t))    setFleetsOpen(false);
     };
@@ -66,8 +62,7 @@ export const NavigationBar = () => {
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
-  const closeOthers = (keep: 'colonies' | 'resources' | 'fleets') => {
-    if (keep !== 'colonies')  setColoniesOpen(false);
+  const closeOthers = (keep: 'resources' | 'fleets') => {
     if (keep !== 'resources') setResourcesOpen(false);
     if (keep !== 'fleets')    setFleetsOpen(false);
   };
@@ -78,15 +73,6 @@ export const NavigationBar = () => {
 
   const clearAll             = () => { setUserSector(''); setUserSystem(''); setUserPlanet(''); };
   const clearPlanetAndSystem = () => { setUserSystem(''); setUserPlanet(''); };
-
-  const goToColony = (slot: string) => {
-    const [sector, system, planet] = slot.split('/');
-    setColoniesOpen(false);
-    setUserSector(sector);
-    setUserSystem(system);
-    setUserPlanet(planet);
-    navigate(`/${sector}/system/${system}/planet/${planet}`);
-  };
 
   return (
     <nav className='top-nav'>
@@ -209,41 +195,6 @@ export const NavigationBar = () => {
                         </div>
                       </li>
                     ))}
-                  </ul>
-                )}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ── Colonies ── */}
-        {user && (
-          <div className='colonies-menu' ref={coloniesRef}>
-            <button
-              className={`colonies-btn${coloniesOpen ? ' colonies-btn--open' : ''}`}
-              onClick={() => { closeOthers('colonies'); setColoniesOpen(o => !o); }}
-              title='My colonies'
-            >
-              <img src='/assets/UI-icons/resource-icon.png' alt='colonies' className='colonies-btn-icon' />
-              <span className='colonies-btn-count'>{claimedSlots.length}/10</span>
-            </button>
-
-            {coloniesOpen && (
-              <div className='colonies-dropdown'>
-                <p className='colonies-dropdown-title'>My Colonies</p>
-                {claimedSlots.length === 0 ? (
-                  <p className='colonies-dropdown-empty'>No colonies yet</p>
-                ) : (
-                  <ul className='colonies-list'>
-                    {claimedSlots.map((slot) => {
-                      const [sector, system, planet] = slot.split('/');
-                      return (
-                        <li key={slot} className='colonies-item' onClick={() => goToColony(slot)}>
-                          <span className='colonies-item-planet'>★ {planet}</span>
-                          <span className='colonies-item-system'>{system} · {sector}</span>
-                        </li>
-                      );
-                    })}
                   </ul>
                 )}
               </div>
