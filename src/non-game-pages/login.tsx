@@ -2,13 +2,14 @@ import { useState, useContext } from 'react';
 import { LoginUser, loginUser } from '../clientLibrary/auth';
 import { AuthContext } from './AuthProvider/context/AuthContext';
 import { LoginData } from './loginData';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleClick = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -20,8 +21,7 @@ export const Login = () => {
       return;
     }
     setUser();
-    setUserName('');
-    setPassword('');
+    navigate('/');
   };
 
   return (

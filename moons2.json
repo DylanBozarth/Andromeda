@@ -1,0 +1,259 @@
+[
+    {
+      "name": "Titan",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": -179,
+      "terrain": ["hydrocarbon lakes", "sand dunes", "water-ice bedrock", "river channels"],
+      "atmosphere": {
+        "type": "thick",
+        "composition": ["nitrogen", "methane", "hydrogen"]
+      }
+    },
+    {
+      "name": "Enceladus",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": -201,
+      "terrain": ["ice", "cryovolcanoes", "tiger stripes"],
+      "atmosphere": {
+        "type": "very thin",
+        "composition": ["water vapor"]
+      }
+    },
+    {
+      "name": "Mimas",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": -198,
+      "terrain": ["heavily cratered", "ice"],
+      "atmosphere": null
+    },
+    {
+      "name": "Tethys",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": -187,
+      "terrain": ["ice", "impact craters", "canyons"],
+      "atmosphere": null
+    },
+    {
+      "name": "Dione",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": -186,
+      "terrain": ["ice cliffs", "craters", "fractures"],
+      "atmosphere": {
+        "type": "extremely thin",
+        "composition": ["oxygen"]
+      }
+    },
+    {
+      "name": "Rhea",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": -174,
+      "terrain": ["ice", "craters"],
+      "atmosphere": {
+        "type": "extremely thin",
+        "composition": ["oxygen", "carbon dioxide"]
+      }
+    },
+    {
+      "name": "Iapetus",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": -143,
+      "terrain": ["dark hemisphere", "bright ice", "equatorial ridge"],
+      "atmosphere": null
+    },
+    {
+      "name": "Hyperion",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": -180,
+      "terrain": ["porous", "cratered"],
+      "atmosphere": null
+    },
+    {
+      "name": "Phoebe",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": -200,
+      "terrain": ["dark rocky", "cratered"],
+      "atmosphere": null
+    },
+    {
+      "name": "Janus",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky", "cratered"],
+      "atmosphere": null
+    },
+    {
+      "name": "Epimetheus",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky", "cratered"],
+      "atmosphere": null
+    },
+    {
+      "name": "Atlas",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["ridge", "dust-covered"],
+      "atmosphere": null
+    },
+    {
+      "name": "Prometheus",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["irregular", "rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Pandora",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Pan",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["equatorial ridge"],
+      "atmosphere": null
+    },
+    {
+      "name": "Telesto",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["ice", "rock"],
+      "atmosphere": null
+    },
+    {
+      "name": "Calypso",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["ice", "rock"],
+      "atmosphere": null
+    },
+    {
+      "name": "Helene",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["ice", "rock"],
+      "atmosphere": null
+    },
+    {
+      "name": "Polydeuces",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["ice"],
+      "atmosphere": null
+    },
+    {
+      "name": "Methone",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["smooth ice"],
+      "atmosphere": null
+    },
+    {
+      "name": "Pallene",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["ice"],
+      "atmosphere": null
+    },
+    {
+      "name": "Aegaeon",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["ice"],
+      "atmosphere": null
+    },
+    {
+      "name": "Ymir",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Paaliaq",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Tarvos",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Ijiraq",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Suttungr",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Kiviuq",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Mundilfari",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Albiorix",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Skathi",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Erriapus",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Siarnaq",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Thrymr",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Narvi",
+      "parentPlanet": "Saturn",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    }
+  ]

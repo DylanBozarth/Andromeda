@@ -1,20 +1,22 @@
 #!/bin/bash
 set -e
-cd "$(dirname "$0")/.."
+SERVER_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$SERVER_DIR/.." && pwd)"
 
 echo "Starting database..."
-docker compose up -d
+docker compose -f "$PROJECT_DIR/docker-compose.yml" up -d
 
 echo "Waiting for Postgres to be ready..."
-until docker compose exec -T db pg_isready -U andromeda -q; do
+until docker compose -f "$PROJECT_DIR/docker-compose.yml" exec -T db pg_isready -U andromeda -q; do
   sleep 1
 done
+
+cd "$SERVER_DIR"
 
 PYTHON=/opt/homebrew/Caskroom/miniconda/base/bin/python3
 UVICORN=/opt/homebrew/Caskroom/miniconda/base/bin/uvicorn
 
 echo "Seeding database..."
-cd backend
 $PYTHON -m database.seed
 
 echo "Starting backend..."

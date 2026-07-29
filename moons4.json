@@ -1,0 +1,191 @@
+[
+    {
+      "name": "Titania",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": -203,
+      "terrain": ["ice", "rock", "canyons", "impact craters"],
+      "atmosphere": null
+    },
+    {
+      "name": "Oberon",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": -203,
+      "terrain": ["ice", "rock", "craters", "cliffs"],
+      "atmosphere": null
+    },
+    {
+      "name": "Umbriel",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": -203,
+      "terrain": ["dark ice", "craters"],
+      "atmosphere": null
+    },
+    {
+      "name": "Ariel",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": -213,
+      "terrain": ["ice", "canyons", "fault valleys", "craters"],
+      "atmosphere": null
+    },
+    {
+      "name": "Miranda",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": -187,
+      "terrain": ["ice cliffs", "coronae", "canyons", "rock"],
+      "atmosphere": null
+    },
+    {
+      "name": "Puck",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky", "cratered"],
+      "atmosphere": null
+    },
+    {
+      "name": "Portia",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Juliet",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Cressida",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Desdemona",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Rosalind",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Belinda",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Perdita",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Cupid",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Mab",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["ice", "rock"],
+      "atmosphere": null
+    },
+    {
+      "name": "Bianca",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Cordelia",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Ophelia",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Caliban",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Sycorax",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Prospero",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Setebos",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Stephano",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Trinculo",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Francisco",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Margaret",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    },
+    {
+      "name": "Ferdinand",
+      "parentPlanet": "Uranus",
+      "averageTemperatureC": null,
+      "terrain": ["rocky"],
+      "atmosphere": null
+    }
+  ]
