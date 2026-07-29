@@ -21,7 +21,7 @@ export const Login = () => {
       return;
     }
     setUser();
-    navigate('/');
+    navigate('/sector-a/system/Sol');
   };
 
   return (

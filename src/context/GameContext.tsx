@@ -4,6 +4,7 @@ import { getToken } from '../clientLibrary/localStorage';
 import { AuthContext } from '../non-game-pages/AuthProvider/context/AuthContext';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 import { Planet } from '../types/planet-interface';
+import type { Moon } from '../types/moon-interface';
 
 export interface Sector {
   systems: System[];
@@ -19,10 +20,12 @@ interface GameState {
   activeSystem: System | null;
   activePlanet: Planet | null;
   activeNCO: NCO | null;
+  activeMoon: Moon | null;
   fetchSector: () => Promise<void>;
   setActiveSystem: (system: System) => void;
   setActivePlanet: (planet: Planet) => void;
   setActiveNCO: (nco: NCO) => void;
+  setActiveMoon: (moon: Moon) => void;
 }
 
 const GameContext = createContext<GameState>({} as GameState);
@@ -36,6 +39,7 @@ export const GameProvider = ({ children }: { children: ReactNode }) => {
   const [activeSystem, setActiveSystem] = useState<System | null>(null);
   const [activePlanet, setActivePlanet] = useState<Planet | null>(null);
   const [activeNCO, setActiveNCO] = useState<NCO | null>(null);
+  const [activeMoon, setActiveMoon] = useState<Moon | null>(null);
 
   const fetchSector = async () => {
     setSectorLoading(true);
@@ -69,10 +73,12 @@ export const GameProvider = ({ children }: { children: ReactNode }) => {
       activeSystem,
       activePlanet,
       activeNCO,
+      activeMoon,
       fetchSector,
       setActiveSystem,
       setActivePlanet,
       setActiveNCO,
+      setActiveMoon,
     }}>
       {children}
     </GameContext.Provider>

@@ -11,6 +11,7 @@ import { NCOView } from './views/NCO/NCO-view';
 import { Login } from './non-game-pages/login';
 import { Register } from './non-game-pages/register';
 import { SystemOrbitalView } from './views/system/orbital-view';
+import { MoonView } from './views/moon/moon-view';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path='/:sectorName/system/:systemName' element={<SystemView />} />
             <Route path='/:sectorName/system/:systemName/orbital' element={<SystemOrbitalView/>} />
             <Route path='/:sectorName/system/:systemName/planet/:planetName' element={<PlanetView />} />
+            <Route path='/:sectorName/system/:systemName/moon/:moonName' element={<MoonView />} />
             <Route path='/:sectorName/:nco' element={<NCOView />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />

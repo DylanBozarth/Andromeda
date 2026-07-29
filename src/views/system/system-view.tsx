@@ -6,6 +6,26 @@ import * as THREE from 'three';
 import { useNavigate } from 'react-router-dom';
 import { useGame } from '../../context/GameContext';
 import { Planet } from '../../types/planet-interface';
+import moonsData1 from '../../../moons.json';
+import moonsData2 from '../../../moons2.json';
+import moonsData3 from '../../../moons3.json';
+import moonsData4 from '../../../moons4.json';
+import moonsData5 from '../../../moons5.json';
+import type { Moon } from '../../types/moon-interface';
+
+const ALL_MOONS: Moon[] = [
+  ...(moonsData1 as Moon[]),
+  ...(moonsData2 as Moon[]),
+  ...(moonsData3 as Moon[]),
+  ...(moonsData4 as Moon[]),
+  ...(moonsData5 as Moon[]),
+];
+
+// grouped by parentPlanet for quick lookup
+const MOONS_BY_PLANET: Record<string, Moon[]> = {};
+for (const m of ALL_MOONS) {
+  (MOONS_BY_PLANET[m.parentPlanet] ??= []).push(m);
+}
 
 const STAR_COLORS: Record<string, string> = {
   'Yellow-Dwarf':   '#fff2cc',
@@ -115,6 +135,58 @@ function PositionDots({ planetCount }: { planetCount: number }) {
   return <>{dots}</>;
 }
 
+// ── moons ─────────────────────────────────────────────────────────────────────
+const MOON_GEO = new THREE.SphereGeometry(0.06, 5, 5);
+const MOON_MAT = new THREE.MeshBasicMaterial({ color: '#ffffff' });
+
+function Moons({ moons, planetSize, onMoonClick }: {
+  moons: Moon[];
+  planetSize: number;
+  onMoonClick: (moon: Moon) => void;
+}) {
+  const count   = moons.length;
+  const meshRef = useRef<THREE.InstancedMesh>(null!);
+  const dummy   = useMemo(() => new THREE.Object3D(), []);
+
+  const orbits = useMemo(() =>
+    Array.from({ length: count }, (_, i) => ({
+      radius: planetSize * 2.5 + seededRand(i * 13) * planetSize * 3,
+      speed:  0.04 + seededRand(i * 17) * 0.06,
+      phase:  seededRand(i * 23) * Math.PI * 2,
+      tilt:   (seededRand(i * 31) - 0.5) * 0.5,
+    })), [count, planetSize]);
+
+  const angles = useRef(orbits.map(o => o.phase));
+
+  useFrame((_, delta) => {
+    if (!meshRef.current) return;
+    for (let i = 0; i < count; i++) {
+      angles.current[i] += orbits[i].speed * delta;
+      const { radius, tilt } = orbits[i];
+      dummy.position.set(
+        Math.cos(angles.current[i]) * radius,
+        Math.sin(tilt) * radius,
+        Math.sin(angles.current[i]) * radius,
+      );
+      dummy.updateMatrix();
+      meshRef.current.setMatrixAt(i, dummy.matrix);
+    }
+    meshRef.current.instanceMatrix.needsUpdate = true;
+    invalidate();
+  });
+
+  return (
+    <instancedMesh
+      ref={meshRef}
+      args={[MOON_GEO, MOON_MAT, count]}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (e.instanceId !== undefined) onMoonClick(moons[e.instanceId]);
+      }}
+    />
+  );
+}
+
 // ── asteroid belt ─────────────────────────────────────────────────────────────
 const ASTEROID_GEO = new THREE.SphereGeometry(0.07, 4, 4);
 const ASTEROID_MAT = new THREE.MeshBasicMaterial({ color: '#8a7a6a' });
@@ -173,8 +245,8 @@ function OrbitRing({ radius }: { radius: number }) {
 
 // ── planet mesh ───────────────────────────────────────────────────────────────
 function PlanetMesh({
-  planet, radius, speed, color, size, ring, phaseOffset,
-  isHovered, onHover, onHoverEnd, onClick,
+  planet, radius, speed, color, size, ring, moons, phaseOffset,
+  isHovered, onHover, onHoverEnd, onClick, onMoonClick,
 }: {
   planet: Planet;
   radius: number;
@@ -182,11 +254,13 @@ function PlanetMesh({
   color: string;
   size: number;
   ring?: boolean;
+  moons: Moon[];
   phaseOffset: number;
   isHovered: boolean;
   onHover: () => void;
   onHoverEnd: () => void;
   onClick: () => void;
+  onMoonClick: (moon: Moon) => void;
 }) {
   const groupRef = useRef<THREE.Group>(null!);
   const angleRef = useRef(phaseOffset);
@@ -221,17 +295,19 @@ function PlanetMesh({
           <meshBasicMaterial color='#d4c472' transparent opacity={0.55} side={THREE.DoubleSide} />
         </mesh>
       )}
+      {moons.length > 0 && <Moons moons={moons} planetSize={size} onMoonClick={onMoonClick} />}
     </group>
   );
 }
 
 // ── scene ─────────────────────────────────────────────────────────────────────
 function Scene({
-  planets, starColor, onPlanetClick, hoveredPlanet, onHover, onHoverEnd, showPositions,
+  planets, starColor, onPlanetClick, onMoonClick, hoveredPlanet, onHover, onHoverEnd, showPositions,
 }: {
   planets: Planet[];
   starColor: string;
   onPlanetClick: (planet: Planet) => void;
+  onMoonClick: (moon: Moon) => void;
   hoveredPlanet: string | null;
   onHover: (name: string) => void;
   onHoverEnd: () => void;
@@ -281,11 +357,13 @@ function Scene({
               color={color}
               size={size}
               ring={ring}
+              moons={MOONS_BY_PLANET[planet.name] ?? []}
               phaseOffset={phase}
               isHovered={hoveredPlanet === planet.name}
               onHover={() => onHover(planet.name)}
               onHoverEnd={onHoverEnd}
               onClick={() => onPlanetClick(planet)}
+              onMoonClick={onMoonClick}
             />
           </group>
         );
@@ -323,7 +401,7 @@ function Tooltip({ planet }: { planet: Planet | null }) {
 
 // ── main component ────────────────────────────────────────────────────────────
 export const SystemView = () => {
-  const { sector, activeSystem, setActivePlanet } = useGame();
+  const { sector, activeSystem, setActivePlanet, setActiveMoon } = useGame();
   const navigate = useNavigate();
   const [hoveredPlanet,  setHoveredPlanet]  = useState<string | null>(null);
   const [showPositions,  setShowPositions]  = useState(true);
@@ -343,6 +421,11 @@ export const SystemView = () => {
     navigate(`/${sector.sectorName}/system/${activeSystem.systemName}/planet/${planet.name}`);
   };
 
+  const handleMoonClick = (moon: Moon) => {
+    setActiveMoon(moon);
+    navigate(`/${sector.sectorName}/system/${activeSystem.systemName}/moon/${moon.name}`);
+  };
+
   return (
     <div style={{ width: '100vw', height: '100vh', background: '#000', position: 'relative' }}>
       <Canvas
@@ -354,6 +437,7 @@ export const SystemView = () => {
           planets={activeSystem.systemPlanets}
           starColor={starColor}
           onPlanetClick={handlePlanetClick}
+          onMoonClick={handleMoonClick}
           hoveredPlanet={hoveredPlanet}
           onHover={setHoveredPlanet}
           onHoverEnd={() => setHoveredPlanet(null)}
