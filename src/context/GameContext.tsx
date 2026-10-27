@@ -1,10 +1,8 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { BACKEND_URL } from '../clientLibrary/backendURL';
-import { getToken } from '../clientLibrary/localStorage';
-import { AuthContext } from '../non-game-pages/AuthProvider/context/AuthContext';
+import { createContext, useContext, useState, ReactNode } from 'react';
 import { DistanceMap, System, NCO } from '../utils/system-generator/generate-sector';
 import { Planet } from '../types/planet-interface';
 import type { Moon } from '../types/moon-interface';
+import solSystemData from '../data/sol-system.json';
 
 export interface Sector {
   systems: System[];
@@ -32,44 +30,28 @@ const GameContext = createContext<GameState>({} as GameState);
 
 export const useGame = () => useContext(GameContext);
 
+const solSystem = solSystemData as System;
+const solSector: Sector = {
+  sectorName: 'sol',
+  systems: [solSystem],
+  NCO: [],
+  distancesMap: { Sol: {} },
+  fleetsInTransit: [],
+};
+
 export const GameProvider = ({ children }: { children: ReactNode }) => {
-  const { user } = useContext(AuthContext);
-  const [sector, setSector] = useState<Sector | null>(null);
-  const [sectorLoading, setSectorLoading] = useState(false);
-  const [activeSystem, setActiveSystem] = useState<System | null>(null);
+  const [sector] = useState<Sector>(solSector);
+  const [activeSystem, setActiveSystem] = useState<System | null>(solSystem);
   const [activePlanet, setActivePlanet] = useState<Planet | null>(null);
   const [activeNCO, setActiveNCO] = useState<NCO | null>(null);
   const [activeMoon, setActiveMoon] = useState<Moon | null>(null);
 
-  const fetchSector = async () => {
-    setSectorLoading(true);
-    try {
-      const token = getToken();
-      const resp = await fetch(`${BACKEND_URL}/sectors/sector-a`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      const data = await resp.json();
-      setSector(data);
-    } catch (err) {
-      console.error('Failed to fetch sector:', err);
-    } finally {
-      setSectorLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    if (user?.username) {
-      fetchSector();
-    } else {
-      setSector(null);
-    }
-  }, [user]);
+  const fetchSector = async () => {};
 
   return (
     <GameContext.Provider value={{
       sector,
-      sectorLoading,
+      sectorLoading: false,
       activeSystem,
       activePlanet,
       activeNCO,

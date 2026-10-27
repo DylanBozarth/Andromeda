@@ -6,20 +6,10 @@ import * as THREE from 'three';
 import { useNavigate } from 'react-router-dom';
 import { useGame } from '../../context/GameContext';
 import { Planet } from '../../types/planet-interface';
-import moonsData1 from '../../../moons.json';
-import moonsData2 from '../../../moons2.json';
-import moonsData3 from '../../../moons3.json';
-import moonsData4 from '../../../moons4.json';
-import moonsData5 from '../../../moons5.json';
+import moonsData from '../../../moons.json';
 import type { Moon } from '../../types/moon-interface';
 
-const ALL_MOONS: Moon[] = [
-  ...(moonsData1 as Moon[]),
-  ...(moonsData2 as Moon[]),
-  ...(moonsData3 as Moon[]),
-  ...(moonsData4 as Moon[]),
-  ...(moonsData5 as Moon[]),
-];
+const ALL_MOONS = moonsData as Moon[];
 
 // grouped by parentPlanet for quick lookup
 const MOONS_BY_PLANET: Record<string, Moon[]> = {};

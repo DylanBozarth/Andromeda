@@ -1,0 +1,419 @@
+{
+  "systemName": "Sol",
+  "systemStar": "Yellow-Dwarf",
+  "cords": "R-23_23_23",
+  "systemPlanets": [
+    {
+      "name": "Mercury",
+      "class": "Rocky1",
+      "naturalResources": [
+        "Iron",
+        "Silica"
+      ],
+      "buildings": [],
+      "resourceStorage": [],
+      "production": [],
+      "orbit": [],
+      "hangar": [],
+      "populationSlots": [
+        {
+          "slotId": 0,
+          "occupant": null
+        },
+        {
+          "slotId": 1,
+          "occupant": null
+        }
+      ]
+    },
+    {
+      "name": "Venus",
+      "class": "Greenhouse1",
+      "naturalResources": [
+        "Sulfur",
+        "Carbon"
+      ],
+      "buildings": [],
+      "resourceStorage": [],
+      "production": [],
+      "orbit": [],
+      "hangar": [],
+      "populationSlots": [
+        {
+          "slotId": 0,
+          "occupant": null
+        },
+        {
+          "slotId": 1,
+          "occupant": null
+        }
+      ]
+    },
+    {
+      "name": "Earth",
+      "class": "Temperate1",
+      "naturalResources": [
+        "Iron",
+        "Ice"
+      ],
+      "buildings": [],
+      "resourceStorage": [],
+      "production": [],
+      "orbit": [],
+      "hangar": [],
+      "populationSlots": [
+        {
+          "slotId": 0,
+          "occupant": null
+        },
+        {
+          "slotId": 1,
+          "occupant": null
+        },
+        {
+          "slotId": 2,
+          "occupant": null
+        },
+        {
+          "slotId": 3,
+          "occupant": null
+        },
+        {
+          "slotId": 4,
+          "occupant": null
+        },
+        {
+          "slotId": 5,
+          "occupant": null
+        },
+        {
+          "slotId": 6,
+          "occupant": null
+        },
+        {
+          "slotId": 7,
+          "occupant": null
+        }
+      ]
+    },
+    {
+      "name": "Mars",
+      "class": "Desert1",
+      "naturalResources": [
+        "Iron",
+        "Silica"
+      ],
+      "buildings": [],
+      "resourceStorage": [],
+      "production": [],
+      "orbit": [],
+      "hangar": [],
+      "populationSlots": [
+        {
+          "slotId": 0,
+          "occupant": null
+        },
+        {
+          "slotId": 1,
+          "occupant": null
+        },
+        {
+          "slotId": 2,
+          "occupant": null
+        }
+      ]
+    },
+    {
+      "name": "Asteroid-Belt",
+      "class": "Rocky3",
+      "naturalResources": [
+        "Iron",
+        "Nickel"
+      ],
+      "buildings": [],
+      "resourceStorage": [],
+      "production": [],
+      "orbit": [],
+      "hangar": [],
+      "populationSlots": [
+        {
+          "slotId": 0,
+          "occupant": null
+        },
+        {
+          "slotId": 1,
+          "occupant": null
+        }
+      ]
+    },
+    {
+      "name": "Jupiter",
+      "class": "Gas1",
+      "naturalResources": [
+        "Helium-3",
+        "Carbon"
+      ],
+      "buildings": [],
+      "resourceStorage": [],
+      "production": [],
+      "orbit": [],
+      "hangar": [],
+      "populationSlots": [
+        {
+          "slotId": 0,
+          "occupant": null
+        },
+        {
+          "slotId": 1,
+          "occupant": null
+        }
+      ]
+    },
+    {
+      "name": "Saturn",
+      "class": "Gas2",
+      "naturalResources": [
+        "Helium-3",
+        "Ice"
+      ],
+      "buildings": [],
+      "resourceStorage": [],
+      "production": [],
+      "orbit": [],
+      "hangar": [],
+      "populationSlots": [
+        {
+          "slotId": 0,
+          "occupant": null
+        },
+        {
+          "slotId": 1,
+          "occupant": null
+        }
+      ]
+    },
+    {
+      "name": "Uranus",
+      "class": "Frozen1",
+      "naturalResources": [
+        "Ice",
+        "Methane"
+      ],
+      "buildings": [],
+      "resourceStorage": [],
+      "production": [],
+      "orbit": [],
+      "hangar": [],
+      "populationSlots": [
+        {
+          "slotId": 0,
+          "occupant": null
+        },
+        {
+          "slotId": 1,
+          "occupant": null
+        }
+      ]
+    },
+    {
+      "name": "Neptune",
+      "class": "Frozen2",
+      "naturalResources": [
+        "Ice",
+        "Nitrogen"
+      ],
+      "buildings": [],
+      "resourceStorage": [],
+      "production": [],
+      "orbit": [],
+      "hangar": [],
+      "populationSlots": [
+        {
+          "slotId": 0,
+          "occupant": null
+        },
+        {
+          "slotId": 1,
+          "occupant": null
+        }
+      ]
+    }
+  ],
+  "positions": {
+    "Mercury-orbit-1": null,
+    "Mercury-orbit-2": null,
+    "Mercury-orbit-3": null,
+    "Mercury-orbit-4": null,
+    "Mercury-orbit-5": null,
+    "Mercury-orbit-6": null,
+    "Mercury-orbit-7": null,
+    "Mercury-orbit-8": null,
+    "Venus-orbit-1": null,
+    "Venus-orbit-2": null,
+    "Venus-orbit-3": null,
+    "Venus-orbit-4": null,
+    "Venus-orbit-5": null,
+    "Venus-orbit-6": null,
+    "Venus-orbit-7": null,
+    "Venus-orbit-8": null,
+    "Earth-orbit-1": null,
+    "Earth-orbit-2": null,
+    "Earth-orbit-3": null,
+    "Earth-orbit-4": null,
+    "Earth-orbit-5": null,
+    "Earth-orbit-6": null,
+    "Earth-orbit-7": null,
+    "Earth-orbit-8": null,
+    "Mars-orbit-1": null,
+    "Mars-orbit-2": null,
+    "Mars-orbit-3": null,
+    "Mars-orbit-4": null,
+    "Mars-orbit-5": null,
+    "Mars-orbit-6": null,
+    "Mars-orbit-7": null,
+    "Mars-orbit-8": null,
+    "Asteroid-Belt-orbit-1": null,
+    "Asteroid-Belt-orbit-2": null,
+    "Asteroid-Belt-orbit-3": null,
+    "Asteroid-Belt-orbit-4": null,
+    "Asteroid-Belt-orbit-5": null,
+    "Asteroid-Belt-orbit-6": null,
+    "Asteroid-Belt-orbit-7": null,
+    "Asteroid-Belt-orbit-8": null,
+    "Jupiter-orbit-1": null,
+    "Jupiter-orbit-2": null,
+    "Jupiter-orbit-3": null,
+    "Jupiter-orbit-4": null,
+    "Jupiter-orbit-5": null,
+    "Jupiter-orbit-6": null,
+    "Jupiter-orbit-7": null,
+    "Jupiter-orbit-8": null,
+    "Saturn-orbit-1": null,
+    "Saturn-orbit-2": null,
+    "Saturn-orbit-3": null,
+    "Saturn-orbit-4": null,
+    "Saturn-orbit-5": null,
+    "Saturn-orbit-6": null,
+    "Saturn-orbit-7": null,
+    "Saturn-orbit-8": null,
+    "Uranus-orbit-1": null,
+    "Uranus-orbit-2": null,
+    "Uranus-orbit-3": null,
+    "Uranus-orbit-4": null,
+    "Uranus-orbit-5": null,
+    "Uranus-orbit-6": null,
+    "Uranus-orbit-7": null,
+    "Uranus-orbit-8": null,
+    "Neptune-orbit-1": null,
+    "Neptune-orbit-2": null,
+    "Neptune-orbit-3": null,
+    "Neptune-orbit-4": null,
+    "Neptune-orbit-5": null,
+    "Neptune-orbit-6": null,
+    "Neptune-orbit-7": null,
+    "Neptune-orbit-8": null,
+    "Sol-above-1": null,
+    "Sol-above-2": null,
+    "Sol-above-3": null,
+    "Sol-above-4": null,
+    "Sol-above-5": null,
+    "Sol-above-6": null,
+    "Sol-above-7": null,
+    "Sol-above-8": null,
+    "Sol-above-9": null,
+    "Sol-above-10": null,
+    "Sol-above-11": null,
+    "Sol-above-12": null,
+    "Sol-above-13": null,
+    "Sol-above-14": null,
+    "Sol-above-15": null,
+    "Sol-above-16": null,
+    "Sol-above-17": null,
+    "Sol-above-18": null,
+    "Sol-above-19": null,
+    "Sol-above-20": null,
+    "Sol-below-1": null,
+    "Sol-below-2": null,
+    "Sol-below-3": null,
+    "Sol-below-4": null,
+    "Sol-below-5": null,
+    "Sol-below-6": null,
+    "Sol-below-7": null,
+    "Sol-below-8": null,
+    "Sol-below-9": null,
+    "Sol-below-10": null,
+    "Sol-below-11": null,
+    "Sol-below-12": null,
+    "Sol-below-13": null,
+    "Sol-below-14": null,
+    "Sol-below-15": null,
+    "Sol-below-16": null,
+    "Sol-below-17": null,
+    "Sol-below-18": null,
+    "Sol-below-19": null,
+    "Sol-below-20": null,
+    "Sol-outer-1": null,
+    "Sol-outer-2": null,
+    "Sol-outer-3": null,
+    "Sol-outer-4": null,
+    "Sol-outer-5": null,
+    "Sol-outer-6": null,
+    "Sol-outer-7": null,
+    "Sol-outer-8": null,
+    "Sol-outer-9": null,
+    "Sol-outer-10": null,
+    "Sol-outer-11": null,
+    "Sol-outer-12": null,
+    "Sol-outer-13": null,
+    "Sol-outer-14": null,
+    "Sol-outer-15": null,
+    "Sol-outer-16": null,
+    "Sol-outer-17": null,
+    "Sol-outer-18": null,
+    "Sol-outer-19": null,
+    "Sol-outer-20": null,
+    "Sol-outer-21": null,
+    "Sol-outer-22": null,
+    "Sol-outer-23": null,
+    "Sol-outer-24": null,
+    "Sol-outer-25": null,
+    "Sol-outer-26": null,
+    "Sol-outer-27": null,
+    "Sol-outer-28": null,
+    "Sol-outer-29": null,
+    "Sol-outer-30": null,
+    "Sol-outer-31": null,
+    "Sol-outer-32": null,
+    "Sol-outer-33": null,
+    "Sol-outer-34": null,
+    "Sol-outer-35": null,
+    "Sol-outer-36": null,
+    "Sol-outer-37": null,
+    "Sol-outer-38": null,
+    "Sol-outer-39": null,
+    "Sol-outer-40": null,
+    "Sol-outer-41": null,
+    "Sol-outer-42": null,
+    "Sol-outer-43": null,
+    "Sol-outer-44": null,
+    "Sol-outer-45": null,
+    "Sol-outer-46": null,
+    "Sol-outer-47": null,
+    "Sol-outer-48": null,
+    "Sol-outer-49": null,
+    "Sol-outer-50": null
+  },
+  "starColor": "#fff5cc",
+  "starMagnitude": 4.83,
+  "activePlanet": {
+    "name": "",
+    "class": "",
+    "naturalResources": [],
+    "buildings": [],
+    "resourceStorage": [],
+    "production": [],
+    "hangar": [],
+    "orbit": [],
+    "populationSlots": []
+  }
+}
