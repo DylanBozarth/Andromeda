@@ -34,3 +34,77 @@ firebase-debug.log
 
 /server/database.env
 
+
+# Compiled binaries
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+# Build directories
+build/
+cmake-build-*/
+out/
+bin/
+dist/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+Testing/
+
+# Debugging
+*.pdb
+*.ilk
+*.dSYM/
+core
+core.*
+
+# IDE - Visual Studio
+.vs/
+.vscode/
+*.suo
+*.user
+*.sln.docstates
+
+# IDE - JetBrains
+.idea/
+cmake-build-debug/
+cmake-build-release/
+
+# IDE - Xcode
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Package managers / generated dependencies
+vcpkg_installed/
+conanbuild/
+conaninfo.txt
