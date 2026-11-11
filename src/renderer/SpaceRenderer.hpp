@@ -55,15 +55,12 @@ private:
     Mesh m_sphere;
     Mesh m_stars;
     Mesh m_cross;
-    std::vector<Mesh> m_orbits;   // 8 planet orbits
 
     Camera3D m_cam;
 
     // Mouse state
     glm::dvec2 m_lastMouse{0, 0};
-    bool       m_firstMouse = true;
-    bool       m_rightDown  = false;
-    bool       m_midDown    = false;
+    bool       m_rightDown  = false;  // previous frame's orbit button state
 
     // Active flash events (light-delay test tool)
     std::vector<FlashEvent> m_flashes;
@@ -81,7 +78,6 @@ private:
                   glm::vec3 sun_scene, glm::vec3 cam_pos, bool emissive,
                   float alpha = 1.0f);
 
-    void drawOrbits(const glm::mat4& vp);
     void drawStars (const glm::mat4& view, const glm::mat4& proj);
 
     void renderImGui(double sim_t, const SolarSystem& sys,

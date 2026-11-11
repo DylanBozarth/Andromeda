@@ -6,30 +6,29 @@
 struct BodyVisual {
     const char* name;
     glm::vec3   color;
-    float       visual_radius;  // AU — dramatically scaled up for visibility at solar-system zoom
+    float       visual_radius;  // AU — true equatorial radius / AU
 };
 
-// Visual appearance for all rendered bodies.
-// True-scale radii would be invisible dots at the AU overview scale; these
-// are exaggerated to give a readable hierarchy.  When zoomed in to a zone
-// the camera-distance naturally makes bodies look larger anyway.
+// True-scale equatorial radii (R_body / AU).  At solar-system zoom planets
+// are tiny dots, exactly as they appear in space.  Zoom into a planetary zone
+// to see them as resolved discs.
 inline constexpr std::array<BodyVisual, 16> BODY_VISUALS = {{
-    {"Sun",      {1.00f, 0.95f, 0.70f}, 0.12f},
-    {"Mercury",  {0.60f, 0.55f, 0.50f}, 0.018f},
-    {"Venus",    {0.95f, 0.85f, 0.60f}, 0.028f},
-    {"Earth",    {0.25f, 0.50f, 0.90f}, 0.030f},
-    {"Mars",     {0.80f, 0.35f, 0.20f}, 0.022f},
-    {"Jupiter",  {0.90f, 0.75f, 0.55f}, 0.070f},
-    {"Saturn",   {0.95f, 0.88f, 0.65f}, 0.062f},
-    {"Uranus",   {0.55f, 0.85f, 0.90f}, 0.042f},
-    {"Neptune",  {0.25f, 0.40f, 0.90f}, 0.038f},
-    {"Moon",     {0.80f, 0.80f, 0.80f}, 0.008f},
-    {"Titan",    {0.90f, 0.75f, 0.45f}, 0.010f},
-    {"Io",       {0.95f, 0.90f, 0.30f}, 0.008f},
-    {"Europa",   {0.80f, 0.80f, 0.90f}, 0.007f},
-    {"Ganymede", {0.70f, 0.70f, 0.70f}, 0.010f},
-    {"Callisto", {0.55f, 0.50f, 0.45f}, 0.009f},
-    {"Triton",   {0.70f, 0.85f, 0.90f}, 0.008f},
+    {"Sun",      {1.00f, 0.95f, 0.70f}, 0.004650f},    // 695700 km
+    {"Mercury",  {0.60f, 0.55f, 0.50f}, 1.631e-5f},    //   2440 km
+    {"Venus",    {0.95f, 0.85f, 0.60f}, 4.046e-5f},    //   6052 km
+    {"Earth",    {0.25f, 0.50f, 0.90f}, 4.263e-5f},    //   6378 km
+    {"Mars",     {0.80f, 0.35f, 0.20f}, 2.265e-5f},    //   3390 km
+    {"Jupiter",  {0.90f, 0.75f, 0.55f}, 4.779e-4f},    //  71492 km
+    {"Saturn",   {0.95f, 0.88f, 0.65f}, 4.029e-4f},    //  60268 km
+    {"Uranus",   {0.55f, 0.85f, 0.90f}, 1.709e-4f},    //  25559 km
+    {"Neptune",  {0.25f, 0.40f, 0.90f}, 1.656e-4f},    //  24764 km
+    {"Moon",     {0.80f, 0.80f, 0.80f}, 1.161e-5f},    //   1737 km
+    {"Titan",    {0.90f, 0.75f, 0.45f}, 1.721e-5f},    //   2575 km
+    {"Io",       {0.95f, 0.90f, 0.30f}, 1.218e-5f},    //   1822 km
+    {"Europa",   {0.80f, 0.80f, 0.90f}, 1.044e-5f},    //   1561 km
+    {"Ganymede", {0.70f, 0.70f, 0.70f}, 1.761e-5f},    //   2634 km
+    {"Callisto", {0.55f, 0.50f, 0.45f}, 1.611e-5f},    //   2410 km
+    {"Triton",   {0.70f, 0.85f, 0.90f}, 9.047e-6f},    //   1353 km
 }};
 
 inline const BodyVisual* findBodyVisual(std::string_view name) {
@@ -38,14 +37,3 @@ inline const BodyVisual* findBodyVisual(std::string_view name) {
     return nullptr;
 }
 
-// Orbital line colors, indexed parallel to PLANETS array order
-inline constexpr std::array<glm::vec4, 8> ORBIT_COLORS = {{
-    {0.60f, 0.55f, 0.50f, 0.30f},  // Mercury
-    {0.95f, 0.85f, 0.60f, 0.30f},  // Venus
-    {0.25f, 0.50f, 0.90f, 0.30f},  // Earth
-    {0.80f, 0.35f, 0.20f, 0.30f},  // Mars
-    {0.90f, 0.75f, 0.55f, 0.30f},  // Jupiter
-    {0.95f, 0.88f, 0.65f, 0.30f},  // Saturn
-    {0.55f, 0.85f, 0.90f, 0.30f},  // Uranus
-    {0.25f, 0.40f, 0.90f, 0.30f},  // Neptune
-}};

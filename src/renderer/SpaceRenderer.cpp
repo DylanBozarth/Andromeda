@@ -1,5 +1,4 @@
 #include "SpaceRenderer.hpp"
-#include "data/PlanetaryData.hpp"
 #include "zones/Zone.hpp"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -107,10 +106,6 @@ void SpaceRenderer::init(GLFWwindow* win, int width, int height) {
     m_stars  = Mesh::starField();
     m_cross  = Mesh::crossMarker(0.08f);
 
-    m_orbits.reserve(PLANETS.size());
-    for (const auto& p : PLANETS)
-        m_orbits.push_back(Mesh::orbitPath(p.elements));
-
     // ImGui
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -125,34 +120,25 @@ void SpaceRenderer::resize(int w, int h) { m_w = w; m_h = h; }
 
 // ── Input ─────────────────────────────────────────────────────────────────────
 
-void SpaceRenderer::processInput(GLFWwindow* win, const Spacecraft& ship) {
-    bool right = glfwGetMouseButton(win, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS;
-    bool mid   = glfwGetMouseButton(win, GLFW_MOUSE_BUTTON_MIDDLE) == GLFW_PRESS;
+void SpaceRenderer::processInput(GLFWwindow* win, const Spacecraft& /*ship*/) {
+    bool orbit = glfwGetMouseButton(win, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 
     double mx, my;
     glfwGetCursorPos(win, &mx, &my);
     glm::dvec2 mouse(mx, my);
 
-    if (m_firstMouse) { m_lastMouse = mouse; m_firstMouse = false; }
+    // On the rising edge of each drag, snap lastMouse to the current cursor
+    // position so the first delta is zero — no camera jump at drag start.
+    bool just_pressed = orbit && !m_rightDown;
+    if (just_pressed) m_lastMouse = mouse;
 
-    // Don't orbit while ImGui wants the mouse
-    if (!ImGui::GetIO().WantCaptureMouse) {
+    if (orbit && !just_pressed && !ImGui::GetIO().WantCaptureMouse) {
         glm::dvec2 delta = mouse - m_lastMouse;
-        if (right) m_cam.handleMouse((float)delta.x, (float)delta.y, true,  false);
-        if (mid)   m_cam.handleMouse((float)delta.x, (float)delta.y, false, true);
+        m_cam.handleMouse((float)delta.x, (float)delta.y, true, false);
     }
     m_lastMouse = mouse;
-    m_rightDown = right;
-    m_midDown   = mid;
+    m_rightDown = orbit;
 
-    // F = focus on ship
-    static bool f_was_down = false;
-    bool f_now = glfwGetKey(win, GLFW_KEY_F) == GLFW_PRESS;
-    if (f_now && !f_was_down)
-        m_cam.focusOn(toAU(ship.position()), 2.0f);
-    f_was_down = f_now;
-
-    // Escape = close
     if (glfwGetKey(win, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(win, GLFW_TRUE);
 }
@@ -177,16 +163,6 @@ void SpaceRenderer::drawBody(const BodyVisual& vis, glm::vec3 pos,
     m_bodyShader.setFloat("u_far",   m_cam.far_plane);
     m_bodyShader.setFloat("u_alpha", alpha);
     m_sphere.draw();
-}
-
-void SpaceRenderer::drawOrbits(const glm::mat4& vp) {
-    m_lineShader.use();
-    m_lineShader.setMat4("u_vp", vp);
-    m_lineShader.setFloat("u_far", m_cam.far_plane);
-    for (size_t i = 0; i < m_orbits.size(); ++i) {
-        m_lineShader.setVec4("u_color", ORBIT_COLORS[i]);
-        m_orbits[i].draw();
-    }
 }
 
 void SpaceRenderer::drawStars(const glm::mat4& view, const glm::mat4& proj) {
@@ -224,6 +200,9 @@ void SpaceRenderer::render(double sim_t,
                            const LightCone& observer,
                            GLFWwindow* /*win*/)
 {
+    // Ship-locked camera: target always follows the ship
+    m_cam.target = toAU(ship.position());
+
     glViewport(0, 0, m_w, m_h);
     glClearColor(0.f, 0.f, 0.015f, 1.f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -231,7 +210,6 @@ void SpaceRenderer::render(double sim_t,
     float aspect = (m_h > 0) ? (float)m_w / (float)m_h : 1.f;
     glm::mat4 view = m_cam.viewMatrix();
     glm::mat4 proj = m_cam.projMatrix(aspect);
-    glm::mat4 vp   = proj * view;
     glm::vec3 cam  = m_cam.position();
 
     // 1. Stars — no depth writes so they stay in the background
@@ -239,10 +217,7 @@ void SpaceRenderer::render(double sim_t,
     drawStars(view, proj);
     glDepthMask(GL_TRUE);
 
-    // 2. Orbit lines (semi-transparent)
-    drawOrbits(vp);
-
-    // 3. Celestial bodies — render at observed (light-delayed) positions
+    // 2. Celestial bodies — render at observed (light-delayed) positions
     //    so the visual matches what physics says an observer sees.
     constexpr glm::vec3 sun_scene{0.f, 0.f, 0.f};
 
@@ -403,7 +378,7 @@ void SpaceRenderer::renderImGui(double sim_t,
         ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove |
         ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings |
         ImGuiWindowFlags_NoNav);
-    ImGui::Text("Right-drag: orbit   Mid-drag: pan   Scroll: zoom   F: focus ship");
+    ImGui::Text("Left-drag: orbit   Scroll: zoom   (camera locked to ship)");
     ImGui::End();
 
     // ── Light delay flash tester ──────────────────────────────────────────────

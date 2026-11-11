@@ -1,0 +1,1 @@
+./build/andromeda //run game 
