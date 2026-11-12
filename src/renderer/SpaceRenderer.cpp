@@ -200,8 +200,8 @@ static constexpr IllustData SOLAR_ILLUST[] = {
     { "Neptune",31.0f,  0.52f },
 };
 
-// Returns the solar-view illustrative scene position for a body.
-// au_pos is the body's AU-space XZ position (Y already zeroed).
+// Returns the solar-view illustrative scene position for a named body.
+// au_pos is the body's AU-space position (Y will be zeroed).
 // Sun (dist==0) always returns origin.
 static glm::vec3 solarBodyPos(const char* name, glm::vec3 au_pos) {
     for (const auto& d : SOLAR_ILLUST) {
@@ -212,6 +212,44 @@ static glm::vec3 solarBodyPos(const char* name, glm::vec3 au_pos) {
         }
     }
     return {-999.f, 0.f, 0.f};  // body not in solar view
+}
+
+// Maps the ship's real position to solar-view illustrative space.
+// Uses CURRENT planet positions (not fixed semi-major axes) as interpolation
+// breakpoints so the ship always appears correctly relative to rendered planets.
+static glm::vec3 shipSolarPos(Vec3 ship_pos,
+                               const SolarSystem& sys, double sim_t) {
+    float xAU = (float)(ship_pos.x / Constants::AU);
+    float zAU = (float)(ship_pos.z / Constants::AU);
+    float real_dist = std::sqrt(xAU*xAU + zAU*zAU);
+    float angle     = std::atan2(zAU, xAU);
+
+    // Build breakpoint table: (current real AU dist, illustrative dist), sorted
+    std::vector<std::pair<float,float>> bp;
+    bp.push_back({0.f, 0.f});  // Sun always at origin
+    for (const auto& d : SOLAR_ILLUST) {
+        if (d.dist == 0.f) continue;
+        try {
+            Vec3  rp = sys.getPosition(d.name, sim_t);
+            float ru = (float)(std::sqrt(
+                (rp.x/Constants::AU)*(rp.x/Constants::AU) +
+                (rp.z/Constants::AU)*(rp.z/Constants::AU)));
+            bp.push_back({ru, d.dist});
+        } catch (...) {}
+    }
+    std::sort(bp.begin(), bp.end(),
+              [](const auto& a, const auto& b){ return a.first < b.first; });
+
+    float illust = bp.back().second;
+    for (size_t i = 0; i + 1 < bp.size(); ++i) {
+        if (real_dist <= bp[i+1].first) {
+            float denom = bp[i+1].first - bp[i].first;
+            float t = denom > 1e-6f ? (real_dist - bp[i].first) / denom : 0.f;
+            illust = bp[i].second + t * (bp[i+1].second - bp[i].second);
+            break;
+        }
+    }
+    return { illust * std::cos(angle), 0.f, illust * std::sin(angle) };
 }
 
 // ── Position mappers ─────────────────────────────────────────────────────────
@@ -335,10 +373,10 @@ void SpaceRenderer::render(double sim_t,
                            const LightCone& observer,
                            GLFWwindow* /*win*/)
 {
-    // All views track the ship. Each camera uses its own scene-space mapping
-    // so the ship stays centred regardless of view. Add new cameras here.
+    // All views track the ship. Each camera uses its own scene-space mapping.
+    // Add new cameras here when adding new ViewModes.
     m_cam.target       = toAU(ship.position());
-    m_solar_cam.target = toSolarScene(ship.position());
+    m_solar_cam.target = shipSolarPos(ship.position(), sys, sim_t);
 
     Camera3D& active_cam = (m_view == ViewMode::Standard) ? m_cam : m_solar_cam;
 
@@ -426,7 +464,9 @@ void SpaceRenderer::render(double sim_t,
 
     // 4. Ship — a small sphere the size of a schoolbus (~12 m, radius ~6 m).
     //    6 m / 1 AU = 4.01e-11 AU.  Solar view inflates it to a nav-map dot.
-    glm::vec3 ship_scene = toScene(ship.position());
+    glm::vec3 ship_scene = (m_view == ViewMode::Solar)
+        ? shipSolarPos(ship.position(), sys, sim_t)
+        : toAU(ship.position());
     {
         bool solar = (m_view == ViewMode::Solar);
         float dot_r = solar ? 0.55f : 4.01e-11f;
