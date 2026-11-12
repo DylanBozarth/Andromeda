@@ -1,7 +1,7 @@
 #pragma once
 #include "math/Vec3.hpp"
 #include "math/Constants.hpp"
-#include "simulation/SolarSystem.hpp"
+#include "Solar-system-builder/simulation/SolarSystem.hpp"
 
 // Observed state of a body — what an observer at a given position and time
 // actually perceives, accounting for the finite speed of light.

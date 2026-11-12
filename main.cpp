@@ -1,9 +1,9 @@
 #include "renderer/GL.hpp"   // must come before any other OpenGL header
 #include "math/Constants.hpp"
-#include "simulation/SimClock.hpp"
-#include "simulation/SolarSystem.hpp"
-#include "spacecraft/Spacecraft.hpp"
-#include "observation/LightCone.hpp"
+#include "Solar-system-builder/simulation/SimClock.hpp"
+#include "Solar-system-builder/simulation/SolarSystem.hpp"
+#include "Player-ship/spacecraft/Spacecraft.hpp"
+#include "Player-ship/observation/LightCone.hpp"
 #include "renderer/SpaceRenderer.hpp"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -61,7 +61,7 @@ int main() {
     Vec3 ship_pos = earth_sv.position + Vec3{ Constants::R_EARTH + 5.0e5, 0.0, 0.0 };
     Vec3 ship_vel = earth_sv.velocity + Vec3{ 0.0, 7700.0, 0.0 };
 
-    Spacecraft ship("Pilgrim-1", ship_pos, ship_vel,
+    Spacecraft ship("Dickballs-2", ship_pos, ship_vel,
                     /*dry_mass*/  8000.0,
                     /*propellant*/42000.0);
     ship.setIsp(380.0);

@@ -1,6 +1,6 @@
 #pragma once
 #include "math/Vec3.hpp"
-#include "physics/KeplerSolver.hpp"
+#include "Solar-system-builder/physics/KeplerSolver.hpp"
 #include <vector>
 #include <string_view>
 

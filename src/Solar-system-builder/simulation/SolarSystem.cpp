@@ -1,7 +1,7 @@
 #include "SolarSystem.hpp"
-#include "data/PlanetaryData.hpp"
-#include "data/MoonData.hpp"
-#include "data/AsteroidData.hpp"
+#include "Solar-system-builder/data/PlanetaryData.hpp"
+#include "Solar-system-builder/data/MoonData.hpp"
+#include "Solar-system-builder/data/AsteroidData.hpp"
 #include "math/Constants.hpp"
 #include <cstring>
 #include <stdexcept>

@@ -1,6 +1,6 @@
 #pragma once
 #include "math/Vec3.hpp"
-#include "simulation/SolarSystem.hpp"
+#include "Solar-system-builder/simulation/SolarSystem.hpp"
 #include <string>
 
 // A spacecraft modelled as a point mass with thrust.

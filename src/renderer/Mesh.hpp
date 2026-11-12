@@ -1,6 +1,6 @@
 #pragma once
 #include "GL.hpp"
-#include "physics/OrbitalElements.hpp"
+#include "Solar-system-builder/physics/OrbitalElements.hpp"
 #include <glm/glm.hpp>
 #include <vector>
 
@@ -35,4 +35,8 @@ public:
 
     // Simple 3-axis cross marker (AU scale), GL_LINES
     static Mesh crossMarker(float half_size = 0.1f);
+
+    // Unit circle in the XZ (ecliptic) plane, radius 1 AU, GL_LINE_LOOP
+    // Scale via model matrix to draw orbit rings at any radius.
+    static Mesh circle(int N = 128);
 };

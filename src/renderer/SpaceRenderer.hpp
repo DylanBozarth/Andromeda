@@ -4,9 +4,9 @@
 #include "Mesh.hpp"
 #include "Camera3D.hpp"
 #include "Colors.hpp"
-#include "simulation/SolarSystem.hpp"
-#include "spacecraft/Spacecraft.hpp"
-#include "observation/LightCone.hpp"
+#include "Solar-system-builder/simulation/SolarSystem.hpp"
+#include "Player-ship/spacecraft/Spacecraft.hpp"
+#include "Player-ship/observation/LightCone.hpp"
 #include <glm/glm.hpp>
 #include <vector>
 #include <string>
@@ -21,6 +21,8 @@ struct FlashEvent {
     float       real_arrive;  // glfwGetTime() when first shown (set on arrival)
     bool        arrived = false;
 };
+
+enum class ViewMode { Standard, Solar };
 
 class SpaceRenderer {
 public:
@@ -55,8 +57,11 @@ private:
     Mesh m_sphere;
     Mesh m_stars;
     Mesh m_cross;
+    Mesh m_circle;   // unit orbit ring, scaled per planet in solar view
 
     Camera3D m_cam;
+    Camera3D m_solar_cam;   // overview camera locked to the Sun
+    ViewMode m_view = ViewMode::Standard;
 
     // Mouse state
     glm::dvec2 m_lastMouse{0, 0};

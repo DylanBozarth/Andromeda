@@ -14,11 +14,12 @@
 //            that entirely.  Every production space game uses this approach.
 class Camera3D {
 public:
-    glm::vec3 target     = {0.f, 0.f, 0.f};
-    float     distance   = 0.01f;    // scene units (AU) — ~1.5 Mkm, frames a ship near Earth
-    float     fov        = 45.f;     // degrees
-    float     near_plane = 0.001f;   // AU
-    float     far_plane  = 500.f;    // AU
+    glm::vec3 target      = {0.f, 0.f, 0.f};
+    float     distance    = 0.01f;   // scene units (AU)
+    float     fov         = 45.f;    // degrees
+    float     near_plane  = 0.001f;  // AU — updated dynamically each frame
+    float     far_plane   = 500.f;   // AU
+    float     max_distance = 400.f;  // AU — per-camera zoom-out cap
 
     float azimuth   = 45.f;    // degrees, unrestricted
     float elevation = 25.f;    // degrees, clamped to ±85
@@ -51,8 +52,8 @@ public:
     }
 
     void handleScroll(float delta) {
-        distance *= std::pow(0.9f, delta);
-        distance  = std::clamp(distance, 0.0005f, 400.f);
+        distance *= std::pow(0.95f, delta);
+        distance  = std::clamp(distance, 1.0e-9f, max_distance);
     }
 
     void focusOn(glm::vec3 pos, float d) { target = pos; distance = d; }

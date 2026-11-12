@@ -4,5 +4,9 @@
 
 > Check other planets and add moons
 
-> Separate sever and rendering logic
+> Separate solar system generator and game/server logic
 
+
+
+
+Small to-dos

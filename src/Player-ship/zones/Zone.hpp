@@ -1,7 +1,7 @@
 #pragma once
 #include "math/Vec3.hpp"
 #include "math/Constants.hpp"
-#include "simulation/SolarSystem.hpp"
+#include "Solar-system-builder/simulation/SolarSystem.hpp"
 #include <array>
 #include <string_view>
 #include <optional>

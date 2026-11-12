@@ -1,5 +1,5 @@
 #include "Mesh.hpp"
-#include "physics/KeplerSolver.hpp"
+#include "Solar-system-builder/physics/KeplerSolver.hpp"
 #include "math/Constants.hpp"
 #include <glm/gtc/constants.hpp>
 #include <cmath>
@@ -153,6 +153,30 @@ Mesh Mesh::starField(int count, float radius_AU, uint32_t seed) {
     glBindVertexArray(0);
     m.m_count = count;
     m.m_mode  = GL_POINTS;
+    return m;
+}
+
+// ── Orbit ring (unit circle, XZ plane) ───────────────────────────────────────
+
+Mesh Mesh::circle(int N) {
+    std::vector<glm::vec3> pts;
+    pts.reserve((size_t)N);
+    for (int i = 0; i < N; ++i) {
+        float a = glm::two_pi<float>() * i / N;
+        pts.push_back({std::cos(a), 0.f, std::sin(a)});
+    }
+    Mesh m;
+    glGenVertexArrays(1, &m.m_vao);
+    glGenBuffers(1, &m.m_vbo);
+    glBindVertexArray(m.m_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, m.m_vbo);
+    glBufferData(GL_ARRAY_BUFFER, (GLsizeiptr)(pts.size()*sizeof(glm::vec3)),
+                 pts.data(), GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), nullptr);
+    glEnableVertexAttribArray(0);
+    glBindVertexArray(0);
+    m.m_count = N;
+    m.m_mode  = GL_LINE_LOOP;
     return m;
 }
 
