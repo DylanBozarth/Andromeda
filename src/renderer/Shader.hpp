@@ -27,4 +27,5 @@ public:
     void setVec3 (const char* n, const glm::vec3& v) const;
     void setFloat(const char* n, float v)             const;
     void setBool (const char* n, bool  v)             const;
+    void setInt  (const char* n, int   v)             const;
 };

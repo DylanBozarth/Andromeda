@@ -1,5 +1,6 @@
 #include "SpaceRenderer.hpp"
 #include "Player-ship/zones/Zone.hpp"
+#include "stb_image.h"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -15,16 +16,19 @@ static const char* BODY_VERT = R"glsl(
 #version 330 core
 layout(location=0) in vec3 aPos;
 layout(location=1) in vec3 aNorm;
+layout(location=2) in vec2 aUV;
 uniform mat4 u_model;
 uniform mat4 u_view;
 uniform mat4 u_proj;
-out vec3 v_pos;
-out vec3 v_norm;
+out vec3  v_pos;
+out vec3  v_norm;
+out vec2  v_uv;
 out float v_z;
 void main(){
     vec4 wp = u_model * vec4(aPos, 1.0);
     v_pos  = wp.xyz;
     v_norm = mat3(transpose(inverse(u_model))) * aNorm;
+    v_uv   = aUV;
     gl_Position = u_proj * u_view * wp;
     v_z = gl_Position.w;
 }
@@ -32,28 +36,31 @@ void main(){
 
 static const char* BODY_FRAG = R"glsl(
 #version 330 core
-in vec3 v_pos;
-in vec3 v_norm;
+in vec3  v_pos;
+in vec3  v_norm;
+in vec2  v_uv;
 in float v_z;
-uniform vec3  u_color;
-uniform vec3  u_sunPos;
-uniform vec3  u_camPos;
-uniform bool  u_emissive;
-uniform float u_far;
-uniform float u_alpha;
+uniform vec3      u_color;
+uniform vec3      u_sunPos;
+uniform vec3      u_camPos;
+uniform bool      u_emissive;
+uniform bool      u_textured;
+uniform sampler2D u_tex;
+uniform float     u_far;
+uniform float     u_alpha;
 out vec4 fragColor;
 void main(){
-    // Log depth
     gl_FragDepth = log2(max(1e-6, 1.0 + v_z)) / log2(u_far + 1.0);
-    if(u_emissive){ fragColor = vec4(u_color, u_alpha); return; }
-    vec3  norm    = normalize(v_norm);
-    vec3  ldir    = normalize(u_sunPos - v_pos);
-    float diff    = max(dot(norm, ldir), 0.0);
-    vec3  vdir    = normalize(u_camPos - v_pos);
-    vec3  half_v  = normalize(ldir + vdir);
-    float spec    = pow(max(dot(norm, half_v), 0.0), 32.0);
-    vec3  ambient = 0.07 * u_color;
-    fragColor = vec4(ambient + diff*u_color + 0.25*spec, u_alpha);
+    vec3 base = u_textured ? texture(u_tex, v_uv).rgb : u_color;
+    if(u_emissive){ fragColor = vec4(base, u_alpha); return; }
+    vec3  norm   = normalize(v_norm);
+    vec3  ldir   = normalize(u_sunPos - v_pos);
+    float diff   = max(dot(norm, ldir), 0.0);
+    vec3  vdir   = normalize(u_camPos - v_pos);
+    vec3  half_v = normalize(ldir + vdir);
+    float spec   = pow(max(dot(norm, half_v), 0.0), 32.0);
+    vec3  ambient = 0.07 * base;
+    fragColor = vec4(ambient + diff*base + 0.15*spec*vec3(1.0), u_alpha);
 }
 )glsl";
 
@@ -100,12 +107,12 @@ void SpaceRenderer::init(GLFWwindow* win, int width, int height) {
     // Standard view: zoom-out cap just past Neptune (~32 AU)
     m_cam.max_distance = 32.f;
 
-    // Solar overview camera — top-down, centred on the Sun, showing ~45 AU
+    // Solar overview camera — top-down, centred on the Sun
     m_solar_cam.target       = {0.f, 0.f, 0.f};
-    m_solar_cam.distance     = 45.f;
+    m_solar_cam.distance     = 40.f;
     m_solar_cam.elevation    = 80.f;
     m_solar_cam.azimuth      = 0.f;
-    m_solar_cam.max_distance = 80.f;   // solar view: outer edge of system
+    m_solar_cam.max_distance = 60.f;
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
@@ -119,6 +126,21 @@ void SpaceRenderer::init(GLFWwindow* win, int width, int height) {
     m_stars  = Mesh::starField();
     m_cross  = Mesh::crossMarker(0.08f);
     m_circle = Mesh::circle();
+
+    // Planet textures — stb_image loads top-to-bottom; flip so v=0 is north pole
+    stbi_set_flip_vertically_on_load(false);
+    auto tex = [this](const char* name, const char* file) {
+        m_textures.push_back({name, loadTexture(
+            std::string(ASSETS_DIR "/planet-textures/") .append(file).c_str())});
+    };
+    tex("Mercury", "mercury.jpg");
+    tex("Venus",   "venus_surface.jpg");
+    tex("Earth",   "earth.jpg");
+    tex("Mars",    "mars.jpg");
+    tex("Jupiter", "jupiter.jpg");
+    tex("Saturn",  "saturn.jpg");
+    tex("Uranus",  "uranus.jpg");
+    tex("Neptune", "neptune.jpg");
 
     // ImGui
     IMGUI_CHECKVERSION();
@@ -160,12 +182,101 @@ void SpaceRenderer::processInput(GLFWwindow* win, const Spacecraft& /*ship*/) {
         glfwSetWindowShouldClose(win, GLFW_TRUE);
 }
 
+// ── Solar-view illustrative layout ───────────────────────────────────────────
+// Single source of truth for solar-view planet positions and sizes.
+// The render loop, labels, and click detection all call solarBodyPos() so they
+// are guaranteed to show the same position.
+
+struct IllustData { const char* name; float dist; float radius; };
+static constexpr IllustData SOLAR_ILLUST[] = {
+    { "Sun",     0.0f,  2.00f },
+    { "Mercury", 3.5f,  0.18f },
+    { "Venus",   5.5f,  0.28f },
+    { "Earth",   7.5f,  0.30f },
+    { "Mars",   10.0f,  0.22f },
+    { "Jupiter",14.0f,  0.90f },
+    { "Saturn", 19.0f,  0.78f },
+    { "Uranus", 25.0f,  0.55f },
+    { "Neptune",31.0f,  0.52f },
+};
+
+// Returns the solar-view illustrative scene position for a body.
+// au_pos is the body's AU-space XZ position (Y already zeroed).
+// Sun (dist==0) always returns origin.
+static glm::vec3 solarBodyPos(const char* name, glm::vec3 au_pos) {
+    for (const auto& d : SOLAR_ILLUST) {
+        if (std::string_view(d.name) == std::string_view(name)) {
+            if (d.dist == 0.f) return {0.f, 0.f, 0.f};
+            float angle = std::atan2(au_pos.z, au_pos.x);
+            return { d.dist * std::cos(angle), 0.f, d.dist * std::sin(angle) };
+        }
+    }
+    return {-999.f, 0.f, 0.f};  // body not in solar view
+}
+
+// ── Position mappers ─────────────────────────────────────────────────────────
+
+glm::vec3 SpaceRenderer::toSolarScene(Vec3 v) {
+    // Piecewise-linear map: real AU distance → illustrative scene distance.
+    // Breakpoints match the ILLUST table in the render loop.
+    static constexpr float REAL[] = { 0.f, 0.387f, 0.723f, 1.000f, 1.524f,
+                                       5.204f, 9.582f, 19.190f, 30.070f };
+    static constexpr float ILLU[] = { 0.f, 3.5f,   5.5f,   7.5f,  10.0f,
+                                       14.0f,  19.0f,  25.0f,   31.0f  };
+    constexpr int N = 9;
+
+    float xAU = (float)(v.x / Constants::AU);
+    float zAU = (float)(v.z / Constants::AU);
+    float real_dist = std::sqrt(xAU*xAU + zAU*zAU);
+
+    float illust = ILLU[N-1];
+    for (int i = 0; i < N-1; ++i) {
+        if (real_dist <= REAL[i+1]) {
+            float t = (real_dist - REAL[i]) / (REAL[i+1] - REAL[i]);
+            illust = ILLU[i] + t * (ILLU[i+1] - ILLU[i]);
+            break;
+        }
+    }
+
+    float angle = std::atan2(zAU, xAU);
+    return { illust * std::cos(angle), 0.f, illust * std::sin(angle) };
+}
+
+// ── Texture helpers ───────────────────────────────────────────────────────────
+
+GLuint SpaceRenderer::loadTexture(const char* path) {
+    int w, h, ch;
+    unsigned char* data = stbi_load(path, &w, &h, &ch, 3);
+    if (!data) {
+        std::fprintf(stderr, "Texture load failed: %s\n", path);
+        return 0;
+    }
+    GLuint id;
+    glGenTextures(1, &id);
+    glBindTexture(GL_TEXTURE_2D, id);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,     GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,     GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    stbi_image_free(data);
+    return id;
+}
+
+GLuint SpaceRenderer::findTexture(std::string_view name) const {
+    for (const auto& e : m_textures)
+        if (e.name == name) return e.id;
+    return 0;
+}
+
 // ── Draw helpers ──────────────────────────────────────────────────────────────
 
 void SpaceRenderer::drawBody(const BodyVisual& vis, glm::vec3 pos,
                               const glm::mat4& view, const glm::mat4& proj,
                               glm::vec3 sun, glm::vec3 cam, bool emissive,
-                              float alpha)
+                              float alpha, GLuint tex_id)
 {
     glm::mat4 model = glm::scale(glm::translate(glm::mat4(1.f), pos),
                                  glm::vec3(vis.visual_radius));
@@ -177,9 +288,16 @@ void SpaceRenderer::drawBody(const BodyVisual& vis, glm::vec3 pos,
     m_bodyShader.setVec3("u_sunPos", sun);
     m_bodyShader.setVec3("u_camPos", cam);
     m_bodyShader.setBool("u_emissive", emissive);
+    m_bodyShader.setBool("u_textured", tex_id != 0);
     m_bodyShader.setFloat("u_far",   m_cam.far_plane);
     m_bodyShader.setFloat("u_alpha", alpha);
+    if (tex_id) {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, tex_id);
+        m_bodyShader.setInt("u_tex", 0);
+    }
     m_sphere.draw();
+    if (tex_id) glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 void SpaceRenderer::drawStars(const glm::mat4& view, const glm::mat4& proj) {
@@ -217,8 +335,10 @@ void SpaceRenderer::render(double sim_t,
                            const LightCone& observer,
                            GLFWwindow* /*win*/)
 {
-    // Standard view tracks the ship; solar view stays centred on the Sun.
-    m_cam.target = toAU(ship.position());
+    // All views track the ship. Each camera uses its own scene-space mapping
+    // so the ship stays centred regardless of view. Add new cameras here.
+    m_cam.target       = toAU(ship.position());
+    m_solar_cam.target = toSolarScene(ship.position());
 
     Camera3D& active_cam = (m_view == ViewMode::Standard) ? m_cam : m_solar_cam;
 
@@ -286,21 +406,27 @@ void SpaceRenderer::render(double sim_t,
         }
         bool is_sun = (std::string_view(vis.name) == "Sun");
 
-        // Solar view: flatten onto ecliptic, inflate sizes, saturate colors.
-        // Standard view: true-scale radii unchanged.
+        // Solar view: flatten onto ecliptic, map each body to an illustrative
+        // position via SOLAR_ILLUST (single source of truth shared with labels).
         BodyVisual draw_vis = vis;
         if (m_view == ViewMode::Solar) {
-            obs_pos.y = 0.f;   // project onto the ecliptic plane
-            draw_vis.visual_radius = is_sun ? 2.5f : 1.2f;
-            draw_vis.color = glm::min(vis.color * 1.8f, glm::vec3(1.f));
+            obs_pos.y = 0.f;
+            obs_pos = solarBodyPos(vis.name, obs_pos);
+            for (const auto& d : SOLAR_ILLUST) {
+                if (std::string_view(d.name) == std::string_view(vis.name)) {
+                    draw_vis.visual_radius = d.radius;
+                    draw_vis.color = glm::min(vis.color * 1.8f, glm::vec3(1.f));
+                    break;
+                }
+            }
         }
-        drawBody(draw_vis, obs_pos, view, proj, sun_scene, cam, is_sun);
+        GLuint tex = is_sun ? 0 : findTexture(vis.name);
+        drawBody(draw_vis, obs_pos, view, proj, sun_scene, cam, is_sun, 1.0f, tex);
     }
 
     // 4. Ship — a small sphere the size of a schoolbus (~12 m, radius ~6 m).
     //    6 m / 1 AU = 4.01e-11 AU.  Solar view inflates it to a nav-map dot.
-    glm::vec3 ship_scene = toAU(ship.position());
-    if (m_view == ViewMode::Solar) ship_scene.y = 0.f;
+    glm::vec3 ship_scene = toScene(ship.position());
     {
         bool solar = (m_view == ViewMode::Solar);
         float dot_r = solar ? 0.55f : 4.01e-11f;
@@ -326,14 +452,14 @@ void SpaceRenderer::render(double sim_t,
         // Semi-major axes (AU) and matching body colors (dim, translucent)
         struct Ring { float radius; glm::vec4 color; };
         static constexpr Ring RINGS[] = {
-            { 0.387f, {0.60f, 0.55f, 0.50f, 0.35f} },  // Mercury
-            { 0.723f, {0.95f, 0.85f, 0.60f, 0.35f} },  // Venus
-            { 1.000f, {0.25f, 0.60f, 1.00f, 0.40f} },  // Earth
-            { 1.524f, {0.90f, 0.40f, 0.25f, 0.40f} },  // Mars
-            { 5.204f, {0.95f, 0.80f, 0.60f, 0.35f} },  // Jupiter
-            { 9.582f, {1.00f, 0.95f, 0.70f, 0.35f} },  // Saturn
-            {19.190f, {0.55f, 0.90f, 0.95f, 0.35f} },  // Uranus
-            {30.070f, {0.30f, 0.50f, 1.00f, 0.35f} },  // Neptune
+            {  3.5f, {0.60f, 0.55f, 0.50f, 0.35f} },  // Mercury
+            {  5.5f, {0.95f, 0.85f, 0.60f, 0.35f} },  // Venus
+            {  7.5f, {0.25f, 0.60f, 1.00f, 0.40f} },  // Earth
+            { 10.0f, {0.90f, 0.40f, 0.25f, 0.40f} },  // Mars
+            { 14.0f, {0.95f, 0.80f, 0.60f, 0.35f} },  // Jupiter
+            { 19.0f, {1.00f, 0.95f, 0.70f, 0.35f} },  // Saturn
+            { 25.0f, {0.55f, 0.90f, 0.95f, 0.35f} },  // Uranus
+            { 31.0f, {0.30f, 0.50f, 1.00f, 0.35f} },  // Neptune
         };
 
         glDepthMask(GL_FALSE);
@@ -593,39 +719,90 @@ void SpaceRenderer::renderImGui(double sim_t,
     }
     ImGui::End();
 
-    // ── Solar view: ship position overlay ────────────────────────────────────
+    // ── Solar map: labels + context menu ─────────────────────────────────────
     if (m_view == ViewMode::Solar) {
-        double dist_sun_m = ship.position().length();
-        double dist_earth_m = (ship.position() - sys.getPosition("Earth", sim_t)).length();
+        // Project every body's illustrative position to screen space.
+        // This is the ground truth — it matches exactly where the spheres are drawn.
+        struct BodyScreen { const char* name; float sx, sy; };
+        std::vector<BodyScreen> on_screen;
 
-        glm::vec3 ship_scene = {
-            (float)(ship.position().x / Constants::AU),
-            0.f,
-            (float)(ship.position().z / Constants::AU)
-        };
+        float    aspect = (m_h > 0) ? (float)m_w / (float)m_h : 1.f;
+        glm::mat4 vp   = m_solar_cam.projMatrix(aspect) * m_solar_cam.viewMatrix();
+        ImVec2   dsz   = ImGui::GetIO().DisplaySize;  // logical pixels
 
-        // Project ship to screen space for a floating label
-        float aspect = (m_h > 0) ? (float)m_w / (float)m_h : 1.f;
-        glm::mat4 vp = m_solar_cam.projMatrix(aspect) * m_solar_cam.viewMatrix();
-        glm::vec4 clip = vp * glm::vec4(ship_scene, 1.f);
-        if (clip.w > 0.f) {
-            glm::vec3 ndc = glm::vec3(clip) / clip.w;
-            float sx = (ndc.x * 0.5f + 0.5f) * (float)m_w;
-            float sy = (1.f - (ndc.y * 0.5f + 0.5f)) * (float)m_h;
-            // Offset label up-right from the marker
-            sx = std::clamp(sx + 14.f, 4.f, (float)m_w - 160.f);
-            sy = std::clamp(sy - 30.f, 4.f, (float)m_h - 60.f);
+        for (const auto& vis : BODY_VISUALS) {
+            try {
+                // Use observer.observePosition + solarBodyPos — exact same path as the render loop
+                Vec3 rp = observer.observePosition(vis.name, sim_t, sys);
+                glm::vec3 au = toAU(rp);
+                au.y = 0.f;
+                glm::vec3 illust = solarBodyPos(vis.name, au);
+                if (illust.x < -900.f) continue;  // not in SOLAR_ILLUST table
+                glm::vec4 clip = vp * glm::vec4(illust, 1.f);
+                if (clip.w <= 0.f) continue;
+                glm::vec3 ndc = glm::vec3(clip) / clip.w;
+                float sx = (ndc.x * 0.5f + 0.5f) * dsz.x;
+                float sy = (1.f - (ndc.y * 0.5f + 0.5f)) * dsz.y;
+                on_screen.push_back({vis.name, sx, sy});
+            } catch (...) {}
+        }
 
-            ImGui::SetNextWindowPos({sx, sy});
-            ImGui::SetNextWindowBgAlpha(0.60f);
-            ImGui::Begin("##ship_label", nullptr,
-                ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove |
-                ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings |
-                ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoMouseInputs);
-            ImGui::TextColored({0.0f, 1.0f, 0.4f, 1.f}, "%s", ship.name().c_str());
-            ImGui::Text("%.2f AU from Sun", dist_sun_m / Constants::AU);
-            ImGui::Text("%.3f AU from Earth", dist_earth_m / Constants::AU);
-            ImGui::End();
+        // Planet labels — drawn on the ImGui foreground layer, offset from dot
+        auto* dl = ImGui::GetForegroundDrawList();
+        for (const auto& b : on_screen) {
+            if (std::string_view(b.name) == "Sun") continue;
+            if (b.sx < -50.f || b.sx > dsz.x + 50.f) continue;
+            if (b.sy < -50.f || b.sy > dsz.y + 50.f) continue;
+            // Drop shadow for legibility
+            dl->AddText({b.sx + 9.f, b.sy - 7.f}, IM_COL32(0, 0, 0, 160), b.name);
+            dl->AddText({b.sx + 8.f, b.sy - 8.f}, IM_COL32(190, 215, 255, 220), b.name);
+        }
+
+        // Right-click: find nearest body in screen pixels (always correct, no unproject)
+        if (ImGui::IsMouseClicked(ImGuiMouseButton_Right)
+            && !ImGui::IsWindowHovered(ImGuiHoveredFlags_AnyWindow)
+            && !ImGui::IsAnyItemHovered()) {
+
+            ImVec2 mp = ImGui::GetIO().MousePos;
+            m_ctx_planet.clear();
+            float best_px = 60.f;
+            for (const auto& b : on_screen) {
+                float dx = mp.x - b.sx, dy = mp.y - b.sy;
+                float d  = std::sqrt(dx*dx + dy*dy);
+                if (d < best_px) { best_px = d; m_ctx_planet = b.name; }
+            }
+            ImGui::OpenPopup("##solar_ctx");
+        }
+
+        if (ImGui::BeginPopup("##solar_ctx")) {
+            if (!m_ctx_planet.empty()) {
+                ImGui::TextColored({0.3f, 1.f, 0.5f, 1.f}, "%s", m_ctx_planet.c_str());
+                ImGui::Separator();
+                if (ImGui::MenuItem("Travel to")) {
+                    try {
+                        Vec3 dest = sys.getPosition(m_ctx_planet, sim_t);
+                        m_pending_travel = { m_ctx_planet, dest,
+                            ship.position(), ship.velocity(),
+                            sim_t, 0.0, true };
+                    } catch (...) {}
+                    ImGui::CloseCurrentPopup();
+                }
+            } else {
+                ImGui::TextColored({0.6f, 0.6f, 0.6f, 1.f}, "Navigate to...");
+                ImGui::Separator();
+                for (const auto& vis : BODY_VISUALS) {
+                    if (ImGui::MenuItem(vis.name)) {
+                        try {
+                            Vec3 dest = sys.getPosition(vis.name, sim_t);
+                            m_pending_travel = { vis.name, dest,
+                                ship.position(), ship.velocity(),
+                                sim_t, 0.0, true };
+                        } catch (...) {}
+                        ImGui::CloseCurrentPopup();
+                    }
+                }
+            }
+            ImGui::EndPopup();
         }
     }
 }

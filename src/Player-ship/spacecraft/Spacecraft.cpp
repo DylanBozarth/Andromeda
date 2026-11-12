@@ -17,6 +17,12 @@ Spacecraft::Spacecraft(
     , m_prop_mass(propellant_mass)
 {}
 
+void Spacecraft::teleport(Vec3 pos, Vec3 vel) {
+    m_pos = pos;
+    m_vel = vel;
+    cutThrust();
+}
+
 void Spacecraft::setThrust(Vec3 direction, double force_newtons) {
     m_thrust_dir = direction.normalized();
     m_thrust_N   = force_newtons;

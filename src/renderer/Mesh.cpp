@@ -38,7 +38,7 @@ void Mesh::draw() const {
 // Interleaved: vec3 position (loc=0), vec3 normal (loc=1)
 
 Mesh Mesh::sphere(int lat, int lon) {
-    struct V { glm::vec3 pos, nrm; };
+    struct V { glm::vec3 pos, nrm; glm::vec2 uv; };
     std::vector<V> verts;
     std::vector<unsigned int> idx;
     verts.reserve((size_t)(lat+1)*(lon+1));
@@ -53,7 +53,9 @@ Mesh Mesh::sphere(int lat, int lon) {
                 std::cos(theta),
                 std::sin(theta) * std::sin(phi)
             };
-            verts.push_back({p, p});
+            // u wraps 0→1 around longitude; v goes 0 (north) → 1 (south)
+            glm::vec2 uv = { (float)j / lon, (float)i / lat };
+            verts.push_back({p, p, uv});
         }
     }
     for (int i = 0; i < lat; ++i) {
@@ -84,6 +86,9 @@ Mesh Mesh::sphere(int lat, int lon) {
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(V),
                           (void*)offsetof(V, nrm));
     glEnableVertexAttribArray(1);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(V),
+                          (void*)offsetof(V, uv));
+    glEnableVertexAttribArray(2);
 
     glBindVertexArray(0);
     m.m_count = (int)idx.size();

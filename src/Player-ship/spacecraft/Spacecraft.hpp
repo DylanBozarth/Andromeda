@@ -50,6 +50,10 @@ public:
     double speedRelativeTo(const std::string& body, double t,
                            const SolarSystem& system) const;
 
+    // Instantly set position and velocity (travel cutscenes, debug, instant-travel).
+    // Cuts any active thrust.
+    void teleport(Vec3 pos, Vec3 vel);
+
 private:
     std::string m_name;
     Vec3   m_pos;

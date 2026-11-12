@@ -52,3 +52,6 @@ void Shader::setFloat(const char* n, float v) const {
 void Shader::setBool(const char* n, bool v) const {
     glUniform1i(glGetUniformLocation(m_prog, n), v ? 1 : 0);
 }
+void Shader::setInt(const char* n, int v) const {
+    glUniform1i(glGetUniformLocation(m_prog, n), v);
+}

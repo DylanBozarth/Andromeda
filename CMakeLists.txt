@@ -41,6 +41,14 @@ FetchContent_Declare(imgui
 )
 FetchContent_MakeAvailable(imgui)
 
+# stb: single-header image loader (stb_image.h) for planet textures
+FetchContent_Declare(stb
+    GIT_REPOSITORY https://github.com/nothings/stb.git
+    GIT_TAG        master
+    GIT_SHALLOW    ON
+)
+FetchContent_MakeAvailable(stb)
+
 # ── Project sources ───────────────────────────────────────────────────────────
 file(GLOB_RECURSE SIM_SOURCES src/*.cpp)
 
@@ -60,6 +68,12 @@ target_include_directories(andromeda PRIVATE
     src
     ${IMGUI_DIR}
     ${IMGUI_DIR}/backends
+    ${stb_SOURCE_DIR}
+)
+
+# Absolute assets path so textures load regardless of working directory
+target_compile_definitions(andromeda PRIVATE
+    ASSETS_DIR="${CMAKE_SOURCE_DIR}/assets"
 )
 
 target_link_libraries(andromeda PRIVATE glfw glm::glm)

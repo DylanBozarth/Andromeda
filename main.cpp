@@ -105,6 +105,30 @@ int main() {
         // Handle keyboard + mouse input
         renderer.processInput(win, ship);
 
+        // ── Travel commands from the solar map ────────────────────────────────
+        if (renderer.hasPendingTravel()) {
+            TravelRequest tr = renderer.takePendingTravel();
+            if (tr.active) {
+                if (tr.duration_sim_s <= 0.0) {
+                    // Instant travel: arrive at a low orbit above the target body.
+                    // The Vec3{offset, 0, 0} keeps the ship above the surface;
+                    // the ship inherits the body's velocity so it doesn't free-fall.
+                    StateVector sv = system.getState(tr.target_name, now_sim_t);
+                    double arrive_offset = (tr.target_name == "Sun") ? 1.0e10 : 1.0e8;
+                    ship.teleport(sv.position + Vec3{arrive_offset, 0.0, 0.0}, sv.velocity);
+                } else {
+                    // Timed travel (future): each frame compute
+                    //   frac = (now_sim_t - tr.start_sim_t) / tr.duration_sim_s
+                    // then ship.teleport(lerp(tr.origin_pos_m, tr.target_pos_m, frac), ...)
+                    // and cancel once frac >= 1.0.
+                    // For now, treat any timed request as instant as a fallback.
+                    StateVector sv = system.getState(tr.target_name, now_sim_t);
+                    double arrive_offset = (tr.target_name == "Sun") ? 1.0e10 : 1.0e8;
+                    ship.teleport(sv.position + Vec3{arrive_offset, 0.0, 0.0}, sv.velocity);
+                }
+            }
+        }
+
         // Update framebuffer dimensions in case the window was resized
         int fb_w, fb_h;
         glfwGetFramebufferSize(win, &fb_w, &fb_h);

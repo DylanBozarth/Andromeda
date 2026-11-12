@@ -24,6 +24,19 @@ struct FlashEvent {
 
 enum class ViewMode { Standard, Solar };
 
+// Issued by SpaceRenderer when the player selects "Travel to" in the solar map.
+// duration_sim_s == 0 means instant; set it > 0 for timed travel (future).
+// main.cpp owns the travel logic so physics stays out of the renderer.
+struct TravelRequest {
+    std::string target_name;
+    Vec3        target_pos_m;      // body centre at time of issue (solar frame, metres)
+    Vec3        origin_pos_m;      // ship position when issued
+    Vec3        origin_vel_m;      // ship velocity when issued
+    double      start_sim_t   = 0;
+    double      duration_sim_s = 0; // 0 = instant; >0 reserved for timed transit
+    bool        active = false;
+};
+
 class SpaceRenderer {
 public:
     // Call once after the GLFW context is current.
@@ -49,6 +62,14 @@ public:
     void triggerFlash(const std::string& planet_name, double sim_t,
                       const SolarSystem& sys, const Spacecraft& ship);
 
+    // Travel API — polled by main.cpp after processInput each frame
+    bool          hasPendingTravel() const { return m_pending_travel.active; }
+    TravelRequest takePendingTravel() {
+        TravelRequest t = m_pending_travel;
+        m_pending_travel.active = false;
+        return t;
+    }
+
 private:
     int    m_w = 0, m_h = 0;
     Shader m_bodyShader;
@@ -70,18 +91,45 @@ private:
     // Active flash events (light-delay test tool)
     std::vector<FlashEvent> m_flashes;
 
+    // Planet textures — loaded once in init()
+    struct TexEntry { std::string name; GLuint id = 0; };
+    std::vector<TexEntry> m_textures;
+
+    // Travel system — renderer populates, main.cpp consumes
+    TravelRequest m_pending_travel;
+    std::string   m_ctx_planet;    // planet identified by last right-click
+
     // ── helpers ──────────────────────────────────────────────────────────────
-    // metres → scene AU
+    // metres → true scene AU (Standard view)
     static glm::vec3 toAU(Vec3 v) {
         return {(float)(v.x/Constants::AU),
                 (float)(v.y/Constants::AU),
                 (float)(v.z/Constants::AU)};
     }
 
+    // metres → solar-view illustrative scene coords.
+    // Preserves orbital angle; maps true AU distance through a piecewise-
+    // linear table that spreads planets evenly for readability.
+    // Add an entry here when adding new bodies to the illustrative layout.
+    static glm::vec3 toSolarScene(Vec3 v);
+
+    // Map a real position to scene space for the active view.
+    // Add a branch here for every new ViewMode so all callers stay consistent.
+    glm::vec3 toScene(Vec3 v) const {
+        switch (m_view) {
+            case ViewMode::Solar:    return toSolarScene(v);
+            case ViewMode::Standard: // fall through
+            default:                 return toAU(v);
+        }
+    }
+
+    GLuint loadTexture(const char* path);
+    GLuint findTexture(std::string_view name) const;
+
     void drawBody(const BodyVisual& vis, glm::vec3 scene_pos,
                   const glm::mat4& view, const glm::mat4& proj,
                   glm::vec3 sun_scene, glm::vec3 cam_pos, bool emissive,
-                  float alpha = 1.0f);
+                  float alpha = 1.0f, GLuint tex_id = 0);
 
     void drawStars (const glm::mat4& view, const glm::mat4& proj);
 
