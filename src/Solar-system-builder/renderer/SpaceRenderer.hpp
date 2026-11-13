@@ -79,11 +79,18 @@ private:
     Mesh m_sphere;
     Mesh m_stars;
     Mesh m_cross;
-    Mesh m_circle;   // unit orbit ring, scaled per planet in solar view
+    Mesh m_circle;     // unit orbit ring, scaled per planet in solar view
+    Mesh m_ring_disc;  // annular disc for Saturn's rings
 
     Camera3D m_cam;
     Camera3D m_solar_cam;   // overview camera locked to the Sun
     ViewMode m_view = ViewMode::Standard;
+
+    // Double-precision rendering origin set at the top of render() each frame.
+    // Standard view: set to ship.position() so all scene offsets are computed
+    // in double before casting to float, eliminating the jitter caused by
+    // casting kilometre-precision positions in a solar-AU coordinate frame.
+    Vec3 m_scene_origin = Vec3{0.0, 0.0, 0.0};
 
     // Mouse state
     glm::dvec2 m_lastMouse{0, 0};
@@ -101,11 +108,21 @@ private:
     std::string   m_ctx_planet;    // planet identified by last right-click
 
     // ── helpers ──────────────────────────────────────────────────────────────
-    // metres → true scene AU (Standard view)
+    // metres → true scene AU (Standard view), absolute — loses float precision
+    // at solar-system distances.  Use toAU_rel for anything rendered on screen.
     static glm::vec3 toAU(Vec3 v) {
         return {(float)(v.x/Constants::AU),
                 (float)(v.y/Constants::AU),
                 (float)(v.z/Constants::AU)};
+    }
+
+    // metres → scene AU, relative to a double-precision origin.
+    // All solar-frame subtraction happens in double before the float cast,
+    // so the ~100 km precision loss from casting absolute positions is avoided.
+    static glm::vec3 toAU_rel(Vec3 v, Vec3 origin) {
+        return {(float)((v.x - origin.x) / Constants::AU),
+                (float)((v.y - origin.y) / Constants::AU),
+                (float)((v.z - origin.z) / Constants::AU)};
     }
 
     // metres → solar-view illustrative scene coords.
@@ -130,7 +147,13 @@ private:
     void drawBody(const BodyVisual& vis, glm::vec3 scene_pos,
                   const glm::mat4& view, const glm::mat4& proj,
                   glm::vec3 sun_scene, glm::vec3 cam_pos, bool emissive,
-                  float alpha = 1.0f, GLuint tex_id = 0);
+                  float alpha = 1.0f, GLuint tex_id = 0,
+                  float tex_offset_u = 0.f, bool use_tex_alpha = false,
+                  GLuint overlay_tex_id = 0, float overlay_offset_u = 0.f);
+
+    void drawRing(glm::vec3 scene_pos, const glm::mat4& view, const glm::mat4& proj,
+                  glm::vec3 sun_scene, glm::vec3 cam_pos,
+                  GLuint tex_id, float tex_offset_u = 0.f);
 
     void drawStars (const glm::mat4& view, const glm::mat4& proj);
 

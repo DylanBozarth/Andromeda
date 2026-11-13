@@ -48,11 +48,26 @@ uniform bool      u_textured;
 uniform sampler2D u_tex;
 uniform float     u_far;
 uniform float     u_alpha;
+uniform float     u_tex_offset_u;
+uniform bool      u_use_tex_alpha;
+// Second texture layer (cloud overlay, ring, etc.)
+uniform bool      u_has_overlay;
+uniform sampler2D u_tex2;
+uniform float     u_overlay_offset_u;
 out vec4 fragColor;
 void main(){
     gl_FragDepth = log2(max(1e-6, 1.0 + v_z)) / log2(u_far + 1.0);
-    vec3 base = u_textured ? texture(u_tex, v_uv).rgb : u_color;
-    if(u_emissive){ fragColor = vec4(base, u_alpha); return; }
+    vec2 uv = vec2(mod(v_uv.x + u_tex_offset_u, 1.0), v_uv.y);
+    vec4 tex_sample = u_textured ? texture(u_tex, uv) : vec4(u_color, 1.0);
+    vec3 base = u_textured ? tex_sample.rgb : u_color;
+    float alpha = u_use_tex_alpha ? tex_sample.a : u_alpha;
+    // Cloud overlay: alpha-blend over base using the cloud texture's own alpha
+    if(u_has_overlay){
+        vec2 uv2 = vec2(mod(v_uv.x + u_overlay_offset_u, 1.0), v_uv.y);
+        vec4 ov = texture(u_tex2, uv2);
+        base = mix(base, ov.rgb, ov.a);
+    }
+    if(u_emissive){ fragColor = vec4(base, alpha); return; }
     vec3  norm   = normalize(v_norm);
     vec3  ldir   = normalize(u_sunPos - v_pos);
     float diff   = max(dot(norm, ldir), 0.0);
@@ -60,7 +75,7 @@ void main(){
     vec3  half_v = normalize(ldir + vdir);
     float spec   = pow(max(dot(norm, half_v), 0.0), 32.0);
     vec3  ambient = 0.30 * base;
-    fragColor = vec4(ambient + diff*base + 0.20*spec*vec3(1.0), u_alpha);
+    fragColor = vec4(ambient + diff*base + 0.20*spec*vec3(1.0), alpha);
 }
 )glsl";
 
@@ -127,20 +142,26 @@ void SpaceRenderer::init(GLFWwindow* win, int width, int height) {
     m_cross  = Mesh::crossMarker(0.08f);
     m_circle = Mesh::circle();
 
+    // Saturn ring disc: inner 1.2× Saturn visual_radius, outer 2.3× (in AU)
+    constexpr float SAT_VIS_R = 4.029e-4f;
+    m_ring_disc = Mesh::disc(SAT_VIS_R * 1.2f, SAT_VIS_R * 2.3f);
+
     // Planet textures — stb_image loads top-to-bottom; flip so v=0 is north pole
     stbi_set_flip_vertically_on_load(false);
     auto tex = [this](const char* name, const char* file) {
         m_textures.push_back({name, loadTexture(
             std::string(ASSETS_DIR "/planet-textures/") .append(file).c_str())});
     };
-    tex("Mercury", "mercury.jpg");
-    tex("Venus",   "venus_surface.jpg");
-    tex("Earth",   "earth.jpg");
-    tex("Mars",    "mars.jpg");
-    tex("Jupiter", "jupiter.jpg");
-    tex("Saturn",  "saturn.jpg");
-    tex("Uranus",  "uranus.jpg");
-    tex("Neptune", "neptune.jpg");
+    tex("Mercury",      "mercury.jpg");
+    tex("Venus",        "venus_surface.jpg");
+    tex("Earth",        "earth.jpg");
+    tex("Mars",         "mars.jpg");
+    tex("Jupiter",      "jupiter.jpg");
+    tex("Saturn",       "saturn.jpg");
+    tex("Uranus",       "uranus.jpg");
+    tex("Neptune",      "neptune.jpg");
+    tex("Earth_clouds", "clouds-texture.png");
+    tex("Saturn_ring",  "saturn_ring_alpha.png");
 
     // ImGui
     IMGUI_CHECKVERSION();
@@ -284,7 +305,7 @@ glm::vec3 SpaceRenderer::toSolarScene(Vec3 v) {
 
 GLuint SpaceRenderer::loadTexture(const char* path) {
     int w, h, ch;
-    unsigned char* data = stbi_load(path, &w, &h, &ch, 3);
+    unsigned char* data = stbi_load(path, &w, &h, &ch, 4);  // always load as RGBA
     if (!data) {
         std::fprintf(stderr, "Texture load failed: %s\n", path);
         return 0;
@@ -292,7 +313,7 @@ GLuint SpaceRenderer::loadTexture(const char* path) {
     GLuint id;
     glGenTextures(1, &id);
     glBindTexture(GL_TEXTURE_2D, id);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,     GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,     GL_CLAMP_TO_EDGE);
@@ -314,10 +335,13 @@ GLuint SpaceRenderer::findTexture(std::string_view name) const {
 void SpaceRenderer::drawBody(const BodyVisual& vis, glm::vec3 pos,
                               const glm::mat4& view, const glm::mat4& proj,
                               glm::vec3 sun, glm::vec3 cam, bool emissive,
-                              float alpha, GLuint tex_id)
+                              float alpha, GLuint tex_id,
+                              float tex_offset_u, bool use_tex_alpha,
+                              GLuint overlay_tex_id, float overlay_offset_u)
 {
-    glm::mat4 model = glm::scale(glm::translate(glm::mat4(1.f), pos),
-                                 glm::vec3(vis.visual_radius));
+    glm::mat4 model =
+        glm::translate(glm::mat4(1.f), pos) *
+        glm::scale(glm::mat4(1.f), glm::vec3(vis.visual_radius));
     m_bodyShader.use();
     m_bodyShader.setMat4("u_model", model);
     m_bodyShader.setMat4("u_view",  view);
@@ -325,16 +349,55 @@ void SpaceRenderer::drawBody(const BodyVisual& vis, glm::vec3 pos,
     m_bodyShader.setVec3("u_color",  vis.color);
     m_bodyShader.setVec3("u_sunPos", sun);
     m_bodyShader.setVec3("u_camPos", cam);
-    m_bodyShader.setBool("u_emissive", emissive);
-    m_bodyShader.setBool("u_textured", tex_id != 0);
-    m_bodyShader.setFloat("u_far",   m_cam.far_plane);
-    m_bodyShader.setFloat("u_alpha", alpha);
+    m_bodyShader.setBool("u_emissive",       emissive);
+    m_bodyShader.setBool("u_textured",       tex_id != 0);
+    m_bodyShader.setFloat("u_far",           m_cam.far_plane);
+    m_bodyShader.setFloat("u_alpha",         alpha);
+    m_bodyShader.setFloat("u_tex_offset_u",  tex_offset_u);
+    m_bodyShader.setBool("u_use_tex_alpha",  use_tex_alpha);
+    m_bodyShader.setBool("u_has_overlay",    overlay_tex_id != 0);
+    m_bodyShader.setFloat("u_overlay_offset_u", overlay_offset_u);
     if (tex_id) {
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, tex_id);
         m_bodyShader.setInt("u_tex", 0);
     }
+    if (overlay_tex_id) {
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, overlay_tex_id);
+        m_bodyShader.setInt("u_tex2", 1);
+    }
     m_sphere.draw();
+    if (overlay_tex_id) { glActiveTexture(GL_TEXTURE1); glBindTexture(GL_TEXTURE_2D, 0); }
+    if (tex_id)         { glActiveTexture(GL_TEXTURE0); glBindTexture(GL_TEXTURE_2D, 0); }
+}
+
+void SpaceRenderer::drawRing(glm::vec3 pos, const glm::mat4& view, const glm::mat4& proj,
+                              glm::vec3 sun, glm::vec3 cam,
+                              GLuint tex_id, float tex_offset_u)
+{
+    glm::mat4 model = glm::translate(glm::mat4(1.f), pos);
+    m_bodyShader.use();
+    m_bodyShader.setMat4("u_model", model);
+    m_bodyShader.setMat4("u_view",  view);
+    m_bodyShader.setMat4("u_proj",  proj);
+    m_bodyShader.setVec3("u_color",  {1.f, 1.f, 1.f});
+    m_bodyShader.setVec3("u_sunPos", sun);
+    m_bodyShader.setVec3("u_camPos", cam);
+    m_bodyShader.setBool("u_emissive",       false);
+    m_bodyShader.setBool("u_textured",       tex_id != 0);
+    m_bodyShader.setFloat("u_far",           m_cam.far_plane);
+    m_bodyShader.setFloat("u_alpha",         1.f);
+    m_bodyShader.setFloat("u_tex_offset_u",  tex_offset_u);
+    m_bodyShader.setBool("u_use_tex_alpha",  true);
+    if (tex_id) {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, tex_id);
+        m_bodyShader.setInt("u_tex", 0);
+    }
+    glDisable(GL_CULL_FACE);
+    m_ring_disc.draw();
+    glEnable(GL_CULL_FACE);
     if (tex_id) glBindTexture(GL_TEXTURE_2D, 0);
 }
 
@@ -373,9 +436,14 @@ void SpaceRenderer::render(double sim_t,
                            const LightCone& observer,
                            GLFWwindow* /*win*/)
 {
-    // All views track the ship. Each camera uses its own scene-space mapping.
-    // Add new cameras here when adding new ViewModes.
-    m_cam.target       = toAU(ship.position());
+    // Standard view: use the ship's solar-frame position as the double-precision
+    // rendering origin.  All body offsets are subtracted in double before the
+    // float cast, so the ~100 km float precision loss at 1 AU is eliminated.
+    m_scene_origin = (m_view == ViewMode::Standard)
+                   ? ship.position() : Vec3{0.0, 0.0, 0.0};
+
+    // Camera targets — standard view orbits {0,0,0} because the ship IS {0,0,0}.
+    m_cam.target       = {0.f, 0.f, 0.f};
     m_solar_cam.target = shipSolarPos(ship.position(), sys, sim_t);
 
     Camera3D& active_cam = (m_view == ViewMode::Standard) ? m_cam : m_solar_cam;
@@ -428,14 +496,20 @@ void SpaceRenderer::render(double sim_t,
 
     // 2. Celestial bodies — render at observed (light-delayed) positions
     //    so the visual matches what physics says an observer sees.
-    constexpr glm::vec3 sun_scene{0.f, 0.f, 0.f};
+    // Sun scene position: in solar view it's the illustrative origin {0,0,0};
+    // in standard view it's the Sun's offset from the ship (m_scene_origin).
+    glm::vec3 sun_scene = (m_view == ViewMode::Solar)
+                        ? glm::vec3{0.f, 0.f, 0.f}
+                        : toAU_rel(Vec3{0.0, 0.0, 0.0}, m_scene_origin);
 
     for (const auto& vis : BODY_VISUALS) {
         // Observed position (what the ship sees given finite light speed)
         glm::vec3 obs_pos;
         try {
             Vec3 p = observer.observePosition(vis.name, sim_t, sys);
-            obs_pos = toAU(p);
+            // Standard view: subtract origin in double to preserve precision.
+            // Solar view: convert absolute for the illustrative mapping below.
+            obs_pos = (m_view == ViewMode::Solar) ? toAU(p) : toAU_rel(p, m_scene_origin);
         } catch (...) {
             // Body not in simulation (e.g. queried moon not matching name)
             if (std::string_view(vis.name) == "Sun") {
@@ -460,38 +534,40 @@ void SpaceRenderer::render(double sim_t,
                 }
             }
         }
+
         GLuint tex = is_sun ? 0 : findTexture(vis.name);
-        drawBody(draw_vis, obs_pos, view, proj, sun_scene, cam, is_sun, 1.0f, tex);
-    }
+        drawBody(draw_vis, obs_pos, view, proj, sun_scene, cam, is_sun, 1.0f, tex,
+                 0.f, false, 0, 0.f);
 
-    // 4. Ship — a small sphere the size of a schoolbus (~12 m, radius ~6 m).
-    //    6 m / 1 AU = 4.01e-11 AU.  Solar view inflates it to a nav-map dot.
-    glm::vec3 ship_scene = (m_view == ViewMode::Solar)
-        ? shipSolarPos(ship.position(), sys, sim_t)
-        : toAU(ship.position());
-    {
-        bool solar = (m_view == ViewMode::Solar);
-        // In standard view: 1% of camera distance, capped at 1e-6 AU.
-        // The ship is always 1/100th of the camera distance — so it shrinks as
-        // you zoom out and grows as you zoom in, while the cap stops it from
-        // becoming a large fixed disc at high orbit distances.
-        float dot_r = solar ? 0.55f : std::min(m_cam.distance * 0.01f, 1e-6f);
-
-        BodyVisual ship_vis = {"ship", {1.0f, 0.08f, 0.55f}, dot_r};
-        drawBody(ship_vis, ship_scene, view, proj, sun_scene, cam, true);
-
-        // Cross marker: solar view only (helps locate ship on the map)
-        if (solar) {
-            glm::mat4 model = glm::scale(
-                glm::translate(glm::mat4(1.f), ship_scene),
-                glm::vec3(10.0f));
-            m_lineShader.use();
-            m_lineShader.setMat4("u_vp", proj * view * model);
-            m_lineShader.setFloat("u_far", active_cam.far_plane);
-            m_lineShader.setVec4("u_color", {1.0f, 0.08f, 0.55f, 1.0f});
-            m_cross.draw();
+        // Saturn ring (standard view only)
+        if (m_view == ViewMode::Standard && std::string_view(vis.name) == "Saturn") {
+            GLuint ring_tex = findTexture("Saturn_ring");
+            if (ring_tex) {
+                float ring_offset = (float)std::fmod(sim_t / (86400.0 * 15.0), 1.0);
+                drawRing(obs_pos, view, proj, sun_scene, cam, ring_tex, ring_offset);
+            }
         }
     }
+
+    // 4. Ship — solar view: illustrative nav dot.  Standard view: scene origin.
+    glm::vec3 ship_scene = (m_view == ViewMode::Solar)
+        ? shipSolarPos(ship.position(), sys, sim_t)
+        : glm::vec3{0.f, 0.f, 0.f};
+    if (m_view == ViewMode::Solar) {
+        // Solar view: 3D dot sphere + cross marker at illustrative position
+        BodyVisual ship_vis = {"ship", {1.0f, 0.08f, 0.55f}, 0.55f};
+        drawBody(ship_vis, ship_scene, view, proj, sun_scene, cam, true);
+
+        glm::mat4 model = glm::scale(
+            glm::translate(glm::mat4(1.f), ship_scene),
+            glm::vec3(10.0f));
+        m_lineShader.use();
+        m_lineShader.setMat4("u_vp", proj * view * model);
+        m_lineShader.setFloat("u_far", active_cam.far_plane);
+        m_lineShader.setVec4("u_color", {1.0f, 0.08f, 0.55f, 1.0f});
+        m_cross.draw();
+    }
+    // Standard view: ship dot + label drawn in renderImGui (screen-space, guaranteed alignment)
 
     // 4b. Orbit rings — solar view only
     if (m_view == ViewMode::Solar) {
@@ -549,7 +625,7 @@ void SpaceRenderer::render(double sim_t,
             glow.color        = glm::min(bv->color * 2.5f, glm::vec3(1.f));
             glow.visual_radius = bv->visual_radius * scale;
 
-            drawBody(glow, toAU(flash.pos_emit), view, proj,
+            drawBody(glow, toAU_rel(flash.pos_emit, m_scene_origin), view, proj,
                      sun_scene, cam, /*emissive=*/true, alpha);
         }
 
@@ -587,7 +663,7 @@ void SpaceRenderer::renderImGui(double sim_t,
     ImGui::Begin("##clock", nullptr,
         ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove |
         ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings |
-        ImGuiWindowFlags_NoNav);
+        ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoMouseInputs);
 
     double days  = sim_t / 86400.0;
     int    yr    = 2000 + (int)(days / 365.25);
@@ -604,7 +680,7 @@ void SpaceRenderer::renderImGui(double sim_t,
     ImGui::Begin("##ship", nullptr,
         ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove |
         ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings |
-        ImGuiWindowFlags_NoNav);
+        ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoMouseInputs);
 
     ImGui::TextColored({1.0f, 0.08f, 0.55f, 1.f}, "%s", ship.name().c_str());
     ImGui::Separator();
@@ -642,7 +718,7 @@ void SpaceRenderer::renderImGui(double sim_t,
     ImGui::Begin("##help", nullptr,
         ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove |
         ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings |
-        ImGuiWindowFlags_NoNav);
+        ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoMouseInputs);
     ImGui::Text("Left-drag: orbit   Scroll: zoom   (camera locked to ship)");
     ImGui::End();
 
@@ -756,7 +832,7 @@ void SpaceRenderer::renderImGui(double sim_t,
     ImGui::Begin("##zone", nullptr,
         ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove |
         ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings |
-        ImGuiWindowFlags_NoNav);
+        ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoMouseInputs);
     if (zone) {
         ImGui::TextColored({0.9f, 0.7f, 0.2f, 1.f},
                            "Zone: %s system", (*zone)->planet_name);
@@ -771,34 +847,49 @@ void SpaceRenderer::renderImGui(double sim_t,
         glm::mat4 vp     = m_cam.projMatrix(aspect) * m_cam.viewMatrix();
         ImVec2   dsz     = ImGui::GetIO().DisplaySize;
 
-        struct BodyScreen { const char* name; float sx, sy; };
+        // screen_r: apparent radius in pixels — used as the right-click hit radius
+        // so the user can click anywhere on the planet disc, not just the centre.
+        struct BodyScreen { const char* name; float sx, sy, screen_r; };
         std::vector<BodyScreen> on_screen;
 
         for (const auto& vis : BODY_VISUALS) {
             try {
                 Vec3 rp = observer.observePosition(vis.name, sim_t, sys);
-                glm::vec3 au = toAU(rp);
+                glm::vec3 au = toAU_rel(rp, m_scene_origin);
                 glm::vec4 clip = vp * glm::vec4(au, 1.f);
                 if (clip.w <= 0.f) continue;
                 glm::vec3 ndc = glm::vec3(clip) / clip.w;
-                if (ndc.x < -1.1f || ndc.x > 1.1f || ndc.y < -1.1f || ndc.y > 1.1f) continue;
+                // Keep bodies whose centre is off-screen but whose disc might
+                // still overlap the viewport (allow up to 2× radius margin).
+                if (ndc.x < -2.f || ndc.x > 2.f || ndc.y < -2.f || ndc.y > 2.f) continue;
                 float sx = (ndc.x * 0.5f + 0.5f) * dsz.x;
                 float sy = (1.f - (ndc.y * 0.5f + 0.5f)) * dsz.y;
-                on_screen.push_back({vis.name, sx, sy});
+
+                // Project a point on the body's limb to get its apparent pixel radius.
+                float screen_r = 40.f;  // minimum hit radius
+                glm::vec4 edge_clip = vp * glm::vec4(
+                    au + glm::vec3(vis.visual_radius, 0.f, 0.f), 1.f);
+                if (edge_clip.w > 0.f) {
+                    float edge_sx = (edge_clip.x / edge_clip.w * 0.5f + 0.5f) * dsz.x;
+                    screen_r = std::max(screen_r, std::abs(edge_sx - sx));
+                }
+
+                on_screen.push_back({vis.name, sx, sy, screen_r});
             } catch (...) {}
         }
 
-        // Ship label — projects the ship's true scene position and draws the name
+        // Ship indicator — screen-space circle + label (guaranteed alignment)
         {
-            glm::vec3 ship_au = toAU(ship.position());
-            glm::vec4 clip = vp * glm::vec4(ship_au, 1.f);
+            glm::vec4 clip = vp * glm::vec4(0.f, 0.f, 0.f, 1.f);
             if (clip.w > 0.f) {
                 glm::vec3 ndc = glm::vec3(clip) / clip.w;
                 float sx = (ndc.x * 0.5f + 0.5f) * dsz.x;
                 float sy = (1.f - (ndc.y * 0.5f + 0.5f)) * dsz.y;
                 auto* dl = ImGui::GetForegroundDrawList();
-                dl->AddText({sx + 10.f, sy - 7.f}, IM_COL32(0,   0,   0,   180), ship.name().c_str());
-                dl->AddText({sx +  9.f, sy - 8.f}, IM_COL32(255, 20, 140, 220),  ship.name().c_str());
+                dl->AddCircleFilled({sx, sy}, 5.f, IM_COL32(255, 20, 140, 220));
+                dl->AddCircle({sx, sy}, 5.f, IM_COL32(0, 0, 0, 160), 0, 1.5f);
+                dl->AddText({sx + 9.f, sy - 7.f}, IM_COL32(0,   0,   0,   180), ship.name().c_str());
+                dl->AddText({sx + 8.f, sy - 8.f}, IM_COL32(255, 20, 140, 220),  ship.name().c_str());
             }
         }
 
@@ -808,11 +899,15 @@ void SpaceRenderer::renderImGui(double sim_t,
 
             ImVec2 mp = ImGui::GetIO().MousePos;
             m_ctx_planet.clear();
-            float best_px = 80.f;
+            float best_dist = 1e9f;
             for (const auto& b : on_screen) {
                 float dx = mp.x - b.sx, dy = mp.y - b.sy;
                 float d  = std::sqrt(dx*dx + dy*dy);
-                if (d < best_px) { best_px = d; m_ctx_planet = b.name; }
+                // Hit if cursor is within the body's apparent disc radius.
+                if (d < b.screen_r && d < best_dist) {
+                    best_dist = d;
+                    m_ctx_planet = b.name;
+                }
             }
             if (!m_ctx_planet.empty())
                 ImGui::OpenPopup("##std_ctx");

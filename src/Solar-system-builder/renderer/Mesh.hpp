@@ -39,4 +39,9 @@ public:
     // Unit circle in the XZ (ecliptic) plane, radius 1 AU, GL_LINE_LOOP
     // Scale via model matrix to draw orbit rings at any radius.
     static Mesh circle(int N = 128);
+
+    // Flat annular disc in the XZ plane (Y=0).
+    // inner_r / outer_r are in the same units as the model matrix will scale to.
+    // UV: U wraps around circumference (0→1), V = 0 at inner edge, 1 at outer edge.
+    static Mesh disc(float inner_r, float outer_r, int segments = 128);
 };

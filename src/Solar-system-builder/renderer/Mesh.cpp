@@ -185,6 +185,57 @@ Mesh Mesh::circle(int N) {
     return m;
 }
 
+// ── Annular disc (XZ plane, Y=0) ─────────────────────────────────────────────
+
+Mesh Mesh::disc(float inner_r, float outer_r, int segments) {
+    struct V { glm::vec3 pos, nrm; glm::vec2 uv; };
+    std::vector<V>        verts;
+    std::vector<uint32_t> idx;
+    verts.reserve((size_t)(segments + 1) * 2);
+    idx.reserve((size_t)segments * 6);
+
+    for (int i = 0; i <= segments; ++i) {
+        float u   = (float)i / (float)segments;
+        float ang = u * glm::two_pi<float>();
+        float cx  = std::cos(ang);
+        float cz  = std::sin(ang);
+        glm::vec3 nrm = {0.f, 1.f, 0.f};
+        verts.push_back({{ inner_r * cx, 0.f, inner_r * cz }, nrm, {u, 0.f}});
+        verts.push_back({{ outer_r * cx, 0.f, outer_r * cz }, nrm, {u, 1.f}});
+    }
+
+    for (int i = 0; i < segments; ++i) {
+        uint32_t base = (uint32_t)i * 2;
+        idx.push_back(base);     idx.push_back(base+1); idx.push_back(base+2);
+        idx.push_back(base+1);   idx.push_back(base+3); idx.push_back(base+2);
+    }
+
+    Mesh m;
+    glGenVertexArrays(1, &m.m_vao);
+    glGenBuffers(1, &m.m_vbo);
+    glGenBuffers(1, &m.m_ebo);
+    glBindVertexArray(m.m_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, m.m_vbo);
+    glBufferData(GL_ARRAY_BUFFER, (GLsizeiptr)(verts.size()*sizeof(V)),
+                 verts.data(), GL_STATIC_DRAW);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m.m_ebo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, (GLsizeiptr)(idx.size()*sizeof(uint32_t)),
+                 idx.data(), GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(V),
+                          (void*)offsetof(V, pos));
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(V),
+                          (void*)offsetof(V, nrm));
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(V),
+                          (void*)offsetof(V, uv));
+    glEnableVertexAttribArray(2);
+    glBindVertexArray(0);
+    m.m_count = (int)idx.size();
+    m.m_mode  = GL_TRIANGLES;
+    return m;
+}
+
 // ── Cross marker ──────────────────────────────────────────────────────────────
 
 Mesh Mesh::crossMarker(float h) {

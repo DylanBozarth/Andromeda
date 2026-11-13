@@ -17,7 +17,9 @@
         "argon",
         "hydrogen"
       ]
-    }
+    },
+    "averageOrbitalDistanceKm": 384400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Phobos",
@@ -28,7 +30,9 @@
       "regolith",
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 9375,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Deimos",
@@ -39,7 +43,9 @@
       "cratered",
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23457,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Io",
@@ -56,7 +62,9 @@
       "composition": [
         "sulfur dioxide"
       ]
-    }
+    },
+    "averageOrbitalDistanceKm": 421800,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Europa",
@@ -73,7 +81,9 @@
       "composition": [
         "oxygen"
       ]
-    }
+    },
+    "averageOrbitalDistanceKm": 671100,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Ganymede",
@@ -90,7 +100,9 @@
       "composition": [
         "oxygen"
       ]
-    }
+    },
+    "averageOrbitalDistanceKm": 1070400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Callisto",
@@ -107,7 +119,9 @@
         "carbon dioxide",
         "oxygen"
       ]
-    }
+    },
+    "averageOrbitalDistanceKm": 1882700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Amalthea",
@@ -117,7 +131,9 @@
       "rocky",
       "irregular"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 181400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Himalia",
@@ -126,7 +142,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 11439000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Elara",
@@ -135,7 +153,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 11710700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Pasiphae",
@@ -144,7 +164,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23463200,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Sinope",
@@ -153,7 +175,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23679300,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Lysithea",
@@ -162,7 +186,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 11699100,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Carme",
@@ -171,7 +197,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23139200,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Ananke",
@@ -180,7 +208,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 21029500,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Leda",
@@ -189,7 +219,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 11145200,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Thebe",
@@ -199,7 +231,9 @@
       "rocky",
       "irregular"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 221900,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Adrastea",
@@ -208,7 +242,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 129000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Metis",
@@ -217,7 +253,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 128000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Callirrhoe",
@@ -226,7 +264,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23789400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Themisto",
@@ -235,7 +275,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 7397000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Megaclite",
@@ -244,7 +286,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23807000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Taygete",
@@ -253,7 +297,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23404000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Chaldene",
@@ -262,7 +308,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23005000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Harpalyke",
@@ -271,7 +319,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 21105000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Kalyke",
@@ -280,7 +330,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23298000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Iocaste",
@@ -289,7 +341,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 21062300,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Erinome",
@@ -298,7 +352,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23027200,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Isonoe",
@@ -307,7 +363,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 22976300,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Praxidike",
@@ -316,7 +374,339 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20931100,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Autonoe",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23785200,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Thyone",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20972700,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Hermippe",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 21103600,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Aitne",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23059400,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Eurydome",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 22894500,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Euanthe",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20822900,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Euporie",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 19261900,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Orthosie",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20897800,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Sponde",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23538700,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Kale",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23047800,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Pasithee",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 22840800,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Hegemone",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23342600,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Mneme",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20815800,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Aoede",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23773100,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Thelxinoe",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20972300,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Arche",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23093200,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Kallichore",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23017100,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Helike",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20911400,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Carpo",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 17039500,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Eukelade",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23062400,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Cyllene",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23650000,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Kore",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 24203300,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Herse",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23146700,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Dia",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 12257900,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Eirene",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23051300,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Philophrosyne",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 22600200,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Eupheme",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20763400,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Valetudo",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 18690100,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Pandia",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 11494000,
+    "orbitalDistanceEstimated": true
+  },
+  {
+    "name": "Ersa",
+    "parentPlanet": "Jupiter",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 11399400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Titan",
@@ -335,7 +725,9 @@
         "methane",
         "hydrogen"
       ]
-    }
+    },
+    "averageOrbitalDistanceKm": 1221900,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Enceladus",
@@ -351,7 +743,9 @@
       "composition": [
         "water vapor"
       ]
-    }
+    },
+    "averageOrbitalDistanceKm": 238400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Mimas",
@@ -361,7 +755,9 @@
       "heavily cratered",
       "ice"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 186000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Tethys",
@@ -372,7 +768,9 @@
       "impact craters",
       "canyons"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 295000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Dione",
@@ -388,7 +786,9 @@
       "composition": [
         "oxygen"
       ]
-    }
+    },
+    "averageOrbitalDistanceKm": 377700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Rhea",
@@ -404,7 +804,9 @@
         "oxygen",
         "carbon dioxide"
       ]
-    }
+    },
+    "averageOrbitalDistanceKm": 527200,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Iapetus",
@@ -415,7 +817,9 @@
       "bright ice",
       "equatorial ridge"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 3561700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Hyperion",
@@ -425,7 +829,9 @@
       "porous",
       "cratered"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 1481500,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Phoebe",
@@ -435,7 +841,9 @@
       "dark rocky",
       "cratered"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 12929400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Janus",
@@ -445,7 +853,9 @@
       "rocky",
       "cratered"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 151500,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Epimetheus",
@@ -455,7 +865,9 @@
       "rocky",
       "cratered"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 151400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Atlas",
@@ -465,7 +877,9 @@
       "ridge",
       "dust-covered"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 137700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Prometheus",
@@ -475,7 +889,9 @@
       "irregular",
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 139400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Pandora",
@@ -484,7 +900,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 141700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Pan",
@@ -493,7 +911,9 @@
     "terrain": [
       "equatorial ridge"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 133600,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Telesto",
@@ -503,7 +923,9 @@
       "ice",
       "rock"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 295000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Calypso",
@@ -513,7 +935,9 @@
       "ice",
       "rock"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 295000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Helene",
@@ -523,7 +947,9 @@
       "ice",
       "rock"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 377600,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Polydeuces",
@@ -532,7 +958,9 @@
     "terrain": [
       "ice"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 377200,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Methone",
@@ -541,7 +969,9 @@
     "terrain": [
       "smooth ice"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 194000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Pallene",
@@ -550,7 +980,9 @@
     "terrain": [
       "ice"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 212300,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Aegaeon",
@@ -559,7 +991,9 @@
     "terrain": [
       "ice"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 167500,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Ymir",
@@ -568,7 +1002,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 22955600,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Paaliaq",
@@ -577,7 +1013,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 14997700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Tarvos",
@@ -586,7 +1024,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 18216600,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Ijiraq",
@@ -595,7 +1035,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 11344700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Suttungr",
@@ -604,7 +1046,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 19391900,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Kiviuq",
@@ -613,7 +1057,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 11307400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Mundilfari",
@@ -622,7 +1068,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 18588200,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Albiorix",
@@ -631,7 +1079,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 16329200,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Skathi",
@@ -640,7 +1090,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 15575400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Erriapus",
@@ -649,7 +1101,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 17506900,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Siarnaq",
@@ -658,7 +1112,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 17881100,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Thrymr",
@@ -667,7 +1123,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20330500,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Narvi",
@@ -676,7 +1134,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 19285000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Aegir",
@@ -685,7 +1145,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20664400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Bebhionn",
@@ -694,7 +1156,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 17027300,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Bergelmir",
@@ -703,7 +1167,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 19268100,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Bestla",
@@ -712,7 +1178,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20337800,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Farbauti",
@@ -721,7 +1189,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20290700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Fenrir",
@@ -730,7 +1200,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 22045000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Fornjot",
@@ -739,7 +1211,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 25108000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Greip",
@@ -748,7 +1222,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 18361000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Hati",
@@ -757,7 +1233,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 19800000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Hyrrokkin",
@@ -766,7 +1244,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 18437000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Jarnsaxa",
@@ -775,7 +1255,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20080000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Kari",
@@ -784,7 +1266,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 22094000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Loge",
@@ -793,7 +1277,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23058000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Skoll",
@@ -802,7 +1288,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 17665000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Skrymir",
@@ -811,7 +1299,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 21447400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Surtur",
@@ -820,7 +1310,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 22189000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Anthe",
@@ -830,7 +1322,9 @@
       "icy",
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 19810000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Daphnis",
@@ -840,16 +1334,9 @@
       "icy",
       "equatorial ridge"
     ],
-    "atmosphere": null
-  },
-  {
-    "name": "Anti",
-    "parentPlanet": "Saturn",
-    "averageTemperatureC": null,
-    "terrain": [
-      "rocky"
-    ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 136500,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Gridr",
@@ -858,7 +1345,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 19887000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Angrboda",
@@ -867,7 +1356,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20591500,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Gerd",
@@ -876,7 +1367,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20947500,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Geirrod",
@@ -885,7 +1378,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 22259400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Eggther",
@@ -894,7 +1389,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 19844600,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Thiazzi",
@@ -903,7 +1400,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23577500,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Beli",
@@ -912,7 +1411,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20703700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Alvaldi",
@@ -921,7 +1422,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 21993800,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Rymgr",
@@ -930,7 +1433,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23000000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Yngvild",
@@ -939,7 +1444,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23000000,
+    "orbitalDistanceEstimated": true
   },
   {
     "name": "Thyra",
@@ -948,7 +1455,31 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23000000,
+    "orbitalDistanceEstimated": true
+  },
+  {
+    "name": "Tarqeq",
+    "parentPlanet": "Saturn",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 17910000,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "Gunnlod",
+    "parentPlanet": "Saturn",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 21141800,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Titania",
@@ -960,7 +1491,9 @@
       "canyons",
       "impact craters"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 436298,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Oberon",
@@ -972,7 +1505,9 @@
       "craters",
       "cliffs"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 583511,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Umbriel",
@@ -982,7 +1517,9 @@
       "dark ice",
       "craters"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 265986,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Ariel",
@@ -994,7 +1531,9 @@
       "fault valleys",
       "craters"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 190929,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Miranda",
@@ -1006,7 +1545,9 @@
       "canyons",
       "rock"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 129846,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Puck",
@@ -1016,7 +1557,9 @@
       "rocky",
       "cratered"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 86004,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Portia",
@@ -1025,7 +1568,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 66101,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Juliet",
@@ -1034,7 +1579,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 64362,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Cressida",
@@ -1043,7 +1590,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 61770,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Desdemona",
@@ -1052,7 +1601,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 62663,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Rosalind",
@@ -1061,7 +1612,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 69930,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Belinda",
@@ -1070,7 +1623,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 75258,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Perdita",
@@ -1079,7 +1634,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 76418,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Cupid",
@@ -1088,7 +1645,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 74396,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Mab",
@@ -1098,7 +1657,9 @@
       "ice",
       "rock"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 97737,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Bianca",
@@ -1107,7 +1668,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 59170,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Cordelia",
@@ -1116,7 +1679,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 49755,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Ophelia",
@@ -1125,7 +1690,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 53765,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Caliban",
@@ -1134,7 +1701,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 7167000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Sycorax",
@@ -1143,7 +1712,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 12193200,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Prospero",
@@ -1152,7 +1723,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 16221000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Setebos",
@@ -1161,7 +1734,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 17519800,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Stephano",
@@ -1170,7 +1745,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 7951400,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Trinculo",
@@ -1179,7 +1756,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 8502600,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Francisco",
@@ -1188,7 +1767,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 4275700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Margaret",
@@ -1197,7 +1778,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 14425000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Ferdinand",
@@ -1206,7 +1789,31 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 20421400,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "S/2023 U1",
+    "parentPlanet": "Uranus",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 7976600,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "S/2025 U1",
+    "parentPlanet": "Uranus",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 57844,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Triton",
@@ -1224,7 +1831,9 @@
         "nitrogen",
         "methane"
       ]
-    }
+    },
+    "averageOrbitalDistanceKm": 354800,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Nereid",
@@ -1235,7 +1844,9 @@
       "ice",
       "cratered"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 5513900,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Proteus",
@@ -1246,7 +1857,9 @@
       "cratered",
       "irregular"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 117700,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Larissa",
@@ -1256,7 +1869,9 @@
       "rocky",
       "cratered"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 73600,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Galatea",
@@ -1265,7 +1880,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 62000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Despina",
@@ -1274,7 +1891,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 52600,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Thalassa",
@@ -1283,7 +1902,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 50100,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Naiad",
@@ -1292,7 +1913,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 48300,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Hippocamp",
@@ -1301,7 +1924,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 105300,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Halimede",
@@ -1310,7 +1935,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 16611000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Psamathe",
@@ -1319,7 +1946,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 46695000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Sao",
@@ -1328,7 +1957,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 22422000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Laomedeia",
@@ -1337,7 +1968,9 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 23571000,
+    "orbitalDistanceEstimated": false
   },
   {
     "name": "Neso",
@@ -1346,6 +1979,30 @@
     "terrain": [
       "rocky"
     ],
-    "atmosphere": null
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 48387000,
+    "orbitalDistanceEstimated": false
+  },
+  {
+    "name": "S/2021 N1",
+    "parentPlanet": "Neptune",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 50000000,
+    "orbitalDistanceEstimated": true
+  },
+  {
+    "name": "S/2002 N5",
+    "parentPlanet": "Neptune",
+    "averageTemperatureC": null,
+    "terrain": [
+      "rocky"
+    ],
+    "atmosphere": null,
+    "averageOrbitalDistanceKm": 25000000,
+    "orbitalDistanceEstimated": true
   }
 ]
