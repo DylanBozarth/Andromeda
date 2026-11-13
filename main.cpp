@@ -109,19 +109,44 @@ int main() {
         if (renderer.hasPendingTravel()) {
             TravelRequest tr = renderer.takePendingTravel();
             if (tr.active) {
-                if (tr.duration_sim_s <= 0.0) {
-                    // Instant travel: arrive at a low orbit above the target body.
-                    // The Vec3{offset, 0, 0} keeps the ship above the surface;
-                    // the ship inherits the body's velocity so it doesn't free-fall.
+                if (tr.orbit_type != OrbitType::None) {
+                    // ── Circular orbit insertion ──────────────────────────────
+                    // Find the target body's GM and radius from the physics layer.
+                    double gm = 0.0, r_body = 0.0;
+                    for (const auto& bs : system.getAllStates(now_sim_t)) {
+                        if (std::string_view(bs.name) == tr.target_name) {
+                            gm     = bs.GM;
+                            r_body = bs.radius;
+                            break;
+                        }
+                    }
+                    if (gm > 0.0 && r_body > 0.0) {
+                        // Low orbit: 10 % above the surface.  High orbit: 10× radius.
+                        bool low = (tr.orbit_type == OrbitType::LowPrograde ||
+                                    tr.orbit_type == OrbitType::LowRetrograde);
+                        double r_orb = low ? r_body * 1.1 : r_body * 10.0;
+
+                        StateVector sv = system.getState(tr.target_name, now_sim_t);
+
+                        // Place the ship directly above the body along +X (ecliptic plane).
+                        // Circular orbit velocity at that position in the XZ plane:
+                        //   prograde  (CCW from north) → +Z direction
+                        //   retrograde (CW)            → −Z direction
+                        double v_circ = std::sqrt(gm / r_orb);
+                        bool retro = (tr.orbit_type == OrbitType::LowRetrograde ||
+                                      tr.orbit_type == OrbitType::HighRetrograde);
+                        double vz = retro ? -v_circ : v_circ;
+
+                        ship.teleport(sv.position + Vec3{r_orb, 0.0, 0.0},
+                                      sv.velocity  + Vec3{0.0,   0.0, vz});
+                    }
+                } else if (tr.duration_sim_s <= 0.0) {
+                    // Instant travel: proximity placement with no physics.
                     StateVector sv = system.getState(tr.target_name, now_sim_t);
                     double arrive_offset = (tr.target_name == "Sun") ? 1.0e10 : 1.0e8;
                     ship.teleport(sv.position + Vec3{arrive_offset, 0.0, 0.0}, sv.velocity);
                 } else {
-                    // Timed travel (future): each frame compute
-                    //   frac = (now_sim_t - tr.start_sim_t) / tr.duration_sim_s
-                    // then ship.teleport(lerp(tr.origin_pos_m, tr.target_pos_m, frac), ...)
-                    // and cancel once frac >= 1.0.
-                    // For now, treat any timed request as instant as a fallback.
+                    // Timed travel placeholder — fall back to instant for now.
                     StateVector sv = system.getState(tr.target_name, now_sim_t);
                     double arrive_offset = (tr.target_name == "Sun") ? 1.0e10 : 1.0e8;
                     ship.teleport(sv.position + Vec3{arrive_offset, 0.0, 0.0}, sv.velocity);

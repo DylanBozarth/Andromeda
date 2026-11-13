@@ -22,18 +22,19 @@ struct FlashEvent {
     bool        arrived = false;
 };
 
-enum class ViewMode { Standard, Solar };
+enum class ViewMode  { Standard, Solar };
+enum class OrbitType { None, LowPrograde, HighPrograde, LowRetrograde, HighRetrograde };
 
-// Issued by SpaceRenderer when the player selects "Travel to" in the solar map.
-// duration_sim_s == 0 means instant; set it > 0 for timed travel (future).
-// main.cpp owns the travel logic so physics stays out of the renderer.
+// Issued by SpaceRenderer when the player selects a travel or orbit option.
+// main.cpp owns all physics so the renderer stays pure-visual.
 struct TravelRequest {
     std::string target_name;
     Vec3        target_pos_m;      // body centre at time of issue (solar frame, metres)
     Vec3        origin_pos_m;      // ship position when issued
     Vec3        origin_vel_m;      // ship velocity when issued
-    double      start_sim_t   = 0;
+    double      start_sim_t    = 0;
     double      duration_sim_s = 0; // 0 = instant; >0 reserved for timed transit
+    OrbitType   orbit_type     = OrbitType::None;
     bool        active = false;
 };
 

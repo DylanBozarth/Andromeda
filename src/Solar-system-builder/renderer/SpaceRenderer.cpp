@@ -59,8 +59,8 @@ void main(){
     vec3  vdir   = normalize(u_camPos - v_pos);
     vec3  half_v = normalize(ldir + vdir);
     float spec   = pow(max(dot(norm, half_v), 0.0), 32.0);
-    vec3  ambient = 0.07 * base;
-    fragColor = vec4(ambient + diff*base + 0.15*spec*vec3(1.0), u_alpha);
+    vec3  ambient = 0.30 * base;
+    fragColor = vec4(ambient + diff*base + 0.20*spec*vec3(1.0), u_alpha);
 }
 )glsl";
 
@@ -400,8 +400,10 @@ void SpaceRenderer::render(double sim_t,
                 float  d_au      = (float)((ship.position() - body_pos).length()
                                            / Constants::AU);
                 float  altitude  = d_au - vis.visual_radius;
-                // Only clamp when within 0.01 AU of the body's surface
-                if (altitude > 0.f && altitude < 0.01f)
+                // Only clamp when the ship is barely above the surface (within
+                // 1.5× the body's visual radius), so the camera can zoom all
+                // the way in on the ship in higher orbits without being pushed back.
+                if (altitude > 0.f && altitude < vis.visual_radius * 1.5f)
                     safe_min = std::max(safe_min, altitude);
             } catch (...) {}
         }
@@ -469,9 +471,13 @@ void SpaceRenderer::render(double sim_t,
         : toAU(ship.position());
     {
         bool solar = (m_view == ViewMode::Solar);
-        float dot_r = solar ? 0.55f : 4.01e-11f;
+        // In standard view: 1% of camera distance, capped at 1e-6 AU.
+        // The ship is always 1/100th of the camera distance — so it shrinks as
+        // you zoom out and grows as you zoom in, while the cap stops it from
+        // becoming a large fixed disc at high orbit distances.
+        float dot_r = solar ? 0.55f : std::min(m_cam.distance * 0.01f, 1e-6f);
 
-        BodyVisual ship_vis = {"ship", {0.0f, 1.0f, 0.4f}, dot_r};
+        BodyVisual ship_vis = {"ship", {1.0f, 0.08f, 0.55f}, dot_r};
         drawBody(ship_vis, ship_scene, view, proj, sun_scene, cam, true);
 
         // Cross marker: solar view only (helps locate ship on the map)
@@ -482,7 +488,7 @@ void SpaceRenderer::render(double sim_t,
             m_lineShader.use();
             m_lineShader.setMat4("u_vp", proj * view * model);
             m_lineShader.setFloat("u_far", active_cam.far_plane);
-            m_lineShader.setVec4("u_color", {0.0f, 1.0f, 0.4f, 1.0f});
+            m_lineShader.setVec4("u_color", {1.0f, 0.08f, 0.55f, 1.0f});
             m_cross.draw();
         }
     }
@@ -600,7 +606,7 @@ void SpaceRenderer::renderImGui(double sim_t,
         ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings |
         ImGuiWindowFlags_NoNav);
 
-    ImGui::TextColored({0.3f, 1.f, 0.5f, 1.f}, "%s", ship.name().c_str());
+    ImGui::TextColored({1.0f, 0.08f, 0.55f, 1.f}, "%s", ship.name().c_str());
     ImGui::Separator();
 
     Vec3 earth_pos = sys.getPosition("Earth", sim_t);
@@ -759,6 +765,83 @@ void SpaceRenderer::renderImGui(double sim_t,
     }
     ImGui::End();
 
+    // ── Standard view: body labels + orbit context menu ──────────────────────
+    if (m_view == ViewMode::Standard) {
+        float    aspect  = (m_h > 0) ? (float)m_w / (float)m_h : 1.f;
+        glm::mat4 vp     = m_cam.projMatrix(aspect) * m_cam.viewMatrix();
+        ImVec2   dsz     = ImGui::GetIO().DisplaySize;
+
+        struct BodyScreen { const char* name; float sx, sy; };
+        std::vector<BodyScreen> on_screen;
+
+        for (const auto& vis : BODY_VISUALS) {
+            try {
+                Vec3 rp = observer.observePosition(vis.name, sim_t, sys);
+                glm::vec3 au = toAU(rp);
+                glm::vec4 clip = vp * glm::vec4(au, 1.f);
+                if (clip.w <= 0.f) continue;
+                glm::vec3 ndc = glm::vec3(clip) / clip.w;
+                if (ndc.x < -1.1f || ndc.x > 1.1f || ndc.y < -1.1f || ndc.y > 1.1f) continue;
+                float sx = (ndc.x * 0.5f + 0.5f) * dsz.x;
+                float sy = (1.f - (ndc.y * 0.5f + 0.5f)) * dsz.y;
+                on_screen.push_back({vis.name, sx, sy});
+            } catch (...) {}
+        }
+
+        // Ship label — projects the ship's true scene position and draws the name
+        {
+            glm::vec3 ship_au = toAU(ship.position());
+            glm::vec4 clip = vp * glm::vec4(ship_au, 1.f);
+            if (clip.w > 0.f) {
+                glm::vec3 ndc = glm::vec3(clip) / clip.w;
+                float sx = (ndc.x * 0.5f + 0.5f) * dsz.x;
+                float sy = (1.f - (ndc.y * 0.5f + 0.5f)) * dsz.y;
+                auto* dl = ImGui::GetForegroundDrawList();
+                dl->AddText({sx + 10.f, sy - 7.f}, IM_COL32(0,   0,   0,   180), ship.name().c_str());
+                dl->AddText({sx +  9.f, sy - 8.f}, IM_COL32(255, 20, 140, 220),  ship.name().c_str());
+            }
+        }
+
+        if (ImGui::IsMouseClicked(ImGuiMouseButton_Right)
+            && !ImGui::IsWindowHovered(ImGuiHoveredFlags_AnyWindow)
+            && !ImGui::IsAnyItemHovered()) {
+
+            ImVec2 mp = ImGui::GetIO().MousePos;
+            m_ctx_planet.clear();
+            float best_px = 80.f;
+            for (const auto& b : on_screen) {
+                float dx = mp.x - b.sx, dy = mp.y - b.sy;
+                float d  = std::sqrt(dx*dx + dy*dy);
+                if (d < best_px) { best_px = d; m_ctx_planet = b.name; }
+            }
+            if (!m_ctx_planet.empty())
+                ImGui::OpenPopup("##std_ctx");
+        }
+
+        if (ImGui::BeginPopup("##std_ctx")) {
+            ImGui::TextColored({0.3f, 1.f, 0.5f, 1.f}, "%s", m_ctx_planet.c_str());
+            ImGui::Separator();
+
+            auto issue = [&](OrbitType ot) {
+                try {
+                    Vec3 dest = sys.getPosition(m_ctx_planet, sim_t);
+                    m_pending_travel = { m_ctx_planet, dest,
+                        ship.position(), ship.velocity(),
+                        sim_t, 0.0, ot, true };
+                } catch (...) {}
+                ImGui::CloseCurrentPopup();
+            };
+
+            if (ImGui::MenuItem("Low Orbit"))              issue(OrbitType::LowPrograde);
+            if (ImGui::MenuItem("High Orbit"))             issue(OrbitType::HighPrograde);
+            ImGui::Separator();
+            if (ImGui::MenuItem("Low Orbit  (Retrograde)")) issue(OrbitType::LowRetrograde);
+            if (ImGui::MenuItem("High Orbit (Retrograde)")) issue(OrbitType::HighRetrograde);
+
+            ImGui::EndPopup();
+        }
+    }
+
     // ── Solar map: labels + context menu ─────────────────────────────────────
     if (m_view == ViewMode::Solar) {
         // Project every body's illustrative position to screen space.
@@ -823,7 +906,7 @@ void SpaceRenderer::renderImGui(double sim_t,
                         Vec3 dest = sys.getPosition(m_ctx_planet, sim_t);
                         m_pending_travel = { m_ctx_planet, dest,
                             ship.position(), ship.velocity(),
-                            sim_t, 0.0, true };
+                            sim_t, 0.0, OrbitType::None, true };
                     } catch (...) {}
                     ImGui::CloseCurrentPopup();
                 }
@@ -836,7 +919,7 @@ void SpaceRenderer::renderImGui(double sim_t,
                             Vec3 dest = sys.getPosition(vis.name, sim_t);
                             m_pending_travel = { vis.name, dest,
                                 ship.position(), ship.velocity(),
-                                sim_t, 0.0, true };
+                                sim_t, 0.0, OrbitType::None, true };
                         } catch (...) {}
                         ImGui::CloseCurrentPopup();
                     }
