@@ -2,6 +2,8 @@
 
 *Name subject to change*
 
+Possible names: SolarSail 
+
 ## What This Is
 
 Andromeda is a browser-based space 4X strategy game where you take command of a single ship and make your way through a solar system filled with competing factions. Mine resources, trade, fight, or potentially build your own faction alongside other players.

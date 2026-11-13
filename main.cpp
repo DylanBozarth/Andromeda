@@ -1,10 +1,10 @@
-#include "renderer/GL.hpp"   // must come before any other OpenGL header
+#include "Solar-system-builder/renderer/GL.hpp"   // must come before any other OpenGL header
 #include "math/Constants.hpp"
 #include "Solar-system-builder/simulation/SimClock.hpp"
 #include "Solar-system-builder/simulation/SolarSystem.hpp"
 #include "Player-ship/spacecraft/Spacecraft.hpp"
 #include "Player-ship/observation/LightCone.hpp"
-#include "renderer/SpaceRenderer.hpp"
+#include "Solar-system-builder/renderer/SpaceRenderer.hpp"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include <iostream>
