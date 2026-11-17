@@ -111,15 +111,14 @@ void SpaceRenderer::renderSolarScene(double sim_t,
         for (const auto& d : SOLAR_ILLUST) {
             if (std::string_view(d.name) == std::string_view(vis.name)) {
                 draw_vis.visual_radius = d.radius;
-                draw_vis.color = glm::min(vis.color * 1.8f, glm::vec3(1.f));
                 break;
             }
         }
 
-        bool is_sun = (std::string_view(vis.name) == "Sun");
-        GLuint tex = is_sun ? 0 : findTexture(vis.name);
-        drawBody(draw_vis, obs_pos, view, proj, sun_scene, cam, is_sun, 1.0f, tex,
-                 0.f, false, 0, 0.f);
+        // Solar view is a map, not a 3D render — plain emissive colored spheres
+        // so the visible face never changes as the camera orbits.
+        drawBody(draw_vis, obs_pos, view, proj, sun_scene, cam,
+                 /*emissive=*/true, 1.0f, /*tex=*/0, 0.f, false, 0, 0.f);
     }
 
     // Ship — 3D dot sphere + cross marker at illustrative position

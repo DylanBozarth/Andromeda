@@ -68,14 +68,11 @@ void main(){
         base = mix(base, ov.rgb, ov.a);
     }
     if(u_emissive){ fragColor = vec4(base, alpha); return; }
-    vec3  norm   = normalize(v_norm);
-    vec3  ldir   = normalize(u_sunPos - v_pos);
-    float diff   = max(dot(norm, ldir), 0.0);
-    vec3  vdir   = normalize(u_camPos - v_pos);
-    vec3  half_v = normalize(ldir + vdir);
-    float spec   = pow(max(dot(norm, half_v), 0.0), 32.0);
-    vec3  ambient = 0.30 * base;
-    fragColor = vec4(ambient + diff*base + 0.20*spec*vec3(1.0), alpha);
+    vec3  norm    = normalize(v_norm);
+    vec3  ldir    = normalize(u_sunPos - v_pos);
+    float diff    = max(dot(norm, ldir), 0.0);
+    vec3  ambient = 0.08 * base;
+    fragColor = vec4(ambient + diff*base, alpha);
 }
 )glsl";
 
@@ -114,13 +111,10 @@ void SpaceRenderer::init(GLFWwindow* win, int width, int height) {
     glfwSetScrollCallback(win, [](GLFWwindow* w, double /*xoff*/, double yoff) {
         auto* r = static_cast<SpaceRenderer*>(glfwGetWindowUserPointer(w));
         if (r->m_view == ViewMode::Standard)
-            r->m_cam.handleScroll((float)yoff);
+            r->m_standard_cam.handleScroll((float)yoff);
         else
             r->m_solar_cam.handleScroll((float)yoff);
     });
-
-    // Standard view: zoom-out cap just past Neptune (~32 AU)
-    m_cam.max_distance = 32.f;
 
     // Solar overview camera — top-down, centred on the Sun
     m_solar_cam.target       = {0.f, 0.f, 0.f};
@@ -145,6 +139,10 @@ void SpaceRenderer::init(GLFWwindow* win, int width, int height) {
     // Saturn ring disc: inner 1.2× Saturn visual_radius, outer 2.3× (in AU)
     constexpr float SAT_VIS_R = 4.029e-4f;
     m_ring_disc = Mesh::disc(SAT_VIS_R * 1.2f, SAT_VIS_R * 2.3f);
+
+    // Ship placeholder box — 5e-4 AU half-side ≈ 75,000 km, comfortably visible
+    // at the default camera distance and clearly inside the ship at distance≈0.
+    m_ship_box = Mesh::box(5e-4f);
 
     // Planet textures — stb_image loads top-to-bottom; flip so v=0 is north pole
     stbi_set_flip_vertically_on_load(false);
@@ -192,9 +190,9 @@ void SpaceRenderer::processInput(GLFWwindow* win, const Spacecraft& /*ship*/) {
     if (orbit && !just_pressed && !ImGui::GetIO().WantCaptureMouse) {
         glm::dvec2 delta = mouse - m_lastMouse;
         if (m_view == ViewMode::Standard)
-            m_cam.handleMouse((float)delta.x, (float)delta.y, true, false);
+            m_standard_cam.handleMouse((float)delta.x, (float)delta.y);
         else
-            m_solar_cam.handleMouse((float)delta.x, (float)delta.y, true, false);
+            m_solar_cam.handleMouse((float)delta.x, (float)delta.y);
     }
     m_lastMouse = mouse;
     m_rightDown = orbit;
@@ -253,7 +251,7 @@ void SpaceRenderer::drawBody(const BodyVisual& vis, glm::vec3 pos,
     m_bodyShader.setVec3("u_camPos", cam);
     m_bodyShader.setBool("u_emissive",       emissive);
     m_bodyShader.setBool("u_textured",       tex_id != 0);
-    m_bodyShader.setFloat("u_far",           m_cam.far_plane);
+    m_bodyShader.setFloat("u_far",           m_standard_cam.far_plane);
     m_bodyShader.setFloat("u_alpha",         alpha);
     m_bodyShader.setFloat("u_tex_offset_u",  tex_offset_u);
     m_bodyShader.setBool("u_use_tex_alpha",  use_tex_alpha);
@@ -288,7 +286,7 @@ void SpaceRenderer::drawRing(glm::vec3 pos, const glm::mat4& view, const glm::ma
     m_bodyShader.setVec3("u_camPos", cam);
     m_bodyShader.setBool("u_emissive",       false);
     m_bodyShader.setBool("u_textured",       tex_id != 0);
-    m_bodyShader.setFloat("u_far",           m_cam.far_plane);
+    m_bodyShader.setFloat("u_far",           m_standard_cam.far_plane);
     m_bodyShader.setFloat("u_alpha",         1.f);
     m_bodyShader.setFloat("u_tex_offset_u",  tex_offset_u);
     m_bodyShader.setBool("u_use_tex_alpha",  true);
@@ -308,7 +306,7 @@ void SpaceRenderer::drawStars(const glm::mat4& view, const glm::mat4& proj) {
     glm::mat4 vp = proj * glm::mat4(glm::mat3(view));  // strip translation
     m_lineShader.use();
     m_lineShader.setMat4("u_vp", vp);
-    m_lineShader.setFloat("u_far", m_cam.far_plane);
+    m_lineShader.setFloat("u_far", m_standard_cam.far_plane);
     m_lineShader.setVec4("u_color", {0.9f, 0.9f, 0.9f, 0.8f});
     m_stars.draw();
 }
@@ -344,50 +342,31 @@ void SpaceRenderer::render(double sim_t,
     m_scene_origin = (m_view == ViewMode::Standard)
                    ? ship.position() : Vec3{0.0, 0.0, 0.0};
 
-    // Camera targets — standard view orbits {0,0,0} because the ship IS {0,0,0}.
-    m_cam.target       = {0.f, 0.f, 0.f};
-    m_solar_cam.target = shipSolarPos(ship.position(), sys, sim_t);
-
-    Camera3D& active_cam = (m_view == ViewMode::Standard) ? m_cam : m_solar_cam;
+    // Standard camera target is always scene origin (the ship).
+    m_standard_cam.target = {0.f, 0.f, 0.f};
 
     glViewport(0, 0, m_w, m_h);
     if (m_view == ViewMode::Solar)
-        glClearColor(0.f, 0.02f, 0.07f, 1.f);   // dark navy for the map
+        glClearColor(0.f, 0.02f, 0.07f, 1.f);
     else
         glClearColor(0.f, 0.f, 0.015f, 1.f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // Standard view: prevent the camera from clipping inside any nearby body.
-    // We compute the ship's altitude above each body's surface and use that
-    // as a minimum camera distance — if the ship is in LEO at 500 km, the
-    // camera can zoom in to 500 km from the ship before the clamp engages.
-    if (m_view == ViewMode::Standard) {
-        float safe_min = 1.0e-9f;
-        for (const auto& vis : BODY_VISUALS) {
-            if (std::string_view(vis.name) == "Sun") continue;
-            try {
-                Vec3   body_pos  = sys.getPosition(vis.name, sim_t);
-                float  d_au      = (float)((ship.position() - body_pos).length()
-                                           / Constants::AU);
-                float  altitude  = d_au - vis.visual_radius;
-                // Only clamp when the ship is barely above the surface (within
-                // 1.5× the body's visual radius), so the camera can zoom all
-                // the way in on the ship in higher orbits without being pushed back.
-                if (altitude > 0.f && altitude < vis.visual_radius * 1.5f)
-                    safe_min = std::max(safe_min, altitude);
-            } catch (...) {}
-        }
-        m_cam.distance = std::max(m_cam.distance, safe_min);
-    }
-
-    // Keep near plane at 1/1000th of camera distance so the scene renders
-    // correctly from solar-system scale all the way down to metres.
-    active_cam.near_plane = std::max(1.0e-13f, active_cam.distance * 0.001f);
-
+    // Keep near plane at 1/1000th of camera distance for each view.
     float aspect = (m_h > 0) ? (float)m_w / (float)m_h : 1.f;
-    glm::mat4 view = active_cam.viewMatrix();
-    glm::mat4 proj = active_cam.projMatrix(aspect);
-    glm::vec3 cam  = active_cam.position();
+    glm::mat4 view, proj;
+    glm::vec3 cam;
+    if (m_view == ViewMode::Standard) {
+        m_standard_cam.near_plane = std::max(1.0e-13f, m_standard_cam.distance * 0.001f);
+        view = m_standard_cam.viewMatrix();
+        proj = m_standard_cam.projMatrix(aspect);
+        cam  = m_standard_cam.position();
+    } else {
+        m_solar_cam.near_plane = std::max(1.0e-13f, m_solar_cam.distance * 0.001f);
+        view = m_solar_cam.viewMatrix();
+        proj = m_solar_cam.projMatrix(aspect);
+        cam  = m_solar_cam.position();
+    }
 
     // Sun scene position: illustrative origin in solar view, real offset in standard.
     glm::vec3 sun_scene = (m_view == ViewMode::Solar)

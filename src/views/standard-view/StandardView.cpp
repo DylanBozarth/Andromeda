@@ -26,7 +26,17 @@ void SpaceRenderer::renderStandardScene(double sim_t,
     drawStars(view, proj);
     glDepthMask(GL_TRUE);
 
-    // Celestial bodies at observed (light-delayed) positions
+    // Ship placeholder box at scene origin — purely visual, no solar-system reads.
+    m_lineShader.use();
+    m_lineShader.setMat4("u_vp", proj * view);
+    m_lineShader.setFloat("u_far", m_standard_cam.far_plane);
+    m_lineShader.setVec4("u_color", {1.0f, 0.08f, 0.55f, 1.0f});
+    m_ship_box.draw();
+
+    // Celestial bodies at observed (light-delayed) positions.
+    // Emissive rendering — textures are shown at full brightness with no
+    // Lambertian shading, so the appearance is completely static regardless
+    // of camera angle or sun position.
     for (const auto& vis : BODY_VISUALS) {
         glm::vec3 obs_pos;
         try {
@@ -37,32 +47,13 @@ void SpaceRenderer::renderStandardScene(double sim_t,
             else continue;
         }
 
-        bool is_sun = (std::string_view(vis.name) == "Sun");
-        GLuint tex = is_sun ? 0 : findTexture(vis.name);
+        bool   is_sun = (std::string_view(vis.name) == "Sun");
+        GLuint tex    = is_sun ? 0 : findTexture(vis.name);
+        GLuint clouds = (std::string_view(vis.name) == "Earth")
+                        ? findTexture("Earth_clouds") : 0;
 
-        // Earth: cloud overlay
-        GLuint clouds = 0;
-        float  cloud_offset = 0.f;
-        if (std::string_view(vis.name) == "Earth") {
-            clouds = findTexture("Earth_clouds");
-            cloud_offset = (float)std::fmod(sim_t / (86400.0 * 3.0), 1.0);
-        }
-
-        float tex_offset = 0.f;
-        if (!is_sun)
-            tex_offset = (float)std::fmod(sim_t / (86400.0 * 25.0), 1.0);
-
-        drawBody(vis, obs_pos, view, proj, sun_scene, cam, is_sun, 1.0f, tex,
-                 tex_offset, false, clouds, cloud_offset);
-
-        // Saturn ring
-        if (std::string_view(vis.name) == "Saturn") {
-            GLuint ring_tex = findTexture("Saturn_ring");
-            if (ring_tex) {
-                float ring_offset = (float)std::fmod(sim_t / (86400.0 * 15.0), 1.0);
-                drawRing(obs_pos, view, proj, sun_scene, cam, ring_tex, ring_offset);
-            }
-        }
+        drawBody(vis, obs_pos, view, proj, sun_scene, cam,
+                 /*emissive=*/true, 1.0f, tex, 0.f, false, clouds, 0.f);
     }
 
     // Flash spheres — additive glow, no depth write
@@ -117,7 +108,7 @@ void SpaceRenderer::renderImGuiStandard(double sim_t,
                                          const LightCone& observer)
 {
     float    aspect = (m_h > 0) ? (float)m_w / (float)m_h : 1.f;
-    glm::mat4 vp   = m_cam.projMatrix(aspect) * m_cam.viewMatrix();
+    glm::mat4 vp   = m_standard_cam.projMatrix(aspect) * m_standard_cam.viewMatrix();
     ImVec2   dsz   = ImGui::GetIO().DisplaySize;
 
     struct BodyScreen { const char* name; float sx, sy, screen_r; };

@@ -2,13 +2,14 @@
 #include "GL.hpp"
 #include "Shader.hpp"
 #include "Mesh.hpp"
-#include "Camera3D.hpp"
 #include "Colors.hpp"
 #include "Solar-system-builder/simulation/SolarSystem.hpp"
 #include "Player-ship/spacecraft/Spacecraft.hpp"
 #include "Player-ship/observation/LightCone.hpp"
 #include "views/solar-view/SolarView.hpp"
+#include "views/solar-view/SolarCamera.hpp"
 #include "views/standard-view/StandardView.hpp"
+#include "views/standard-view/StandardCamera.hpp"
 #include <glm/glm.hpp>
 #include <vector>
 #include <string>
@@ -48,7 +49,7 @@ public:
                 const LightCone& observer,
                 GLFWwindow* win);
 
-    Camera3D& camera() { return m_cam; }
+    StandardCamera& camera() { return m_standard_cam; }
 
     // Emit a flash at planet_name's current position and record its arrival time.
     void triggerFlash(const std::string& planet_name, double sim_t,
@@ -72,9 +73,10 @@ private:
     Mesh m_cross;
     Mesh m_circle;     // unit orbit ring, scaled per planet in solar view
     Mesh m_ring_disc;  // annular disc for Saturn's rings
+    Mesh m_ship_box;   // wireframe box drawn at scene origin in standard view
 
-    Camera3D m_cam;
-    Camera3D m_solar_cam;   // overview camera locked to the Sun
+    StandardCamera m_standard_cam;  // follow/cockpit camera for standard view
+    SolarCamera    m_solar_cam;     // orbital camera for solar overview
     ViewMode m_view = ViewMode::Standard;
 
     // Double-precision rendering origin set at the top of render() each frame.
