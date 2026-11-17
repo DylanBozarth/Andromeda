@@ -228,7 +228,9 @@ static glm::vec3 solarBodyPos(const char* name, glm::vec3 au_pos) {
     for (const auto& d : SOLAR_ILLUST) {
         if (std::string_view(d.name) == std::string_view(name)) {
             if (d.dist == 0.f) return {0.f, 0.f, 0.f};
-            float angle = std::atan2(au_pos.z, au_pos.x);
+            // Planets orbit in the ecliptic XY plane (Z ≈ 0).
+            // Use atan2(y, x) for the in-plane angle; map to scene XZ (Y=up).
+            float angle = std::atan2(au_pos.y, au_pos.x);
             return { d.dist * std::cos(angle), 0.f, d.dist * std::sin(angle) };
         }
     }
@@ -241,9 +243,9 @@ static glm::vec3 solarBodyPos(const char* name, glm::vec3 au_pos) {
 static glm::vec3 shipSolarPos(Vec3 ship_pos,
                                const SolarSystem& sys, double sim_t) {
     float xAU = (float)(ship_pos.x / Constants::AU);
-    float zAU = (float)(ship_pos.z / Constants::AU);
-    float real_dist = std::sqrt(xAU*xAU + zAU*zAU);
-    float angle     = std::atan2(zAU, xAU);
+    float yAU = (float)(ship_pos.y / Constants::AU);  // ecliptic Y, not Z
+    float real_dist = std::sqrt(xAU*xAU + yAU*yAU);
+    float angle     = std::atan2(yAU, xAU);
 
     // Build breakpoint table: (current real AU dist, illustrative dist), sorted
     std::vector<std::pair<float,float>> bp;
@@ -254,7 +256,7 @@ static glm::vec3 shipSolarPos(Vec3 ship_pos,
             Vec3  rp = sys.getPosition(d.name, sim_t);
             float ru = (float)(std::sqrt(
                 (rp.x/Constants::AU)*(rp.x/Constants::AU) +
-                (rp.z/Constants::AU)*(rp.z/Constants::AU)));
+                (rp.y/Constants::AU)*(rp.y/Constants::AU)));  // ecliptic Y
             bp.push_back({ru, d.dist});
         } catch (...) {}
     }
@@ -285,8 +287,8 @@ glm::vec3 SpaceRenderer::toSolarScene(Vec3 v) {
     constexpr int N = 9;
 
     float xAU = (float)(v.x / Constants::AU);
-    float zAU = (float)(v.z / Constants::AU);
-    float real_dist = std::sqrt(xAU*xAU + zAU*zAU);
+    float yAU = (float)(v.y / Constants::AU);  // ecliptic Y, not Z
+    float real_dist = std::sqrt(xAU*xAU + yAU*yAU);
 
     float illust = ILLU[N-1];
     for (int i = 0; i < N-1; ++i) {
@@ -297,7 +299,7 @@ glm::vec3 SpaceRenderer::toSolarScene(Vec3 v) {
         }
     }
 
-    float angle = std::atan2(zAU, xAU);
+    float angle = std::atan2(yAU, xAU);  // ecliptic Y, not Z
     return { illust * std::cos(angle), 0.f, illust * std::sin(angle) };
 }
 
@@ -524,7 +526,7 @@ void SpaceRenderer::render(double sim_t,
         // position via SOLAR_ILLUST (single source of truth shared with labels).
         BodyVisual draw_vis = vis;
         if (m_view == ViewMode::Solar) {
-            obs_pos.y = 0.f;
+            obs_pos.z = 0.f;  // zero ecliptic Z (latitude); angle uses X and Y
             obs_pos = solarBodyPos(vis.name, obs_pos);
             for (const auto& d : SOLAR_ILLUST) {
                 if (std::string_view(d.name) == std::string_view(vis.name)) {
@@ -971,7 +973,7 @@ void SpaceRenderer::renderImGui(double sim_t,
                 // Use observer.observePosition + solarBodyPos — exact same path as the render loop
                 Vec3 rp = observer.observePosition(vis.name, sim_t, sys);
                 glm::vec3 au = toAU(rp);
-                au.y = 0.f;
+                au.z = 0.f;  // zero ecliptic Z (latitude); angle uses X and Y
                 glm::vec3 illust = solarBodyPos(vis.name, au);
                 if (illust.x < -900.f) continue;  // not in SOLAR_ILLUST table
                 glm::vec4 clip = vp * glm::vec4(illust, 1.f);

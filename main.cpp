@@ -52,16 +52,16 @@ int main() {
     // ── Simulation objects ────────────────────────────────────────────────────
     SolarSystem system;
 
-    // t=0 is J2000. We start the wall-clock there so the ship begins at a
-    // well-defined epoch with known planet positions.
-    SimClock clock(0.0);
+    // Start at Jan 1 2025 00:00 UTC = J2000 + 9131.5 days = 788961600 s.
+    static constexpr double T_JAN2025 = 788961600.0;
+    SimClock clock(T_JAN2025);
 
     // Pilgrim-1: starts in low Earth orbit, ready for a trans-solar injection
-    StateVector earth_sv = system.getState("Earth", 0.0);
+    StateVector earth_sv = system.getState("Earth", T_JAN2025);
     Vec3 ship_pos = earth_sv.position + Vec3{ Constants::R_EARTH + 5.0e5, 0.0, 0.0 };
     Vec3 ship_vel = earth_sv.velocity + Vec3{ 0.0, 7700.0, 0.0 };
 
-    Spacecraft ship("Dickballs-2", ship_pos, ship_vel,
+    Spacecraft ship("Unsinkable-2", ship_pos, ship_vel,
                     /*dry_mass*/  8000.0,
                     /*propellant*/42000.0);
     ship.setIsp(380.0);
