@@ -7,20 +7,11 @@
 #include "Solar-system-builder/simulation/SolarSystem.hpp"
 #include "Player-ship/spacecraft/Spacecraft.hpp"
 #include "Player-ship/observation/LightCone.hpp"
+#include "views/solar-view/SolarView.hpp"
+#include "views/standard-view/StandardView.hpp"
 #include <glm/glm.hpp>
 #include <vector>
 #include <string>
-
-// Represents one triggered flash event: a pulse emitted at a planet at t_emitted
-// that travels toward the ship at c and becomes visible when the wavefront arrives.
-struct FlashEvent {
-    std::string planet_name;
-    Vec3        pos_emit;      // solar-frame planet position at emission
-    double      t_emitted;    // sim time of emission
-    double      t_arrive;     // sim time when wavefront reaches ship
-    float       real_arrive;  // glfwGetTime() when first shown (set on arrival)
-    bool        arrived = false;
-};
 
 enum class ViewMode  { Standard, Solar };
 enum class OrbitType { None, LowPrograde, HighPrograde, LowRetrograde, HighRetrograde };
@@ -159,5 +150,24 @@ private:
 
     void renderImGui(double sim_t, const SolarSystem& sys,
                      const Spacecraft& ship, const LightCone& observer);
+
+    // View-specific scene rendering — defined in src/views/solar-view/ and
+    // src/views/standard-view/ respectively.
+    void renderSolarScene(double sim_t, const SolarSystem& sys,
+                          const Spacecraft& ship, const LightCone& observer,
+                          const glm::mat4& view, const glm::mat4& proj,
+                          glm::vec3 cam, glm::vec3 sun_scene);
+
+    void renderStandardScene(double sim_t, const SolarSystem& sys,
+                              const Spacecraft& ship, const LightCone& observer,
+                              const glm::mat4& view, const glm::mat4& proj,
+                              glm::vec3 cam, glm::vec3 sun_scene);
+
+    // View-specific ImGui overlays — defined in the same view files.
+    void renderImGuiSolar(double sim_t, const SolarSystem& sys,
+                           const Spacecraft& ship, const LightCone& observer);
+
+    void renderImGuiStandard(double sim_t, const SolarSystem& sys,
+                              const Spacecraft& ship, const LightCone& observer);
     // triggerFlash is public so renderImGui can call it (renderImGui is non-const)
 };
