@@ -257,38 +257,3 @@ Mesh Mesh::crossMarker(float h) {
     return m;
 }
 
-// ── Wireframe box ─────────────────────────────────────────────────────────────
-
-Mesh Mesh::box(float h) {
-    // 12 edges of a cube, 2 verts each = 24 positions
-    std::vector<glm::vec3> pts = {
-        // bottom face (y = -h)
-        {-h,-h,-h}, { h,-h,-h},
-        { h,-h,-h}, { h,-h, h},
-        { h,-h, h}, {-h,-h, h},
-        {-h,-h, h}, {-h,-h,-h},
-        // top face (y = +h)
-        {-h, h,-h}, { h, h,-h},
-        { h, h,-h}, { h, h, h},
-        { h, h, h}, {-h, h, h},
-        {-h, h, h}, {-h, h,-h},
-        // verticals
-        {-h,-h,-h}, {-h, h,-h},
-        { h,-h,-h}, { h, h,-h},
-        { h,-h, h}, { h, h, h},
-        {-h,-h, h}, {-h, h, h},
-    };
-    Mesh m;
-    glGenVertexArrays(1, &m.m_vao);
-    glGenBuffers(1, &m.m_vbo);
-    glBindVertexArray(m.m_vao);
-    glBindBuffer(GL_ARRAY_BUFFER, m.m_vbo);
-    glBufferData(GL_ARRAY_BUFFER, (GLsizeiptr)(pts.size()*sizeof(glm::vec3)),
-                 pts.data(), GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), nullptr);
-    glEnableVertexAttribArray(0);
-    glBindVertexArray(0);
-    m.m_count = (int)pts.size();
-    m.m_mode  = GL_LINES;
-    return m;
-}

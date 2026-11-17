@@ -45,6 +45,4 @@ public:
     // UV: U wraps around circumference (0→1), V = 0 at inner edge, 1 at outer edge.
     static Mesh disc(float inner_r, float outer_r, int segments = 128);
 
-    // Wireframe box centred at origin, GL_LINES.  Scale via model matrix.
-    static Mesh box(float half_size = 1.0f);
 };

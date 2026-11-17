@@ -10,6 +10,11 @@
 
 
 Small to-dos
-1. get planets to stop rotating with the camera 
-2. add clouds to planets with clouds, and rings
+1. get planets to stop rotating with the camera X
+2. add clouds to planets with clouds, and rings 
 3. make dialog box reliable on planets. 
+
+
+
+Bugs
+1. planets have seems 

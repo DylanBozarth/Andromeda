@@ -73,7 +73,6 @@ private:
     Mesh m_cross;
     Mesh m_circle;     // unit orbit ring, scaled per planet in solar view
     Mesh m_ring_disc;  // annular disc for Saturn's rings
-    Mesh m_ship_box;   // wireframe box drawn at scene origin in standard view
 
     StandardCamera m_standard_cam;  // follow/cockpit camera for standard view
     SolarCamera    m_solar_cam;     // orbital camera for solar overview

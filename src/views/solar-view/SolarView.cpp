@@ -115,10 +115,12 @@ void SpaceRenderer::renderSolarScene(double sim_t,
             }
         }
 
-        // Solar view is a map, not a 3D render — plain emissive colored spheres
-        // so the visible face never changes as the camera orbits.
+        // Solar view: emissive textured spheres — no Lambertian shading so the
+        // appearance is static regardless of camera angle or sun position.
+        bool   is_sun = (std::string_view(draw_vis.name) == "Sun");
+        GLuint tex    = is_sun ? 0 : findTexture(draw_vis.name);
         drawBody(draw_vis, obs_pos, view, proj, sun_scene, cam,
-                 /*emissive=*/true, 1.0f, /*tex=*/0, 0.f, false, 0, 0.f);
+                 /*emissive=*/true, 1.0f, tex, 0.f, false, 0, 0.f);
     }
 
     // Ship — 3D dot sphere + cross marker at illustrative position

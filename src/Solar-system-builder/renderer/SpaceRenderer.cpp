@@ -57,13 +57,20 @@ uniform float     u_overlay_offset_u;
 out vec4 fragColor;
 void main(){
     gl_FragDepth = log2(max(1e-6, 1.0 + v_z)) / log2(u_far + 1.0);
-    vec2 uv = vec2(mod(v_uv.x + u_tex_offset_u, 1.0), v_uv.y);
+    // Per-fragment spherical UV from world-space normal.
+    // Each fragment computes its own UV, so no linear interpolation crosses
+    // the 0→1 seam boundary between adjacent triangle strips.
+    const float PI2 = 6.28318530718;
+    vec3  sn   = normalize(v_norm);
+    float uang = mod(atan(sn.z, sn.x + 1e-6) + PI2, PI2) / PI2;
+    float vang = acos(clamp(sn.y, -1.0, 1.0)) / 3.14159265359;
+    vec2  uv   = vec2(mod(uang + u_tex_offset_u, 1.0), vang);
     vec4 tex_sample = u_textured ? texture(u_tex, uv) : vec4(u_color, 1.0);
     vec3 base = u_textured ? tex_sample.rgb : u_color;
     float alpha = u_use_tex_alpha ? tex_sample.a : u_alpha;
     // Cloud overlay: alpha-blend over base using the cloud texture's own alpha
     if(u_has_overlay){
-        vec2 uv2 = vec2(mod(v_uv.x + u_overlay_offset_u, 1.0), v_uv.y);
+        vec2 uv2 = vec2(mod(uang + u_overlay_offset_u, 1.0), vang);
         vec4 ov = texture(u_tex2, uv2);
         base = mix(base, ov.rgb, ov.a);
     }
@@ -139,10 +146,6 @@ void SpaceRenderer::init(GLFWwindow* win, int width, int height) {
     // Saturn ring disc: inner 1.2× Saturn visual_radius, outer 2.3× (in AU)
     constexpr float SAT_VIS_R = 4.029e-4f;
     m_ring_disc = Mesh::disc(SAT_VIS_R * 1.2f, SAT_VIS_R * 2.3f);
-
-    // Ship placeholder box — 5e-4 AU half-side ≈ 75,000 km, comfortably visible
-    // at the default camera distance and clearly inside the ship at distance≈0.
-    m_ship_box = Mesh::box(5e-4f);
 
     // Planet textures — stb_image loads top-to-bottom; flip so v=0 is north pole
     stbi_set_flip_vertically_on_load(false);
