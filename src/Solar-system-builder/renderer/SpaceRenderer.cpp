@@ -865,17 +865,35 @@ void SpaceRenderer::renderImGui(double sim_t,
                 float sx = (ndc.x * 0.5f + 0.5f) * dsz.x;
                 float sy = (1.f - (ndc.y * 0.5f + 0.5f)) * dsz.y;
 
-                // Project a point on the body's limb to get its apparent pixel radius.
+                // Project edge points along all three axes and take the maximum
+                // apparent screen radius — a single-axis offset underestimates
+                // the disc radius when the camera is not aligned with that axis.
                 float screen_r = 40.f;  // minimum hit radius
-                glm::vec4 edge_clip = vp * glm::vec4(
-                    au + glm::vec3(vis.visual_radius, 0.f, 0.f), 1.f);
-                if (edge_clip.w > 0.f) {
-                    float edge_sx = (edge_clip.x / edge_clip.w * 0.5f + 0.5f) * dsz.x;
-                    screen_r = std::max(screen_r, std::abs(edge_sx - sx));
+                for (int axis = 0; axis < 3; ++axis) {
+                    glm::vec3 offset(0.f);
+                    offset[axis] = vis.visual_radius;
+                    glm::vec4 ec = vp * glm::vec4(au + offset, 1.f);
+                    if (ec.w > 0.f) {
+                        float esx = (ec.x / ec.w * 0.5f + 0.5f) * dsz.x;
+                        float esy = (1.f - (ec.y / ec.w * 0.5f + 0.5f)) * dsz.y;
+                        float r   = std::sqrt((esx - sx)*(esx - sx) + (esy - sy)*(esy - sy));
+                        screen_r  = std::max(screen_r, r);
+                    }
                 }
 
                 on_screen.push_back({vis.name, sx, sy, screen_r});
             } catch (...) {}
+        }
+
+        // Planet labels — drawn in screen space so they always align with the rendered disc.
+        {
+            auto* dl = ImGui::GetForegroundDrawList();
+            for (const auto& b : on_screen) {
+                if (b.sx < -50.f || b.sx > dsz.x + 50.f) continue;
+                if (b.sy < -50.f || b.sy > dsz.y + 50.f) continue;
+                dl->AddText({b.sx + 9.f, b.sy - 7.f}, IM_COL32(0,   0,   0,   160), b.name);
+                dl->AddText({b.sx + 8.f, b.sy - 8.f}, IM_COL32(190, 215, 255, 200), b.name);
+            }
         }
 
         // Ship indicator — screen-space circle + label (guaranteed alignment)
@@ -941,7 +959,7 @@ void SpaceRenderer::renderImGui(double sim_t,
     if (m_view == ViewMode::Solar) {
         // Project every body's illustrative position to screen space.
         // This is the ground truth — it matches exactly where the spheres are drawn.
-        struct BodyScreen { const char* name; float sx, sy; };
+        struct BodyScreen { const char* name; float sx, sy, screen_r; };
         std::vector<BodyScreen> on_screen;
 
         float    aspect = (m_h > 0) ? (float)m_w / (float)m_h : 1.f;
@@ -961,7 +979,30 @@ void SpaceRenderer::renderImGui(double sim_t,
                 glm::vec3 ndc = glm::vec3(clip) / clip.w;
                 float sx = (ndc.x * 0.5f + 0.5f) * dsz.x;
                 float sy = (1.f - (ndc.y * 0.5f + 0.5f)) * dsz.y;
-                on_screen.push_back({vis.name, sx, sy});
+
+                // Compute apparent screen radius from the illustrative sphere radius.
+                // Try all three axes so the estimate is correct regardless of camera
+                // orientation, then clamp to a usable minimum.
+                float illust_r = 1.0f;
+                for (const auto& d : SOLAR_ILLUST) {
+                    if (std::string_view(d.name) == std::string_view(vis.name)) {
+                        illust_r = d.radius; break;
+                    }
+                }
+                float screen_r = 30.f;  // minimum hit radius in logical pixels
+                for (int axis = 0; axis < 3; ++axis) {
+                    glm::vec3 offset(0.f);
+                    offset[axis] = illust_r;
+                    glm::vec4 ec = vp * glm::vec4(illust + offset, 1.f);
+                    if (ec.w > 0.f) {
+                        float esx = (ec.x / ec.w * 0.5f + 0.5f) * dsz.x;
+                        float esy = (1.f - (ec.y / ec.w * 0.5f + 0.5f)) * dsz.y;
+                        float r   = std::sqrt((esx - sx)*(esx - sx) + (esy - sy)*(esy - sy));
+                        screen_r  = std::max(screen_r, r);
+                    }
+                }
+
+                on_screen.push_back({vis.name, sx, sy, screen_r});
             } catch (...) {}
         }
 
@@ -976,18 +1017,23 @@ void SpaceRenderer::renderImGui(double sim_t,
             dl->AddText({b.sx + 8.f, b.sy - 8.f}, IM_COL32(190, 215, 255, 220), b.name);
         }
 
-        // Right-click: find nearest body in screen pixels (always correct, no unproject)
+        // Right-click: find the nearest body whose projected disc contains the cursor.
+        // screen_r is computed from the illustrative sphere radius so it scales with
+        // zoom — clicking anywhere on the visible disc always registers.
         if (ImGui::IsMouseClicked(ImGuiMouseButton_Right)
             && !ImGui::IsWindowHovered(ImGuiHoveredFlags_AnyWindow)
             && !ImGui::IsAnyItemHovered()) {
 
             ImVec2 mp = ImGui::GetIO().MousePos;
             m_ctx_planet.clear();
-            float best_px = 60.f;
+            float best_dist = 1e9f;
             for (const auto& b : on_screen) {
                 float dx = mp.x - b.sx, dy = mp.y - b.sy;
                 float d  = std::sqrt(dx*dx + dy*dy);
-                if (d < best_px) { best_px = d; m_ctx_planet = b.name; }
+                if (d < b.screen_r && d < best_dist) {
+                    best_dist = d;
+                    m_ctx_planet = b.name;
+                }
             }
             ImGui::OpenPopup("##solar_ctx");
         }
