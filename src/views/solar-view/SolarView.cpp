@@ -210,8 +210,9 @@ void SpaceRenderer::renderImGuiSolar(double sim_t,
         } catch (...) {}
     }
 
-    // Planet labels
     auto* dl = ImGui::GetForegroundDrawList();
+
+    // Planet labels
     for (const auto& b : on_screen) {
         if (std::string_view(b.name) == "Sun") continue;
         if (b.sx < -50.f || b.sx > dsz.x + 50.f) continue;

@@ -49,6 +49,21 @@ void SpaceRenderer::renderStandardScene(double sim_t,
                  /*emissive=*/true, 1.0f, tex, 0.f, false, clouds, 0.f);
     }
 
+    // Moons — white spheres at true scale
+    for (const auto& vis : MOON_VISUALS) {
+        glm::vec3 obs_pos;
+        try {
+            Vec3 p = observer.observePosition(vis.name, sim_t, sys);
+            obs_pos = toAU_rel(p, m_scene_origin);
+        } catch (...) {
+            try {
+                Vec3 p = sys.getPosition(vis.name, sim_t);
+                obs_pos = toAU_rel(p, m_scene_origin);
+            } catch (...) { continue; }
+        }
+        drawBody(vis, obs_pos, view, proj, sun_scene, cam, /*emissive=*/true);
+    }
+
     // Flash spheres — additive glow, no depth write
     {
         float real_now = (float)glfwGetTime();
@@ -107,22 +122,21 @@ void SpaceRenderer::renderImGuiStandard(double sim_t,
     struct BodyScreen { const char* name; float sx, sy, screen_r; };
     std::vector<BodyScreen> on_screen;
 
-    for (const auto& vis : BODY_VISUALS) {
+    auto projectBody = [&](const BodyVisual& vis, float min_r) -> bool {
         try {
             Vec3 rp = observer.observePosition(vis.name, sim_t, sys);
             glm::vec3 au = toAU_rel(rp, m_scene_origin);
             glm::vec4 clip = vp * glm::vec4(au, 1.f);
-            if (clip.w <= 0.f) continue;
+            if (clip.w <= 0.f) return false;
             glm::vec3 ndc = glm::vec3(clip) / clip.w;
-            if (ndc.x < -2.f || ndc.x > 2.f || ndc.y < -2.f || ndc.y > 2.f) continue;
+            if (ndc.x < -2.f || ndc.x > 2.f || ndc.y < -2.f || ndc.y > 2.f) return false;
             float sx = (ndc.x * 0.5f + 0.5f) * dsz.x;
             float sy = (1.f - (ndc.y * 0.5f + 0.5f)) * dsz.y;
-
-            float screen_r = 40.f;
+            float screen_r = min_r;
             for (int axis = 0; axis < 3; ++axis) {
-                glm::vec3 offset(0.f);
-                offset[axis] = vis.visual_radius;
-                glm::vec4 ec = vp * glm::vec4(au + offset, 1.f);
+                glm::vec3 off(0.f);
+                off[axis] = vis.visual_radius;
+                glm::vec4 ec = vp * glm::vec4(au + off, 1.f);
                 if (ec.w > 0.f) {
                     float esx = (ec.x / ec.w * 0.5f + 0.5f) * dsz.x;
                     float esy = (1.f - (ec.y / ec.w * 0.5f + 0.5f)) * dsz.y;
@@ -131,17 +145,37 @@ void SpaceRenderer::renderImGuiStandard(double sim_t,
                 }
             }
             on_screen.push_back({vis.name, sx, sy, screen_r});
-        } catch (...) {}
-    }
+            return true;
+        } catch (...) { return false; }
+    };
+
+    // Planets — 40 px minimum click target
+    for (const auto& vis : BODY_VISUALS)
+        projectBody(vis, 40.f);
+
+    // Moons — 20 px minimum click target; screen_r also drives label culling
+    std::size_t moon_start = on_screen.size();
+    for (const auto& vis : MOON_VISUALS)
+        projectBody(vis, 20.f);
 
     auto* dl = ImGui::GetForegroundDrawList();
 
     // Planet labels
-    for (const auto& b : on_screen) {
+    for (std::size_t i = 0; i < moon_start; ++i) {
+        const auto& b = on_screen[i];
         if (b.sx < -50.f || b.sx > dsz.x + 50.f) continue;
         if (b.sy < -50.f || b.sy > dsz.y + 50.f) continue;
         dl->AddText({b.sx + 9.f, b.sy - 7.f}, IM_COL32(0,   0,   0,   160), b.name);
         dl->AddText({b.sx + 8.f, b.sy - 8.f}, IM_COL32(190, 215, 255, 200), b.name);
+    }
+
+    // Moon labels — always shown when on screen, dimmer than planet labels
+    for (std::size_t i = moon_start; i < on_screen.size(); ++i) {
+        const auto& b = on_screen[i];
+        if (b.sx < -50.f || b.sx > dsz.x + 50.f) continue;
+        if (b.sy < -50.f || b.sy > dsz.y + 50.f) continue;
+        dl->AddText({b.sx + 7.f, b.sy - 6.f}, IM_COL32(0,   0,   0,   120), b.name);
+        dl->AddText({b.sx + 6.f, b.sy - 7.f}, IM_COL32(200, 210, 230, 160), b.name);
     }
 
     // Ship indicator — always at scene origin {0,0,0}
