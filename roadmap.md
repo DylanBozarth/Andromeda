@@ -18,3 +18,5 @@ Small to-dos
 
 Bugs
 1. planets have seems 
+2. add collision to labels so they don't go through planets
+3. add distance logic to labels, only appearing near the planet in orbit. 
