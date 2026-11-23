@@ -13,10 +13,15 @@ Small to-dos
 1. get planets to stop rotating with the camera X
 2. add clouds to planets with clouds, and rings 
 3. make dialog box reliable on planets. 
-
+4. make moons orbit where they actually are, not in a halo 
 
 
 Bugs
 1. planets have seems 
 2. add collision to labels so they don't go through planets
 3. add distance logic to labels, only appearing near the planet in orbit. 
+
+
+
+Current stage: Moons and instant travel ship. 
+Next stage, orbital mechanics + temperture and radiation. 
